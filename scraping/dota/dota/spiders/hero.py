@@ -20,4 +20,6 @@ class HeroSpider(scrapy.Spider):
     hero_item['abilities'] = []
     for ability in response.xpath('//div[@class="ability-background"]/div/div/span'):
         hero_item['abilities'].append(ability.xpath('./text()').get())
+    descriptor = response.xpath('//table[@class="infobox"]/following-sibling::table/tbody/tr[2]/td[1]/text()').get()
+    hero_item['descriptor'] = descriptor.strip()
     yield hero_item
