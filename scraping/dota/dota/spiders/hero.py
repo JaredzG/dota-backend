@@ -17,4 +17,7 @@ class HeroSpider(scrapy.Spider):
       
   def get_hero_data(self, response):
     hero_item = response.meta['hero_item']
+    hero_item['abilities'] = []
+    for ability in response.xpath('//div[@class="ability-background"]/div/div/span'):
+        hero_item['abilities'].append(ability.xpath('./text()').get())
     yield hero_item
