@@ -11,35 +11,79 @@ class HeroSpider(scrapy.Spider):
     yield scrapy.Request(url)
 
   def parse(self, response):
-    for hero in response.xpath('//table/tbody/tr/td/div/div/a'):
+    hero_pages = self.get_hero_pages(response)
+    for hero in hero_pages:
       hero_item = HeroItem()
-      hero_item['name'] = hero.xpath('./@title').get()
-      yield response.follow(f'https://dota2.fandom.com{hero.xpath("./@href").get()}', callback=self.get_hero_data, meta={'hero_item': hero_item})
+      hero_item['name'] = self.get_hero_name(hero)
+      hero_path = self.get_hero_path(hero)
+      hero_url = 'https://dota2.fandom.com' + hero_path
+      hero_meta = {'hero_item': hero_item}
+      yield response.follow(hero_url, callback=self.get_hero_data, meta=hero_meta)
       
   def get_hero_data(self, response):
     hero_item = response.meta['hero_item']
-    hero_item['abilities'] = []
-    for ability in response.xpath('//div[@class="ability-background"]/div/div/span'):
-        hero_item['abilities'].append(ability.xpath('./text()').get())
-    descriptor = response.xpath('//table[@class="infobox"]/following-sibling::table/tbody/tr[2]/td[1]/text()').get()
-    hero_item['descriptor'] = descriptor.strip()
-    description = response.xpath('//table[@class="infobox"]/following-sibling::table/tbody/tr[3]/td[1]').get()
-    description = description.replace('"', "`")
-    matches = []
-    matches = re.findall("(<a(.*?)>(.*?)</a>)", description)
-    for i in range(len(matches)):
-      description = description.replace(matches[i][0], matches[i][-1])
-    matches = re.findall("(<span(.*?)>(.*?)</span>)", description)
-    for i in range(len(matches)):
-      description = description.replace(matches[i][0], matches[i][-1])
-    if hero_item['name'] == 'Alchemist':
-      matches = re.findall("(<img(.*?)> )", description)
-      for i in range(len(matches)):
-        description = description.replace(matches[i][0], '').strip()
-    elif hero_item['name'] in ['Invoker', 'Keeper of the Light', 'Lion']:
-      matches = re.findall("(<span(.*?)>(.*?)</span>)", description)
-      for i in range(len(matches)):
-        description = description.replace(matches[i][0], matches[i][-1])
-      description = description.replace('<br>', ' ')
-    hero_item['description'] = description[16:-5].strip()
+    
+    abilities = self.get_abilities(response)
+    hero_item['abilities'] = abilities
+    
+    descriptor = self.get_descriptor(response)
+    hero_item['descriptor'] = descriptor
+    
+    description = self.get_description(response)
+    description = self.clean_description(description, hero_item['name'])
+    
+    hero_item['description'] = description
     yield hero_item
+    
+  def get_hero_pages(self, response):
+    return response.xpath('//table/tbody/tr/td/div/div/a')
+    
+  def get_hero_name(self, hero):
+    return hero.xpath('./@title').get()
+  
+  def get_hero_path(self, hero):
+    return hero.xpath("./@href").get()
+  
+  def get_abilities(self, response):
+    hero_abilities = []
+    
+    abilities = response.xpath('//div[@class="ability-background"]/div/div/span')
+    for ability in abilities:
+      ability_name = self.get_ability_name(ability)
+      hero_abilities.append(ability_name)
+    return hero_abilities
+  
+  def get_ability_name(self, ability):
+    return ability.xpath('./text()').get()
+  
+  def get_descriptor(self, response):
+    return response.xpath('//table[@class="infobox"]/following-sibling::table/tbody/tr[2]/td[1]/text()').get().strip()
+  
+  def get_description(self, response):
+    return response.xpath('//table[@class="infobox"]/following-sibling::table/tbody/tr[3]/td[1]').get()
+  
+  def clean_description(self, description, hero_name):
+    description.replace('"', "`")
+    
+    description_matches= []
+    
+    description_matches= re.findall("(<a(.*?)>(.*?)</a>)", description)
+    for i in range(len(description_matches)):
+      description = description.replace(description_matches[i][0], description_matches[i][-1])
+      
+    description_matches = re.findall("(<span(.*?)>(.*?)</span>)", description)
+    for i in range(len(description_matches)):
+      description = description.replace(description_matches[i][0], description_matches[i][-1])
+      
+    if hero_name == 'Alchemist':
+      description_matches = re.findall("(<img(.*?)> )", description)
+      for i in range(len(description_matches)):
+        description = description.replace(description_matches[i][0], '').strip()
+    elif hero_name in ['Invoker', 'Keeper of the Light', 'Lion']:
+      description_matches = re.findall("(<span(.*?)>(.*?)</span>)", description)
+      for i in range(len(description_matches)):
+        description = description.replace(description_matches[i][0], description_matches[i][-1])
+      description = description.replace('<br>', ' ')
+      
+    description = description[16:-5].strip()
+    return description
