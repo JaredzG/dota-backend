@@ -55,8 +55,11 @@ class HeroSpider(scrapy.Spider):
     for ability in abilities:
       ability_name = self.get_ability_name(ability)
       ability_description = self.get_ability_description(ability)
-      ability_description = ability_description.replace('"', '`')
-      hero_abilities[ability_name] = ability_description
+      ability_lore = self.get_ability_lore(ability)
+      hero_abilities[ability_name] = {
+        'description': ability_description,
+        'lore': ability_lore if ability_lore else 'N/A'
+      }
     return hero_abilities
   
   def get_ability_name(self, ability):
@@ -65,7 +68,12 @@ class HeroSpider(scrapy.Spider):
   def get_ability_description(self, ability):
     description = ability.xpath('./div[2]/div[2]/div[2]/text()').get().strip()
     description = description.replace('\n', '')
+    description = description.replace('"', '`')
     return description
+  
+  def get_ability_lore(self, ability):
+    lore = ability.xpath('./div[3]/div[@class="ability-lore"]/div/i/text()').get()
+    return lore
   
   def get_descriptor(self, response):
     return response.xpath('//table[@class="infobox"]/following-sibling::table/tbody/tr[2]/td[1]/text()').get().strip()
