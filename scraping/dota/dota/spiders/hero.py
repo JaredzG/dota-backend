@@ -31,8 +31,7 @@ class HeroSpider(scrapy.Spider):
     descriptor = self.get_descriptor(response)
     hero_item['descriptor'] = descriptor
     
-    description = self.get_description(response)
-    description = self.clean_description(description, hero_item['name'])
+    description = self.get_description(response, hero_item['name'])
     hero_item['description'] = description
 
     bio = self.get_bio(response)    
@@ -78,10 +77,8 @@ class HeroSpider(scrapy.Spider):
   def get_descriptor(self, response):
     return response.xpath('//table[@class="infobox"]/following-sibling::table/tbody/tr[2]/td[1]/text()').get().strip()
   
-  def get_description(self, response):
-    return response.xpath('//table[@class="infobox"]/following-sibling::table/tbody/tr[3]/td[1]').get()
-  
-  def clean_description(self, description, hero_name):
+  def get_description(self, response, hero_name):
+    description = response.xpath('//table[@class="infobox"]/following-sibling::table/tbody/tr[3]/td[1]').get()
     description = description.replace('"', '`')
     
     description_matches= []
