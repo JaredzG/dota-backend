@@ -36,6 +36,9 @@ class HeroSpider(scrapy.Spider):
 
     bio = self.get_bio(response)    
     hero_item['bio'] = bio
+    
+    roles = self.get_roles(response)
+    hero_item['roles'] = roles
     yield hero_item
     
   def get_hero_pages(self, response):
@@ -109,3 +112,6 @@ class HeroSpider(scrapy.Spider):
     bio = bio.replace('"', '`')
     bio = bio.replace('\n', ' ')
     return bio
+  
+  def get_roles(self, response):
+    return response.xpath('//th[text()="Roles:\n"]/following-sibling::td/a[@title="Role"]/text()').getall()

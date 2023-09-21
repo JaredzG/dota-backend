@@ -12,4 +12,5 @@ class HeroItem(scrapy.Item):
     descriptor = scrapy.Field()
     description = scrapy.Field()
     bio = scrapy.Field()
+    roles = scrapy.Field()
     pass
