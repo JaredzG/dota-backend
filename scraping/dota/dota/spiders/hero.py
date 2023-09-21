@@ -74,7 +74,7 @@ class HeroSpider(scrapy.Spider):
     return response.xpath('//table[@class="infobox"]/following-sibling::table/tbody/tr[3]/td[1]').get()
   
   def clean_description(self, description, hero_name):
-    description.replace('"', "`")
+    description = description.replace('"', '`')
     
     description_matches= []
     
