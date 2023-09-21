@@ -14,7 +14,6 @@ class HeroSpider(scrapy.Spider):
     hero_pages = self.get_hero_pages(response)
     for hero in hero_pages:
       hero_item = HeroItem()
-      hero_item['name'] = self.get_hero_name(hero)
       hero_path = self.get_hero_path(hero)
       hero_url = 'https://dota2.fandom.com' + hero_path
       hero_meta = {'hero_item': hero_item}
@@ -22,6 +21,9 @@ class HeroSpider(scrapy.Spider):
       
   def get_hero_data(self, response):
     hero_item = response.meta['hero_item']
+    
+    name = self.get_hero_name(response)
+    hero_item['name'] = name
     
     abilities = self.get_abilities(response)
     hero_item['abilities'] = abilities
@@ -38,11 +40,11 @@ class HeroSpider(scrapy.Spider):
   def get_hero_pages(self, response):
     return response.xpath('//table/tbody/tr/td/div/div/a')
     
-  def get_hero_name(self, hero):
-    return hero.xpath('./@title').get()
-  
   def get_hero_path(self, hero):
     return hero.xpath("./@href").get()
+  
+  def get_hero_name(self, response):
+    return response.xpath('//div[@id="heroBio"]/div[1]/span/text()').get()
   
   def get_abilities(self, response):
     hero_abilities = []
