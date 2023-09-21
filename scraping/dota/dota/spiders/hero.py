@@ -49,16 +49,23 @@ class HeroSpider(scrapy.Spider):
     return response.xpath('//div[@id="heroBio"]/div[1]/span/text()').get()
   
   def get_abilities(self, response):
-    hero_abilities = []
+    hero_abilities = {}
     
-    abilities = response.xpath('//div[@class="ability-background"]/div/div/span')
+    abilities = response.xpath('//div[@class="ability-background"]/div')
     for ability in abilities:
       ability_name = self.get_ability_name(ability)
-      hero_abilities.append(ability_name)
+      ability_description = self.get_ability_description(ability)
+      ability_description = ability_description.replace('"', '`')
+      hero_abilities[ability_name] = ability_description
     return hero_abilities
   
   def get_ability_name(self, ability):
-    return ability.xpath('./text()').get()
+    return ability.xpath('./div/span/text()').get().strip()
+  
+  def get_ability_description(self, ability):
+    description = ability.xpath('./div[2]/div[2]/div[2]/text()').get().strip()
+    description = description.replace('\n', '')
+    return description
   
   def get_descriptor(self, response):
     return response.xpath('//table[@class="infobox"]/following-sibling::table/tbody/tr[2]/td[1]/text()').get().strip()
