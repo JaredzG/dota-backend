@@ -77,11 +77,11 @@ class HeroSpider(scrapy.Spider):
     for i in range(len(description_matches)):
       description = description.replace(description_matches[i][0], description_matches[i][-1])
       
-    if hero_name == 'Alchemist':
+    if hero_name == 'Razzil Darkbrew, the Alchemist':
       description_matches = re.findall("(<img(.*?)> )", description)
       for i in range(len(description_matches)):
         description = description.replace(description_matches[i][0], '').strip()
-    elif hero_name in ['Invoker', 'Keeper of the Light', 'Lion']:
+    elif hero_name in ['Carl, the Invoker', 'Ezalor, the Keeper of the Light', 'Lion, the Demon Witch']:
       description_matches = re.findall("(<span(.*?)>(.*?)</span>)", description)
       for i in range(len(description_matches)):
         description = description.replace(description_matches[i][0], description_matches[i][-1])
