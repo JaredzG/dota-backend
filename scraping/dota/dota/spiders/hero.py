@@ -33,8 +33,10 @@ class HeroSpider(scrapy.Spider):
     
     description = self.get_description(response)
     description = self.clean_description(description, hero_item['name'])
-    
     hero_item['description'] = description
+
+    bio = self.get_bio(response)    
+    hero_item['bio'] = bio
     yield hero_item
     
   def get_hero_pages(self, response):
@@ -89,3 +91,6 @@ class HeroSpider(scrapy.Spider):
       
     description = description[16:-5].strip()
     return description
+  
+  def get_bio(self, response):
+    return response.xpath('//div[@id="heroBio"]/div[3]/div/div[2]/text()').get()
