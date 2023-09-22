@@ -88,7 +88,7 @@ class HeroSpider(scrapy.Spider):
     return ability.xpath('./div/span/text()').get().strip()
   
   def get_ability_description(self, ability):
-    description = ability.xpath('./div[2]/div[2]/div[2]/text()').get().strip()
+    description = ''.join(ability.xpath('./div[2]/div[2]/div[2]//text()').getall()).strip()
     description = description.replace('\n', '')
     description = description.replace('"', '`')
     return description
