@@ -128,7 +128,7 @@ class HeroSpider(scrapy.Spider):
     return description
   
   def get_bio(self, response):
-    bio = response.xpath('//div[@id="heroBio"]/div[3]/div/div[2]/text()').get().strip()
+    bio = ' '.join(response.xpath('//div[@id="heroBio"]/div[3]/div[1]/div[2]/text()').getall())
     bio = bio.replace('"', '`')
     bio = bio.replace('\n', ' ')
     return bio
