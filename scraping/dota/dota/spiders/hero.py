@@ -11,22 +11,31 @@ class HeroSpider(scrapy.Spider):
     yield scrapy.Request(url)
 
   def parse(self, response):
-    hero_pages = self.get_hero_pages(response)
-    for hero in hero_pages:
-      hero_item = HeroItem()
-      hero_path = self.get_hero_path(hero)
-      hero_url = 'https://dota2.fandom.com' + hero_path
-      hero_meta = {'hero_item': hero_item}
-      yield response.follow(hero_url, callback=self.get_hero_data, meta=hero_meta)
+    hero_table = self.get_hero_table(response)
+    for primary_attribute, hero_pages in hero_table.items():
+      for hero_page in hero_pages:
+        hero_item = HeroItem()
+        hero_url = 'https://dota2.fandom.com' + hero_page
+        hero_meta = {
+          'hero_item': hero_item,
+          'primary_attribute': primary_attribute
+        }
+        yield response.follow(hero_url, callback=self.get_hero_data, meta=hero_meta)
       
   def get_hero_data(self, response):
     hero_item = response.meta['hero_item']
+    primary_attribute = response.meta['primary_attribute']
     
     name = self.get_hero_name(response)
     hero_item['name'] = name
     
-    abilities = self.get_abilities(response)
-    hero_item['abilities'] = abilities
+    bio = self.get_bio(response)    
+    hero_item['bio'] = bio
+    
+    hero_item['primary_attribute'] = primary_attribute
+    
+    roles = self.get_roles(response)
+    hero_item['roles'] = roles
     
     descriptor = self.get_descriptor(response)
     hero_item['descriptor'] = descriptor
@@ -34,18 +43,24 @@ class HeroSpider(scrapy.Spider):
     description = self.get_description(response, hero_item['name'])
     hero_item['description'] = description
 
-    bio = self.get_bio(response)    
-    hero_item['bio'] = bio
-    
-    roles = self.get_roles(response)
-    hero_item['roles'] = roles
+    abilities = self.get_abilities(response)
+    hero_item['abilities'] = abilities
     yield hero_item
     
+  def get_hero_table(self, response):
+    rows = response.xpath('//table/tbody/tr')
+    table = {}
+    for i in range(0, len(rows), 2):
+      primary_attribute = self.get_primary_attribute(rows[i])
+      hero_pages = self.get_hero_pages(rows[i + 1])
+      table[primary_attribute] = hero_pages
+    return table
+  
+  def get_primary_attribute(self, response):
+    return response.xpath('./th/span/a[2]/text()').get()
+  
   def get_hero_pages(self, response):
-    return response.xpath('//table/tbody/tr/td/div/div/a')
-    
-  def get_hero_path(self, hero):
-    return hero.xpath("./@href").get()
+    return response.xpath('./td/div/div/a/@href').getall()
   
   def get_hero_name(self, response):
     return response.xpath('//div[@id="heroBio"]/div[1]/span/text()').get()
