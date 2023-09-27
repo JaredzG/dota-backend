@@ -37,9 +37,6 @@ class HeroSpider(scrapy.Spider):
 
         hero_item["primary_attribute"] = primary_attribute
 
-        complexity = self.get_complexity(response)
-        hero_item["complexity"] = complexity
-
         roles = self.get_roles(response)
         hero_item["roles"] = roles
 
@@ -133,6 +130,3 @@ class HeroSpider(scrapy.Spider):
         return response.xpath(
             '//th[text()="Roles:\n"]/following-sibling::td/a[@title="Role"]/text()'
         ).getall()
-
-    def get_complexity(self, response):
-        return len(response.xpath('//a[@title="Hero Complexity"]'))
