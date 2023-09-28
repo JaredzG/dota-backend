@@ -6,10 +6,7 @@ from dota.items import HeroItem
 class HeroSpider(scrapy.Spider):
     name = "hero"
     allowed_domains = ["dota2.fandom.com"]
-
-    def start_requests(self):
-        url = "https://dota2.fandom.com/wiki/Heroes"
-        yield scrapy.Request(url)
+    start_urls = ['https://dota2.fandom.com/wiki/Heroes']
 
     def parse(self, response):
         hero_table = self.get_hero_table(response)
