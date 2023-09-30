@@ -21,4 +21,12 @@ class ItemSpider(scrapy.Spider):
                 items[item_type] = item
                 yield items
             case 'https://dota2.fandom.com/wiki/Neutral_Items':
-                pass
+                item_type = 'Neutral'
+                tiers = response.xpath('//h3[position()>1 and position()<7]/span/text()').getall()
+                item_lists = response.xpath('//div[@class="itemlist"][position()<6]')
+                item = {}
+                for i in range(len(item_lists)):
+                    item_list_items = item_lists[i].xpath('./div/a[position() mod 2 = 0]/@href').getall()
+                    item[f'{tiers[i]}'] = item_list_items
+                items[item_type] = item
+                yield items

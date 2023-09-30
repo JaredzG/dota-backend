@@ -210,5 +210,78 @@
         "/wiki/Healing_Lotus"
       ]
     }
+  },
+  {
+    "Neutral": {
+      "Tier 1": [
+        "/wiki/Arcane_Ring",
+        "/wiki/Broom_Handle",
+        "/wiki/Duelist_Gloves",
+        "/wiki/Faded_Broach",
+        "/wiki/Fairy%27s_Trinket",
+        "/wiki/Lance_of_Pursuit",
+        "/wiki/Occult_Bracelet",
+        "/wiki/Pig_Pole",
+        "/wiki/Seeds_of_Serenity",
+        "/wiki/Spark_of_Courage",
+        "/wiki/Trusty_Shovel",
+        "/wiki/Tumbler%27s_Toy"
+      ],
+      "Tier 2": [
+        "/wiki/Bullwhip",
+        "/wiki/Dragon_Scale",
+        "/wiki/Eye_of_the_Vizier",
+        "/wiki/Gossamer_Cape",
+        "/wiki/Grove_Bow",
+        "/wiki/Orb_of_Destruction",
+        "/wiki/Philosopher%27s_Stone",
+        "/wiki/Pupil%27s_Gift",
+        "/wiki/Ring_of_Aquila",
+        "/wiki/Specialist%27s_Array",
+        "/wiki/Vambrace",
+        "/wiki/Vampire_Fangs"
+      ],
+      "Tier 3": [
+        "/wiki/Ceremonial_Robe",
+        "/wiki/Cloak_of_Flames",
+        "/wiki/Dandelion_Amulet",
+        "/wiki/Defiant_Shell",
+        "/wiki/Elven_Tunic",
+        "/wiki/Enchanted_Quiver",
+        "/wiki/Ogre_Seal_Totem",
+        "/wiki/Paladin_Sword",
+        "/wiki/Psychic_Headband",
+        "/wiki/Quickening_Charm",
+        "/wiki/Titan_Sliver",
+        "/wiki/Vindicator%27s_Axe"
+      ],
+      "Tier 4": [
+        "/wiki/Ascetic%27s_Cap",
+        "/wiki/Havoc_Hammer",
+        "/wiki/Martyr%27s_Plate",
+        "/wiki/Mind_Breaker",
+        "/wiki/Ninja_Gear",
+        "/wiki/Penta-Edged_Sword",
+        "/wiki/Spell_Prism",
+        "/wiki/Stormcrafter",
+        "/wiki/Telescope",
+        "/wiki/Timeless_Relic",
+        "/wiki/Trickster_Cloak"
+      ],
+      "Tier 5": [
+        "/wiki/Apex",
+        "/wiki/Arcanist%27s_Armor",
+        "/wiki/Book_of_Shadows",
+        "/wiki/Book_of_the_Dead",
+        "/wiki/Ex_Machina",
+        "/wiki/Fallen_Sky",
+        "/wiki/Force_Boots",
+        "/wiki/Giant%27s_Ring",
+        "/wiki/Mirror_Shield",
+        "/wiki/Pirate_Hat",
+        "/wiki/Seer_Stone",
+        "/wiki/Stygian_Desolator"
+      ]
+    }
   }
 ]
