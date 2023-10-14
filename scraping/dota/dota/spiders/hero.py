@@ -49,9 +49,7 @@ class HeroSpider(scrapy.Spider):
 
     def get_hero_table(self, response):
         rows = response.xpath("//table/tbody/tr")
-
         table = {}
-
         for i in range(0, len(rows), 2):
             primary_attribute = self.get_primary_attribute(rows[i])
             hero_pages = self.get_hero_pages(rows[i + 1])
@@ -69,7 +67,6 @@ class HeroSpider(scrapy.Spider):
 
     def get_abilities(self, response):
         hero_abilities = {}
-
         abilities = response.xpath('//div[@class="ability-background"]/div')
         for ability in abilities:
             ability_name = self.get_ability_name(ability)
