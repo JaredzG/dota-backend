@@ -71,9 +71,11 @@ class HeroSpider(scrapy.Spider):
         for ability in abilities:
             ability_name = self.get_ability_name(ability)
             ability_description = self.get_ability_description(ability)
+            ability_upgrades = self.get_ability_upgrades(ability)
             ability_lore = self.get_ability_lore(ability)
             hero_abilities[ability_name] = {
                 "description": ability_description,
+                "upgrades": ability_upgrades if ability_upgrades else "N/A",
                 "lore": ability_lore if ability_lore else "N/A",
             }
         return hero_abilities
@@ -89,6 +91,17 @@ class HeroSpider(scrapy.Spider):
         description = description.replace('"', "`")
         description = re.sub(r"\.([A-Z])", r". \1", description)
         return description
+    
+    def get_ability_upgrades(self, ability):
+        upgrades = {}
+        aghs_upgrades = ability.xpath('string(.//div[(count(div)=4 and div[1]//div[contains(text(), "Aghanim")] and div[3]//div[contains(text(), "Aghanim")]) or (count(div)=2 and div[1]//div[contains(text(), "Aghanim")])])').get().strip().split('\n')
+        aghs_upgrades = list(filter(lambda item: item != '', aghs_upgrades))
+        for i in range(0, len(aghs_upgrades), 2):
+            if 'Scepter' in aghs_upgrades[i]:
+                upgrades["Aghanim's Scepter"] = aghs_upgrades[i + 1]
+            elif 'Shard' in aghs_upgrades[i]:
+                upgrades["Aghanim's Shard"] = aghs_upgrades[i + 1]
+        return upgrades
 
     def get_ability_lore(self, ability):
         lore = ability.xpath('./div[3]/div[@class="ability-lore"]/div/i/text()').get()
