@@ -14,4 +14,13 @@ class HeroItem(scrapy.Item):
     bio = scrapy.Field()
     roles = scrapy.Field()
     primary_attribute = scrapy.Field()
-    pass
+
+class ItemItem(scrapy.Item):
+    name = scrapy.Field()
+    price = scrapy.Field()
+    type = scrapy.Field()
+    classification = scrapy.Field()
+    stats = scrapy.Field()
+    passive = scrapy.Field()
+    active = scrapy.Field()
+    components = scrapy.Field()
