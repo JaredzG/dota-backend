@@ -23,7 +23,7 @@ class ItemSpider(scrapy.Spider):
         items = {}
         match url:
             case "https://dota2.fandom.com/wiki/Items":
-                item_item = ItemItem()
+                item = ItemItem()
                 type = 'Purchasable'
                 categories = response.xpath('//h3[position()!=12 and position()<15]/span/@id').getall()
                 item_lists = response.xpath('//div[@class="itemlist"][position()<14]')
@@ -33,13 +33,13 @@ class ItemSpider(scrapy.Spider):
                     for j in range(len(item_list_items)):
                         item_url = "https://dota2.fandom.com" + item_list_items[j]
                         item_meta = {
-                            "item_item": item_item,
+                            "item": item,
                             "type": type,
                             "classification": classification,
                         }
                         yield response.follow(item_url, callback=self.get_item_data, meta=item_meta)
             case "https://dota2.fandom.com/wiki/Neutral_Items":
-                item_item = ItemItem()
+                item = ItemItem()
                 type = 'Neutral'
                 tiers = response.xpath('//h3[position()>1 and position()<7]/span/text()').getall()
                 item_lists = response.xpath('//div[@class="itemlist"][position()<6]')
@@ -49,27 +49,27 @@ class ItemSpider(scrapy.Spider):
                     for j in range(len(item_list_items)):
                         item_url = "https://dota2.fandom.com" + item_list_items[j]
                         item_meta = {
-                            "item_item": item_item,
+                            "item": item,
                             "type": type,
                             "classification": classification,
                         }
                         yield response.follow(item_url, callback=self.get_item_data, meta=item_meta)
                 
     def get_item_data(self, response):
-        item_item = response.meta["item_item"]
+        item = response.meta["item"]
         type = response.meta["type"]
         classification = response.meta["classification"]
         
         name = self.get_item_name(response)
-        item_item["name"] = name
+        item["name"] = name
         
-        item_item["type"] = type
+        item["type"] = type
         
-        item_item["classification"] = classification
+        item["classification"] = classification
         
         stats = self.get_item_stats(response)
-        item_item["stats"] = stats
-        yield item_item
+        item["stats"] = stats
+        yield item
         
     def get_item_name(self, response):
         return response.xpath('//span[@class="mw-page-title-main"]/text()').get()

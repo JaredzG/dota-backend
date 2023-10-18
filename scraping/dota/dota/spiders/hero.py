@@ -12,10 +12,10 @@ class HeroSpider(scrapy.Spider):
         hero_table = self.get_hero_table(response)
         for primary_attribute, hero_pages in hero_table.items():
             for hero_page in hero_pages:
-                hero_item = HeroItem()
+                hero = HeroItem()
                 hero_url = "https://dota2.fandom.com" + hero_page
                 hero_meta = {
-                    "hero_item": hero_item,
+                    "hero": hero,
                     "primary_attribute": primary_attribute,
                 }
                 yield response.follow(
@@ -23,29 +23,29 @@ class HeroSpider(scrapy.Spider):
                 )
 
     def get_hero_data(self, response):
-        hero_item = response.meta["hero_item"]
+        hero = response.meta["hero"]
         primary_attribute = response.meta["primary_attribute"]
 
         name = self.get_hero_name(response)
-        hero_item["name"] = name
+        hero["name"] = name
 
         bio = self.get_bio(response)
-        hero_item["bio"] = bio
+        hero["bio"] = bio
 
-        hero_item["primary_attribute"] = primary_attribute
+        hero["primary_attribute"] = primary_attribute
 
         roles = self.get_roles(response)
-        hero_item["roles"] = roles
+        hero["roles"] = roles
 
         descriptor = self.get_descriptor(response)
-        hero_item["descriptor"] = descriptor
+        hero["descriptor"] = descriptor
 
-        description = self.get_description(response, hero_item["name"])
-        hero_item["description"] = description
+        description = self.get_description(response, hero["name"])
+        hero["description"] = description
 
         abilities = self.get_abilities(response)
-        hero_item["abilities"] = abilities
-        yield hero_item
+        hero["abilities"] = abilities
+        yield hero
 
     def get_hero_table(self, response):
         rows = response.xpath("//table/tbody/tr")
