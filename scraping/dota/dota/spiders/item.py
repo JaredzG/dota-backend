@@ -43,11 +43,11 @@ class ItemSpider(scrapy.Spider):
             case "https://dota2.fandom.com/wiki/Neutral_Items":
                 item = ItemItem()
                 type = "Neutral"
-                tiers = response.xpath('//h3[position()>1 and position()<7]/span/text()').getall()
-                tier_item_lists = response.xpath('//div[@class="itemlist"][position()<6]')
+                tiers = self.get_item_tiers(response)
+                tier_item_lists = self.get_tier_item_lists(response)
                 for i in range(len(tier_item_lists)):
                     classification = tiers[i]
-                    tier_items = tier_item_lists[i].xpath('./div/a[position() mod 2 = 0]/@href').getall()
+                    tier_items = self.get_tier_items(tier_item_lists[i])
                     for j in range(len(tier_items)):
                         item_url = "https://dota2.fandom.com" + tier_items[j]
                         item_meta = {
@@ -107,3 +107,12 @@ class ItemSpider(scrapy.Spider):
     
     def get_category_items(self, category):
         return category.xpath('./div/a[position() mod 2 = 0]/@href').getall()
+    
+    def get_item_tiers(self, response):
+        return response.xpath('//h3[position()>1 and position()<7]/span/text()').getall()
+    
+    def get_tier_item_lists(self, response):
+        return response.xpath('//div[@class="itemlist"][position()<6]')
+    
+    def get_tier_items(self, tier):
+        return tier.xpath('./div/a[position() mod 2 = 0]/@href').getall()
