@@ -66,7 +66,15 @@ class ItemSpider(scrapy.Spider):
         item_item["type"] = type
         
         item_item["classification"] = classification
+        
+        stats = self.get_item_stats(response)
+        item_item["stats"] = stats
         yield item_item
         
     def get_item_name(self, response):
         return response.xpath('//span[@class="mw-page-title-main"]/text()').get()
+    
+    def get_item_stats(self, response):
+        stats = response.xpath('string(//table[@class="infobox"][1]//tr[th/span[contains(text(), "Bonus")]])').get().strip().split('+')[1:]
+        stats = stats if stats else "N/A"
+        return stats
