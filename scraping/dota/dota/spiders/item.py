@@ -118,6 +118,14 @@ class ItemSpider(scrapy.Spider):
                 stats[1] = new_second_stat
                 new_stats = [" or ".join(stats)]
                 stats = new_stats
+            elif "-" in first_stat:
+                split_first_stat = re.search(r"(.*?)([-].*)", first_stat)
+                new_first_stat = split_first_stat.group(1)
+                new_second_stat = split_first_stat.group(2)
+                new_third_stat = stats[1].replace("/min", "per minute")
+                stats[0] = new_first_stat
+                stats[1] = new_second_stat
+                stats.append(new_third_stat)
         return stats
     
     def get_item_price(self, response):
