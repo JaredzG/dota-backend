@@ -70,12 +70,12 @@ class HeroSpider(scrapy.Spider):
         abilities = response.xpath('//div[@class="ability-background"]/div')
         for ability in abilities:
             ability_name = self.get_ability_name(ability)
-            ability_details = self.get_ability_details(ability)
+            ability_features = self.get_ability_features(ability)
             ability_description = self.get_ability_description(ability)
             ability_upgrades = self.get_ability_upgrades(ability)
             ability_lore = self.get_ability_lore(ability)
             hero_abilities[ability_name] = {
-                "details": ability_details,
+                "features": ability_features,
                 "description": ability_description,
                 "upgrades": ability_upgrades if ability_upgrades else "None",
                 "lore": ability_lore if ability_lore else "None",
@@ -85,29 +85,27 @@ class HeroSpider(scrapy.Spider):
     def get_ability_name(self, ability):
         return ability.xpath("./div/span/text()").get().strip()
     
-    def get_ability_details(self, ability):
-        details = {}
-        ability_details = ability.xpath("string(./div[2]/div[2]/div[1])").get().strip()
-        ability_details = ability_details.replace("\xa0", "")
-        ability_details = ability_details.split("\n")
-        for i in range(len(ability_details)):
-            detail = ability_details[i]
-            detail = detail.replace("No Target", "NoTarget")
-            detail = detail.split(" ")
-            detail = detail[0]
-            if "Ability" in detail:
-                detail_value = detail[7:]
-                details["Ability"] = re.findall(r"[A-Z][^A-Z]*", detail_value)
-                details["Ability"] = " ".join(details["Ability"])
-            elif "Affects" in detail:
-                detail_value = detail[7:]
-                details["Affects"] = re.findall(r"[A-Z][^A-Z]*", detail_value)
-                details["Affects"] = " ".join(details["Affects"])
-            elif "Damage" in detail:
-                detail_value = detail[6:]
-                details["Damage"] = re.findall(r"[A-Z][^A-Z]*", detail_value)
-                details["Damage"] = " ".join(details["Damage"])
-        return details
+    def get_ability_features(self, ability):
+        features = {}
+        ability_features = ability.xpath("string(./div[2]/div[2]/div[1])").get().strip()
+        ability_features = ability_features.replace("\xa0", "")
+        ability_features = ability_features.split("\n")
+        for i in range(len(ability_features)):
+            feature = ability_features[i]
+            feature = re.sub(r"\(.*?\)", "", feature)
+            feature = feature.replace("  ", " ")
+            feature = feature.strip()
+            if "Ability" in feature:
+                feature_value = feature[7:]
+                features["Ability"] = feature_value
+            elif "Affects" in feature:
+                feature_value = feature[7:]
+                features["Affects"] = feature_value
+            elif "Damage" in feature:
+                feature_value = feature[6:]
+                features["Damage"] = feature_value
+            ability_features[i] = feature
+        return features
 
     def get_ability_description(self, ability):
         description = "".join(
