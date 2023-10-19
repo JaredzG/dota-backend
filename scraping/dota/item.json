@@ -3,13 +3,35 @@
     "name": "Observer Ward",
     "type": "Purchasable",
     "classification": "Consumables",
-    "stats": "None"
+    "stats": "None",
+    "price": {
+      "purchase": { "base": "0", "recipe": "None" },
+      "sell": "- per count"
+    }
   },
   {
-    "name": "Buckler",
+    "name": "Ring of Basilius",
     "type": "Purchasable",
     "classification": "Support",
-    "stats": ["1 Armor"]
+    "stats": ["0.5 Mana Regeneration"],
+    "price": { "purchase": { "base": "175", "recipe": "250" }, "sell": "212.5" }
+  },
+  {
+    "name": "Hand of Midas",
+    "type": "Purchasable",
+    "classification": "Accessories",
+    "stats": ["35 Attack Speed"],
+    "price": { "purchase": { "base": "450", "recipe": "1750" }, "sell": "1100" }
+  },
+  {
+    "name": "Mask of Madness",
+    "type": "Purchasable",
+    "classification": "Accessories",
+    "stats": ["10 Attack Damage", "10 Attack Speed"],
+    "price": {
+      "purchase": { "base": "1775", "recipe": "None" },
+      "sell": "887.5"
+    }
   },
   {
     "name": "Phase Boots",
@@ -20,54 +42,8 @@
       "50 Move Speed",
       "18  Attack Damage",
       "12  Attack Damage"
-    ]
-  },
-  {
-    "name": "Oblivion Staff",
-    "type": "Purchasable",
-    "classification": "Accessories",
-    "stats": [
-      "10 Intelligence",
-      "1.25 Mana Regeneration",
-      "15 Attack Damage",
-      "10 Attack Speed"
-    ]
-  },
-  {
-    "name": "Power Treads",
-    "type": "Purchasable",
-    "classification": "Accessories",
-    "stats": ["55  Move Speed", "45  Move Speed", "25 Attack Speed"]
-  },
-  {
-    "name": "Perseverance",
-    "type": "Purchasable",
-    "classification": "Accessories",
-    "stats": ["6.5 Health Regeneration", "2.25 Mana Regeneration"]
-  },
-  {
-    "name": "Orb of Corrosion",
-    "type": "Purchasable",
-    "classification": "Accessories",
-    "stats": ["150 Health"]
-  },
-  {
-    "name": "Falcon Blade",
-    "type": "Purchasable",
-    "classification": "Accessories",
-    "stats": ["200 Health", "1.8 Mana Regeneration", "14 Attack Damage"]
-  },
-  {
-    "name": "Hand of Midas",
-    "type": "Purchasable",
-    "classification": "Accessories",
-    "stats": ["35 Attack Speed"]
-  },
-  {
-    "name": "Mask of Madness",
-    "type": "Purchasable",
-    "classification": "Accessories",
-    "stats": ["10 Attack Damage", "10 Attack Speed"]
+    ],
+    "price": { "purchase": { "base": "1500", "recipe": "None" }, "sell": "750" }
   },
   {
     "name": "Helm of the Dominator",
@@ -79,13 +55,23 @@
       "6 Intelligence",
       "6 Health Regeneration",
       "6 Armor"
-    ]
+    ],
+    "price": {
+      "purchase": { "base": "1975", "recipe": "650" },
+      "sell": "1312.5"
+    }
   },
   {
-    "name": "Moon Shard",
+    "name": "Oblivion Staff",
     "type": "Purchasable",
     "classification": "Accessories",
-    "stats": ["140 Attack Speed"]
+    "stats": [
+      "10 Intelligence",
+      "1.25 Mana Regeneration",
+      "15 Attack Damage",
+      "10 Attack Speed"
+    ],
+    "price": { "purchase": { "base": "1500", "recipe": "None" }, "sell": "750" }
   },
   {
     "name": "Helm of the Overlord",
@@ -97,91 +83,112 @@
       "7 Intelligence",
       "7 Health Regeneration",
       "7 Armor"
-    ]
+    ],
+    "price": {
+      "purchase": { "base": "5075", "recipe": "1325" },
+      "sell": "3200"
+    }
   },
   {
     "name": "Boots of Travel",
     "type": "Purchasable",
     "classification": "Accessories",
-    "stats": ["90/110 Move Speed"]
+    "stats": ["90/110 Move Speed"],
+    "price": { "purchase": { "base": "500", "recipe": "2000" }, "sell": "1250" }
   },
   {
-    "name": "Soul Ring",
+    "name": "Headdress",
+    "type": "Purchasable",
+    "classification": "Support",
+    "stats": ["0.5 Health Regeneration"],
+    "price": { "purchase": { "base": "175", "recipe": "250" }, "sell": "212.5" }
+  },
+  {
+    "name": "Buckler",
+    "type": "Purchasable",
+    "classification": "Support",
+    "stats": ["1 Armor"],
+    "price": { "purchase": { "base": "175", "recipe": "250" }, "sell": "212.5" }
+  },
+  {
+    "name": "Moon Shard",
     "type": "Purchasable",
     "classification": "Accessories",
-    "stats": ["6 Strength", "2 Armor"]
+    "stats": ["140 Attack Speed"],
+    "price": {
+      "purchase": { "base": "4000", "recipe": "None" },
+      "sell": "2000"
+    }
   },
   {
-    "name": "Healing Lotus",
-    "type": "Non-Purchasable",
-    "classification": "Collectibles",
-    "stats": "None"
-  },
-  {
-    "name": "Wraith Band",
+    "name": "Power Treads",
     "type": "Purchasable",
     "classification": "Accessories",
-    "stats": [
-      "2/4 Strength",
-      "5/10 Agility",
-      "2/4 Intelligence",
-      "2/4 Armor",
-      "5/10 Attack Speed"
-    ]
-  },
-  {
-    "name": "Block of Cheese",
-    "type": "Non-Purchasable",
-    "classification": "Collectibles",
-    "stats": "None"
-  },
-  {
-    "name": "Great Healing Lotus",
-    "type": "Non-Purchasable",
-    "classification": "Collectibles",
-    "stats": "None"
-  },
-  {
-    "name": "Greater Healing Lotus",
-    "type": "Non-Purchasable",
-    "classification": "Collectibles",
-    "stats": "None"
+    "stats": ["55  Move Speed", "45  Move Speed", "25 Attack Speed"],
+    "price": { "purchase": { "base": "1400", "recipe": "None" }, "sell": "700" }
   },
   {
     "name": "Mirror Shield",
     "type": "Neutral",
     "classification": "Tier 5",
-    "stats": ["10 Strength", "10 Agility", "10 Intelligence"]
+    "stats": ["10 Strength", "10 Agility", "10 Intelligence"],
+    "price": "None"
   },
   {
-    "name": "Seer Stone",
-    "type": "Neutral",
-    "classification": "Tier 5",
-    "stats": ["10 Mana Regeneration", "350 Cast Range", "350 Vision"]
+    "name": "Perseverance",
+    "type": "Purchasable",
+    "classification": "Accessories",
+    "stats": ["6.5 Health Regeneration", "2.25 Mana Regeneration"],
+    "price": { "purchase": { "base": "1400", "recipe": "None" }, "sell": "700" }
   },
   {
-    "name": "Arcane Ring",
-    "type": "Neutral",
-    "classification": "Tier 1",
-    "stats": ["7 Intelligence", "2 Armor"]
-  },
-  {
-    "name": "Pirate Hat",
-    "type": "Neutral",
-    "classification": "Tier 5",
-    "stats": ["15 Move Speed", "150 Attack Speed"]
+    "name": "Falcon Blade",
+    "type": "Purchasable",
+    "classification": "Accessories",
+    "stats": ["200 Health", "1.8 Mana Regeneration", "14 Attack Damage"],
+    "price": { "purchase": { "base": "875", "recipe": "250" }, "sell": "562.5" }
   },
   {
     "name": "Stygian Desolator",
     "type": "Neutral",
     "classification": "Tier 5",
-    "stats": ["60 Attack Damage"]
+    "stats": ["60 Attack Damage"],
+    "price": "None"
   },
   {
     "name": "Giant's Ring",
     "type": "Neutral",
     "classification": "Tier 5",
-    "stats": ["35 Strength", "50 Move Speed"]
+    "stats": ["35 Strength", "50 Move Speed"],
+    "price": "None"
+  },
+  {
+    "name": "Orb of Corrosion",
+    "type": "Purchasable",
+    "classification": "Accessories",
+    "stats": ["150 Health"],
+    "price": { "purchase": { "base": "825", "recipe": "100" }, "sell": "462.5" }
+  },
+  {
+    "name": "Seer Stone",
+    "type": "Neutral",
+    "classification": "Tier 5",
+    "stats": ["10 Mana Regeneration", "350 Cast Range", "350 Vision"],
+    "price": "None"
+  },
+  {
+    "name": "Pirate Hat",
+    "type": "Neutral",
+    "classification": "Tier 5",
+    "stats": ["15 Move Speed", "150 Attack Speed"],
+    "price": "None"
+  },
+  {
+    "name": "Arcanist's Armor",
+    "type": "Neutral",
+    "classification": "Tier 5",
+    "stats": ["5 Armor", "20% Magic Resistance"],
+    "price": "None"
   },
   {
     "name": "Fallen Sky",
@@ -192,25 +199,43 @@
       "15 Intelligence",
       "15 Health Regeneration",
       "10 Mana Regeneration"
-    ]
-  },
-  {
-    "name": "Force Boots",
-    "type": "Neutral",
-    "classification": "Tier 5",
-    "stats": ["30 Health Regeneration", "115 Move Speed"]
-  },
-  {
-    "name": "Arcanist's Armor",
-    "type": "Neutral",
-    "classification": "Tier 5",
-    "stats": ["5 Armor", "20% Magic Resistance"]
+    ],
+    "price": "None"
   },
   {
     "name": "Book of the Dead",
     "type": "Neutral",
     "classification": "Tier 5",
-    "stats": ["25 Strength", "25 Intelligence"]
+    "stats": ["25 Strength", "25 Intelligence"],
+    "price": "None"
+  },
+  {
+    "name": "Trickster Cloak",
+    "type": "Neutral",
+    "classification": "Tier 4",
+    "stats": ["17% Evasion", "17% Magic Resistance"],
+    "price": "None"
+  },
+  {
+    "name": "Apex",
+    "type": "Neutral",
+    "classification": "Tier 5",
+    "stats": ["70 Primary Attribute or 25 All Attributes"],
+    "price": "None"
+  },
+  {
+    "name": "Ex Machina",
+    "type": "Neutral",
+    "classification": "Tier 5",
+    "stats": ["20 Armor"],
+    "price": "None"
+  },
+  {
+    "name": "Force Boots",
+    "type": "Neutral",
+    "classification": "Tier 5",
+    "stats": ["30 Health Regeneration", "115 Move Speed"],
+    "price": "None"
   },
   {
     "name": "Book of Shadows",
@@ -221,37 +246,15 @@
       "13 Agility",
       "13 Intelligence",
       "400 Night Vision"
-    ]
-  },
-  {
-    "name": "Ex Machina",
-    "type": "Neutral",
-    "classification": "Tier 5",
-    "stats": ["20 Armor"]
-  },
-  {
-    "name": "Apex",
-    "type": "Neutral",
-    "classification": "Tier 5",
-    "stats": ["70 Primary Attribute or 25 All Attributes"]
-  },
-  {
-    "name": "Trickster Cloak",
-    "type": "Neutral",
-    "classification": "Tier 4",
-    "stats": ["17% Evasion", "17% Magic Resistance"]
-  },
-  {
-    "name": "Timeless Relic",
-    "type": "Neutral",
-    "classification": "Tier 4",
-    "stats": ["20% Debuff Duration Amp", "15% Spell Damage Amp"]
+    ],
+    "price": "None"
   },
   {
     "name": "Telescope",
     "type": "Neutral",
     "classification": "Tier 4",
-    "stats": "None"
+    "stats": "None",
+    "price": "None"
   },
   {
     "name": "Spell Prism",
@@ -262,89 +265,57 @@
       "5 Agility",
       "5 Intelligence",
       "2 Mana Regeneration"
-    ]
-  },
-  {
-    "name": "Stormcrafter",
-    "type": "Neutral",
-    "classification": "Tier 4",
-    "stats": ["4 Mana Regeneration", "35 Move Speed"]
-  },
-  {
-    "name": "Martyr's Plate",
-    "type": "Neutral",
-    "classification": "Tier 4",
-    "stats": ["5 Health Regeneration", "25% Magic Resistance"]
-  },
-  {
-    "name": "Penta-Edged Sword",
-    "type": "Neutral",
-    "classification": "Tier 4",
-    "stats": ["45 Attack Damage", "100  Attack Range"]
-  },
-  {
-    "name": "Ninja Gear",
-    "type": "Neutral",
-    "classification": "Tier 4",
-    "stats": ["20 Agility", "20 Move Speed"]
-  },
-  {
-    "name": "Ascetic's Cap",
-    "type": "Neutral",
-    "classification": "Tier 4",
-    "stats": ["250 Health", "20 Health Regeneration"]
+    ],
+    "price": "None"
   },
   {
     "name": "Mind Breaker",
     "type": "Neutral",
     "classification": "Tier 4",
-    "stats": ["45 Attack Damage", "30 Attack Speed"]
+    "stats": ["45 Attack Damage", "30 Attack Speed"],
+    "price": "None"
+  },
+  {
+    "name": "Penta-Edged Sword",
+    "type": "Neutral",
+    "classification": "Tier 4",
+    "stats": ["45 Attack Damage", "100  Attack Range"],
+    "price": "None"
+  },
+  {
+    "name": "Timeless Relic",
+    "type": "Neutral",
+    "classification": "Tier 4",
+    "stats": ["20% Debuff Duration Amp", "15% Spell Damage Amp"],
+    "price": "None"
+  },
+  {
+    "name": "Martyr's Plate",
+    "type": "Neutral",
+    "classification": "Tier 4",
+    "stats": ["5 Health Regeneration", "25% Magic Resistance"],
+    "price": "None"
+  },
+  {
+    "name": "Stormcrafter",
+    "type": "Neutral",
+    "classification": "Tier 4",
+    "stats": ["4 Mana Regeneration", "35 Move Speed"],
+    "price": "None"
+  },
+  {
+    "name": "Ninja Gear",
+    "type": "Neutral",
+    "classification": "Tier 4",
+    "stats": ["20 Agility", "20 Move Speed"],
+    "price": "None"
   },
   {
     "name": "Havoc Hammer",
     "type": "Neutral",
     "classification": "Tier 4",
-    "stats": ["16 Strength", "16 Attack Damage"]
-  },
-  {
-    "name": "Titan Sliver",
-    "type": "Neutral",
-    "classification": "Tier 3",
-    "stats": [
-      "16% Magic Resistance",
-      "10% Status Resistance",
-      "20% Attack Damage"
-    ]
-  },
-  {
-    "name": "Psychic Headband",
-    "type": "Neutral",
-    "classification": "Tier 3",
-    "stats": ["100 Cast Range"]
-  },
-  {
-    "name": "Quickening Charm",
-    "type": "Neutral",
-    "classification": "Tier 3",
-    "stats": ["10 Health Regeneration"]
-  },
-  {
-    "name": "Vindicator's Axe",
-    "type": "Neutral",
-    "classification": "Tier 3",
-    "stats": ["20% Slow Resistance", "35 Attack Speed"]
-  },
-  {
-    "name": "Elven Tunic",
-    "type": "Neutral",
-    "classification": "Tier 3",
-    "stats": ["16% Evasion", "7% Move Speed", "26 Attack Speed"]
-  },
-  {
-    "name": "Enchanted Quiver",
-    "type": "Neutral",
-    "classification": "Tier 3",
-    "stats": ["75  Attack Range"]
+    "stats": ["16 Strength", "16 Attack Damage"],
+    "price": "None"
   },
   {
     "name": "Paladin Sword",
@@ -359,25 +330,96 @@
       "14% Health Regen Amp",
       "14% Lifesteal Amp",
       "14% Spell Lifesteal Amp"
-    ]
+    ],
+    "price": "None"
+  },
+  {
+    "name": "Quickening Charm",
+    "type": "Neutral",
+    "classification": "Tier 3",
+    "stats": ["10 Health Regeneration"],
+    "price": "None"
+  },
+  {
+    "name": "Vindicator's Axe",
+    "type": "Neutral",
+    "classification": "Tier 3",
+    "stats": ["20% Slow Resistance", "35 Attack Speed"],
+    "price": "None"
   },
   {
     "name": "Ogre Seal Totem",
     "type": "Neutral",
     "classification": "Tier 3",
-    "stats": ["10 Strength"]
+    "stats": ["10 Strength"],
+    "price": "None"
   },
   {
-    "name": "Ceremonial Robe",
+    "name": "Titan Sliver",
     "type": "Neutral",
     "classification": "Tier 3",
-    "stats": ["300 Mana"]
+    "stats": [
+      "16% Magic Resistance",
+      "10% Status Resistance",
+      "20% Attack Damage"
+    ],
+    "price": "None"
+  },
+  {
+    "name": "Psychic Headband",
+    "type": "Neutral",
+    "classification": "Tier 3",
+    "stats": ["100 Cast Range"],
+    "price": "None"
+  },
+  {
+    "name": "Ascetic's Cap",
+    "type": "Neutral",
+    "classification": "Tier 4",
+    "stats": ["250 Health", "20 Health Regeneration"],
+    "price": "None"
+  },
+  {
+    "name": "Dandelion Amulet",
+    "type": "Neutral",
+    "classification": "Tier 3",
+    "stats": ["300 Mana", "25 Move Speed"],
+    "price": "None"
+  },
+  {
+    "name": "Elven Tunic",
+    "type": "Neutral",
+    "classification": "Tier 3",
+    "stats": ["16% Evasion", "7% Move Speed", "26 Attack Speed"],
+    "price": "None"
+  },
+  {
+    "name": "Vambrace",
+    "type": "Neutral",
+    "classification": "Tier 2",
+    "stats": "None",
+    "price": "None"
+  },
+  {
+    "name": "Defiant Shell",
+    "type": "Neutral",
+    "classification": "Tier 3",
+    "stats": ["7 Strength", "7 Agility", "7 Intelligence", "7 Armor"],
+    "price": "None"
+  },
+  {
+    "name": "Enchanted Quiver",
+    "type": "Neutral",
+    "classification": "Tier 3",
+    "stats": ["75  Attack Range"],
+    "price": "None"
   },
   {
     "name": "Cloak of Flames",
     "type": "Neutral",
     "classification": "Tier 3",
-    "stats": ["4 Armor", "10% Magic Resistance"]
+    "stats": ["4 Armor", "10% Magic Resistance"],
+    "price": "None"
   },
   {
     "name": "Vampire Fangs",
@@ -389,139 +431,113 @@
       "10% Spell Lifesteal (Hero)",
       "2% Spell Lifesteal (Creep)",
       "300 Night Vision"
-    ]
+    ],
+    "price": "None"
   },
   {
-    "name": "Ring of Aquila",
-    "type": "Neutral",
-    "classification": "Tier 2",
-    "stats": ["3 Strength", "9 Agility", "3 Intelligence", "3 Attack Damage"]
-  },
-  {
-    "name": "Specialist's Array",
-    "type": "Neutral",
-    "classification": "Tier 2",
-    "stats": ["7 Strength", "7 Agility", "7 Intelligence", "12 Attack Damage"]
-  },
-  {
-    "name": "Dandelion Amulet",
+    "name": "Ceremonial Robe",
     "type": "Neutral",
     "classification": "Tier 3",
-    "stats": ["300 Mana", "25 Move Speed"]
-  },
-  {
-    "name": "Vambrace",
-    "type": "Neutral",
-    "classification": "Tier 2",
-    "stats": "None"
-  },
-  {
-    "name": "Defiant Shell",
-    "type": "Neutral",
-    "classification": "Tier 3",
-    "stats": ["7 Strength", "7 Agility", "7 Intelligence", "7 Armor"]
-  },
-  {
-    "name": "Pupil's Gift",
-    "type": "Neutral",
-    "classification": "Tier 2",
-    "stats": ["15 Secondary Attributes or 7 All Attributes"]
-  },
-  {
-    "name": "Philosopher's Stone",
-    "type": "Neutral",
-    "classification": "Tier 2",
-    "stats": ["200 Mana-30 Attack Damage", "75 Gold /min"]
-  },
-  {
-    "name": "Orb of Destruction",
-    "type": "Neutral",
-    "classification": "Tier 2",
-    "stats": "None"
-  },
-  {
-    "name": "Dragon Scale",
-    "type": "Neutral",
-    "classification": "Tier 2",
-    "stats": ["5 Health Regeneration", "5 Armor"]
+    "stats": ["300 Mana"],
+    "price": "None"
   },
   {
     "name": "Eye of the Vizier",
     "type": "Neutral",
     "classification": "Tier 2",
-    "stats": ["1.25 Mana Regeneration", "125 Cast Range"]
+    "stats": ["1.25 Mana Regeneration", "125 Cast Range"],
+    "price": "None"
+  },
+  {
+    "name": "Pupil's Gift",
+    "type": "Neutral",
+    "classification": "Tier 2",
+    "stats": ["15 Secondary Attributes or 7 All Attributes"],
+    "price": "None"
+  },
+  {
+    "name": "Ring of Aquila",
+    "type": "Neutral",
+    "classification": "Tier 2",
+    "stats": ["3 Strength", "9 Agility", "3 Intelligence", "3 Attack Damage"],
+    "price": "None"
+  },
+  {
+    "name": "Specialist's Array",
+    "type": "Neutral",
+    "classification": "Tier 2",
+    "stats": ["7 Strength", "7 Agility", "7 Intelligence", "12 Attack Damage"],
+    "price": "None"
   },
   {
     "name": "Gossamer Cape",
     "type": "Neutral",
     "classification": "Tier 2",
-    "stats": ["20 Move Speed"]
+    "stats": ["20 Move Speed"],
+    "price": "None"
+  },
+  {
+    "name": "Philosopher's Stone",
+    "type": "Neutral",
+    "classification": "Tier 2",
+    "stats": ["200 Mana-30 Attack Damage", "75 Gold /min"],
+    "price": "None"
+  },
+  {
+    "name": "Orb of Destruction",
+    "type": "Neutral",
+    "classification": "Tier 2",
+    "stats": "None",
+    "price": "None"
   },
   {
     "name": "Grove Bow",
     "type": "Neutral",
     "classification": "Tier 2",
-    "stats": ["20 Attack Speed", "100  Attack Range"]
+    "stats": ["20 Attack Speed", "100  Attack Range"],
+    "price": "None"
   },
   {
-    "name": "Bullwhip",
+    "name": "Dragon Scale",
     "type": "Neutral",
     "classification": "Tier 2",
-    "stats": ["3 Health Regeneration", "2.5 Mana Regeneration"]
-  },
-  {
-    "name": "Trusty Shovel",
-    "type": "Neutral",
-    "classification": "Tier 1",
-    "stats": ["75 Health"]
-  },
-  {
-    "name": "Spark of Courage",
-    "type": "Neutral",
-    "classification": "Tier 1",
-    "stats": "None"
+    "stats": ["5 Health Regeneration", "5 Armor"],
+    "price": "None"
   },
   {
     "name": "Tumbler's Toy",
     "type": "Neutral",
     "classification": "Tier 1",
-    "stats": ["150 Mana"]
+    "stats": ["150 Mana"],
+    "price": "None"
+  },
+  {
+    "name": "Trusty Shovel",
+    "type": "Neutral",
+    "classification": "Tier 1",
+    "stats": ["75 Health"],
+    "price": "None"
   },
   {
     "name": "Seeds of Serenity",
     "type": "Neutral",
     "classification": "Tier 1",
-    "stats": ["150 Health", "4 Health Regeneration"]
+    "stats": ["150 Health", "4 Health Regeneration"],
+    "price": "None"
   },
   {
-    "name": "Fairy's Trinket",
+    "name": "Bullwhip",
     "type": "Neutral",
-    "classification": "Tier 1",
-    "stats": ["75 Health", "5% Mana Loss Reduction", "5% Spell Damage Amp"]
-  },
-  {
-    "name": "Broom Handle",
-    "type": "Neutral",
-    "classification": "Tier 1",
-    "stats": ["4 Armor", "8 Attack Damage", "50  Attack Range"]
-  },
-  {
-    "name": "Duelist Gloves",
-    "type": "Neutral",
-    "classification": "Tier 1",
-    "stats": ["12 Attack Damage"]
-  },
-  {
-    "name": "Lance of Pursuit",
-    "type": "Neutral",
-    "classification": "Tier 1",
-    "stats": ["200 Mana"]
+    "classification": "Tier 2",
+    "stats": ["3 Health Regeneration", "2.5 Mana Regeneration"],
+    "price": "None"
   },
   {
     "name": "Pig Pole",
     "type": "Neutral",
     "classification": "Tier 1",
-    "stats": ["5 Strength", "5 Agility", "5 Intelligence"]
+    "stats": ["5 Strength", "5 Agility", "5 Intelligence"],
+    "price": "None"
   },
   {
     "name": "Occult Bracelet",
@@ -532,13 +548,99 @@
       "4 Agility",
       "4 Intelligence",
       "5% Magic Resistance"
-    ]
+    ],
+    "price": "None"
+  },
+  {
+    "name": "Spark of Courage",
+    "type": "Neutral",
+    "classification": "Tier 1",
+    "stats": "None",
+    "price": "None"
+  },
+  {
+    "name": "Lance of Pursuit",
+    "type": "Neutral",
+    "classification": "Tier 1",
+    "stats": ["200 Mana"],
+    "price": "None"
+  },
+  {
+    "name": "Fairy's Trinket",
+    "type": "Neutral",
+    "classification": "Tier 1",
+    "stats": ["75 Health", "5% Mana Loss Reduction", "5% Spell Damage Amp"],
+    "price": "None"
   },
   {
     "name": "Faded Broach",
     "type": "Neutral",
     "classification": "Tier 1",
-    "stats": ["150 Mana", "15 Move Speed"]
+    "stats": ["150 Mana", "15 Move Speed"],
+    "price": "None"
+  },
+  {
+    "name": "Broom Handle",
+    "type": "Neutral",
+    "classification": "Tier 1",
+    "stats": ["4 Armor", "8 Attack Damage", "50  Attack Range"],
+    "price": "None"
+  },
+  {
+    "name": "Duelist Gloves",
+    "type": "Neutral",
+    "classification": "Tier 1",
+    "stats": ["12 Attack Damage"],
+    "price": "None"
+  },
+  {
+    "name": "Healing Lotus",
+    "type": "Non-Purchasable",
+    "classification": "Collectibles",
+    "stats": "None",
+    "price": "None"
+  },
+  {
+    "name": "Arcane Ring",
+    "type": "Neutral",
+    "classification": "Tier 1",
+    "stats": ["7 Intelligence", "2 Armor"],
+    "price": "None"
+  },
+  {
+    "name": "Greater Healing Lotus",
+    "type": "Non-Purchasable",
+    "classification": "Collectibles",
+    "stats": "None",
+    "price": "None"
+  },
+  {
+    "name": "Great Healing Lotus",
+    "type": "Non-Purchasable",
+    "classification": "Collectibles",
+    "stats": "None",
+    "price": "None"
+  },
+  {
+    "name": "Cheese",
+    "type": "Non-Purchasable",
+    "classification": "Boss Rewards",
+    "stats": "None",
+    "price": "None"
+  },
+  {
+    "name": "Block of Cheese",
+    "type": "Non-Purchasable",
+    "classification": "Collectibles",
+    "stats": "None",
+    "price": "None"
+  },
+  {
+    "name": "Aghanim's Shard - Roshan",
+    "type": "Non-Purchasable",
+    "classification": "Boss Rewards",
+    "stats": "None",
+    "price": "None"
   },
   {
     "name": "Refresher Shard",
@@ -548,67 +650,32 @@
       "12 Health Regeneration",
       "6 Mana Regeneration",
       "20 Attack Damage"
-    ]
-  },
-  {
-    "name": "Cheese",
-    "type": "Non-Purchasable",
-    "classification": "Boss Rewards",
-    "stats": "None"
+    ],
+    "price": "None"
   },
   {
     "name": "Swift Blink",
     "type": "Purchasable",
     "classification": "Artifacts",
-    "stats": ["25 Agility"]
+    "stats": ["25 Agility"],
+    "price": {
+      "purchase": { "base": "5050", "recipe": "1750" },
+      "sell": "3400"
+    }
   },
   {
     "name": "Aegis of the Immortal",
     "type": "Non-Purchasable",
     "classification": "Boss Rewards",
-    "stats": "None"
-  },
-  {
-    "name": "Aghanim's Shard - Roshan",
-    "type": "Non-Purchasable",
-    "classification": "Boss Rewards",
-    "stats": "None"
-  },
-  {
-    "name": "Overwhelming Blink",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "stats": ["25 Strength"]
-  },
-  {
-    "name": "Arcane Blink",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "stats": ["25 Intelligence"]
+    "stats": "None",
+    "price": "None"
   },
   {
     "name": "Aghanim's Blessing - Roshan",
     "type": "Non-Purchasable",
     "classification": "Boss Rewards",
-    "stats": "None"
-  },
-  {
-    "name": "Mjollnir",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "stats": ["25 Attack Damage", "70 Attack Speed"]
-  },
-  {
-    "name": "Eye of Skadi",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "stats": [
-      "22 Strength",
-      "22 Agility",
-      "22 Intelligence",
-      "220 Health",
-      "220 Mana"
-    ]
+    "stats": "None",
+    "price": "None"
   },
   {
     "name": "Yasha and Kaya",
@@ -622,38 +689,21 @@
       "12 Attack Speed",
       "50% Mana Regen Amp",
       "30% Spell Lifesteal Amp"
-    ]
-  },
-  {
-    "name": "Heaven's Halberd",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "stats": [
-      "20 Strength",
-      "20% Evasion",
-      "16% Status Resistance",
-      "20% Health Regen Amp",
-      "20% Lifesteal Amp"
-    ]
-  },
-  {
-    "name": "Harpoon",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "stats": [
-      "20 Strength",
-      "10 Agility",
-      "16 Intelligence",
-      "2 Mana Regeneration",
-      "15 Attack Damage",
-      "10 Attack Speed"
-    ]
+    ],
+    "price": {
+      "purchase": { "base": "4100", "recipe": "None" },
+      "sell": "2050"
+    }
   },
   {
     "name": "Satanic",
     "type": "Purchasable",
     "classification": "Artifacts",
-    "stats": ["25 Strength", "25 Attack Damage"]
+    "stats": ["25 Strength", "25 Attack Damage"],
+    "price": {
+      "purchase": { "base": "5050", "recipe": "None" },
+      "sell": "2525"
+    }
   },
   {
     "name": "Sange and Yasha",
@@ -667,7 +717,144 @@
       "12 Attack Speed",
       "22% Health Regen Amp",
       "22% Lifesteal Amp"
-    ]
+    ],
+    "price": {
+      "purchase": { "base": "4100", "recipe": "None" },
+      "sell": "2050"
+    }
+  },
+  {
+    "name": "Overwhelming Blink",
+    "type": "Purchasable",
+    "classification": "Artifacts",
+    "stats": ["25 Strength"],
+    "price": {
+      "purchase": { "base": "5050", "recipe": "1750" },
+      "sell": "3400"
+    }
+  },
+  {
+    "name": "Eye of Skadi",
+    "type": "Purchasable",
+    "classification": "Artifacts",
+    "stats": [
+      "22 Strength",
+      "22 Agility",
+      "22 Intelligence",
+      "220 Health",
+      "220 Mana"
+    ],
+    "price": {
+      "purchase": { "base": "5300", "recipe": "None" },
+      "sell": "2650"
+    }
+  },
+  {
+    "name": "Arcane Blink",
+    "type": "Purchasable",
+    "classification": "Artifacts",
+    "stats": ["25 Intelligence"],
+    "price": {
+      "purchase": { "base": "5050", "recipe": "1750" },
+      "sell": "3400"
+    }
+  },
+  {
+    "name": "Mjollnir",
+    "type": "Purchasable",
+    "classification": "Artifacts",
+    "stats": ["25 Attack Damage", "70 Attack Speed"],
+    "price": { "purchase": { "base": "4700", "recipe": "800" }, "sell": "2750" }
+  },
+  {
+    "name": "Harpoon",
+    "type": "Purchasable",
+    "classification": "Artifacts",
+    "stats": [
+      "20 Strength",
+      "10 Agility",
+      "16 Intelligence",
+      "2 Mana Regeneration",
+      "15 Attack Damage",
+      "10 Attack Speed"
+    ],
+    "price": {
+      "purchase": { "base": "3500", "recipe": "1000" },
+      "sell": "2250"
+    }
+  },
+  {
+    "name": "Heaven's Halberd",
+    "type": "Purchasable",
+    "classification": "Artifacts",
+    "stats": [
+      "20 Strength",
+      "20% Evasion",
+      "16% Status Resistance",
+      "20% Health Regen Amp",
+      "20% Lifesteal Amp"
+    ],
+    "price": { "purchase": { "base": "3350", "recipe": "200" }, "sell": "1775" }
+  },
+  {
+    "name": "Phylactery",
+    "type": "Purchasable",
+    "classification": "Artifacts",
+    "stats": [
+      "7 Strength",
+      "7 Agility",
+      "7 Intelligence",
+      "200 Health",
+      "200 Mana",
+      "0.7 Mana Regeneration"
+    ],
+    "price": {
+      "purchase": { "base": "2375", "recipe": "None" },
+      "sell": "1187.5"
+    }
+  },
+  {
+    "name": "Diffusal Blade",
+    "type": "Purchasable",
+    "classification": "Artifacts",
+    "stats": ["15 Agility", "10 Intelligence"],
+    "price": {
+      "purchase": { "base": "1450", "recipe": "1050" },
+      "sell": "1250"
+    }
+  },
+  {
+    "name": "Maelstrom",
+    "type": "Purchasable",
+    "classification": "Artifacts",
+    "stats": ["24 Attack Damage"],
+    "price": {
+      "purchase": { "base": "2700", "recipe": "None" },
+      "sell": "1350"
+    }
+  },
+  {
+    "name": "Echo Sabre",
+    "type": "Purchasable",
+    "classification": "Artifacts",
+    "stats": [
+      "13 Strength",
+      "10 Intelligence",
+      "1.75 Mana Regeneration",
+      "15 Attack Damage",
+      "10 Attack Speed"
+    ],
+    "price": {
+      "purchase": { "base": "2500", "recipe": "None" },
+      "sell": "1250"
+    }
+  },
+  {
+    "name": "Yasha",
+    "type": "Purchasable",
+    "classification": "Artifacts",
+    "stats": ["16 Agility", "10% Move Speed", "12 Attack Speed"],
+    "price": { "purchase": { "base": "1450", "recipe": "600" }, "sell": "1025" }
   },
   {
     "name": "Kaya and Sange",
@@ -682,13 +869,11 @@
       "50% Mana Regen Amp",
       "22% Lifesteal Amp",
       "30% Spell Lifesteal Amp"
-    ]
-  },
-  {
-    "name": "Maelstrom",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "stats": ["24 Attack Damage"]
+    ],
+    "price": {
+      "purchase": { "base": "4100", "recipe": "None" },
+      "sell": "2050"
+    }
   },
   {
     "name": "Mage Slayer",
@@ -700,55 +885,8 @@
       "25% Magic Resistance",
       "20 Attack Damage",
       "20 Attack Speed"
-    ]
-  },
-  {
-    "name": "Echo Sabre",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "stats": [
-      "13 Strength",
-      "10 Intelligence",
-      "1.75 Mana Regeneration",
-      "15 Attack Damage",
-      "10 Attack Speed"
-    ]
-  },
-  {
-    "name": "Sange",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "stats": [
-      "16 Strength",
-      "12% Status Resistance",
-      "20% Health Regen Amp",
-      "20% Lifesteal Amp"
-    ]
-  },
-  {
-    "name": "Phylactery",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "stats": [
-      "7 Strength",
-      "7 Agility",
-      "7 Intelligence",
-      "200 Health",
-      "200 Mana",
-      "0.7 Mana Regeneration"
-    ]
-  },
-  {
-    "name": "Yasha",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "stats": ["16 Agility", "10% Move Speed", "12 Attack Speed"]
-  },
-  {
-    "name": "Diffusal Blade",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "stats": ["15 Agility", "10 Intelligence"]
+    ],
+    "price": { "purchase": { "base": "2300", "recipe": "200" }, "sell": "1250" }
   },
   {
     "name": "Kaya",
@@ -759,31 +897,8 @@
       "8% Spell Damage Amp",
       "50% Mana Regen Amp",
       "24% Spell Lifesteal Amp"
-    ]
-  },
-  {
-    "name": "Dragon Lance",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "stats": ["10 Strength", "15 Agility", "150  Attack Range"]
-  },
-  {
-    "name": "Daedalus",
-    "type": "Purchasable",
-    "classification": "Weapons",
-    "stats": ["88 Attack Damage"]
-  },
-  {
-    "name": "Silver Edge",
-    "type": "Purchasable",
-    "classification": "Weapons",
-    "stats": ["52 Attack Damage", "35 Attack Speed"]
-  },
-  {
-    "name": "Divine Rapier",
-    "type": "Purchasable",
-    "classification": "Weapons",
-    "stats": ["350 Attack Damage"]
+    ],
+    "price": { "purchase": { "base": "1450", "recipe": "600" }, "sell": "1025" }
   },
   {
     "name": "Revenant's Brooch",
@@ -794,24 +909,8 @@
       "8 Armor",
       "40 Attack Speed",
       "300 Projectile Speed"
-    ]
-  },
-  {
-    "name": "Disperser",
-    "type": "Purchasable",
-    "classification": "Weapons",
-    "stats": ["20 Agility", "10 Intelligence", "45 Attack Damage"]
-  },
-  {
-    "name": "Abyssal Blade",
-    "type": "Purchasable",
-    "classification": "Weapons",
-    "stats": [
-      "10 Strength",
-      "250 Health",
-      "10 Health Regeneration",
-      "35 Attack Damage"
-    ]
+    ],
+    "price": { "purchase": { "base": "5400", "recipe": "800" }, "sell": "3100" }
   },
   {
     "name": "Bloodthorn",
@@ -824,7 +923,72 @@
       "25% Magic Resistance",
       "35 Attack Damage",
       "60 Attack Speed"
-    ]
+    ],
+    "price": { "purchase": { "base": "5975", "recipe": "825" }, "sell": "3400" }
+  },
+  {
+    "name": "Abyssal Blade",
+    "type": "Purchasable",
+    "classification": "Weapons",
+    "stats": [
+      "10 Strength",
+      "250 Health",
+      "10 Health Regeneration",
+      "35 Attack Damage"
+    ],
+    "price": {
+      "purchase": { "base": "4575", "recipe": "1675" },
+      "sell": "3125"
+    }
+  },
+  {
+    "name": "Disperser",
+    "type": "Purchasable",
+    "classification": "Weapons",
+    "stats": ["20 Agility", "10 Intelligence", "45 Attack Damage"],
+    "price": {
+      "purchase": { "base": "4700", "recipe": "1000" },
+      "sell": "2850"
+    }
+  },
+  {
+    "name": "Sange",
+    "type": "Purchasable",
+    "classification": "Artifacts",
+    "stats": [
+      "16 Strength",
+      "12% Status Resistance",
+      "20% Health Regen Amp",
+      "20% Lifesteal Amp"
+    ],
+    "price": { "purchase": { "base": "1450", "recipe": "600" }, "sell": "1025" }
+  },
+  {
+    "name": "Dragon Lance",
+    "type": "Purchasable",
+    "classification": "Artifacts",
+    "stats": ["10 Strength", "15 Agility", "150  Attack Range"],
+    "price": { "purchase": { "base": "1450", "recipe": "450" }, "sell": "950" }
+  },
+  {
+    "name": "Divine Rapier",
+    "type": "Purchasable",
+    "classification": "Weapons",
+    "stats": ["350 Attack Damage"],
+    "price": {
+      "purchase": { "base": "5600", "recipe": "None" },
+      "sell": "Unsellable"
+    }
+  },
+  {
+    "name": "Daedalus",
+    "type": "Purchasable",
+    "classification": "Weapons",
+    "stats": ["88 Attack Damage"],
+    "price": {
+      "purchase": { "base": "4100", "recipe": "1000" },
+      "sell": "2550"
+    }
   },
   {
     "name": "Butterfly",
@@ -835,47 +999,38 @@
       "35% Evasion",
       "25 Attack Damage",
       "30 Attack Speed"
-    ]
-  },
-  {
-    "name": "Monkey King Bar",
-    "type": "Purchasable",
-    "classification": "Weapons",
-    "stats": ["40 Attack Damage", "45 Attack Speed"]
-  },
-  {
-    "name": "Shadow Blade",
-    "type": "Purchasable",
-    "classification": "Weapons",
-    "stats": ["20 Attack Damage", "35 Attack Speed"]
-  },
-  {
-    "name": "Desolator",
-    "type": "Purchasable",
-    "classification": "Weapons",
-    "stats": ["50 Attack Damage"]
-  },
-  {
-    "name": "Battle Fury",
-    "type": "Purchasable",
-    "classification": "Weapons",
-    "stats": [
-      "7.5 Health Regeneration",
-      "2.75 Mana Regeneration",
-      "65 Attack Damage"
-    ]
+    ],
+    "price": {
+      "purchase": { "base": "4975", "recipe": "None" },
+      "sell": "2487.5"
+    }
   },
   {
     "name": "Radiance",
     "type": "Purchasable",
     "classification": "Weapons",
-    "stats": ["15% Evasion", "55 Attack Damage"]
+    "stats": ["15% Evasion", "55 Attack Damage"],
+    "price": {
+      "purchase": { "base": "4700", "recipe": "None" },
+      "sell": "2350"
+    }
+  },
+  {
+    "name": "Monkey King Bar",
+    "type": "Purchasable",
+    "classification": "Weapons",
+    "stats": ["40 Attack Damage", "45 Attack Speed"],
+    "price": { "purchase": { "base": "4300", "recipe": "600" }, "sell": "2450" }
   },
   {
     "name": "Nullifier",
     "type": "Purchasable",
     "classification": "Weapons",
-    "stats": ["6 Health Regeneration", "10 Armor", "75 Attack Damage"]
+    "stats": ["6 Health Regeneration", "10 Armor", "75 Attack Damage"],
+    "price": {
+      "purchase": { "base": "4375", "recipe": "None" },
+      "sell": "2187.5"
+    }
   },
   {
     "name": "Ethereal Blade",
@@ -888,36 +1043,56 @@
       "12% Spell Damage Amp",
       "75% Mana Regen Amp",
       "24% Spell Lifesteal Amp"
-    ]
+    ],
+    "price": {
+      "purchase": { "base": "3550", "recipe": "1100" },
+      "sell": "2325"
+    }
+  },
+  {
+    "name": "Silver Edge",
+    "type": "Purchasable",
+    "classification": "Weapons",
+    "stats": ["52 Attack Damage", "35 Attack Speed"],
+    "price": { "purchase": { "base": "4900", "recipe": "550" }, "sell": "2725" }
+  },
+  {
+    "name": "Battle Fury",
+    "type": "Purchasable",
+    "classification": "Weapons",
+    "stats": [
+      "7.5 Health Regeneration",
+      "2.75 Mana Regeneration",
+      "65 Attack Damage"
+    ],
+    "price": { "purchase": { "base": "3650", "recipe": "450" }, "sell": "2050" }
+  },
+  {
+    "name": "Desolator",
+    "type": "Purchasable",
+    "classification": "Weapons",
+    "stats": ["50 Attack Damage"],
+    "price": {
+      "purchase": { "base": "3500", "recipe": "None" },
+      "sell": "1750"
+    }
   },
   {
     "name": "Skull Basher",
     "type": "Purchasable",
     "classification": "Weapons",
-    "stats": ["10 Strength", "30 Attack Damage"]
+    "stats": ["10 Strength", "30 Attack Damage"],
+    "price": {
+      "purchase": { "base": "2050", "recipe": "825" },
+      "sell": "1437.5"
+    }
   },
   {
-    "name": "Armlet of Mordiggian",
+    "name": "Crystalys",
     "type": "Purchasable",
     "classification": "Weapons",
-    "stats": [
-      "5 Health Regeneration",
-      "6 Armor",
-      "15 Attack Damage",
-      "25 Attack Speed"
-    ]
-  },
-  {
-    "name": "Assault Cuirass",
-    "type": "Purchasable",
-    "classification": "Armor",
-    "stats": ["10 Armor", "30 Attack Speed"]
-  },
-  {
-    "name": "Shiva's Guard",
-    "type": "Purchasable",
-    "classification": "Armor",
-    "stats": ["30 Intelligence", "15 Armor"]
+    "stats": ["32 Attack Damage"],
+    "price": { "purchase": { "base": "1450", "recipe": "450" }, "sell": "950" }
   },
   {
     "name": "Meteor Hammer",
@@ -929,13 +1104,50 @@
       "8 Intelligence",
       "6.5 Health Regeneration",
       "2.5 Mana Regeneration"
-    ]
+    ],
+    "price": { "purchase": { "base": "1850", "recipe": "550" }, "sell": "1200" }
+  },
+  {
+    "name": "Assault Cuirass",
+    "type": "Purchasable",
+    "classification": "Armor",
+    "stats": ["10 Armor", "30 Attack Speed"],
+    "price": {
+      "purchase": { "base": "3825", "recipe": "1300" },
+      "sell": "2562.5"
+    }
+  },
+  {
+    "name": "Armlet of Mordiggian",
+    "type": "Purchasable",
+    "classification": "Weapons",
+    "stats": [
+      "5 Health Regeneration",
+      "6 Armor",
+      "15 Attack Damage",
+      "25 Attack Speed"
+    ],
+    "price": { "purchase": { "base": "1875", "recipe": "625" }, "sell": "1250" }
+  },
+  {
+    "name": "Shadow Blade",
+    "type": "Purchasable",
+    "classification": "Weapons",
+    "stats": ["20 Attack Damage", "35 Attack Speed"],
+    "price": {
+      "purchase": { "base": "3000", "recipe": "None" },
+      "sell": "1500"
+    }
   },
   {
     "name": "Heart of Tarrasque",
     "type": "Purchasable",
     "classification": "Armor",
-    "stats": ["40 Strength", "250 Health", "1.6% Max HP Health Regen"]
+    "stats": ["40 Strength", "250 Health", "1.6% Max HP Health Regen"],
+    "price": {
+      "purchase": { "base": "3800", "recipe": "1300" },
+      "sell": "2550"
+    }
   },
   {
     "name": "Manta Style",
@@ -947,13 +1159,8 @@
       "10 Intelligence",
       "10% Move Speed",
       "12 Attack Speed"
-    ]
-  },
-  {
-    "name": "Crystalys",
-    "type": "Purchasable",
-    "classification": "Weapons",
-    "stats": ["32 Attack Damage"]
+    ],
+    "price": { "purchase": { "base": "4100", "recipe": "500" }, "sell": "2300" }
   },
   {
     "name": "Linken's Sphere",
@@ -966,7 +1173,30 @@
       "6 Health Regeneration",
       "4.25 Mana Regeneration",
       "10 Attack Damage"
-    ]
+    ],
+    "price": {
+      "purchase": { "base": "3250", "recipe": "1350" },
+      "sell": "2300"
+    }
+  },
+  {
+    "name": "Shiva's Guard",
+    "type": "Purchasable",
+    "classification": "Armor",
+    "stats": ["30 Intelligence", "15 Armor"],
+    "price": { "purchase": { "base": "4200", "recipe": "650" }, "sell": "2425" }
+  },
+  {
+    "name": "Bloodstone",
+    "type": "Purchasable",
+    "classification": "Armor",
+    "stats": [
+      "500 Health",
+      "500 Mana",
+      "30% Spell Lifesteal (Hero)",
+      "6% Spell Lifesteal (Creep)"
+    ],
+    "price": { "purchase": { "base": "3700", "recipe": "700" }, "sell": "2200" }
   },
   {
     "name": "Hurricane Pike",
@@ -978,30 +1208,18 @@
       "15 Intelligence",
       "200 Health",
       "150  Attack Range"
-    ]
+    ],
+    "price": { "purchase": { "base": "4100", "recipe": "350" }, "sell": "2225" }
   },
   {
-    "name": "Bloodstone",
+    "name": "Crimson Guard",
     "type": "Purchasable",
     "classification": "Armor",
-    "stats": [
-      "500 Health",
-      "500 Mana",
-      "30% Spell Lifesteal (Hero)",
-      "6% Spell Lifesteal (Creep)"
-    ]
-  },
-  {
-    "name": "Black King Bar",
-    "type": "Purchasable",
-    "classification": "Armor",
-    "stats": ["10 Strength", "24 Attack Damage"]
-  },
-  {
-    "name": "Soul Booster",
-    "type": "Purchasable",
-    "classification": "Armor",
-    "stats": ["425 Health", "425 Mana"]
+    "stats": ["250 Health", "12 Health Regeneration", "8 Armor"],
+    "price": {
+      "purchase": { "base": "2675", "recipe": "1050" },
+      "sell": "1862.5"
+    }
   },
   {
     "name": "Lotus Orb",
@@ -1012,83 +1230,93 @@
       "250 Mana",
       "4 Mana Regeneration",
       "10 Armor"
-    ]
+    ],
+    "price": { "purchase": { "base": "3600", "recipe": "250" }, "sell": "1925" }
   },
   {
-    "name": "Crimson Guard",
+    "name": "Black King Bar",
     "type": "Purchasable",
     "classification": "Armor",
-    "stats": ["250 Health", "12 Health Regeneration", "8 Armor"]
-  },
-  {
-    "name": "Eternal Shroud",
-    "type": "Purchasable",
-    "classification": "Armor",
-    "stats": ["14 Strength", "7 Health Regeneration", "30% Magic Resistance"]
-  },
-  {
-    "name": "Aeon Disk",
-    "type": "Purchasable",
-    "classification": "Armor",
-    "stats": ["250 Health", "300 Mana"]
-  },
-  {
-    "name": "Blade Mail",
-    "type": "Purchasable",
-    "classification": "Armor",
-    "stats": ["7 Armor", "18 Attack Damage"]
-  },
-  {
-    "name": "Wind Waker",
-    "type": "Purchasable",
-    "classification": "Magical",
-    "stats": ["35 Intelligence", "3 Mana Regeneration", "30 Move Speed"]
-  },
-  {
-    "name": "Vanguard",
-    "type": "Purchasable",
-    "classification": "Armor",
-    "stats": ["250 Health", "4.5 Health Regeneration"]
-  },
-  {
-    "name": "Octarine Core",
-    "type": "Purchasable",
-    "classification": "Magical",
-    "stats": ["625 Health", "625 Mana", "5 Mana Regeneration"]
-  },
-  {
-    "name": "Aghanim's Blessing",
-    "type": "Purchasable",
-    "classification": "Magical",
-    "stats": "None"
-  },
-  {
-    "name": "Refresher Orb",
-    "type": "Purchasable",
-    "classification": "Magical",
-    "stats": [
-      "12 Health Regeneration",
-      "6 Mana Regeneration",
-      "20 Attack Damage"
-    ]
+    "stats": ["10 Strength", "24 Attack Damage"],
+    "price": {
+      "purchase": { "base": "2600", "recipe": "1450" },
+      "sell": "2025"
+    }
   },
   {
     "name": "Gleipnir",
     "type": "Purchasable",
     "classification": "Magical",
-    "stats": ["25 Intelligence", "350 Health", "30 Attack Damage"]
+    "stats": ["25 Intelligence", "350 Health", "30 Attack Damage"],
+    "price": { "purchase": { "base": "4950", "recipe": "700" }, "sell": "2825" }
   },
   {
-    "name": "Aghanim's Scepter",
+    "name": "Eternal Shroud",
+    "type": "Purchasable",
+    "classification": "Armor",
+    "stats": ["14 Strength", "7 Health Regeneration", "30% Magic Resistance"],
+    "price": { "purchase": { "base": "2500", "recipe": "600" }, "sell": "1550" }
+  },
+  {
+    "name": "Soul Booster",
+    "type": "Purchasable",
+    "classification": "Armor",
+    "stats": ["425 Health", "425 Mana"],
+    "price": {
+      "purchase": { "base": "3000", "recipe": "None" },
+      "sell": "1500"
+    }
+  },
+  {
+    "name": "Aghanim's Blessing",
     "type": "Purchasable",
     "classification": "Magical",
-    "stats": [
-      "10 Strength",
-      "10 Agility",
-      "10 Intelligence",
-      "175 Health",
-      "175 Mana"
-    ]
+    "stats": "None",
+    "price": {
+      "purchase": { "base": "4200", "recipe": "1600" },
+      "sell": "Unsellable"
+    }
+  },
+  {
+    "name": "Vanguard",
+    "type": "Purchasable",
+    "classification": "Armor",
+    "stats": ["250 Health", "4.5 Health Regeneration"],
+    "price": { "purchase": { "base": "1700", "recipe": "None" }, "sell": "850" }
+  },
+  {
+    "name": "Blade Mail",
+    "type": "Purchasable",
+    "classification": "Armor",
+    "stats": ["7 Armor", "18 Attack Damage"],
+    "price": { "purchase": { "base": "1550", "recipe": "550" }, "sell": "1050" }
+  },
+  {
+    "name": "Wind Waker",
+    "type": "Purchasable",
+    "classification": "Magical",
+    "stats": ["35 Intelligence", "3 Mana Regeneration", "30 Move Speed"],
+    "price": {
+      "purchase": { "base": "5425", "recipe": "1400" },
+      "sell": "3412.5"
+    }
+  },
+  {
+    "name": "Aeon Disk",
+    "type": "Purchasable",
+    "classification": "Armor",
+    "stats": ["250 Health", "300 Mana"],
+    "price": {
+      "purchase": { "base": "1800", "recipe": "1200" },
+      "sell": "1500"
+    }
+  },
+  {
+    "name": "Octarine Core",
+    "type": "Purchasable",
+    "classification": "Magical",
+    "stats": ["625 Health", "625 Mana", "5 Mana Regeneration"],
+    "price": { "purchase": { "base": "4400", "recipe": "200" }, "sell": "2300" }
   },
   {
     "name": "Scythe of Vyse",
@@ -1099,19 +1327,37 @@
       "10 Agility",
       "35 Intelligence",
       "8.5 Mana Regeneration"
-    ]
+    ],
+    "price": {
+      "purchase": { "base": "5550", "recipe": "None" },
+      "sell": "2775"
+    }
   },
   {
-    "name": "Orchid Malevolence",
+    "name": "Refresher Orb",
+    "type": "Purchasable",
+    "classification": "Magical",
+    "stats": [
+      "12 Health Regeneration",
+      "6 Mana Regeneration",
+      "20 Attack Damage"
+    ],
+    "price": {
+      "purchase": { "base": "2400", "recipe": "2600" },
+      "sell": "2500"
+    }
+  },
+  {
+    "name": "Witch Blade",
     "type": "Purchasable",
     "classification": "Magical",
     "stats": [
       "12 Intelligence",
-      "6 Health Regeneration",
-      "2.5 Mana Regeneration",
-      "10 Attack Damage",
-      "40 Attack Speed"
-    ]
+      "6 Armor",
+      "35 Attack Speed",
+      "300 Projectile Speed"
+    ],
+    "price": { "purchase": { "base": "2000", "recipe": "600" }, "sell": "1300" }
   },
   {
     "name": "Dagon",
@@ -1123,19 +1369,60 @@
       "7/9/11/13/15 Intelligence",
       "11%/12%/13%/14%/15% Spell Lifesteal (Hero)",
       "2.2%/2.4%/2.6%/2.8%/3% Spell Lifesteal (Creep)"
-    ]
+    ],
+    "price": {
+      "purchase": { "base": "1700", "recipe": "1150" },
+      "sell": "1425"
+    }
+  },
+  {
+    "name": "Eul's Scepter of Divinity",
+    "type": "Purchasable",
+    "classification": "Magical",
+    "stats": ["10 Intelligence", "2.5 Mana Regeneration", "20 Move Speed"],
+    "price": {
+      "purchase": { "base": "1950", "recipe": "675" },
+      "sell": "1312.5"
+    }
+  },
+  {
+    "name": "Aghanim's Scepter",
+    "type": "Purchasable",
+    "classification": "Magical",
+    "stats": [
+      "10 Strength",
+      "10 Agility",
+      "10 Intelligence",
+      "175 Health",
+      "175 Mana"
+    ],
+    "price": {
+      "purchase": { "base": "4200", "recipe": "None" },
+      "sell": "2100"
+    }
+  },
+  {
+    "name": "Orchid Malevolence",
+    "type": "Purchasable",
+    "classification": "Magical",
+    "stats": [
+      "12 Intelligence",
+      "6 Health Regeneration",
+      "2.5 Mana Regeneration",
+      "10 Attack Damage",
+      "40 Attack Speed"
+    ],
+    "price": {
+      "purchase": { "base": "3200", "recipe": "275" },
+      "sell": "1737.5"
+    }
   },
   {
     "name": "Rod of Atos",
     "type": "Purchasable",
     "classification": "Magical",
-    "stats": ["15 Intelligence", "300 Health"]
-  },
-  {
-    "name": "Aether Lens",
-    "type": "Purchasable",
-    "classification": "Magical",
-    "stats": ["300 Mana", "2.5 Mana Regeneration"]
+    "stats": ["15 Intelligence", "300 Health"],
+    "price": { "purchase": { "base": "2000", "recipe": "250" }, "sell": "1125" }
   },
   {
     "name": "Solar Crest",
@@ -1148,48 +1435,88 @@
       "1.75 Mana Regeneration",
       "6 Armor",
       "25 Move Speed"
-    ]
-  },
-  {
-    "name": "Eul's Scepter of Divinity",
-    "type": "Purchasable",
-    "classification": "Magical",
-    "stats": ["10 Intelligence", "2.5 Mana Regeneration", "20 Move Speed"]
+    ],
+    "price": {
+      "purchase": { "base": "1725", "recipe": "700" },
+      "sell": "1212.5"
+    }
   },
   {
     "name": "Glimmer Cape",
     "type": "Purchasable",
     "classification": "Magical",
-    "stats": ["25% Magic Resistance"]
+    "stats": ["25% Magic Resistance"],
+    "price": { "purchase": { "base": "1800", "recipe": "350" }, "sell": "1075" }
   },
   {
-    "name": "Witch Blade",
+    "name": "Aether Lens",
     "type": "Purchasable",
     "classification": "Magical",
+    "stats": ["300 Mana", "2.5 Mana Regeneration"],
+    "price": {
+      "purchase": { "base": "1500", "recipe": "775" },
+      "sell": "1137.5"
+    }
+  },
+  {
+    "name": "Boots of Bearing",
+    "type": "Purchasable",
+    "classification": "Support",
     "stats": [
-      "12 Intelligence",
-      "6 Armor",
-      "35 Attack Speed",
-      "300 Projectile Speed"
-    ]
+      "8 Strength",
+      "8 Intelligence",
+      "15 Health Regeneration",
+      "65 Move Speed"
+    ],
+    "price": {
+      "purchase": { "base": "2575", "recipe": "1700" },
+      "sell": "2137.5"
+    }
+  },
+  {
+    "name": "Guardian Greaves",
+    "type": "Purchasable",
+    "classification": "Support",
+    "stats": ["250 Mana", "4 Armor", "50 Move Speed"],
+    "price": {
+      "purchase": { "base": "3500", "recipe": "1450" },
+      "sell": "2475"
+    }
   },
   {
     "name": "Veil of Discord",
     "type": "Purchasable",
     "classification": "Magical",
-    "stats": ["5 Strength", "5 Agility", "5 Intelligence"]
+    "stats": ["5 Strength", "5 Agility", "5 Intelligence"],
+    "price": { "purchase": { "base": "875", "recipe": "650" }, "sell": "762.5" }
   },
   {
     "name": "Force Staff",
     "type": "Purchasable",
     "classification": "Magical",
-    "stats": ["10 Intelligence", "175 Health"]
+    "stats": ["10 Intelligence", "175 Health"],
+    "price": { "purchase": { "base": "1250", "recipe": "950" }, "sell": "1100" }
+  },
+  {
+    "name": "Drum of Endurance",
+    "type": "Purchasable",
+    "classification": "Support",
+    "stats": ["7 Strength", "7 Intelligence"],
+    "price": { "purchase": { "base": "1150", "recipe": "500" }, "sell": "825" }
+  },
+  {
+    "name": "Mekansm",
+    "type": "Purchasable",
+    "classification": "Support",
+    "stats": ["4 Armor"],
+    "price": { "purchase": { "base": "975", "recipe": "800" }, "sell": "887.5" }
   },
   {
     "name": "Vladmir's Offering",
     "type": "Purchasable",
     "classification": "Support",
-    "stats": "None"
+    "stats": "None",
+    "price": { "purchase": { "base": "2200", "recipe": "250" }, "sell": "1225" }
   },
   {
     "name": "Spirit Vessel",
@@ -1202,60 +1529,52 @@
       "125 Health",
       "1.75 Mana Regeneration",
       "2 Armor"
-    ]
-  },
-  {
-    "name": "Boots of Bearing",
-    "type": "Purchasable",
-    "classification": "Support",
-    "stats": [
-      "8 Strength",
-      "8 Intelligence",
-      "15 Health Regeneration",
-      "65 Move Speed"
-    ]
-  },
-  {
-    "name": "Pipe of Insight",
-    "type": "Purchasable",
-    "classification": "Support",
-    "stats": ["6 Health Regeneration", "20% Magic Resistance"]
+    ],
+    "price": {
+      "purchase": { "base": "1580", "recipe": "1200" },
+      "sell": "1390"
+    }
   },
   {
     "name": "Holy Locket",
     "type": "Purchasable",
     "classification": "Support",
-    "stats": ["10 Strength", "10 Agility", "10 Intelligence"]
+    "stats": ["10 Strength", "10 Agility", "10 Intelligence"],
+    "price": { "purchase": { "base": "1875", "recipe": "525" }, "sell": "1200" }
   },
   {
-    "name": "Mekansm",
+    "name": "Pipe of Insight",
     "type": "Purchasable",
     "classification": "Support",
-    "stats": ["4 Armor"]
+    "stats": ["6 Health Regeneration", "20% Magic Resistance"],
+    "price": {
+      "purchase": { "base": "1925", "recipe": "1450" },
+      "sell": "1687.5"
+    }
   },
   {
-    "name": "Guardian Greaves",
+    "name": "Pavise",
     "type": "Purchasable",
     "classification": "Support",
-    "stats": ["250 Mana", "4 Armor", "50 Move Speed"]
-  },
-  {
-    "name": "Drum of Endurance",
-    "type": "Purchasable",
-    "classification": "Support",
-    "stats": ["7 Strength", "7 Intelligence"]
+    "stats": ["175 Health", "2.5 Mana Regeneration", "3 Armor"],
+    "price": { "purchase": { "base": "1125", "recipe": "275" }, "sell": "700" }
   },
   {
     "name": "Arcane Boots",
     "type": "Purchasable",
     "classification": "Support",
-    "stats": ["250 Mana", "45 Move Speed"]
+    "stats": ["250 Mana", "45 Move Speed"],
+    "price": { "purchase": { "base": "1300", "recipe": "None" }, "sell": "650" }
   },
   {
     "name": "Tranquil Boots",
     "type": "Purchasable",
     "classification": "Support",
-    "stats": ["14 Health Regeneration", "65 Move Speed"]
+    "stats": ["14 Health Regeneration", "65 Move Speed"],
+    "price": {
+      "purchase": { "base": "925", "recipe": "None" },
+      "sell": "462.5"
+    }
   },
   {
     "name": "Null Talisman",
@@ -1267,31 +1586,8 @@
       "5/10 Intelligence",
       "3%/6% Mana",
       "0.75/1.5 Mana Regeneration"
-    ]
-  },
-  {
-    "name": "Pavise",
-    "type": "Purchasable",
-    "classification": "Support",
-    "stats": ["175 Health", "2.5 Mana Regeneration", "3 Armor"]
-  },
-  {
-    "name": "Headdress",
-    "type": "Purchasable",
-    "classification": "Support",
-    "stats": ["0.5 Health Regeneration"]
-  },
-  {
-    "name": "Ring of Basilius",
-    "type": "Purchasable",
-    "classification": "Support",
-    "stats": ["0.5 Mana Regeneration"]
-  },
-  {
-    "name": "Medallion of Courage",
-    "type": "Purchasable",
-    "classification": "Support",
-    "stats": ["1.5 Mana Regeneration", "5 Armor"]
+    ],
+    "price": { "purchase": { "base": "295", "recipe": "210" }, "sell": "252.5" }
   },
   {
     "name": "Urn of Shadows",
@@ -1303,19 +1599,25 @@
       "2 Intelligence",
       "1.4 Mana Regeneration",
       "2 Armor"
-    ]
+    ],
+    "price": { "purchase": { "base": "505", "recipe": "375" }, "sell": "440" }
   },
   {
-    "name": "Magic Wand",
+    "name": "Medallion of Courage",
+    "type": "Purchasable",
+    "classification": "Support",
+    "stats": ["1.5 Mana Regeneration", "5 Armor"],
+    "price": {
+      "purchase": { "base": "1025", "recipe": "None" },
+      "sell": "512.5"
+    }
+  },
+  {
+    "name": "Soul Ring",
     "type": "Purchasable",
     "classification": "Accessories",
-    "stats": ["3 Strength", "3 Agility", "3 Intelligence"]
-  },
-  {
-    "name": "Sacred Relic",
-    "type": "Purchasable",
-    "classification": "Secret",
-    "stats": ["55 Attack Damage"]
+    "stats": ["6 Strength", "2 Armor"],
+    "price": { "purchase": { "base": "455", "recipe": "350" }, "sell": "402.5" }
   },
   {
     "name": "Bracer",
@@ -1327,408 +1629,579 @@
       "2/4 Intelligence",
       "0.75/1.5 Health Regeneration",
       "3/6 Attack Damage"
-    ]
+    ],
+    "price": { "purchase": { "base": "295", "recipe": "210" }, "sell": "252.5" }
+  },
+  {
+    "name": "Wraith Band",
+    "type": "Purchasable",
+    "classification": "Accessories",
+    "stats": [
+      "2/4 Strength",
+      "5/10 Agility",
+      "2/4 Intelligence",
+      "2/4 Armor",
+      "5/10 Attack Speed"
+    ],
+    "price": { "purchase": { "base": "295", "recipe": "210" }, "sell": "252.5" }
+  },
+  {
+    "name": "Magic Wand",
+    "type": "Purchasable",
+    "classification": "Accessories",
+    "stats": ["3 Strength", "3 Agility", "3 Intelligence"],
+    "price": { "purchase": { "base": "300", "recipe": "150" }, "sell": "225" }
   },
   {
     "name": "Demon Edge",
     "type": "Purchasable",
     "classification": "Secret",
-    "stats": ["40 Attack Damage"]
-  },
-  {
-    "name": "Ultimate Orb",
-    "type": "Purchasable",
-    "classification": "Secret",
-    "stats": ["10 Strength", "10 Agility", "10 Intelligence"]
-  },
-  {
-    "name": "Mystic Staff",
-    "type": "Purchasable",
-    "classification": "Secret",
-    "stats": ["25 Intelligence"]
-  },
-  {
-    "name": "Eaglesong",
-    "type": "Purchasable",
-    "classification": "Secret",
-    "stats": ["25 Agility"]
+    "stats": ["40 Attack Damage"],
+    "price": {
+      "purchase": { "base": "2200", "recipe": "None" },
+      "sell": "1100"
+    }
   },
   {
     "name": "Reaver",
     "type": "Purchasable",
     "classification": "Secret",
-    "stats": ["25 Strength"]
-  },
-  {
-    "name": "Point Booster",
-    "type": "Purchasable",
-    "classification": "Secret",
-    "stats": ["175 Health", "175 Mana"]
-  },
-  {
-    "name": "Cornucopia",
-    "type": "Purchasable",
-    "classification": "Secret",
-    "stats": ["5 Health Regeneration", "2 Mana Regeneration", "7 Attack Damage"]
-  },
-  {
-    "name": "Vitality Booster",
-    "type": "Purchasable",
-    "classification": "Secret",
-    "stats": ["250 Health"]
-  },
-  {
-    "name": "Talisman of Evasion",
-    "type": "Purchasable",
-    "classification": "Secret",
-    "stats": ["15% Evasion"]
+    "stats": ["25 Strength"],
+    "price": {
+      "purchase": { "base": "2800", "recipe": "None" },
+      "sell": "1400"
+    }
   },
   {
     "name": "Hyperstone",
     "type": "Purchasable",
     "classification": "Secret",
-    "stats": ["60 Attack Speed"]
+    "stats": ["60 Attack Speed"],
+    "price": {
+      "purchase": { "base": "2000", "recipe": "None" },
+      "sell": "1000"
+    }
+  },
+  {
+    "name": "Sacred Relic",
+    "type": "Purchasable",
+    "classification": "Secret",
+    "stats": ["55 Attack Damage"],
+    "price": {
+      "purchase": { "base": "3400", "recipe": "None" },
+      "sell": "1700"
+    }
+  },
+  {
+    "name": "Mystic Staff",
+    "type": "Purchasable",
+    "classification": "Secret",
+    "stats": ["25 Intelligence"],
+    "price": {
+      "purchase": { "base": "2800", "recipe": "None" },
+      "sell": "1400"
+    }
+  },
+  {
+    "name": "Ultimate Orb",
+    "type": "Purchasable",
+    "classification": "Secret",
+    "stats": ["10 Strength", "10 Agility", "10 Intelligence"],
+    "price": {
+      "purchase": { "base": "2050", "recipe": "None" },
+      "sell": "1025"
+    }
   },
   {
     "name": "Platemail",
     "type": "Purchasable",
     "classification": "Secret",
-    "stats": ["10 Armor"]
+    "stats": ["10 Armor"],
+    "price": { "purchase": { "base": "1400", "recipe": "None" }, "sell": "700" }
   },
   {
-    "name": "Gem of True Sight",
-    "type": "Purchasable",
-    "classification": "Miscellaneous",
-    "stats": "None"
-  },
-  {
-    "name": "Void Stone",
+    "name": "Eaglesong",
     "type": "Purchasable",
     "classification": "Secret",
-    "stats": ["1.75 Mana Regeneration"]
+    "stats": ["25 Agility"],
+    "price": {
+      "purchase": { "base": "2800", "recipe": "None" },
+      "sell": "1400"
+    }
   },
   {
-    "name": "Morbid Mask",
-    "type": "Purchasable",
-    "classification": "Miscellaneous",
-    "stats": "None"
-  },
-  {
-    "name": "Energy Booster",
+    "name": "Talisman of Evasion",
     "type": "Purchasable",
     "classification": "Secret",
-    "stats": ["250 Mana"]
+    "stats": ["15% Evasion"],
+    "price": { "purchase": { "base": "1300", "recipe": "None" }, "sell": "650" }
   },
   {
-    "name": "Shadow Amulet",
+    "name": "Cornucopia",
     "type": "Purchasable",
-    "classification": "Miscellaneous",
-    "stats": "None"
+    "classification": "Secret",
+    "stats": [
+      "5 Health Regeneration",
+      "2 Mana Regeneration",
+      "7 Attack Damage"
+    ],
+    "price": { "purchase": { "base": "1200", "recipe": "None" }, "sell": "600" }
   },
   {
-    "name": "Ghost Scepter",
+    "name": "Point Booster",
     "type": "Purchasable",
-    "classification": "Miscellaneous",
-    "stats": ["5 Strength", "5 Agility", "5 Intelligence"]
-  },
-  {
-    "name": "Blink Dagger",
-    "type": "Purchasable",
-    "classification": "Miscellaneous",
-    "stats": "None"
+    "classification": "Secret",
+    "stats": ["175 Health", "175 Mana"],
+    "price": { "purchase": { "base": "1200", "recipe": "None" }, "sell": "600" }
   },
   {
     "name": "Ring of Health",
     "type": "Purchasable",
     "classification": "Secret",
-    "stats": ["4.5 Health Regeneration"]
+    "stats": ["4.5 Health Regeneration"],
+    "price": { "purchase": { "base": "700", "recipe": "None" }, "sell": "350" }
   },
   {
-    "name": "Magic Stick",
+    "name": "Ghost Scepter",
     "type": "Purchasable",
     "classification": "Miscellaneous",
-    "stats": "None"
+    "stats": ["5 Strength", "5 Agility", "5 Intelligence"],
+    "price": { "purchase": { "base": "1500", "recipe": "None" }, "sell": "750" }
   },
   {
-    "name": "Cloak",
+    "name": "Void Stone",
+    "type": "Purchasable",
+    "classification": "Secret",
+    "stats": ["1.75 Mana Regeneration"],
+    "price": { "purchase": { "base": "700", "recipe": "None" }, "sell": "350" }
+  },
+  {
+    "name": "Energy Booster",
+    "type": "Purchasable",
+    "classification": "Secret",
+    "stats": ["250 Mana"],
+    "price": { "purchase": { "base": "800", "recipe": "None" }, "sell": "400" }
+  },
+  {
+    "name": "Blink Dagger",
     "type": "Purchasable",
     "classification": "Miscellaneous",
-    "stats": ["20% Magic Resistance"]
+    "stats": "None",
+    "price": {
+      "purchase": { "base": "2250", "recipe": "None" },
+      "sell": "1125"
+    }
+  },
+  {
+    "name": "Vitality Booster",
+    "type": "Purchasable",
+    "classification": "Secret",
+    "stats": ["250 Health"],
+    "price": { "purchase": { "base": "1000", "recipe": "None" }, "sell": "500" }
+  },
+  {
+    "name": "Shadow Amulet",
+    "type": "Purchasable",
+    "classification": "Miscellaneous",
+    "stats": "None",
+    "price": { "purchase": { "base": "1000", "recipe": "None" }, "sell": "500" }
   },
   {
     "name": "Boots of Speed",
     "type": "Purchasable",
     "classification": "Miscellaneous",
-    "stats": ["45 Move Speed"]
+    "stats": ["45 Move Speed"],
+    "price": { "purchase": { "base": "500", "recipe": "None" }, "sell": "250" }
   },
   {
-    "name": "Fluffy Hat",
+    "name": "Cloak",
     "type": "Purchasable",
     "classification": "Miscellaneous",
-    "stats": ["125 Health"]
+    "stats": ["20% Magic Resistance"],
+    "price": { "purchase": { "base": "800", "recipe": "None" }, "sell": "400" }
   },
   {
-    "name": "Ring of Regen",
+    "name": "Gem of True Sight",
     "type": "Purchasable",
     "classification": "Miscellaneous",
-    "stats": ["1.25 Health Regeneration"]
-  },
-  {
-    "name": "Sage's Mask",
-    "type": "Purchasable",
-    "classification": "Miscellaneous",
-    "stats": ["0.7 Mana Regeneration"]
+    "stats": "None",
+    "price": {
+      "purchase": { "base": "900", "recipe": "None" },
+      "sell": "Unsellable"
+    }
   },
   {
     "name": "Voodoo Mask",
     "type": "Purchasable",
     "classification": "Miscellaneous",
-    "stats": "None"
+    "stats": "None",
+    "price": { "purchase": { "base": "700", "recipe": "None" }, "sell": "350" }
+  },
+  {
+    "name": "Morbid Mask",
+    "type": "Purchasable",
+    "classification": "Miscellaneous",
+    "stats": "None",
+    "price": { "purchase": { "base": "900", "recipe": "None" }, "sell": "450" }
   },
   {
     "name": "Wind Lace",
     "type": "Purchasable",
     "classification": "Miscellaneous",
-    "stats": ["20 Move Speed"]
+    "stats": ["20 Move Speed"],
+    "price": { "purchase": { "base": "250", "recipe": "None" }, "sell": "125" }
   },
   {
-    "name": "Helm of Iron Will",
+    "name": "Fluffy Hat",
     "type": "Purchasable",
-    "classification": "Equipment",
-    "stats": ["5 Health Regeneration", "6 Armor"]
+    "classification": "Miscellaneous",
+    "stats": ["125 Health"],
+    "price": { "purchase": { "base": "250", "recipe": "None" }, "sell": "125" }
   },
   {
-    "name": "Blitz Knuckles",
+    "name": "Magic Stick",
     "type": "Purchasable",
-    "classification": "Equipment",
-    "stats": ["35 Attack Speed"]
-  },
-  {
-    "name": "Claymore",
-    "type": "Purchasable",
-    "classification": "Equipment",
-    "stats": ["20 Attack Damage"]
-  },
-  {
-    "name": "Broadsword",
-    "type": "Purchasable",
-    "classification": "Equipment",
-    "stats": ["15 Attack Damage"]
-  },
-  {
-    "name": "Quarterstaff",
-    "type": "Purchasable",
-    "classification": "Equipment",
-    "stats": ["10 Attack Damage", "10 Attack Speed"]
-  },
-  {
-    "name": "Javelin",
-    "type": "Purchasable",
-    "classification": "Equipment",
-    "stats": "None"
-  },
-  {
-    "name": "Chainmail",
-    "type": "Purchasable",
-    "classification": "Equipment",
-    "stats": ["4 Armor"]
+    "classification": "Miscellaneous",
+    "stats": "None",
+    "price": { "purchase": { "base": "200", "recipe": "None" }, "sell": "100" }
   },
   {
     "name": "Mithril Hammer",
     "type": "Purchasable",
     "classification": "Equipment",
-    "stats": ["24 Attack Damage"]
+    "stats": ["24 Attack Damage"],
+    "price": { "purchase": { "base": "1600", "recipe": "None" }, "sell": "800" }
   },
   {
-    "name": "Gloves of Haste",
+    "name": "Blitz Knuckles",
     "type": "Purchasable",
     "classification": "Equipment",
-    "stats": ["20 Attack Speed"]
+    "stats": ["35 Attack Speed"],
+    "price": { "purchase": { "base": "1000", "recipe": "None" }, "sell": "500" }
+  },
+  {
+    "name": "Claymore",
+    "type": "Purchasable",
+    "classification": "Equipment",
+    "stats": ["20 Attack Damage"],
+    "price": { "purchase": { "base": "1350", "recipe": "None" }, "sell": "675" }
+  },
+  {
+    "name": "Javelin",
+    "type": "Purchasable",
+    "classification": "Equipment",
+    "stats": "None",
+    "price": { "purchase": { "base": "1100", "recipe": "None" }, "sell": "550" }
+  },
+  {
+    "name": "Sage's Mask",
+    "type": "Purchasable",
+    "classification": "Miscellaneous",
+    "stats": ["0.7 Mana Regeneration"],
+    "price": { "purchase": { "base": "175", "recipe": "None" }, "sell": "87.5" }
+  },
+  {
+    "name": "Ring of Regen",
+    "type": "Purchasable",
+    "classification": "Miscellaneous",
+    "stats": ["1.25 Health Regeneration"],
+    "price": { "purchase": { "base": "175", "recipe": "None" }, "sell": "87.5" }
+  },
+  {
+    "name": "Broadsword",
+    "type": "Purchasable",
+    "classification": "Equipment",
+    "stats": ["15 Attack Damage"],
+    "price": { "purchase": { "base": "1000", "recipe": "None" }, "sell": "500" }
+  },
+  {
+    "name": "Helm of Iron Will",
+    "type": "Purchasable",
+    "classification": "Equipment",
+    "stats": ["5 Health Regeneration", "6 Armor"],
+    "price": {
+      "purchase": { "base": "975", "recipe": "None" },
+      "sell": "487.5"
+    }
+  },
+  {
+    "name": "Chainmail",
+    "type": "Purchasable",
+    "classification": "Equipment",
+    "stats": ["4 Armor"],
+    "price": { "purchase": { "base": "550", "recipe": "None" }, "sell": "275" }
   },
   {
     "name": "Blight Stone",
     "type": "Purchasable",
     "classification": "Equipment",
-    "stats": "None"
+    "stats": "None",
+    "price": { "purchase": { "base": "300", "recipe": "None" }, "sell": "150" }
   },
   {
     "name": "Orb of Venom",
     "type": "Purchasable",
     "classification": "Equipment",
-    "stats": "None"
-  },
-  {
-    "name": "Infused Raindrops",
-    "type": "Purchasable",
-    "classification": "Equipment",
-    "stats": ["0.8 Mana Regeneration"]
-  },
-  {
-    "name": "Quelling Blade",
-    "type": "Purchasable",
-    "classification": "Equipment",
-    "stats": "None"
-  },
-  {
-    "name": "Blades of Attack",
-    "type": "Purchasable",
-    "classification": "Equipment",
-    "stats": ["9 Attack Damage"]
+    "stats": "None",
+    "price": {
+      "purchase": { "base": "275", "recipe": "None" },
+      "sell": "137.5"
+    }
   },
   {
     "name": "Ring of Protection",
     "type": "Purchasable",
     "classification": "Equipment",
-    "stats": ["2 Armor"]
+    "stats": ["2 Armor"],
+    "price": { "purchase": { "base": "175", "recipe": "None" }, "sell": "87.5" }
   },
   {
-    "name": "Staff of Wizardry",
+    "name": "Blades of Attack",
     "type": "Purchasable",
-    "classification": "Attributes",
-    "stats": ["10 Intelligence"]
+    "classification": "Equipment",
+    "stats": ["9 Attack Damage"],
+    "price": { "purchase": { "base": "450", "recipe": "None" }, "sell": "225" }
+  },
+  {
+    "name": "Quarterstaff",
+    "type": "Purchasable",
+    "classification": "Equipment",
+    "stats": ["10 Attack Damage", "10 Attack Speed"],
+    "price": {
+      "purchase": { "base": "875", "recipe": "None" },
+      "sell": "437.5"
+    }
+  },
+  {
+    "name": "Gloves of Haste",
+    "type": "Purchasable",
+    "classification": "Equipment",
+    "stats": ["20 Attack Speed"],
+    "price": { "purchase": { "base": "450", "recipe": "None" }, "sell": "225" }
+  },
+  {
+    "name": "Infused Raindrops",
+    "type": "Purchasable",
+    "classification": "Equipment",
+    "stats": ["0.8 Mana Regeneration"],
+    "price": {
+      "purchase": { "base": "225", "recipe": "None" },
+      "sell": "18.8 per count"
+    }
   },
   {
     "name": "Ogre Axe",
     "type": "Purchasable",
     "classification": "Attributes",
-    "stats": ["10 Strength"]
-  },
-  {
-    "name": "Blade of Alacrity",
-    "type": "Purchasable",
-    "classification": "Attributes",
-    "stats": ["10 Agility"]
+    "stats": ["10 Strength"],
+    "price": { "purchase": { "base": "1000", "recipe": "None" }, "sell": "500" }
   },
   {
     "name": "Diadem",
     "type": "Purchasable",
     "classification": "Attributes",
-    "stats": ["6 Strength", "6 Agility", "6 Intelligence"]
+    "stats": ["6 Strength", "6 Agility", "6 Intelligence"],
+    "price": { "purchase": { "base": "1000", "recipe": "None" }, "sell": "500" }
+  },
+  {
+    "name": "Staff of Wizardry",
+    "type": "Purchasable",
+    "classification": "Attributes",
+    "stats": ["10 Intelligence"],
+    "price": { "purchase": { "base": "1000", "recipe": "None" }, "sell": "500" }
+  },
+  {
+    "name": "Blade of Alacrity",
+    "type": "Purchasable",
+    "classification": "Attributes",
+    "stats": ["10 Agility"],
+    "price": { "purchase": { "base": "1000", "recipe": "None" }, "sell": "500" }
+  },
+  {
+    "name": "Quelling Blade",
+    "type": "Purchasable",
+    "classification": "Equipment",
+    "stats": "None",
+    "price": { "purchase": { "base": "100", "recipe": "None" }, "sell": "50" }
   },
   {
     "name": "Robe of the Magi",
     "type": "Purchasable",
     "classification": "Attributes",
-    "stats": ["6 Intelligence"]
+    "stats": ["6 Intelligence"],
+    "price": { "purchase": { "base": "450", "recipe": "None" }, "sell": "225" }
   },
   {
     "name": "Belt of Strength",
     "type": "Purchasable",
     "classification": "Attributes",
-    "stats": ["6 Strength"]
+    "stats": ["6 Strength"],
+    "price": { "purchase": { "base": "450", "recipe": "None" }, "sell": "225" }
   },
   {
     "name": "Crown",
     "type": "Purchasable",
     "classification": "Attributes",
-    "stats": ["4 Strength", "4 Agility", "4 Intelligence"]
-  },
-  {
-    "name": "Band of Elvenskin",
-    "type": "Purchasable",
-    "classification": "Attributes",
-    "stats": ["6 Agility"]
+    "stats": ["4 Strength", "4 Agility", "4 Intelligence"],
+    "price": { "purchase": { "base": "450", "recipe": "None" }, "sell": "225" }
   },
   {
     "name": "Circlet",
     "type": "Purchasable",
     "classification": "Attributes",
-    "stats": ["2 Strength", "2 Agility", "2 Intelligence"]
+    "stats": ["2 Strength", "2 Agility", "2 Intelligence"],
+    "price": { "purchase": { "base": "155", "recipe": "None" }, "sell": "77.5" }
   },
   {
     "name": "Slippers of Agility",
     "type": "Purchasable",
     "classification": "Attributes",
-    "stats": ["3 Agility"]
+    "stats": ["3 Agility"],
+    "price": { "purchase": { "base": "140", "recipe": "None" }, "sell": "70" }
+  },
+  {
+    "name": "Band of Elvenskin",
+    "type": "Purchasable",
+    "classification": "Attributes",
+    "stats": ["6 Agility"],
+    "price": { "purchase": { "base": "450", "recipe": "None" }, "sell": "225" }
   },
   {
     "name": "Gauntlets of Strength",
     "type": "Purchasable",
     "classification": "Attributes",
-    "stats": ["3 Strength"]
-  },
-  {
-    "name": "Mantle of Intelligence",
-    "type": "Purchasable",
-    "classification": "Attributes",
-    "stats": ["3 Intelligence"]
+    "stats": ["3 Strength"],
+    "price": { "purchase": { "base": "140", "recipe": "None" }, "sell": "70" }
   },
   {
     "name": "Iron Branch",
     "type": "Purchasable",
     "classification": "Attributes",
-    "stats": ["1 Strength", "1 Agility", "1 Intelligence"]
-  },
-  {
-    "name": "Healing Salve",
-    "type": "Purchasable",
-    "classification": "Consumables",
-    "stats": "None"
+    "stats": ["1 Strength", "1 Agility", "1 Intelligence"],
+    "price": { "purchase": { "base": "50", "recipe": "None" }, "sell": "25" }
   },
   {
     "name": "Aghanim's Shard",
     "type": "Purchasable",
     "classification": "Consumables",
-    "stats": "None"
+    "stats": "None",
+    "price": {
+      "purchase": { "base": "1400", "recipe": "None" },
+      "sell": "Unsellable"
+    }
   },
   {
-    "name": "Town Portal Scroll",
+    "name": "Mantle of Intelligence",
     "type": "Purchasable",
-    "classification": "Consumables",
-    "stats": "None"
+    "classification": "Attributes",
+    "stats": ["3 Intelligence"],
+    "price": { "purchase": { "base": "140", "recipe": "None" }, "sell": "70" }
   },
   {
     "name": "Bottle",
     "type": "Purchasable",
     "classification": "Consumables",
-    "stats": "None"
+    "stats": "None",
+    "price": {
+      "purchase": { "base": "675", "recipe": "None" },
+      "sell": "337.5"
+    }
+  },
+  {
+    "name": "Healing Salve",
+    "type": "Purchasable",
+    "classification": "Consumables",
+    "stats": "None",
+    "price": {
+      "purchase": { "base": "100", "recipe": "None" },
+      "sell": "50 per count"
+    }
   },
   {
     "name": "Dust of Appearance",
     "type": "Purchasable",
     "classification": "Consumables",
-    "stats": "None"
+    "stats": "None",
+    "price": {
+      "purchase": { "base": "80", "recipe": "None" },
+      "sell": "40 per count"
+    }
   },
   {
-    "name": "Smoke of Deceit",
+    "name": "Town Portal Scroll",
     "type": "Purchasable",
     "classification": "Consumables",
-    "stats": "None"
+    "stats": "None",
+    "price": {
+      "purchase": { "base": "100", "recipe": "None" },
+      "sell": "50 per count"
+    }
   },
   {
     "name": "Enchanted Mango",
     "type": "Purchasable",
     "classification": "Consumables",
-    "stats": ["0.4 Health Regeneration"]
-  },
-  {
-    "name": "Clarity",
-    "type": "Purchasable",
-    "classification": "Consumables",
-    "stats": "None"
-  },
-  {
-    "name": "Faerie Fire",
-    "type": "Purchasable",
-    "classification": "Consumables",
-    "stats": ["2 Attack Damage"]
+    "stats": ["0.4 Health Regeneration"],
+    "price": {
+      "purchase": { "base": "65", "recipe": "None" },
+      "sell": "32.5 per count"
+    }
   },
   {
     "name": "Sentry Ward",
     "type": "Purchasable",
     "classification": "Consumables",
-    "stats": "None"
+    "stats": "None",
+    "price": {
+      "purchase": { "base": "50", "recipe": "None" },
+      "sell": "25 per count"
+    }
   },
   {
-    "name": "Blood Grenade",
+    "name": "Faerie Fire",
     "type": "Purchasable",
     "classification": "Consumables",
-    "stats": ["50 Health"]
+    "stats": ["2 Attack Damage"],
+    "price": { "purchase": { "base": "65", "recipe": "None" }, "sell": "32.5" }
+  },
+  {
+    "name": "Smoke of Deceit",
+    "type": "Purchasable",
+    "classification": "Consumables",
+    "stats": "None",
+    "price": {
+      "purchase": { "base": "50", "recipe": "None" },
+      "sell": "25 per count"
+    }
   },
   {
     "name": "Tango",
     "type": "Purchasable",
     "classification": "Consumables",
-    "stats": "None"
+    "stats": "None",
+    "price": {
+      "purchase": { "base": "90", "recipe": "None" },
+      "sell": "15 per count"
+    }
+  },
+  {
+    "name": "Clarity",
+    "type": "Purchasable",
+    "classification": "Consumables",
+    "stats": "None",
+    "price": {
+      "purchase": { "base": "50", "recipe": "None" },
+      "sell": "25 per count"
+    }
+  },
+  {
+    "name": "Blood Grenade",
+    "type": "Purchasable",
+    "classification": "Consumables",
+    "stats": ["50 Health"],
+    "price": {
+      "purchase": { "base": "50", "recipe": "None" },
+      "sell": "25 per count"
+    }
   }
 ]

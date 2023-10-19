@@ -71,26 +71,11 @@ class ItemSpider(scrapy.Spider):
         
         stats = self.get_item_stats(response)
         item["stats"] = stats
+        
+        price = self.get_item_price(response) if type == "Purchasable" else "None"
+        item["price"] = price
         yield item
         
-    def get_item_name(self, response):
-        return response.xpath('//span[@class="mw-page-title-main"]/text()').get()
-    
-    def get_item_stats(self, response):
-        stats = response.xpath('string(//table[@class="infobox"][1]//tr[th/span[contains(text(), "Bonus")]])').get().strip().split("+")[1:]
-        stats = stats if stats else "None"
-        if len(stats) >= 2:
-            first_stat = stats[0]
-            second_stat = stats[1]
-            if "\n" in first_stat:
-                new_first_stat = first_stat[0:first_stat.index("\n")]
-                stats[0] = new_first_stat
-                new_second_stat = re.sub("  ", " ", second_stat)
-                stats[1] = new_second_stat
-                new_stats = [" or ".join(stats)]
-                stats = new_stats
-        return stats
-    
     def get_item_categories(self, response):
         categories = response.xpath('//h3[position()!=12 and position()<15]/span/@id').getall()
         for i in range(len(categories)):
@@ -116,3 +101,40 @@ class ItemSpider(scrapy.Spider):
     
     def get_tier_items(self, tier):
         return tier.xpath('./div/a[position() mod 2 = 0]/@href').getall()
+
+    def get_item_name(self, response):
+        return response.xpath('//span[@class="mw-page-title-main"]/text()').get()
+    
+    def get_item_stats(self, response):
+        stats = response.xpath('string(//table[@class="infobox"][1]//tr[th/span[contains(text(), "Bonus")]])').get().strip().split("+")[1:]
+        stats = stats if stats else "None"
+        if len(stats) >= 2:
+            first_stat = stats[0]
+            second_stat = stats[1]
+            if "\n" in first_stat:
+                new_first_stat = first_stat[0:first_stat.index("\n")]
+                stats[0] = new_first_stat
+                new_second_stat = re.sub("  ", " ", second_stat)
+                stats[1] = new_second_stat
+                new_stats = [" or ".join(stats)]
+                stats = new_stats
+        return stats
+    
+    def get_item_price(self, response):
+        price = {}
+        purchase_details = response.xpath('string(//table[@class="infobox"][1]//tr[th[contains(text(), "Cost")]])').get().strip().replace("\n\n\n\n", "+").split("+")[1]
+        sell = response.xpath('string(//table[@class="infobox"][1]//tr[th/a/span[contains(text(), "Sell Value")]])').get().strip().replace("\n\n\n\n", "+").split("+")[1].replace("  / Count", " per count").replace("  ", " ").strip()
+        purchase_prices = purchase_details.split("  ")
+        purchase = {}
+        base = purchase_prices[0]
+        recipe = "None"
+        if len(purchase_prices) > 1:
+            recipe = purchase_prices[1][1:-1]
+        if recipe != "None":
+            base = str(int(base) - int(recipe))
+        purchase["base"] = base
+        purchase["recipe"] = recipe
+        price["purchase"] = purchase
+        price["sell"] = sell
+        return price
+        
