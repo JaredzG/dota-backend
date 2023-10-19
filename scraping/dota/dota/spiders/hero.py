@@ -40,7 +40,7 @@ class HeroSpider(scrapy.Spider):
         descriptor = self.get_descriptor(response)
         hero["descriptor"] = descriptor
 
-        description = self.get_description(response, hero["name"])
+        description = self.get_description(response)
         hero["description"] = description
 
         abilities = self.get_abilities(response)
@@ -70,18 +70,44 @@ class HeroSpider(scrapy.Spider):
         abilities = response.xpath('//div[@class="ability-background"]/div')
         for ability in abilities:
             ability_name = self.get_ability_name(ability)
+            ability_details = self.get_ability_details(ability)
             ability_description = self.get_ability_description(ability)
             ability_upgrades = self.get_ability_upgrades(ability)
             ability_lore = self.get_ability_lore(ability)
             hero_abilities[ability_name] = {
+                "details": ability_details,
                 "description": ability_description,
-                "upgrades": ability_upgrades if ability_upgrades else "N/A",
-                "lore": ability_lore if ability_lore else "N/A",
+                "upgrades": ability_upgrades if ability_upgrades else "None",
+                "lore": ability_lore if ability_lore else "None",
             }
         return hero_abilities
 
     def get_ability_name(self, ability):
         return ability.xpath("./div/span/text()").get().strip()
+    
+    def get_ability_details(self, ability):
+        details = {}
+        ability_details = ability.xpath("string(./div[2]/div[2]/div[1])").get().strip()
+        ability_details = ability_details.replace("\xa0", "")
+        ability_details = ability_details.split("\n")
+        for i in range(len(ability_details)):
+            detail = ability_details[i]
+            detail = detail.replace("No Target", "NoTarget")
+            detail = detail.split(" ")
+            detail = detail[0]
+            if "Ability" in detail:
+                detail_value = detail[7:]
+                details["Ability"] = re.findall(r"[A-Z][^A-Z]*", detail_value)
+                details["Ability"] = " ".join(details["Ability"])
+            elif "Affects" in detail:
+                detail_value = detail[7:]
+                details["Affects"] = re.findall(r"[A-Z][^A-Z]*", detail_value)
+                details["Affects"] = " ".join(details["Affects"])
+            elif "Damage" in detail:
+                detail_value = detail[6:]
+                details["Damage"] = re.findall(r"[A-Z][^A-Z]*", detail_value)
+                details["Damage"] = " ".join(details["Damage"])
+        return details
 
     def get_ability_description(self, ability):
         description = "".join(
@@ -94,12 +120,12 @@ class HeroSpider(scrapy.Spider):
     
     def get_ability_upgrades(self, ability):
         upgrades = {}
-        aghs_upgrades = ability.xpath('string(.//div[(count(div)=4 and div[1]//div[contains(text(), "Aghanim")] and div[3]//div[contains(text(), "Aghanim")]) or (count(div)=2 and div[1]//div[contains(text(), "Aghanim")])])').get().strip().split('\n')
-        aghs_upgrades = list(filter(lambda item: item != '', aghs_upgrades))
+        aghs_upgrades = ability.xpath('string(.//div[(count(div)=4 and div[1]//div[contains(text(), "Aghanim")] and div[3]//div[contains(text(), "Aghanim")]) or (count(div)=2 and div[1]//div[contains(text(), "Aghanim")])])').get().strip().split("\n")
+        aghs_upgrades = list(filter(lambda item: item != "", aghs_upgrades))
         for i in range(0, len(aghs_upgrades), 2):
-            if 'Scepter' in aghs_upgrades[i]:
+            if "Scepter" in aghs_upgrades[i]:
                 upgrades["Aghanim's Scepter"] = aghs_upgrades[i + 1]
-            elif 'Shard' in aghs_upgrades[i]:
+            elif "Shard" in aghs_upgrades[i]:
                 upgrades["Aghanim's Shard"] = aghs_upgrades[i + 1]
         return upgrades
 
@@ -116,7 +142,7 @@ class HeroSpider(scrapy.Spider):
             .strip()
         )
 
-    def get_description(self, response, hero_name):
+    def get_description(self, response):
         description = response.xpath(
             '//table[@class="infobox"]/following-sibling::table[1]/tbody/tr[3]/td[1]'
         )
