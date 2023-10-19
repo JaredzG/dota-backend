@@ -78,7 +78,7 @@ class ItemSpider(scrapy.Spider):
     
     def get_item_stats(self, response):
         stats = response.xpath('string(//table[@class="infobox"][1]//tr[th/span[contains(text(), "Bonus")]])').get().strip().split("+")[1:]
-        stats = stats if stats else "N/A"
+        stats = stats if stats else "None"
         if len(stats) >= 2:
             first_stat = stats[0]
             second_stat = stats[1]
