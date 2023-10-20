@@ -134,15 +134,16 @@ class ItemSpider(scrapy.Spider):
         sell = response.xpath('string(//table[@class="infobox"][1]//tr[th/a/span[contains(text(), "Sell Value")]])').get().strip().replace("\n\n\n\n", "+").split("+")[1].replace("  / Count", " per count").replace("  ", " ").strip()
         purchase_prices = purchase_details.split("  ")
         purchase = {}
-        base = purchase_prices[0]
+        total = purchase_prices[0]
+        base = total
         recipe = "None"
         if len(purchase_prices) > 1:
             recipe = purchase_prices[1][1:-1]
         if recipe != "None":
-            base = str(int(base) - int(recipe))
+            base = str(int(total) - int(recipe))
+        purchase["total"] = total
         purchase["base"] = base
         purchase["recipe"] = recipe
         price["purchase"] = purchase
         price["sell"] = sell
         return price
-        
