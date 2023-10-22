@@ -69,11 +69,14 @@ class ItemSpider(scrapy.Spider):
         
         item["classification"] = classification
         
+        price = self.get_item_price(response) if type == "Purchasable" else "None"
+        item["price"] = price
+        
         stats = self.get_item_stats(response)
         item["stats"] = stats
         
-        price = self.get_item_price(response) if type == "Purchasable" else "None"
-        item["price"] = price
+        abilities = self.get_abilities(response)
+        item["abilities"] = abilities
         yield item
         
     def get_item_categories(self, response):
@@ -147,3 +150,50 @@ class ItemSpider(scrapy.Spider):
         price["purchase"] = purchase
         price["sell"] = sell
         return price
+
+    def get_abilities(self, response):
+            hero_abilities = {}
+            abilities = response.xpath('//div[@class="ability-background"]/div')
+            for ability in abilities:
+                ability_name = self.get_ability_name(ability)
+                ability_features = self.get_ability_features(ability)
+                ability_description = self.get_ability_description(ability)
+                hero_abilities[ability_name] = {
+                    "features": ability_features,
+                    "description": ability_description,
+                }
+            return hero_abilities
+
+    def get_ability_name(self, ability):
+        return ability.xpath("./div/span/text()").get().strip()
+    
+    def get_ability_features(self, ability):
+        features = {}
+        ability_features = ability.xpath("string(./div[2]/div[2]/div[1])").get().strip()
+        ability_features = ability_features.replace("\xa0", "")
+        ability_features = ability_features.split("\n")
+        for i in range(len(ability_features)):
+            feature = ability_features[i]
+            feature = re.sub(r"\(.*?\)", "", feature)
+            feature = feature.replace("  ", " ")
+            feature = feature.strip()
+            if "Ability" in feature:
+                feature_value = feature[7:]
+                features["Ability"] = feature_value
+            elif "Affects" in feature:
+                feature_value = feature[7:]
+                features["Affects"] = feature_value
+            elif "Damage" in feature:
+                feature_value = feature[6:]
+                features["Damage"] = feature_value
+            ability_features[i] = feature
+        return features
+
+    def get_ability_description(self, ability):
+        description = "".join(
+            ability.xpath("./div[2]/div[2]/div[2]//text()").getall()
+        ).strip()
+        description = description.replace("\n", "")
+        description = description.replace('"', "`")
+        description = re.sub(r"\.([A-Z])", r". \1", description)
+        return description

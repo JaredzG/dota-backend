@@ -18,10 +18,10 @@ class HeroItem(scrapy.Item):
 
 class ItemItem(scrapy.Item):
     name = scrapy.Field()
-    price = scrapy.Field()
+    lore = scrapy.Field()
     type = scrapy.Field()
     classification = scrapy.Field()
+    price = scrapy.Field()
     stats = scrapy.Field()
-    passive = scrapy.Field()
-    active = scrapy.Field()
+    abilities = scrapy.Field()
     components = scrapy.Field()
