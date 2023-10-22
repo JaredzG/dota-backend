@@ -24,7 +24,6 @@ class HeroSpider(scrapy.Spider):
 
     def get_hero_data(self, response):
         hero = response.meta["hero"]
-        primary_attribute = response.meta["primary_attribute"]
 
         name = self.get_hero_name(response)
         hero["name"] = name
@@ -38,6 +37,7 @@ class HeroSpider(scrapy.Spider):
         description = self.get_description(response)
         hero["description"] = description
 
+        primary_attribute = response.meta["primary_attribute"]
         hero["primary_attribute"] = primary_attribute
 
         roles = self.get_roles(response)
