@@ -75,8 +75,11 @@ class ItemSpider(scrapy.Spider):
         abilities = self.get_abilities(response)
         item["abilities"] = abilities
         
-        price = self.get_item_price(response) if type == "Purchasable" else "None"
+        price = self.get_item_price(response, type)
         item["price"] = price
+        
+        components = self.get_components(response)
+        item["components"] = components
         yield item
         
     def get_item_categories(self, response):
@@ -131,14 +134,17 @@ class ItemSpider(scrapy.Spider):
                 stats.append(new_third_stat)
         return stats
     
-    def get_item_price(self, response):
+    def get_item_price(self, response, type):
         price = {}
-        purchase_details = response.xpath('string(//table[@class="infobox"][1]//tr[th[contains(text(), "Cost")]])').get().strip().replace("\n\n\n\n", "+").split("+")[1]
-        sell = response.xpath('string(//table[@class="infobox"][1]//tr[th/a/span[contains(text(), "Sell Value")]])').get().strip().replace("\n\n\n\n", "+").split("+")[1].replace("  / Count", " per count").replace("  ", " ").strip()
-        purchase_prices = purchase_details.split("  ")
-        purchase = purchase_prices[0]
-        price["purchase"] = purchase
-        price["sell"] = sell
+        if type == "Purchasable":
+            purchase_details = response.xpath('string(//table[@class="infobox"][1]//tr[th[contains(text(), "Cost")]])').get().strip().replace("\n\n\n\n", "+").split("+")[1]
+            sell = response.xpath('string(//table[@class="infobox"][1]//tr[th/a/span[contains(text(), "Sell Value")]])').get().strip().replace("\n\n\n\n", "+").split("+")[1].replace("  / Count", " per count").replace("  ", " ").strip()
+            purchase_prices = purchase_details.split("  ")
+            purchase = purchase_prices[0]
+            price["purchase"] = purchase
+            price["sell"] = sell
+        else:
+            price = "None"
         return price
 
     def get_abilities(self, response):
@@ -188,3 +194,14 @@ class ItemSpider(scrapy.Spider):
         description = description.replace('"', "`")
         description = re.sub(r"\.([A-Z])", r". \1", description)
         return description
+    
+    def get_components(self, response):
+        components = {}
+        item_components = response.xpath('//tr[preceding-sibling::tr[1]/th[contains(text(), "Recipe")]]/th/div[last()]/div/div/a/@title').getall()
+        for i in range(len(item_components)):
+            component = item_components[i]
+            cost = re.findall(r"\((.*?)\)", component)[0]
+            component = re.sub(r" \(.*?\)", "", component)
+            components[component] = cost
+        components = components if components else "None"
+        return components
