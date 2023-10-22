@@ -21,7 +21,7 @@ class ItemItem(scrapy.Item):
     lore = scrapy.Field()
     type = scrapy.Field()
     classification = scrapy.Field()
-    price = scrapy.Field()
     stats = scrapy.Field()
     abilities = scrapy.Field()
+    price = scrapy.Field()
     components = scrapy.Field()

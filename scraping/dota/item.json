@@ -1,28 +1,8 @@
 [
   {
-    "name": "Headdress",
-    "type": "Purchasable",
-    "classification": "Support",
-    "price": {
-      "purchase": { "total": "425", "base": "175", "recipe": "250" },
-      "sell": "212.5"
-    },
-    "stats": ["0.5 Health Regeneration"],
-    "abilities": {
-      "Regeneration Aura": {
-        "features": { "Ability": "Aura", "Affects": "Allies" },
-        "description": "Grants 2 health regeneration to allies."
-      }
-    }
-  },
-  {
     "name": "Observer Ward",
     "type": "Purchasable",
     "classification": "Consumables",
-    "price": {
-      "purchase": { "total": "0", "base": "0", "recipe": "None" },
-      "sell": "- per count"
-    },
     "stats": "None",
     "abilities": {
       "Plant": {
@@ -33,36 +13,26 @@
         "features": { "Ability": "Hidden" },
         "description": "This unit is permanently invisible and phased."
       }
-    }
+    },
+    "price": { "purchase": "0", "sell": "- per count" }
   },
   {
-    "name": "Mask of Madness",
+    "name": "Buckler",
     "type": "Purchasable",
-    "classification": "Accessories",
-    "price": {
-      "purchase": { "total": "1775", "base": "1775", "recipe": "None" },
-      "sell": "887.5"
-    },
-    "stats": ["10 Attack Damage", "10 Attack Speed"],
+    "classification": "Support",
+    "stats": ["1 Armor"],
     "abilities": {
-      "Berserk": {
-        "features": { "Ability": "No Target", "Affects": "Self" },
-        "description": "Gives 110 attack speed and 30 movement speed, but reduces your armor by 8 and silences you. Lasts 6 seconds."
-      },
-      "Lifesteal": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "Heals the attacker for 24% of attack damage dealt. Lifesteal from creeps is reduced by 50%"
+      "Buckler Aura": {
+        "features": { "Ability": "Aura", "Affects": "Allies" },
+        "description": "Grants 2 armor to player units."
       }
-    }
+    },
+    "price": { "purchase": "425", "sell": "212.5" }
   },
   {
     "name": "Phase Boots",
     "type": "Purchasable",
     "classification": "Accessories",
-    "price": {
-      "purchase": { "total": "1500", "base": "1500", "recipe": "None" },
-      "sell": "750"
-    },
     "stats": [
       "4 Armor",
       "50 Move Speed",
@@ -74,115 +44,95 @@
         "features": { "Ability": "No Target", "Affects": "Self" },
         "description": "Gives 20% increased movement speed on melee heroes, and 10% on ranged heroes, and lets you move through units and turn more quickly for 3 seconds."
       }
-    }
-  },
-  {
-    "name": "Buckler",
-    "type": "Purchasable",
-    "classification": "Support",
-    "price": {
-      "purchase": { "total": "425", "base": "175", "recipe": "250" },
-      "sell": "212.5"
     },
-    "stats": ["1 Armor"],
-    "abilities": {
-      "Buckler Aura": {
-        "features": { "Ability": "Aura", "Affects": "Allies" },
-        "description": "Grants 2 armor to player units."
-      }
-    }
+    "price": { "purchase": "1500", "sell": "750" }
   },
   {
     "name": "Oblivion Staff",
     "type": "Purchasable",
     "classification": "Accessories",
-    "price": {
-      "purchase": { "total": "1500", "base": "1500", "recipe": "None" },
-      "sell": "750"
-    },
     "stats": [
       "10 Intelligence",
       "1.25 Mana Regeneration",
       "15 Attack Damage",
       "10 Attack Speed"
     ],
-    "abilities": "None"
+    "abilities": "None",
+    "price": { "purchase": "1500", "sell": "750" }
   },
   {
     "name": "Power Treads",
     "type": "Purchasable",
     "classification": "Accessories",
-    "price": {
-      "purchase": { "total": "1400", "base": "1400", "recipe": "None" },
-      "sell": "700"
-    },
     "stats": ["55  Move Speed", "45  Move Speed", "25 Attack Speed"],
     "abilities": {
       "Switch Attribute": {
         "features": { "Ability": "No Target", "Affects": "Self" },
         "description": "Switches between +10 Strength, +10 Agility, or +10 Intelligence."
       }
-    }
-  },
-  {
-    "name": "Hand of Midas",
-    "type": "Purchasable",
-    "classification": "Accessories",
-    "price": {
-      "purchase": { "total": "2200", "base": "450", "recipe": "1750" },
-      "sell": "1100"
     },
-    "stats": ["35 Attack Speed"],
-    "abilities": {
-      "Transmute": {
-        "features": {
-          "Ability": "Target Unit",
-          "Affects": "Enemy Units",
-          "Damage": "Instant Kill"
-        },
-        "description": "Kills a non-hero target for 160 gold and 2.1x experience. Cannot be used on Ancient Creeps."
-      }
-    }
-  },
-  {
-    "name": "Moon Shard",
-    "type": "Purchasable",
-    "classification": "Accessories",
-    "price": {
-      "purchase": { "total": "4000", "base": "4000", "recipe": "None" },
-      "sell": "2000"
-    },
-    "stats": ["140 Attack Speed"],
-    "abilities": {
-      "Consume": {
-        "features": { "Ability": "Target Unit", "Affects": "Allied Heroes" },
-        "description": "Consume the Moon Shard to permanently gain 60 attack speed and 200 bonus night vision. Max 1 use."
-      },
-      "Shade Sight": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "Grants 400 bonus night vision."
-      }
-    }
+    "price": { "purchase": "1400", "sell": "700" }
   },
   {
     "name": "Perseverance",
     "type": "Purchasable",
     "classification": "Accessories",
-    "price": {
-      "purchase": { "total": "1400", "base": "1400", "recipe": "None" },
-      "sell": "700"
-    },
     "stats": ["6.5 Health Regeneration", "2.25 Mana Regeneration"],
-    "abilities": "None"
+    "abilities": "None",
+    "price": { "purchase": "1400", "sell": "700" }
+  },
+  {
+    "name": "Orb of Corrosion",
+    "type": "Purchasable",
+    "classification": "Accessories",
+    "stats": ["150 Health"],
+    "abilities": {
+      "Corrosion": {
+        "features": {
+          "Ability": "Passive",
+          "Affects": "Enemies",
+          "Damage": "Magical"
+        },
+        "description": "Dealing 3 damage per second, reducing armor by 3, and slowing movement speed by 13% if the equipped hero is melee, or by 4% if they are ranged. Lasts 3 seconds."
+      }
+    },
+    "price": { "purchase": "925", "sell": "462.5" }
+  },
+  {
+    "name": "Falcon Blade",
+    "type": "Purchasable",
+    "classification": "Accessories",
+    "stats": ["200 Health", "1.8 Mana Regeneration", "14 Attack Damage"],
+    "abilities": "None",
+    "price": { "purchase": "1125", "sell": "562.5" }
+  },
+  {
+    "name": "Helm of the Dominator",
+    "type": "Purchasable",
+    "classification": "Accessories",
+    "stats": [
+      "6 Strength",
+      "6 Agility",
+      "6 Intelligence",
+      "6 Health Regeneration",
+      "6 Armor"
+    ],
+    "abilities": {
+      "Dominate": {
+        "features": {
+          "Ability": "Target Unit",
+          "Affects": "Enemy Units",
+          "Damage": "Instant Kill"
+        },
+        "description": "Takes control of one neutral target unit and sets its movement speed to 380 and max health to a minimum of 1000. Also provides the unit with +25 base attack damage, +12 health regen, +4 mana regen and +4 armor. Dominated units with a max health of greater than 1000 retain their original max health.  Dominated unit's bounty is set to 100 gold."
+      }
+    },
+    "price": { "purchase": "2625", "sell": "1312.5" }
   },
   {
     "name": "Helm of the Overlord",
     "type": "Purchasable",
     "classification": "Accessories",
-    "price": {
-      "purchase": { "total": "6400", "base": "5075", "recipe": "1325" },
-      "sell": "3200"
-    },
     "stats": [
       "7 Strength",
       "7 Agility",
@@ -203,145 +153,130 @@
         "features": { "Ability": "Aura", "Affects": "Allies" },
         "description": "Grants 20% lifesteal, 18% bonus damage, 2 mana regeneration, and 3 armor to nearby allies. Lifesteal from creeps is reduced by 50%"
       }
-    }
+    },
+    "price": { "purchase": "6400", "sell": "3200" }
+  },
+  {
+    "name": "Moon Shard",
+    "type": "Purchasable",
+    "classification": "Accessories",
+    "stats": ["140 Attack Speed"],
+    "abilities": {
+      "Consume": {
+        "features": { "Ability": "Target Unit", "Affects": "Allied Heroes" },
+        "description": "Consume the Moon Shard to permanently gain 60 attack speed and 200 bonus night vision. Max 1 use."
+      },
+      "Shade Sight": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "Grants 400 bonus night vision."
+      }
+    },
+    "price": { "purchase": "4000", "sell": "2000" }
+  },
+  {
+    "name": "Hand of Midas",
+    "type": "Purchasable",
+    "classification": "Accessories",
+    "stats": ["35 Attack Speed"],
+    "abilities": {
+      "Transmute": {
+        "features": {
+          "Ability": "Target Unit",
+          "Affects": "Enemy Units",
+          "Damage": "Instant Kill"
+        },
+        "description": "Kills a non-hero target for 160 gold and 2.1x experience. Cannot be used on Ancient Creeps."
+      }
+    },
+    "price": { "purchase": "2200", "sell": "1100" }
+  },
+  {
+    "name": "Mask of Madness",
+    "type": "Purchasable",
+    "classification": "Accessories",
+    "stats": ["10 Attack Damage", "10 Attack Speed"],
+    "abilities": {
+      "Berserk": {
+        "features": { "Ability": "No Target", "Affects": "Self" },
+        "description": "Gives 110 attack speed and 30 movement speed, but reduces your armor by 8 and silences you. Lasts 6 seconds."
+      },
+      "Lifesteal": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "Heals the attacker for 24% of attack damage dealt. Lifesteal from creeps is reduced by 50%"
+      }
+    },
+    "price": { "purchase": "1775", "sell": "887.5" }
   },
   {
     "name": "Boots of Travel",
     "type": "Purchasable",
     "classification": "Accessories",
-    "price": {
-      "purchase": { "total": "2500", "base": "500", "recipe": "2000" },
-      "sell": "1250"
-    },
     "stats": ["90/110 Move Speed"],
     "abilities": {
       "Upgrade: Town Portal Scroll": {
         "features": { "Ability": "Passive" },
         "description": "Boots of Travel:Upgrades your Town Portal Scroll, allowing it to target units, reduces cooldown and does not consume a charge on usage. Boots of Travel 2:Upgrades your Town Portal Scroll, allowing it to target units and heroes, reduces cooldown, channel time and does not consume a charge on usage."
       }
-    }
-  },
-  {
-    "name": "Helm of the Dominator",
-    "type": "Purchasable",
-    "classification": "Accessories",
-    "price": {
-      "purchase": { "total": "2625", "base": "1975", "recipe": "650" },
-      "sell": "1312.5"
     },
-    "stats": [
-      "6 Strength",
-      "6 Agility",
-      "6 Intelligence",
-      "6 Health Regeneration",
-      "6 Armor"
-    ],
-    "abilities": {
-      "Dominate": {
-        "features": {
-          "Ability": "Target Unit",
-          "Affects": "Enemy Units",
-          "Damage": "Instant Kill"
-        },
-        "description": "Takes control of one neutral target unit and sets its movement speed to 380 and max health to a minimum of 1000. Also provides the unit with +25 base attack damage, +12 health regen, +4 mana regen and +4 armor. Dominated units with a max health of greater than 1000 retain their original max health.  Dominated unit's bounty is set to 100 gold."
-      }
-    }
-  },
-  {
-    "name": "Stygian Desolator",
-    "type": "Neutral",
-    "classification": "Tier 5",
-    "price": "None",
-    "stats": ["60 Attack Damage"],
-    "abilities": {
-      "Greater Corruption": {
-        "features": { "Ability": "Passive", "Affects": "Enemies" },
-        "description": "Your attacks reduce the target's armor by 10 for 7 seconds."
-      }
-    }
-  },
-  {
-    "name": "Falcon Blade",
-    "type": "Purchasable",
-    "classification": "Accessories",
-    "price": {
-      "purchase": { "total": "1125", "base": "875", "recipe": "250" },
-      "sell": "562.5"
-    },
-    "stats": ["200 Health", "1.8 Mana Regeneration", "14 Attack Damage"],
-    "abilities": "None"
-  },
-  {
-    "name": "Orb of Corrosion",
-    "type": "Purchasable",
-    "classification": "Accessories",
-    "price": {
-      "purchase": { "total": "925", "base": "825", "recipe": "100" },
-      "sell": "462.5"
-    },
-    "stats": ["150 Health"],
-    "abilities": {
-      "Corrosion": {
-        "features": {
-          "Ability": "Passive",
-          "Affects": "Enemies",
-          "Damage": "Magical"
-        },
-        "description": "Dealing 3 damage per second, reducing armor by 3, and slowing movement speed by 13% if the equipped hero is melee, or by 4% if they are ranged. Lasts 3 seconds."
-      }
-    }
+    "price": { "purchase": "2500", "sell": "1250" }
   },
   {
     "name": "Soul Ring",
     "type": "Purchasable",
     "classification": "Accessories",
-    "price": {
-      "purchase": { "total": "805", "base": "455", "recipe": "350" },
-      "sell": "402.5"
-    },
     "stats": ["6 Strength", "2 Armor"],
     "abilities": {
       "Sacrifice": {
         "features": { "Ability": "No Target", "Affects": "Self" },
         "description": "Consume 170 health to temporarily gain 170 mana. Lasts 10 seconds. If the mana gained cannot fit in your mana pool, it creates a buffer of mana that will be used before your mana pool."
       }
-    }
+    },
+    "price": { "purchase": "805", "sell": "402.5" }
   },
   {
-    "name": "Seer Stone",
+    "name": "Pig Pole",
     "type": "Neutral",
-    "classification": "Tier 5",
-    "price": "None",
-    "stats": ["10 Mana Regeneration", "350 Cast Range", "350 Vision"],
+    "classification": "Tier 1",
+    "stats": ["5 Strength", "5 Agility", "5 Intelligence"],
     "abilities": {
-      "Reveal": {
-        "features": { "Ability": "Target Area" },
-        "description": "Reveal a target 800 area of the map for 6 seconds."
+      "Pig, Out!": {
+        "features": { "Ability": "No Target", "Affects": "Self" },
+        "description": "Turns your hero into a critter for 4 seconds and gives them +10% Movement Speed."
       }
-    }
+    },
+    "price": "None"
   },
   {
-    "name": "Pirate Hat",
+    "name": "Wraith Band",
+    "type": "Purchasable",
+    "classification": "Accessories",
+    "stats": [
+      "2/4 Strength",
+      "5/10 Agility",
+      "2/4 Intelligence",
+      "2/4 Armor",
+      "5/10 Attack Speed"
+    ],
+    "abilities": "None",
+    "price": { "purchase": "505", "sell": "252.5" }
+  },
+  {
+    "name": "Mirror Shield",
     "type": "Neutral",
     "classification": "Tier 5",
-    "price": "None",
-    "stats": ["15 Move Speed", "150 Attack Speed"],
+    "stats": ["10 Strength", "10 Agility", "10 Intelligence"],
     "abilities": {
-      "Dig": {
-        "features": { "Ability": "Target Point" },
-        "description": "Channel for 1 second. Always finds a Bounty Rune!"
-      },
-      "Bounty": {
-        "features": { "Ability": "No Target", "Affects": "Self / Allies" },
-        "description": "Grants bonus Gold."
+      "Echo Shield": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "Block and reflect most targeted spells back to their caster once every 12 seconds."
       }
-    }
+    },
+    "price": "None"
   },
   {
     "name": "Giant's Ring",
     "type": "Neutral",
     "classification": "Tier 5",
-    "price": "None",
     "stats": ["35 Strength", "50 Move Speed"],
     "abilities": {
       "Giant's Foot": {
@@ -352,85 +287,93 @@
         },
         "description": "Can path over any terrain and deals 100% of your strength per second to units you are standing ontop of."
       }
-    }
+    },
+    "price": "None"
   },
   {
-    "name": "Mirror Shield",
+    "name": "Pirate Hat",
     "type": "Neutral",
     "classification": "Tier 5",
-    "price": "None",
-    "stats": ["10 Strength", "10 Agility", "10 Intelligence"],
+    "stats": ["15 Move Speed", "150 Attack Speed"],
     "abilities": {
-      "Echo Shield": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "Block and reflect most targeted spells back to their caster once every 12 seconds."
-      }
-    }
-  },
-  {
-    "name": "Force Boots",
-    "type": "Neutral",
-    "classification": "Tier 5",
-    "price": "None",
-    "stats": ["30 Health Regeneration", "115 Move Speed"],
-    "abilities": {
-      "Force": {
-        "features": { "Ability": "Target Unit", "Affects": "Enemies / Allies" },
-        "description": "Dispels the user and pushes them 750 units in the direction they are facing."
+      "Dig": {
+        "features": { "Ability": "Target Point" },
+        "description": "Channel for 1 second. Always finds a Bounty Rune!"
       },
-      "Speed Unlock": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "Completely removes the speed limit for the wearer."
+      "Bounty": {
+        "features": { "Ability": "No Target", "Affects": "Self / Allies" },
+        "description": "Grants bonus Gold."
       }
-    }
+    },
+    "price": "None"
   },
   {
-    "name": "Trickster Cloak",
+    "name": "Seer Stone",
     "type": "Neutral",
-    "classification": "Tier 4",
-    "price": "None",
-    "stats": ["17% Evasion", "17% Magic Resistance"],
+    "classification": "Tier 5",
+    "stats": ["10 Mana Regeneration", "350 Cast Range", "350 Vision"],
     "abilities": {
-      "Cloak": {
-        "features": { "Ability": "No Target", "Affects": "Self" },
-        "description": "Causes you to become invisible for 6 seconds."
+      "Reveal": {
+        "features": { "Ability": "Target Area" },
+        "description": "Reveal a target 800 area of the map for 6 seconds."
       }
-    }
+    },
+    "price": "None"
+  },
+  {
+    "name": "Stygian Desolator",
+    "type": "Neutral",
+    "classification": "Tier 5",
+    "stats": ["60 Attack Damage"],
+    "abilities": {
+      "Greater Corruption": {
+        "features": { "Ability": "Passive", "Affects": "Enemies" },
+        "description": "Your attacks reduce the target's armor by 10 for 7 seconds."
+      }
+    },
+    "price": "None"
+  },
+  {
+    "name": "Healing Lotus",
+    "type": "Non-Purchasable",
+    "classification": "Collectibles",
+    "stats": "None",
+    "abilities": {
+      "Eat Lotus": {
+        "features": {
+          "Ability": "No Target / Target Unit",
+          "Affects": "Self / Allied Heroes"
+        },
+        "description": "Instantly restores 125 health and mana."
+      }
+    },
+    "price": "None"
   },
   {
     "name": "Apex",
     "type": "Neutral",
     "classification": "Tier 5",
-    "price": "None",
     "stats": ["70 Primary Attribute or 25 All Attributes"],
-    "abilities": "None"
+    "abilities": "None",
+    "price": "None"
   },
   {
-    "name": "Arcanist's Armor",
+    "name": "Ex Machina",
     "type": "Neutral",
     "classification": "Tier 5",
-    "price": "None",
-    "stats": ["5 Armor", "20% Magic Resistance"],
+    "stats": ["20 Armor"],
     "abilities": {
-      "Mega Shield": {
-        "features": {
-          "Ability": "No Target",
-          "Affects": "Allies / Enemies",
-          "Damage": "Source Type"
-        },
-        "description": "Force Field Aura Grants 40% Damage Reflection for 5 seconds."
-      },
-      "Shield": {
-        "features": { "Ability": "Aura", "Affects": "Allies" },
-        "description": "Grants +5 armor and +20% Magic Resistance to all allies within 1200 radius."
+      "Reset Cooldowns": {
+        "features": { "Ability": "No Target", "Affects": "Self" },
+        "description": "Reset the cooldowns on all items (except Refresher Orb)."
       }
-    }
+    },
+    "price": "None"
   },
   {
     "name": "Book of the Dead",
     "type": "Neutral",
     "classification": "Tier 5",
-    "price": "None",
     "stats": ["25 Strength", "25 Intelligence"],
     "abilities": {
       "Greater Demonic Summoning": {
@@ -465,13 +408,51 @@
         "features": { "Ability": "Aura", "Affects": "Allies" },
         "description": "Increases movement of nearby units."
       }
-    }
+    },
+    "price": "None"
+  },
+  {
+    "name": "Arcanist's Armor",
+    "type": "Neutral",
+    "classification": "Tier 5",
+    "stats": ["5 Armor", "20% Magic Resistance"],
+    "abilities": {
+      "Mega Shield": {
+        "features": {
+          "Ability": "No Target",
+          "Affects": "Allies / Enemies",
+          "Damage": "Source Type"
+        },
+        "description": "Force Field Aura Grants 40% Damage Reflection for 5 seconds."
+      },
+      "Shield": {
+        "features": { "Ability": "Aura", "Affects": "Allies" },
+        "description": "Grants +5 armor and +20% Magic Resistance to all allies within 1200 radius."
+      }
+    },
+    "price": "None"
+  },
+  {
+    "name": "Force Boots",
+    "type": "Neutral",
+    "classification": "Tier 5",
+    "stats": ["30 Health Regeneration", "115 Move Speed"],
+    "abilities": {
+      "Force": {
+        "features": { "Ability": "Target Unit", "Affects": "Enemies / Allies" },
+        "description": "Dispels the user and pushes them 750 units in the direction they are facing."
+      },
+      "Speed Unlock": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "Completely removes the speed limit for the wearer."
+      }
+    },
+    "price": "None"
   },
   {
     "name": "Fallen Sky",
     "type": "Neutral",
     "classification": "Tier 5",
-    "price": "None",
     "stats": [
       "25 Strength",
       "15 Intelligence",
@@ -483,26 +464,13 @@
         "features": { "Ability": "Target Area", "Affects": "Self / Enemies" },
         "description": "Transforms into a meteor that strikes down at the target area after 1 seconds in a 315 AoE, stunning enemies for 1.6 seconds and dealing impact damage. Continues to deal damage every 1 seconds to enemy units and buildings for 6 seconds."
       }
-    }
-  },
-  {
-    "name": "Ex Machina",
-    "type": "Neutral",
-    "classification": "Tier 5",
-    "price": "None",
-    "stats": ["20 Armor"],
-    "abilities": {
-      "Reset Cooldowns": {
-        "features": { "Ability": "No Target", "Affects": "Self" },
-        "description": "Reset the cooldowns on all items (except Refresher Orb)."
-      }
-    }
+    },
+    "price": "None"
   },
   {
     "name": "Book of Shadows",
     "type": "Neutral",
     "classification": "Tier 5",
-    "price": "None",
     "stats": [
       "13 Strength",
       "13 Agility",
@@ -514,47 +482,26 @@
         "features": { "Ability": "Target Unit", "Affects": "Allies / Enemies" },
         "description": "Target an enemy, ally or self. Causes the target to become untargetable from enemies to the caster, but also silenced, muted and disarmed for 4 seconds. Applies a basic dispel."
       }
-    }
+    },
+    "price": "None"
   },
   {
-    "name": "Timeless Relic",
+    "name": "Trickster Cloak",
     "type": "Neutral",
     "classification": "Tier 4",
-    "price": "None",
-    "stats": ["20% Debuff Duration Amp", "15% Spell Damage Amp"],
-    "abilities": "None"
-  },
-  {
-    "name": "Ninja Gear",
-    "type": "Neutral",
-    "classification": "Tier 4",
-    "price": "None",
-    "stats": ["20 Agility", "20 Move Speed"],
+    "stats": ["17% Evasion", "17% Magic Resistance"],
     "abilities": {
-      "Solitary Disguise": {
+      "Cloak": {
         "features": { "Ability": "No Target", "Affects": "Self" },
-        "description": "Casts Smoke of Deceit on yourself only."
+        "description": "Causes you to become invisible for 6 seconds."
       }
-    }
-  },
-  {
-    "name": "Telescope",
-    "type": "Neutral",
-    "classification": "Tier 4",
-    "price": "None",
-    "stats": "None",
-    "abilities": {
-      "Prescient Aura": {
-        "features": { "Ability": "Aura", "Affects": "Allies" },
-        "description": "Lowers Scan cooldown by 50%. Increases attack and cast range of allies in a 1200 unit radius."
-      }
-    }
+    },
+    "price": "None"
   },
   {
     "name": "Spell Prism",
     "type": "Neutral",
     "classification": "Tier 4",
-    "price": "None",
     "stats": [
       "5 Strength",
       "5 Agility",
@@ -566,26 +513,34 @@
         "features": { "Ability": "Passive", "Affects": "Self" },
         "description": "Reduces the cooldown time of all spells and items by 12%."
       }
-    }
+    },
+    "price": "None"
   },
   {
-    "name": "Penta-Edged Sword",
+    "name": "Timeless Relic",
     "type": "Neutral",
     "classification": "Tier 4",
-    "price": "None",
-    "stats": ["45 Attack Damage", "100  Attack Range"],
+    "stats": ["20% Debuff Duration Amp", "15% Spell Damage Amp"],
+    "abilities": "None",
+    "price": "None"
+  },
+  {
+    "name": "Telescope",
+    "type": "Neutral",
+    "classification": "Tier 4",
+    "stats": "None",
     "abilities": {
-      "Maim": {
-        "features": { "Ability": "Passive", "Affects": "Enemies" },
-        "description": "Each attack has a 25% chance to reduce enemy hero movement speed by 20% and attack speed by 60 for 3 seconds."
+      "Prescient Aura": {
+        "features": { "Ability": "Aura", "Affects": "Allies" },
+        "description": "Lowers Scan cooldown by 50%. Increases attack and cast range of allies in a 1200 unit radius."
       }
-    }
+    },
+    "price": "None"
   },
   {
     "name": "Stormcrafter",
     "type": "Neutral",
     "classification": "Tier 4",
-    "price": "None",
     "stats": ["4 Mana Regeneration", "35 Move Speed"],
     "abilities": {
       "Bottled Lightning": {
@@ -596,26 +551,52 @@
         },
         "description": "Zaps 2 enemies within 700 range, dealing 200 damage and a 40% slow for 0.4 seconds. Strikes every 3 seconds."
       }
-    }
+    },
+    "price": "None"
+  },
+  {
+    "name": "Penta-Edged Sword",
+    "type": "Neutral",
+    "classification": "Tier 4",
+    "stats": ["45 Attack Damage", "100  Attack Range"],
+    "abilities": {
+      "Maim": {
+        "features": { "Ability": "Passive", "Affects": "Enemies" },
+        "description": "Each attack has a 25% chance to reduce enemy hero movement speed by 20% and attack speed by 60 for 3 seconds."
+      }
+    },
+    "price": "None"
   },
   {
     "name": "Mind Breaker",
     "type": "Neutral",
     "classification": "Tier 4",
-    "price": "None",
     "stats": ["45 Attack Damage", "30 Attack Speed"],
     "abilities": {
       "Silence Strike": {
         "features": { "Ability": "Passive", "Affects": "Enemy Heroes" },
         "description": "The next attack silences the hit enemy for 2 seconds."
       }
-    }
+    },
+    "price": "None"
+  },
+  {
+    "name": "Ninja Gear",
+    "type": "Neutral",
+    "classification": "Tier 4",
+    "stats": ["20 Agility", "20 Move Speed"],
+    "abilities": {
+      "Solitary Disguise": {
+        "features": { "Ability": "No Target", "Affects": "Self" },
+        "description": "Casts Smoke of Deceit on yourself only."
+      }
+    },
+    "price": "None"
   },
   {
     "name": "Martyr's Plate",
     "type": "Neutral",
     "classification": "Tier 4",
-    "price": "None",
     "stats": ["5 Health Regeneration", "25% Magic Resistance"],
     "abilities": {
       "Martyrdom": {
@@ -626,13 +607,38 @@
         },
         "description": "Redirects 25% of all magic damage dealt to your allied heroes within 900 radius towards you for 10 seconds."
       }
-    }
+    },
+    "price": "None"
+  },
+  {
+    "name": "Titan Sliver",
+    "type": "Neutral",
+    "classification": "Tier 3",
+    "stats": [
+      "16% Magic Resistance",
+      "10% Status Resistance",
+      "20% Attack Damage"
+    ],
+    "abilities": "None",
+    "price": "None"
+  },
+  {
+    "name": "Ascetic's Cap",
+    "type": "Neutral",
+    "classification": "Tier 4",
+    "stats": ["250 Health", "20 Health Regeneration"],
+    "abilities": {
+      "Endurance": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "Whenever a debuff would be applied to the owner, grant 40% Status resistance for 5 seconds."
+      }
+    },
+    "price": "None"
   },
   {
     "name": "Havoc Hammer",
     "type": "Neutral",
     "classification": "Tier 4",
-    "price": "None",
     "stats": ["16 Strength", "16 Attack Damage"],
     "abilities": {
       "Havoc": {
@@ -643,51 +649,39 @@
         },
         "description": "Pulls enemies in a 400 range around you, slowing them by 50% for 3 seconds and dealing 175 + 1.5 your str as magical damage."
       }
-    }
+    },
+    "price": "None"
   },
   {
-    "name": "Ascetic's Cap",
+    "name": "Vindicator's Axe",
     "type": "Neutral",
-    "classification": "Tier 4",
-    "price": "None",
-    "stats": ["250 Health", "20 Health Regeneration"],
+    "classification": "Tier 3",
+    "stats": ["20% Slow Resistance", "35 Attack Speed"],
     "abilities": {
-      "Endurance": {
+      "Vengeance": {
         "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "Whenever a debuff would be applied to the owner, grant 40% Status resistance for 5 seconds."
+        "description": "Provides 30 damage if equipped hero is Silenced and 20 armor if equipped hero is Stunned."
       }
-    }
+    },
+    "price": "None"
   },
   {
     "name": "Quickening Charm",
     "type": "Neutral",
     "classification": "Tier 3",
-    "price": "None",
     "stats": ["10 Health Regeneration"],
     "abilities": {
       "Cooldown Reduction": {
         "features": { "Ability": "Passive", "Affects": "Self" },
         "description": "Reduces the cooldown time of all spells and items by 10%"
       }
-    }
-  },
-  {
-    "name": "Titan Sliver",
-    "type": "Neutral",
-    "classification": "Tier 3",
-    "price": "None",
-    "stats": [
-      "16% Magic Resistance",
-      "10% Status Resistance",
-      "20% Attack Damage"
-    ],
-    "abilities": "None"
+    },
+    "price": "None"
   },
   {
     "name": "Enchanted Quiver",
     "type": "Neutral",
     "classification": "Tier 3",
-    "price": "None",
     "stats": ["75  Attack Range"],
     "abilities": {
       "Certain Strike": {
@@ -698,13 +692,13 @@
         },
         "description": "Empowers your next attack with 250 bonus magical damage and True Strike. Ranged Attackers have +350 bonus range for the attack."
       }
-    }
+    },
+    "price": "None"
   },
   {
     "name": "Psychic Headband",
     "type": "Neutral",
     "classification": "Tier 3",
-    "price": "None",
     "stats": ["100 Cast Range"],
     "abilities": {
       "Psychic Headband": {
@@ -715,13 +709,34 @@
         "features": { "Ability": "Target Unit", "Affects": "Enemies" },
         "description": "Pushes the target enemy unit away from you 400 distance."
       }
-    }
+    },
+    "price": "None"
+  },
+  {
+    "name": "Dandelion Amulet",
+    "type": "Neutral",
+    "classification": "Tier 3",
+    "stats": ["300 Mana", "25 Move Speed"],
+    "abilities": {
+      "Magical Damage Block": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "Block 300 magic damage from damage instances over 75  damage"
+      }
+    },
+    "price": "None"
+  },
+  {
+    "name": "Elven Tunic",
+    "type": "Neutral",
+    "classification": "Tier 3",
+    "stats": ["16% Evasion", "7% Move Speed", "26 Attack Speed"],
+    "abilities": "None",
+    "price": "None"
   },
   {
     "name": "Paladin Sword",
     "type": "Neutral",
     "classification": "Tier 3",
-    "price": "None",
     "stats": [
       "16 Attack Damage",
       "16% Lifesteal (Hero)",
@@ -737,26 +752,13 @@
         "features": { "Ability": "Passive", "Affects": "Self" },
         "description": "Amplifies the wearer's Regeneration, Healing, Lifesteal and Spell Lifesteal by 14%."
       }
-    }
-  },
-  {
-    "name": "Vindicator's Axe",
-    "type": "Neutral",
-    "classification": "Tier 3",
-    "price": "None",
-    "stats": ["20% Slow Resistance", "35 Attack Speed"],
-    "abilities": {
-      "Vengeance": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "Provides 30 damage if equipped hero is Silenced and 20 armor if equipped hero is Stunned."
-      }
-    }
+    },
+    "price": "None"
   },
   {
     "name": "Ogre Seal Totem",
     "type": "Neutral",
     "classification": "Tier 3",
-    "price": "None",
     "stats": ["10 Strength"],
     "abilities": {
       "Ogre Seal Flop": {
@@ -767,55 +769,13 @@
         },
         "description": "Flop forward like an ogre seal 2 times, dealing 150 damage and slowing enemies in a 275 radius by 100% for 1.5 second on each bounce. 400 bounce distance."
       }
-    }
-  },
-  {
-    "name": "Elven Tunic",
-    "type": "Neutral",
-    "classification": "Tier 3",
-    "price": "None",
-    "stats": ["16% Evasion", "7% Move Speed", "26 Attack Speed"],
-    "abilities": "None"
-  },
-  {
-    "name": "Ceremonial Robe",
-    "type": "Neutral",
-    "classification": "Tier 3",
-    "price": "None",
-    "stats": ["300 Mana"],
-    "abilities": {
-      "Ceremonial Aura": {
-        "features": {
-          "Ability": "Aura",
-          "Affects": "Enemies",
-          "Damage": "Magical"
-        },
-        "description": "Lowers enemy Status Resistance by 10% and Magic Resistance by 10%."
-      }
-    }
-  },
-  {
-    "name": "Specialist's Array",
-    "type": "Neutral",
-    "classification": "Tier 2",
-    "price": "None",
-    "stats": ["7 Strength", "7 Agility", "7 Intelligence", "12 Attack Damage"],
-    "abilities": {
-      "Crackshot": {
-        "features": {
-          "Ability": "Passive",
-          "Affects": "Self / Enemies",
-          "Damage": " Instant Attack"
-        },
-        "description": "Ranged Only. The next attack fires projectiles at 2 additional targets within attack range. Does not trigger attack modifiers."
-      }
-    }
+    },
+    "price": "None"
   },
   {
     "name": "Defiant Shell",
     "type": "Neutral",
     "classification": "Tier 3",
-    "price": "None",
     "stats": ["7 Strength", "7 Agility", "7 Intelligence", "7 Armor"],
     "abilities": {
       "Reciprocity": {
@@ -826,53 +786,13 @@
         },
         "description": "When attacked, the hero counter-attacks a target within their attack range."
       }
-    }
-  },
-  {
-    "name": "Dandelion Amulet",
-    "type": "Neutral",
-    "classification": "Tier 3",
-    "price": "None",
-    "stats": ["300 Mana", "25 Move Speed"],
-    "abilities": {
-      "Magical Damage Block": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "Block 300 magic damage from damage instances over 75  damage"
-      }
-    }
-  },
-  {
-    "name": "Vampire Fangs",
-    "type": "Neutral",
-    "classification": "Tier 2",
-    "price": "None",
-    "stats": [
-      "15% Lifesteal (Hero)",
-      "7.5% Lifesteal (Creep)",
-      "10% Spell Lifesteal (Hero)",
-      "2% Spell Lifesteal (Creep)",
-      "300 Night Vision"
-    ],
-    "abilities": "None"
-  },
-  {
-    "name": "Vambrace",
-    "type": "Neutral",
-    "classification": "Tier 2",
-    "price": "None",
-    "stats": "None",
-    "abilities": {
-      "Switch Attribute": {
-        "features": { "Ability": "No Target", "Affects": "Self" },
-        "description": "There is no description for this ability."
-      }
-    }
+    },
+    "price": "None"
   },
   {
     "name": "Cloak of Flames",
     "type": "Neutral",
     "classification": "Tier 3",
-    "price": "None",
     "stats": ["4 Armor", "10% Magic Resistance"],
     "abilities": {
       "Immolate": {
@@ -883,13 +803,13 @@
         },
         "description": "Burns enemy units for 45 damage per second. Illusions deal 30 damage per second."
       }
-    }
+    },
+    "price": "None"
   },
   {
     "name": "Ring of Aquila",
     "type": "Neutral",
     "classification": "Tier 2",
-    "price": "None",
     "stats": ["3 Strength", "9 Agility", "3 Intelligence", "3 Attack Damage"],
     "abilities": {
       "Aquila Aura": {
@@ -899,119 +819,163 @@
         },
         "description": "Grants 1 mana regeneration and 2 armor to nearby allies. Deactivate to stop affecting non-hero units."
       }
-    }
+    },
+    "price": "None"
   },
   {
-    "name": "Pupil's Gift",
+    "name": "Specialist's Array",
     "type": "Neutral",
     "classification": "Tier 2",
-    "price": "None",
-    "stats": ["15 Secondary Attributes or 7 All Attributes"],
-    "abilities": "None"
+    "stats": ["7 Strength", "7 Agility", "7 Intelligence", "12 Attack Damage"],
+    "abilities": {
+      "Crackshot": {
+        "features": {
+          "Ability": "Passive",
+          "Affects": "Self / Enemies",
+          "Damage": " Instant Attack"
+        },
+        "description": "Ranged Only. The next attack fires projectiles at 2 additional targets within attack range. Does not trigger attack modifiers."
+      }
+    },
+    "price": "None"
+  },
+  {
+    "name": "Vampire Fangs",
+    "type": "Neutral",
+    "classification": "Tier 2",
+    "stats": [
+      "15% Lifesteal (Hero)",
+      "7.5% Lifesteal (Creep)",
+      "10% Spell Lifesteal (Hero)",
+      "2% Spell Lifesteal (Creep)",
+      "300 Night Vision"
+    ],
+    "abilities": "None",
+    "price": "None"
+  },
+  {
+    "name": "Vambrace",
+    "type": "Neutral",
+    "classification": "Tier 2",
+    "stats": "None",
+    "abilities": {
+      "Switch Attribute": {
+        "features": { "Ability": "No Target", "Affects": "Self" },
+        "description": "There is no description for this ability."
+      }
+    },
+    "price": "None"
+  },
+  {
+    "name": "Ceremonial Robe",
+    "type": "Neutral",
+    "classification": "Tier 3",
+    "stats": ["300 Mana"],
+    "abilities": {
+      "Ceremonial Aura": {
+        "features": {
+          "Ability": "Aura",
+          "Affects": "Enemies",
+          "Damage": "Magical"
+        },
+        "description": "Lowers enemy Status Resistance by 10% and Magic Resistance by 10%."
+      }
+    },
+    "price": "None"
   },
   {
     "name": "Philosopher's Stone",
     "type": "Neutral",
     "classification": "Tier 2",
-    "price": "None",
     "stats": ["200 Mana", "-30 Attack Damage", "75 Gold per minute"],
-    "abilities": "None"
+    "abilities": "None",
+    "price": "None"
+  },
+  {
+    "name": "Pupil's Gift",
+    "type": "Neutral",
+    "classification": "Tier 2",
+    "stats": ["15 Secondary Attributes or 7 All Attributes"],
+    "abilities": "None",
+    "price": "None"
   },
   {
     "name": "Orb of Destruction",
     "type": "Neutral",
     "classification": "Tier 2",
-    "price": "None",
     "stats": "None",
     "abilities": {
       "Impeding Corruption": {
         "features": { "Ability": "Passive", "Affects": "Enemies" },
         "description": "Attacks reduce the target's armor and movement speed. Slow amount varies based on whether the wearer is melee or ranged."
       }
-    }
+    },
+    "price": "None"
   },
   {
     "name": "Grove Bow",
     "type": "Neutral",
     "classification": "Tier 2",
-    "price": "None",
     "stats": ["20 Attack Speed", "100  Attack Range"],
     "abilities": {
       "Magic Amp": {
         "features": { "Ability": "Passive", "Affects": "Enemies" },
         "description": "Reduces magic resistance of the attacked enemy by 15%."
       }
-    }
+    },
+    "price": "None"
   },
   {
     "name": "Eye of the Vizier",
     "type": "Neutral",
     "classification": "Tier 2",
-    "price": "None",
     "stats": ["1.25 Mana Regeneration", "125 Cast Range"],
-    "abilities": "None"
+    "abilities": "None",
+    "price": "None"
   },
   {
     "name": "Gossamer Cape",
     "type": "Neutral",
     "classification": "Tier 2",
-    "price": "None",
     "stats": ["20 Move Speed"],
     "abilities": {
       "Sixth Sense": {
         "features": { "Ability": "Passive", "Affects": "Self" },
         "description": "Automatically dodge the next attack from a hero."
       }
-    }
-  },
-  {
-    "name": "Dragon Scale",
-    "type": "Neutral",
-    "classification": "Tier 2",
-    "price": "None",
-    "stats": ["5 Health Regeneration", "5 Armor"],
-    "abilities": {
-      "Afterburn": {
-        "features": {
-          "Ability": "Passive",
-          "Affects": "Enemies",
-          "Damage": "Magical"
-        },
-        "description": "Causes attacks to burn the enemy, dealing 22 damage per second for 3 seconds. Affects buildings."
-      }
-    }
-  },
-  {
-    "name": "Bullwhip",
-    "type": "Neutral",
-    "classification": "Tier 2",
-    "price": "None",
-    "stats": ["3 Health Regeneration", "2.5 Mana Regeneration"],
-    "abilities": {
-      "Whip": {
-        "features": { "Ability": "Target Unit", "Affects": "Allies / Enemies" },
-        "description": "Grants 18% movement speed when cast on allies, and slows by 18% when cast on enemies. Lasts 4 seconds."
-      }
-    }
+    },
+    "price": "None"
   },
   {
     "name": "Tumbler's Toy",
     "type": "Neutral",
     "classification": "Tier 1",
-    "price": "None",
     "stats": ["150 Mana"],
     "abilities": {
       "Vault": {
         "features": { "Ability": "No Target", "Affects": "Self" },
         "description": "Propels your hero forward 300 units. Tumbler's Toy gets disabled for 3 seconds if its owner receives damage from a player source."
       }
-    }
+    },
+    "price": "None"
+  },
+  {
+    "name": "Spark of Courage",
+    "type": "Neutral",
+    "classification": "Tier 1",
+    "stats": "None",
+    "abilities": {
+      "Courage": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "Provides 16 damage when the owner is above 50% health, and 7 armor when they are below that threshold."
+      }
+    },
+    "price": "None"
   },
   {
     "name": "Trusty Shovel",
     "type": "Neutral",
     "classification": "Tier 1",
-    "price": "None",
     "stats": ["75 Health"],
     "abilities": {
       "Dig": {
@@ -1026,26 +990,80 @@
         "features": { "Ability": "Aura", "Affects": "Allies" },
         "description": "Kobolds are adept at finding gold, increasing nearby allied heroes' GPM."
       }
-    }
+    },
+    "price": "None"
   },
   {
-    "name": "Spark of Courage",
+    "name": "Dragon Scale",
+    "type": "Neutral",
+    "classification": "Tier 2",
+    "stats": ["5 Health Regeneration", "5 Armor"],
+    "abilities": {
+      "Afterburn": {
+        "features": {
+          "Ability": "Passive",
+          "Affects": "Enemies",
+          "Damage": "Magical"
+        },
+        "description": "Causes attacks to burn the enemy, dealing 22 damage per second for 3 seconds. Affects buildings."
+      }
+    },
+    "price": "None"
+  },
+  {
+    "name": "Bullwhip",
+    "type": "Neutral",
+    "classification": "Tier 2",
+    "stats": ["3 Health Regeneration", "2.5 Mana Regeneration"],
+    "abilities": {
+      "Whip": {
+        "features": { "Ability": "Target Unit", "Affects": "Allies / Enemies" },
+        "description": "Grants 18% movement speed when cast on allies, and slows by 18% when cast on enemies. Lasts 4 seconds."
+      }
+    },
+    "price": "None"
+  },
+  {
+    "name": "Fairy's Trinket",
     "type": "Neutral",
     "classification": "Tier 1",
-    "price": "None",
-    "stats": "None",
+    "stats": ["75 Health", "5% Mana Loss Reduction", "5% Spell Damage Amp"],
+    "abilities": "None",
+    "price": "None"
+  },
+  {
+    "name": "Faded Broach",
+    "type": "Neutral",
+    "classification": "Tier 1",
+    "stats": ["150 Mana", "15 Move Speed"],
+    "abilities": "None",
+    "price": "None"
+  },
+  {
+    "name": "Arcane Ring",
+    "type": "Neutral",
+    "classification": "Tier 1",
+    "stats": ["7 Intelligence", "2 Armor"],
     "abilities": {
-      "Courage": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "Provides 16 damage when the owner is above 50% health, and 7 armor when they are below that threshold."
+      "Replenish Mana": {
+        "features": { "Ability": "No Target", "Affects": "Allies" },
+        "description": "Restores 75 mana to all nearby allies."
       }
-    }
+    },
+    "price": "None"
+  },
+  {
+    "name": "Broom Handle",
+    "type": "Neutral",
+    "classification": "Tier 1",
+    "stats": ["4 Armor", "8 Attack Damage", "50  Attack Range"],
+    "abilities": "None",
+    "price": "None"
   },
   {
     "name": "Lance of Pursuit",
     "type": "Neutral",
     "classification": "Tier 1",
-    "price": "None",
     "stats": ["200 Mana"],
     "abilities": {
       "Hound": {
@@ -1056,13 +1074,26 @@
         },
         "description": "Attacking from behind slows enemies by 16% (8% if Ranged) and deals +15 more Damage. Slows lasts for 2 second."
       }
-    }
+    },
+    "price": "None"
+  },
+  {
+    "name": "Duelist Gloves",
+    "type": "Neutral",
+    "classification": "Tier 1",
+    "stats": ["12 Attack Damage"],
+    "abilities": {
+      "Boldness": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "Grants 20 attack speed as long as there are enemy heroes within 1200 units."
+      }
+    },
+    "price": "None"
   },
   {
     "name": "Occult Bracelet",
     "type": "Neutral",
     "classification": "Tier 1",
-    "price": "None",
     "stats": [
       "4 Strength",
       "4 Agility",
@@ -1074,121 +1105,26 @@
         "features": { "Ability": "Passive", "Affects": "Self" },
         "description": "Each time the wearer is attacked they gain a stack of 0.4 mana regen, up to 5 stacks. Stacks last for 5 seconds."
       }
-    }
-  },
-  {
-    "name": "Pig Pole",
-    "type": "Neutral",
-    "classification": "Tier 1",
-    "price": "None",
-    "stats": ["5 Strength", "5 Agility", "5 Intelligence"],
-    "abilities": {
-      "Pig, Out!": {
-        "features": { "Ability": "No Target", "Affects": "Self" },
-        "description": "Turns your hero into a critter for 4 seconds and gives them +10% Movement Speed."
-      }
-    }
-  },
-  {
-    "name": "Duelist Gloves",
-    "type": "Neutral",
-    "classification": "Tier 1",
-    "price": "None",
-    "stats": ["12 Attack Damage"],
-    "abilities": {
-      "Boldness": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "Grants 20 attack speed as long as there are enemy heroes within 1200 units."
-      }
-    }
-  },
-  {
-    "name": "Fairy's Trinket",
-    "type": "Neutral",
-    "classification": "Tier 1",
-    "price": "None",
-    "stats": ["75 Health", "5% Mana Loss Reduction", "5% Spell Damage Amp"],
-    "abilities": "None"
-  },
-  {
-    "name": "Faded Broach",
-    "type": "Neutral",
-    "classification": "Tier 1",
-    "price": "None",
-    "stats": ["150 Mana", "15 Move Speed"],
-    "abilities": "None"
+    },
+    "price": "None"
   },
   {
     "name": "Seeds of Serenity",
     "type": "Neutral",
     "classification": "Tier 1",
-    "price": "None",
     "stats": ["150 Health", "4 Health Regeneration"],
     "abilities": {
       "Verdurous Dale": {
         "features": { "Ability": "Target Area", "Affects": "Allies" },
         "description": "Target the ground with a 400 radius. Provides +10 health regeneration to all allied units while they're in the area of effect."
       }
-    }
-  },
-  {
-    "name": "Block of Cheese",
-    "type": "Non-Purchasable",
-    "classification": "Collectibles",
-    "price": "None",
-    "stats": "None",
-    "abilities": {
-      "Scrumptious": {
-        "features": { "Ability": "Target Unit", "Affects": "Allied Heroes" },
-        "description": "Try me!"
-      }
-    }
-  },
-  {
-    "name": "Great Healing Lotus",
-    "type": "Non-Purchasable",
-    "classification": "Collectibles",
-    "price": "None",
-    "stats": "None",
-    "abilities": {
-      "Eat Lotus": {
-        "features": {
-          "Ability": "No Target / Target Unit",
-          "Affects": "Self / Allied Heroes"
-        },
-        "description": "Instantly restores 400 health and mana."
-      }
-    }
-  },
-  {
-    "name": "Healing Lotus",
-    "type": "Non-Purchasable",
-    "classification": "Collectibles",
-    "price": "None",
-    "stats": "None",
-    "abilities": {
-      "Eat Lotus": {
-        "features": {
-          "Ability": "No Target / Target Unit",
-          "Affects": "Self / Allied Heroes"
-        },
-        "description": "Instantly restores 125 health and mana."
-      }
-    }
-  },
-  {
-    "name": "Broom Handle",
-    "type": "Neutral",
-    "classification": "Tier 1",
-    "price": "None",
-    "stats": ["4 Armor", "8 Attack Damage", "50  Attack Range"],
-    "abilities": "None"
+    },
+    "price": "None"
   },
   {
     "name": "Refresher Shard",
     "type": "Non-Purchasable",
     "classification": "Boss Rewards",
-    "price": "None",
     "stats": [
       "12 Health Regeneration",
       "6 Mana Regeneration",
@@ -1199,13 +1135,68 @@
         "features": { "Ability": "No Target", "Affects": "Self" },
         "description": "Resets the cooldowns of all your items and abilities. Shares a cooldown with Refresher Orb. This item's cooldown only progresses in your hero's main inventory."
       }
-    }
+    },
+    "price": "None"
+  },
+  {
+    "name": "Cheese",
+    "type": "Non-Purchasable",
+    "classification": "Boss Rewards",
+    "stats": "None",
+    "abilities": {
+      "Fondue": {
+        "features": { "Ability": "No Target", "Affects": "Self" },
+        "description": "Instantly restores 2500 health and 1500 mana."
+      }
+    },
+    "price": "None"
+  },
+  {
+    "name": "Great Healing Lotus",
+    "type": "Non-Purchasable",
+    "classification": "Collectibles",
+    "stats": "None",
+    "abilities": {
+      "Eat Lotus": {
+        "features": {
+          "Ability": "No Target / Target Unit",
+          "Affects": "Self / Allied Heroes"
+        },
+        "description": "Instantly restores 400 health and mana."
+      }
+    },
+    "price": "None"
+  },
+  {
+    "name": "Aegis of the Immortal",
+    "type": "Non-Purchasable",
+    "classification": "Boss Rewards",
+    "stats": "None",
+    "abilities": {
+      "Reincarnation": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "Brings you to life with full health and mana 5 seconds after you die, at the location where you died. Reincarnation must be used within 5 minutes or Aegis of the Immortal disappears. If it expires, it will heal you over 5 seconds (dispels on damage)."
+      }
+    },
+    "price": "None"
+  },
+  {
+    "name": "Block of Cheese",
+    "type": "Non-Purchasable",
+    "classification": "Collectibles",
+    "stats": "None",
+    "abilities": {
+      "Scrumptious": {
+        "features": { "Ability": "Target Unit", "Affects": "Allied Heroes" },
+        "description": "Try me!"
+      }
+    },
+    "price": "None"
   },
   {
     "name": "Greater Healing Lotus",
     "type": "Non-Purchasable",
     "classification": "Collectibles",
-    "price": "None",
     "stats": "None",
     "abilities": {
       "Eat Lotus": {
@@ -1215,135 +1206,52 @@
         },
         "description": "Instantly restores 900 health and mana."
       }
-    }
-  },
-  {
-    "name": "Arcane Ring",
-    "type": "Neutral",
-    "classification": "Tier 1",
-    "price": "None",
-    "stats": ["7 Intelligence", "2 Armor"],
-    "abilities": {
-      "Replenish Mana": {
-        "features": { "Ability": "No Target", "Affects": "Allies" },
-        "description": "Restores 75 mana to all nearby allies."
-      }
-    }
-  },
-  {
-    "name": "Cheese",
-    "type": "Non-Purchasable",
-    "classification": "Boss Rewards",
-    "price": "None",
-    "stats": "None",
-    "abilities": {
-      "Fondue": {
-        "features": { "Ability": "No Target", "Affects": "Self" },
-        "description": "Instantly restores 2500 health and 1500 mana."
-      }
-    }
+    },
+    "price": "None"
   },
   {
     "name": "Aghanim's Shard - Roshan",
     "type": "Non-Purchasable",
     "classification": "Boss Rewards",
-    "price": "None",
     "stats": "None",
     "abilities": {
       "Ability Upgrade": {
         "features": { "Ability": "No Target", "Affects": "Self" },
         "description": "Upgrades an existing ability or adds a new ability to your hero.."
       }
-    }
+    },
+    "price": "None"
   },
   {
     "name": "Aghanim's Blessing - Roshan",
     "type": "Non-Purchasable",
     "classification": "Boss Rewards",
-    "price": "None",
     "stats": "None",
     "abilities": {
       "Ability Upgrade": {
         "features": { "Ability": "No Target", "Affects": "Self" },
         "description": "Upgrades the ultimate, and some abilities, of all heroes."
       }
-    }
+    },
+    "price": "None"
   },
   {
     "name": "Arcane Blink",
     "type": "Purchasable",
     "classification": "Artifacts",
-    "price": {
-      "purchase": { "total": "6800", "base": "5050", "recipe": "1750" },
-      "sell": "3400"
-    },
     "stats": ["25 Intelligence"],
     "abilities": {
       "Arcane Blink": {
         "features": { "Ability": "Target Point", "Affects": "Self" },
         "description": "Teleport to a target point up to 1400 units away. Arcane Blink mutes for 3s after taking damage from an enemy hero or Roshan."
       }
-    }
-  },
-  {
-    "name": "Aegis of the Immortal",
-    "type": "Non-Purchasable",
-    "classification": "Boss Rewards",
-    "price": "None",
-    "stats": "None",
-    "abilities": {
-      "Reincarnation": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "Brings you to life with full health and mana 5 seconds after you die, at the location where you died. Reincarnation must be used within 5 minutes or Aegis of the Immortal disappears. If it expires, it will heal you over 5 seconds (dispels on damage)."
-      }
-    }
-  },
-  {
-    "name": "Swift Blink",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "price": {
-      "purchase": { "total": "6800", "base": "5050", "recipe": "1750" },
-      "sell": "3400"
     },
-    "stats": ["25 Agility"],
-    "abilities": {
-      "Swift Blink": {
-        "features": { "Ability": "Target Point", "Affects": "Self" },
-        "description": "Teleport to a target point up to 1200 units away. After teleportation, you gain 40% phased movement speed and +35 Agility for 6 seconds. Swift Blink cannot be used for 3 seconds after taking damage from an enemy hero or Roshan."
-      }
-    }
-  },
-  {
-    "name": "Eye of Skadi",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "price": {
-      "purchase": { "total": "5300", "base": "5300", "recipe": "None" },
-      "sell": "2650"
-    },
-    "stats": [
-      "22 Strength",
-      "22 Agility",
-      "22 Intelligence",
-      "220 Health",
-      "220 Mana"
-    ],
-    "abilities": {
-      "Cold Attack": {
-        "features": { "Ability": "Passive", "Affects": "Enemies" },
-        "description": "Attacks lower enemy movement and attack speed and reduces heals, health regeneration and lifesteal by 40% for 3 seconds. Slows enemy ranged units by 50% movement speed and 60 attack speed. Slows enemy melee units by 20% movement speed and 30 attack speed."
-      }
-    }
+    "price": { "purchase": "6800", "sell": "3400" }
   },
   {
     "name": "Mjollnir",
     "type": "Purchasable",
     "classification": "Artifacts",
-    "price": {
-      "purchase": { "total": "5500", "base": "4700", "recipe": "800" },
-      "sell": "2750"
-    },
     "stats": ["25 Attack Damage", "70 Attack Speed"],
     "abilities": {
       "Static Charge": {
@@ -1362,36 +1270,61 @@
         },
         "description": "Grants a 30% chance on attack to release a bolt of electricity that leaps between 12 targets within a 650 radius, dealing 180 magical damage to each. Lightning proc pierces evasion."
       }
-    }
+    },
+    "price": { "purchase": "5500", "sell": "2750" }
   },
   {
-    "name": "Overwhelming Blink",
+    "name": "Yasha and Kaya",
     "type": "Purchasable",
     "classification": "Artifacts",
-    "price": {
-      "purchase": { "total": "6800", "base": "5050", "recipe": "1750" },
-      "sell": "3400"
-    },
-    "stats": ["25 Strength"],
+    "stats": [
+      "16 Agility",
+      "16 Intelligence",
+      "12% Move Speed",
+      "16% Spell Damage Amp",
+      "12 Attack Speed",
+      "50% Mana Regen Amp",
+      "30% Spell Lifesteal Amp"
+    ],
+    "abilities": "None",
+    "price": { "purchase": "4100", "sell": "2050" }
+  },
+  {
+    "name": "Swift Blink",
+    "type": "Purchasable",
+    "classification": "Artifacts",
+    "stats": ["25 Agility"],
     "abilities": {
-      "Overwhelming Blink": {
-        "features": {
-          "Ability": "Target Point",
-          "Affects": "Self / Enemies",
-          "Damage": "Magical"
-        },
-        "description": "Teleport to a target point up to 1200 units away. After teleportation, all enemies in a 800 AoE take damage equal to 100 + 50% of your strength and an additional 100% over time, and have 50% movement speed slow and 50 attack speed slow for 6 seconds. Overwhelming Blink cannot be used for 6 seconds after taking damage from an enemy hero or Roshan."
+      "Swift Blink": {
+        "features": { "Ability": "Target Point", "Affects": "Self" },
+        "description": "Teleport to a target point up to 1200 units away. After teleportation, you gain 40% phased movement speed and +35 Agility for 6 seconds. Swift Blink cannot be used for 3 seconds after taking damage from an enemy hero or Roshan."
       }
-    }
+    },
+    "price": { "purchase": "6800", "sell": "3400" }
+  },
+  {
+    "name": "Eye of Skadi",
+    "type": "Purchasable",
+    "classification": "Artifacts",
+    "stats": [
+      "22 Strength",
+      "22 Agility",
+      "22 Intelligence",
+      "220 Health",
+      "220 Mana"
+    ],
+    "abilities": {
+      "Cold Attack": {
+        "features": { "Ability": "Passive", "Affects": "Enemies" },
+        "description": "Attacks lower enemy movement and attack speed and reduces heals, health regeneration and lifesteal by 40% for 3 seconds. Slows enemy ranged units by 50% movement speed and 60 attack speed. Slows enemy melee units by 20% movement speed and 30 attack speed."
+      }
+    },
+    "price": { "purchase": "5300", "sell": "2650" }
   },
   {
     "name": "Harpoon",
     "type": "Purchasable",
     "classification": "Artifacts",
-    "price": {
-      "purchase": { "total": "4500", "base": "3500", "recipe": "1000" },
-      "sell": "2250"
-    },
     "stats": [
       "20 Strength",
       "10 Agility",
@@ -1409,96 +1342,30 @@
         "features": { "Ability": "Passive", "Affects": "Enemies" },
         "description": "Causes melee attacks to attack twice in quick succession. The double attacks apply a 100% movement slow for 1 seconds on each strike."
       }
-    }
+    },
+    "price": { "purchase": "4500", "sell": "2250" }
   },
   {
-    "name": "Yasha and Kaya",
+    "name": "Overwhelming Blink",
     "type": "Purchasable",
     "classification": "Artifacts",
-    "price": {
-      "purchase": { "total": "4100", "base": "4100", "recipe": "None" },
-      "sell": "2050"
-    },
-    "stats": [
-      "16 Agility",
-      "16 Intelligence",
-      "12% Move Speed",
-      "16% Spell Damage Amp",
-      "12 Attack Speed",
-      "50% Mana Regen Amp",
-      "30% Spell Lifesteal Amp"
-    ],
-    "abilities": "None"
-  },
-  {
-    "name": "Heaven's Halberd",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "price": {
-      "purchase": { "total": "3550", "base": "3350", "recipe": "200" },
-      "sell": "1775"
-    },
-    "stats": [
-      "20 Strength",
-      "20% Evasion",
-      "16% Status Resistance",
-      "20% Health Regen Amp",
-      "20% Lifesteal Amp"
-    ],
+    "stats": ["25 Strength"],
     "abilities": {
-      "Disarm": {
-        "features": { "Ability": "Target Unit", "Affects": "Enemies" },
-        "description": "Prevents a target from attacking for 3 seconds on melee targets, and 5 seconds on ranged targets."
+      "Overwhelming Blink": {
+        "features": {
+          "Ability": "Target Point",
+          "Affects": "Self / Enemies",
+          "Damage": "Magical"
+        },
+        "description": "Teleport to a target point up to 1200 units away. After teleportation, all enemies in a 800 AoE take damage equal to 100 + 50% of your strength and an additional 100% over time, and have 50% movement speed slow and 50 attack speed slow for 6 seconds. Overwhelming Blink cannot be used for 6 seconds after taking damage from an enemy hero or Roshan."
       }
-    }
-  },
-  {
-    "name": "Kaya and Sange",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "price": {
-      "purchase": { "total": "4100", "base": "4100", "recipe": "None" },
-      "sell": "2050"
     },
-    "stats": [
-      "16 Strength",
-      "16 Intelligence",
-      "20% Status Resistance",
-      "16% Spell Damage Amp",
-      "22% Health Regen Amp",
-      "50% Mana Regen Amp",
-      "22% Lifesteal Amp",
-      "30% Spell Lifesteal Amp"
-    ],
-    "abilities": "None"
-  },
-  {
-    "name": "Sange and Yasha",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "price": {
-      "purchase": { "total": "4100", "base": "4100", "recipe": "None" },
-      "sell": "2050"
-    },
-    "stats": [
-      "16 Strength",
-      "16 Agility",
-      "20% Status Resistance",
-      "12% Move Speed",
-      "12 Attack Speed",
-      "22% Health Regen Amp",
-      "22% Lifesteal Amp"
-    ],
-    "abilities": "None"
+    "price": { "purchase": "6800", "sell": "3400" }
   },
   {
     "name": "Satanic",
     "type": "Purchasable",
     "classification": "Artifacts",
-    "price": {
-      "purchase": { "total": "5050", "base": "5050", "recipe": "None" },
-      "sell": "2525"
-    },
     "stats": ["25 Strength", "25 Attack Damage"],
     "abilities": {
       "Lifesteal": {
@@ -1509,123 +1376,29 @@
         "features": { "Ability": "No Target", "Affects": "Self" },
         "description": "Increases Lifesteal percentage to 175% for 6 seconds. Lifesteal from creeps is reduced by 50%"
       }
-    }
+    },
+    "price": { "purchase": "5050", "sell": "2525" }
   },
   {
-    "name": "Mage Slayer",
+    "name": "Sange and Yasha",
     "type": "Purchasable",
     "classification": "Artifacts",
-    "price": {
-      "purchase": { "total": "2500", "base": "2300", "recipe": "200" },
-      "sell": "1250"
-    },
-    "stats": [
-      "10 Intelligence",
-      "2 Mana Regeneration",
-      "25% Magic Resistance",
-      "20 Attack Damage",
-      "20 Attack Speed"
-    ],
-    "abilities": {
-      "Mage Slayer": {
-        "features": { "Ability": "Passive", "Affects": "Enemies" },
-        "description": "Places a debuff when you attack enemies, causing them to do 35% less spell damage for 6 seconds."
-      }
-    }
-  },
-  {
-    "name": "Maelstrom",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "price": {
-      "purchase": { "total": "2700", "base": "2700", "recipe": "None" },
-      "sell": "1350"
-    },
-    "stats": ["24 Attack Damage"],
-    "abilities": {
-      "Chain Lightning": {
-        "features": {
-          "Ability": "Passive",
-          "Affects": "Enemies",
-          "Damage": "Magical"
-        },
-        "description": "Grants a 30% chance on attack to release a bolt of electricity that leaps between 4 targets within a 650 radius, dealing 135 magical damage to each. Lightning proc pierces evasion."
-      }
-    }
-  },
-  {
-    "name": "Echo Sabre",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "price": {
-      "purchase": { "total": "2500", "base": "2500", "recipe": "None" },
-      "sell": "1250"
-    },
-    "stats": [
-      "13 Strength",
-      "10 Intelligence",
-      "1.75 Mana Regeneration",
-      "15 Attack Damage",
-      "10 Attack Speed"
-    ],
-    "abilities": {
-      "Echo Strike": {
-        "features": { "Ability": "Passive", "Affects": "Enemies" },
-        "description": "Causes melee attacks to attack twice in quick succession. The double attacks apply a 100% movement slow for 0.8 seconds on each strike."
-      }
-    }
-  },
-  {
-    "name": "Sange",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "price": {
-      "purchase": { "total": "2050", "base": "1450", "recipe": "600" },
-      "sell": "1025"
-    },
     "stats": [
       "16 Strength",
-      "12% Status Resistance",
-      "20% Health Regen Amp",
-      "20% Lifesteal Amp"
+      "16 Agility",
+      "20% Status Resistance",
+      "12% Move Speed",
+      "12 Attack Speed",
+      "22% Health Regen Amp",
+      "22% Lifesteal Amp"
     ],
-    "abilities": "None"
-  },
-  {
-    "name": "Yasha",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "price": {
-      "purchase": { "total": "2050", "base": "1450", "recipe": "600" },
-      "sell": "1025"
-    },
-    "stats": ["16 Agility", "10% Move Speed", "12 Attack Speed"],
-    "abilities": "None"
-  },
-  {
-    "name": "Kaya",
-    "type": "Purchasable",
-    "classification": "Artifacts",
-    "price": {
-      "purchase": { "total": "2050", "base": "1450", "recipe": "600" },
-      "sell": "1025"
-    },
-    "stats": [
-      "16 Intelligence",
-      "8% Spell Damage Amp",
-      "50% Mana Regen Amp",
-      "24% Spell Lifesteal Amp"
-    ],
-    "abilities": "None"
+    "abilities": "None",
+    "price": { "purchase": "4100", "sell": "2050" }
   },
   {
     "name": "Diffusal Blade",
     "type": "Purchasable",
     "classification": "Artifacts",
-    "price": {
-      "purchase": { "total": "2500", "base": "1450", "recipe": "1050" },
-      "sell": "1250"
-    },
     "stats": ["15 Agility", "10 Intelligence"],
     "abilities": {
       "Inhibit": {
@@ -1640,16 +1413,85 @@
         },
         "description": "Each attack burns 40 mana from the target, and deals 1 physical damage per burned mana. Burns 8 mana per attack from melee illusions and 8 mana per attack from ranged illusions."
       }
-    }
+    },
+    "price": { "purchase": "2500", "sell": "1250" }
+  },
+  {
+    "name": "Maelstrom",
+    "type": "Purchasable",
+    "classification": "Artifacts",
+    "stats": ["24 Attack Damage"],
+    "abilities": {
+      "Chain Lightning": {
+        "features": {
+          "Ability": "Passive",
+          "Affects": "Enemies",
+          "Damage": "Magical"
+        },
+        "description": "Grants a 30% chance on attack to release a bolt of electricity that leaps between 4 targets within a 650 radius, dealing 135 magical damage to each. Lightning proc pierces evasion."
+      }
+    },
+    "price": { "purchase": "2700", "sell": "1350" }
+  },
+  {
+    "name": "Kaya and Sange",
+    "type": "Purchasable",
+    "classification": "Artifacts",
+    "stats": [
+      "16 Strength",
+      "16 Intelligence",
+      "20% Status Resistance",
+      "16% Spell Damage Amp",
+      "22% Health Regen Amp",
+      "50% Mana Regen Amp",
+      "22% Lifesteal Amp",
+      "30% Spell Lifesteal Amp"
+    ],
+    "abilities": "None",
+    "price": { "purchase": "4100", "sell": "2050" }
+  },
+  {
+    "name": "Mage Slayer",
+    "type": "Purchasable",
+    "classification": "Artifacts",
+    "stats": [
+      "10 Intelligence",
+      "2 Mana Regeneration",
+      "25% Magic Resistance",
+      "20 Attack Damage",
+      "20 Attack Speed"
+    ],
+    "abilities": {
+      "Mage Slayer": {
+        "features": { "Ability": "Passive", "Affects": "Enemies" },
+        "description": "Places a debuff when you attack enemies, causing them to do 35% less spell damage for 6 seconds."
+      }
+    },
+    "price": { "purchase": "2500", "sell": "1250" }
+  },
+  {
+    "name": "Echo Sabre",
+    "type": "Purchasable",
+    "classification": "Artifacts",
+    "stats": [
+      "13 Strength",
+      "10 Intelligence",
+      "1.75 Mana Regeneration",
+      "15 Attack Damage",
+      "10 Attack Speed"
+    ],
+    "abilities": {
+      "Echo Strike": {
+        "features": { "Ability": "Passive", "Affects": "Enemies" },
+        "description": "Causes melee attacks to attack twice in quick succession. The double attacks apply a 100% movement slow for 0.8 seconds on each strike."
+      }
+    },
+    "price": { "purchase": "2500", "sell": "1250" }
   },
   {
     "name": "Phylactery",
     "type": "Purchasable",
     "classification": "Artifacts",
-    "price": {
-      "purchase": { "total": "2375", "base": "2375", "recipe": "None" },
-      "sell": "1187.5"
-    },
     "stats": [
       "7 Strength",
       "7 Agility",
@@ -1667,90 +1509,66 @@
         },
         "description": "The next single target spell you cast on an enemy deals a separate 150 bonus damage to the target and slows them by 50% for 1.5 seconds. Cooldown: 6s"
       }
-    }
+    },
+    "price": { "purchase": "2375", "sell": "1187.5" }
+  },
+  {
+    "name": "Heaven's Halberd",
+    "type": "Purchasable",
+    "classification": "Artifacts",
+    "stats": [
+      "20 Strength",
+      "20% Evasion",
+      "16% Status Resistance",
+      "20% Health Regen Amp",
+      "20% Lifesteal Amp"
+    ],
+    "abilities": {
+      "Disarm": {
+        "features": { "Ability": "Target Unit", "Affects": "Enemies" },
+        "description": "Prevents a target from attacking for 3 seconds on melee targets, and 5 seconds on ranged targets."
+      }
+    },
+    "price": { "purchase": "3550", "sell": "1775" }
+  },
+  {
+    "name": "Yasha",
+    "type": "Purchasable",
+    "classification": "Artifacts",
+    "stats": ["16 Agility", "10% Move Speed", "12 Attack Speed"],
+    "abilities": "None",
+    "price": { "purchase": "2050", "sell": "1025" }
   },
   {
     "name": "Dragon Lance",
     "type": "Purchasable",
     "classification": "Artifacts",
-    "price": {
-      "purchase": { "total": "1900", "base": "1450", "recipe": "450" },
-      "sell": "950"
-    },
     "stats": ["10 Strength", "15 Agility", "150  Attack Range"],
     "abilities": {
       "Dragon's Reach": {
         "features": { "Ability": "Passive", "Affects": "Self" },
         "description": "Increases attack range of ranged heroes by 150."
       }
-    }
+    },
+    "price": { "purchase": "1900", "sell": "950" }
   },
   {
-    "name": "Bloodthorn",
+    "name": "Sange",
     "type": "Purchasable",
-    "classification": "Weapons",
-    "price": {
-      "purchase": { "total": "6800", "base": "5975", "recipe": "825" },
-      "sell": "3400"
-    },
+    "classification": "Artifacts",
     "stats": [
-      "32 Intelligence",
-      "6.25 Health Regeneration",
-      "5 Mana Regeneration",
-      "25% Magic Resistance",
-      "35 Attack Damage",
-      "60 Attack Speed"
+      "16 Strength",
+      "12% Status Resistance",
+      "20% Health Regen Amp",
+      "20% Lifesteal Amp"
     ],
-    "abilities": {
-      "Soul Rend": {
-        "features": {
-          "Ability": "Target Unit",
-          "Affects": "Enemies",
-          "Damage": "Magical"
-        },
-        "description": "Silences a target for 5 seconds. At the end of the silence, an additional 60% of all damage taken during the silence will be dealt to the target as magical damage. All attacks on the silenced target will have 100% accuracy."
-      },
-      "Mage Slayer": {
-        "features": { "Ability": "Passive", "Affects": "Enemies" },
-        "description": "Places a debuff when you attack enemies, causing them to do 35% less spell damage for 6 seconds."
-      }
-    }
-  },
-  {
-    "name": "Butterfly",
-    "type": "Purchasable",
-    "classification": "Weapons",
-    "price": {
-      "purchase": { "total": "4975", "base": "4975", "recipe": "None" },
-      "sell": "2487.5"
-    },
-    "stats": [
-      "35 Agility",
-      "35% Evasion",
-      "25 Attack Damage",
-      "30 Attack Speed"
-    ],
-    "abilities": "None"
-  },
-  {
-    "name": "Divine Rapier",
-    "type": "Purchasable",
-    "classification": "Weapons",
-    "price": {
-      "purchase": { "total": "5600", "base": "5600", "recipe": "None" },
-      "sell": "Unsellable"
-    },
-    "stats": ["350 Attack Damage"],
-    "abilities": "None"
+    "abilities": "None",
+    "price": { "purchase": "2050", "sell": "1025" }
   },
   {
     "name": "Disperser",
     "type": "Purchasable",
     "classification": "Weapons",
-    "price": {
-      "purchase": { "total": "5700", "base": "4700", "recipe": "1000" },
-      "sell": "2850"
-    },
     "stats": ["20 Agility", "10 Intelligence", "45 Attack Damage"],
     "abilities": {
       "Suppress": {
@@ -1765,109 +1583,13 @@
         },
         "description": "Each attack burns 40 mana from the target, and deals 1 physical damage per burned mana. Burns 8 mana per attack from melee illusions and 8 mana per attack from ranged illusions."
       }
-    }
-  },
-  {
-    "name": "Silver Edge",
-    "type": "Purchasable",
-    "classification": "Weapons",
-    "price": {
-      "purchase": { "total": "5450", "base": "4900", "recipe": "550" },
-      "sell": "2725"
     },
-    "stats": ["52 Attack Damage", "35 Attack Speed"],
-    "abilities": {
-      "Shadow Walk": {
-        "features": {
-          "Ability": "No Target",
-          "Affects": "Self / Enemies",
-          "Damage": "Physical"
-        },
-        "description": "Makes you invisible for 14 seconds, or until you attack or cast a spell.  While invisible, you move 25% faster and can move through units. Attacking to end the invisibility will deal 175 bonus physical damage and a guaranteed 160% critical strike to the target, and disable their passive abilities for 4 seconds."
-      },
-      "Critical Strike": {
-        "features": { "Ability": "Passive", "Affects": "Enemies" },
-        "description": "Grants each attack a 30% chance to deal 160% damage."
-      }
-    }
-  },
-  {
-    "name": "Monkey King Bar",
-    "type": "Purchasable",
-    "classification": "Weapons",
-    "price": {
-      "purchase": { "total": "4900", "base": "4300", "recipe": "600" },
-      "sell": "2450"
-    },
-    "stats": ["40 Attack Damage", "45 Attack Speed"],
-    "abilities": {
-      "Pierce": {
-        "features": {
-          "Ability": "Passive",
-          "Affects": "Enemies",
-          "Damage": "Magical"
-        },
-        "description": "Grants each attack a 80% chance to pierce through evasion and deal 70 bonus magical damage."
-      }
-    }
-  },
-  {
-    "name": "Daedalus",
-    "type": "Purchasable",
-    "classification": "Weapons",
-    "price": {
-      "purchase": { "total": "5100", "base": "4100", "recipe": "1000" },
-      "sell": "2550"
-    },
-    "stats": ["88 Attack Damage"],
-    "abilities": {
-      "Critical Strike": {
-        "features": { "Ability": "Passive", "Affects": "Enemies" },
-        "description": "Grants each attack a 30% chance to deal 225% damage."
-      }
-    }
-  },
-  {
-    "name": "Abyssal Blade",
-    "type": "Purchasable",
-    "classification": "Weapons",
-    "price": {
-      "purchase": { "total": "6250", "base": "4575", "recipe": "1675" },
-      "sell": "3125"
-    },
-    "stats": [
-      "10 Strength",
-      "250 Health",
-      "10 Health Regeneration",
-      "35 Attack Damage"
-    ],
-    "abilities": {
-      "Overwhelm": {
-        "features": { "Ability": "Target Unit", "Affects": "Enemies" },
-        "description": "Stuns a target enemy unit for 1.6 seconds. Pierces Spell Immunity."
-      },
-      "Bash": {
-        "features": {
-          "Ability": "Passive",
-          "Affects": "Enemies",
-          "Damage": "Physical"
-        },
-        "description": "Grants melee heroes a 25% chance on hit to stun the target for 1.2 seconds and deal 120 bonus physical damage. Bash chance for ranged heroes is 10%."
-      },
-      "Damage Block": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "Grants a 60% chance to block 70 damage from incoming attacks on melee heroes, and 35 damage on ranged."
-      }
-    }
+    "price": { "purchase": "5700", "sell": "2850" }
   },
   {
     "name": "Revenant's Brooch",
     "type": "Purchasable",
     "classification": "Weapons",
-    "price": {
-      "purchase": { "total": "6200", "base": "5400", "recipe": "800" },
-      "sell": "3100"
-    },
     "stats": [
       "45 Intelligence",
       "8 Armor",
@@ -1891,36 +1613,160 @@
         },
         "description": "Causes your next attack to apply a poison for 4 seconds, slowing by 25% and dealing 1x your intelligence as damage every second. This attack has True Strike."
       }
-    }
+    },
+    "price": { "purchase": "6200", "sell": "3100" }
   },
   {
-    "name": "Skull Basher",
+    "name": "Kaya",
+    "type": "Purchasable",
+    "classification": "Artifacts",
+    "stats": [
+      "16 Intelligence",
+      "8% Spell Damage Amp",
+      "50% Mana Regen Amp",
+      "24% Spell Lifesteal Amp"
+    ],
+    "abilities": "None",
+    "price": { "purchase": "2050", "sell": "1025" }
+  },
+  {
+    "name": "Abyssal Blade",
     "type": "Purchasable",
     "classification": "Weapons",
-    "price": {
-      "purchase": { "total": "2875", "base": "2050", "recipe": "825" },
-      "sell": "1437.5"
-    },
-    "stats": ["10 Strength", "30 Attack Damage"],
+    "stats": [
+      "10 Strength",
+      "250 Health",
+      "10 Health Regeneration",
+      "35 Attack Damage"
+    ],
     "abilities": {
+      "Overwhelm": {
+        "features": { "Ability": "Target Unit", "Affects": "Enemies" },
+        "description": "Stuns a target enemy unit for 1.6 seconds. Pierces Spell Immunity."
+      },
       "Bash": {
         "features": {
           "Ability": "Passive",
           "Affects": "Enemies",
           "Damage": "Physical"
         },
-        "description": "Grants melee heroes a 25% chance on hit to stun the target for 1.2 seconds and deal 100 bonus physical damage. Bash chance for ranged heroes is 10%."
+        "description": "Grants melee heroes a 25% chance on hit to stun the target for 1.2 seconds and deal 120 bonus physical damage. Bash chance for ranged heroes is 10%."
+      },
+      "Damage Block": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "Grants a 60% chance to block 70 damage from incoming attacks on melee heroes, and 35 damage on ranged."
       }
-    }
+    },
+    "price": { "purchase": "6250", "sell": "3125" }
+  },
+  {
+    "name": "Bloodthorn",
+    "type": "Purchasable",
+    "classification": "Weapons",
+    "stats": [
+      "32 Intelligence",
+      "6.25 Health Regeneration",
+      "5 Mana Regeneration",
+      "25% Magic Resistance",
+      "35 Attack Damage",
+      "60 Attack Speed"
+    ],
+    "abilities": {
+      "Soul Rend": {
+        "features": {
+          "Ability": "Target Unit",
+          "Affects": "Enemies",
+          "Damage": "Magical"
+        },
+        "description": "Silences a target for 5 seconds. At the end of the silence, an additional 60% of all damage taken during the silence will be dealt to the target as magical damage. All attacks on the silenced target will have 100% accuracy."
+      },
+      "Mage Slayer": {
+        "features": { "Ability": "Passive", "Affects": "Enemies" },
+        "description": "Places a debuff when you attack enemies, causing them to do 35% less spell damage for 6 seconds."
+      }
+    },
+    "price": { "purchase": "6800", "sell": "3400" }
+  },
+  {
+    "name": "Silver Edge",
+    "type": "Purchasable",
+    "classification": "Weapons",
+    "stats": ["52 Attack Damage", "35 Attack Speed"],
+    "abilities": {
+      "Shadow Walk": {
+        "features": {
+          "Ability": "No Target",
+          "Affects": "Self / Enemies",
+          "Damage": "Physical"
+        },
+        "description": "Makes you invisible for 14 seconds, or until you attack or cast a spell.  While invisible, you move 25% faster and can move through units. Attacking to end the invisibility will deal 175 bonus physical damage and a guaranteed 160% critical strike to the target, and disable their passive abilities for 4 seconds."
+      },
+      "Critical Strike": {
+        "features": { "Ability": "Passive", "Affects": "Enemies" },
+        "description": "Grants each attack a 30% chance to deal 160% damage."
+      }
+    },
+    "price": { "purchase": "5450", "sell": "2725" }
+  },
+  {
+    "name": "Divine Rapier",
+    "type": "Purchasable",
+    "classification": "Weapons",
+    "stats": ["350 Attack Damage"],
+    "abilities": "None",
+    "price": { "purchase": "5600", "sell": "Unsellable" }
+  },
+  {
+    "name": "Butterfly",
+    "type": "Purchasable",
+    "classification": "Weapons",
+    "stats": [
+      "35 Agility",
+      "35% Evasion",
+      "25 Attack Damage",
+      "30 Attack Speed"
+    ],
+    "abilities": "None",
+    "price": { "purchase": "4975", "sell": "2487.5" }
+  },
+  {
+    "name": "Radiance",
+    "type": "Purchasable",
+    "classification": "Weapons",
+    "stats": ["15% Evasion", "55 Attack Damage"],
+    "abilities": {
+      "Burn": {
+        "features": {
+          "Ability": "Toggle / Aura",
+          "Affects": "Enemies",
+          "Damage": "Magical"
+        },
+        "description": "When active, scorches enemies for 60 magical damage per second, and causes them to miss 15% of their attacks. Illusions deal 35 magical damage per second."
+      }
+    },
+    "price": { "purchase": "4700", "sell": "2350" }
+  },
+  {
+    "name": "Monkey King Bar",
+    "type": "Purchasable",
+    "classification": "Weapons",
+    "stats": ["40 Attack Damage", "45 Attack Speed"],
+    "abilities": {
+      "Pierce": {
+        "features": {
+          "Ability": "Passive",
+          "Affects": "Enemies",
+          "Damage": "Magical"
+        },
+        "description": "Grants each attack a 80% chance to pierce through evasion and deal 70 bonus magical damage."
+      }
+    },
+    "price": { "purchase": "4900", "sell": "2450" }
   },
   {
     "name": "Ethereal Blade",
     "type": "Purchasable",
     "classification": "Weapons",
-    "price": {
-      "purchase": { "total": "4650", "base": "3550", "recipe": "1100" },
-      "sell": "2325"
-    },
     "stats": [
       "5 Strength",
       "5 Agility",
@@ -1938,52 +1784,39 @@
         },
         "description": "Converts the target unit to ethereal form, rendering them immune to physical damage, but unable to attack and 40% more vulnerable to magic damage. Enemy targets are also slowed by 80%, and take 1.5x your target's primary attribute + 50 as magical damage."
       }
-    }
+    },
+    "price": { "purchase": "4650", "sell": "2325" }
   },
   {
     "name": "Nullifier",
     "type": "Purchasable",
     "classification": "Weapons",
-    "price": {
-      "purchase": { "total": "4375", "base": "4375", "recipe": "None" },
-      "sell": "2187.5"
-    },
     "stats": ["6 Health Regeneration", "10 Armor", "75 Attack Damage"],
     "abilities": {
       "Nullify": {
         "features": { "Ability": "Target Unit", "Affects": "Enemies" },
         "description": "Dispels the target and applies a debuff for 5 seconds. Continuously dispels the target."
       }
-    }
+    },
+    "price": { "purchase": "4375", "sell": "2187.5" }
   },
   {
-    "name": "Radiance",
+    "name": "Daedalus",
     "type": "Purchasable",
     "classification": "Weapons",
-    "price": {
-      "purchase": { "total": "4700", "base": "4700", "recipe": "None" },
-      "sell": "2350"
-    },
-    "stats": ["15% Evasion", "55 Attack Damage"],
+    "stats": ["88 Attack Damage"],
     "abilities": {
-      "Burn": {
-        "features": {
-          "Ability": "Toggle / Aura",
-          "Affects": "Enemies",
-          "Damage": "Magical"
-        },
-        "description": "When active, scorches enemies for 60 magical damage per second, and causes them to miss 15% of their attacks. Illusions deal 35 magical damage per second."
+      "Critical Strike": {
+        "features": { "Ability": "Passive", "Affects": "Enemies" },
+        "description": "Grants each attack a 30% chance to deal 225% damage."
       }
-    }
+    },
+    "price": { "purchase": "5100", "sell": "2550" }
   },
   {
     "name": "Battle Fury",
     "type": "Purchasable",
     "classification": "Weapons",
-    "price": {
-      "purchase": { "total": "4100", "base": "3650", "recipe": "450" },
-      "sell": "2050"
-    },
     "stats": [
       "7.5 Health Regeneration",
       "2.75 Mana Regeneration",
@@ -2006,56 +1839,43 @@
         },
         "description": "Deals 70% of attack damage as physical damage in a cone up to 650 around the target. Deals 40% against creeps. (Melee Only)"
       }
-    }
+    },
+    "price": { "purchase": "4100", "sell": "2050" }
   },
   {
-    "name": "Desolator",
+    "name": "Skull Basher",
     "type": "Purchasable",
     "classification": "Weapons",
-    "price": {
-      "purchase": { "total": "3500", "base": "3500", "recipe": "None" },
-      "sell": "1750"
-    },
-    "stats": ["50 Attack Damage"],
+    "stats": ["10 Strength", "30 Attack Damage"],
     "abilities": {
-      "Corruption": {
-        "features": { "Ability": "Passive", "Affects": "Enemies" },
-        "description": "Your attacks reduce the target's armor by 6 for 7 seconds."
-      },
-      "Soul Stealer": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "Desolator gains +2 damage every time an enemy hero dies while affected by Corruption, to a maximum of 30."
-      }
-    }
-  },
-  {
-    "name": "Shadow Blade",
-    "type": "Purchasable",
-    "classification": "Weapons",
-    "price": {
-      "purchase": { "total": "3000", "base": "3000", "recipe": "None" },
-      "sell": "1500"
-    },
-    "stats": ["20 Attack Damage", "35 Attack Speed"],
-    "abilities": {
-      "Shadow Walk": {
+      "Bash": {
         "features": {
-          "Ability": "No Target",
-          "Affects": "Self / Enemies",
+          "Ability": "Passive",
+          "Affects": "Enemies",
           "Damage": "Physical"
         },
-        "description": "Makes you invisible for 14 seconds, or until you attack or cast a spell. While Shadow Walk is active, you move 20% faster and can move through units. If attacking to end the invisibility, you gain 175 bonus physical damage on that attack."
+        "description": "Grants melee heroes a 25% chance on hit to stun the target for 1.2 seconds and deal 100 bonus physical damage. Bash chance for ranged heroes is 10%."
       }
-    }
+    },
+    "price": { "purchase": "2875", "sell": "1437.5" }
+  },
+  {
+    "name": "Crystalys",
+    "type": "Purchasable",
+    "classification": "Weapons",
+    "stats": ["32 Attack Damage"],
+    "abilities": {
+      "Critical Strike": {
+        "features": { "Ability": "Passive", "Affects": "Enemies" },
+        "description": "Grants each attack a 30% chance to deal 160% damage."
+      }
+    },
+    "price": { "purchase": "1900", "sell": "950" }
   },
   {
     "name": "Armlet of Mordiggian",
     "type": "Purchasable",
     "classification": "Weapons",
-    "price": {
-      "purchase": { "total": "2500", "base": "1875", "recipe": "625" },
-      "sell": "1250"
-    },
     "stats": [
       "5 Health Regeneration",
       "6 Armor",
@@ -2067,16 +1887,30 @@
         "features": { "Ability": "Toggle", "Affects": "Self" },
         "description": "When active, Unholy Strength grants +35 damage, +25 strength and +4 armor, but drains 45 health per second. You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
       }
-    }
+    },
+    "price": { "purchase": "2500", "sell": "1250" }
+  },
+  {
+    "name": "Shadow Blade",
+    "type": "Purchasable",
+    "classification": "Weapons",
+    "stats": ["20 Attack Damage", "35 Attack Speed"],
+    "abilities": {
+      "Shadow Walk": {
+        "features": {
+          "Ability": "No Target",
+          "Affects": "Self / Enemies",
+          "Damage": "Physical"
+        },
+        "description": "Makes you invisible for 14 seconds, or until you attack or cast a spell. While Shadow Walk is active, you move 20% faster and can move through units. If attacking to end the invisibility, you gain 175 bonus physical damage on that attack."
+      }
+    },
+    "price": { "purchase": "3000", "sell": "1500" }
   },
   {
     "name": "Meteor Hammer",
     "type": "Purchasable",
     "classification": "Weapons",
-    "price": {
-      "purchase": { "total": "2400", "base": "1850", "recipe": "550" },
-      "sell": "1200"
-    },
     "stats": [
       "8 Strength",
       "8 Agility",
@@ -2093,94 +1927,105 @@
         },
         "description": "After a successful channel, summons a meteor that strikes a 400 AoE, stunning enemies for 0.5 seconds and dealing impact damage. Continues to deal damage over time to enemy units and buildings for 6 seconds. Non-building units are also slowed for 20% for the duration of the burn."
       }
-    }
-  },
-  {
-    "name": "Crystalys",
-    "type": "Purchasable",
-    "classification": "Weapons",
-    "price": {
-      "purchase": { "total": "1900", "base": "1450", "recipe": "450" },
-      "sell": "950"
     },
-    "stats": ["32 Attack Damage"],
-    "abilities": {
-      "Critical Strike": {
-        "features": { "Ability": "Passive", "Affects": "Enemies" },
-        "description": "Grants each attack a 30% chance to deal 160% damage."
-      }
-    }
-  },
-  {
-    "name": "Shiva's Guard",
-    "type": "Purchasable",
-    "classification": "Armor",
-    "price": {
-      "purchase": { "total": "4850", "base": "4200", "recipe": "650" },
-      "sell": "2425"
-    },
-    "stats": ["30 Intelligence", "15 Armor"],
-    "abilities": {
-      "Arctic Blast": {
-        "features": {
-          "Ability": "No Target",
-          "Affects": "Enemies",
-          "Damage": "Magical"
-        },
-        "description": "Emits a freezing wave that deals 200 magical damage to enemies and slows their movement by 40% for 4 seconds."
-      },
-      "Freezing Aura": {
-        "features": { "Ability": "Aura", "Affects": "Enemies" },
-        "description": "Reduces the attack speed of all enemies by 45 and all heals, regeneration and lifesteal by 25%."
-      }
-    }
+    "price": { "purchase": "2400", "sell": "1200" }
   },
   {
     "name": "Assault Cuirass",
     "type": "Purchasable",
     "classification": "Armor",
-    "price": {
-      "purchase": { "total": "5125", "base": "3825", "recipe": "1300" },
-      "sell": "2562.5"
-    },
     "stats": ["10 Armor", "30 Attack Speed"],
     "abilities": {
       "Assault Aura": {
         "features": { "Ability": "Aura", "Affects": "Allies / Enemies" },
         "description": "Grants 30 attack speed and 5 armor to nearby allied units and structures, and decreases nearby enemy unit and structure armor by 5."
       }
-    }
+    },
+    "price": { "purchase": "5125", "sell": "2562.5" }
   },
   {
-    "name": "Manta Style",
+    "name": "Desolator",
+    "type": "Purchasable",
+    "classification": "Weapons",
+    "stats": ["50 Attack Damage"],
+    "abilities": {
+      "Corruption": {
+        "features": { "Ability": "Passive", "Affects": "Enemies" },
+        "description": "Your attacks reduce the target's armor by 6 for 7 seconds."
+      },
+      "Soul Stealer": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "Desolator gains +2 damage every time an enemy hero dies while affected by Corruption, to a maximum of 30."
+      }
+    },
+    "price": { "purchase": "3500", "sell": "1750" }
+  },
+  {
+    "name": "Heart of Tarrasque",
     "type": "Purchasable",
     "classification": "Armor",
-    "price": {
-      "purchase": { "total": "4600", "base": "4100", "recipe": "500" },
-      "sell": "2300"
-    },
+    "stats": ["40 Strength", "250 Health", "1.6% Max HP Health Regen"],
+    "abilities": "None",
+    "price": { "purchase": "5100", "sell": "2550" }
+  },
+  {
+    "name": "Hurricane Pike",
+    "type": "Purchasable",
+    "classification": "Armor",
     "stats": [
-      "10 Strength",
-      "26 Agility",
-      "10 Intelligence",
-      "10% Move Speed",
-      "12 Attack Speed"
+      "15 Strength",
+      "20 Agility",
+      "15 Intelligence",
+      "200 Health",
+      "150  Attack Range"
     ],
     "abilities": {
-      "Mirror Image": {
-        "features": { "Ability": "No Target", "Affects": "Self" },
-        "description": "Creates 2 images of your hero that last 20 seconds. Melee images deal 33% damage, while Ranged images deal 28%. Illusions take 300% damage."
+      "Hurricane Thrust": {
+        "features": { "Ability": "Target Unit", "Affects": "Enemies / Allies" },
+        "description": "Pushes you and target enemy 450 units away from each other, and for 6 seconds, allows you to make 5 attacks against the target without range restrictions and with +100 attack speed. Works like Force Staff when used on self or allies."
+      },
+      "Dragon's Reach": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "Increases attack range of ranged heroes by 150."
       }
-    }
+    },
+    "price": { "purchase": "4450", "sell": "2225" }
+  },
+  {
+    "name": "Black King Bar",
+    "type": "Purchasable",
+    "classification": "Armor",
+    "stats": ["10 Strength", "24 Attack Damage"],
+    "abilities": {
+      "Avatar": {
+        "features": { "Ability": "No Target", "Affects": "Self" },
+        "description": "Applies a Basic Dispel. Grants 50% Magic resistance and immunity to pure and reflected damage. For the duration of the effect, any negative effect from enemy spells has no effect."
+      }
+    },
+    "price": { "purchase": "4050", "sell": "2025" }
+  },
+  {
+    "name": "Lotus Orb",
+    "type": "Purchasable",
+    "classification": "Armor",
+    "stats": [
+      "6.5 Health Regeneration",
+      "250 Mana",
+      "4 Mana Regeneration",
+      "10 Armor"
+    ],
+    "abilities": {
+      "Echo Shell": {
+        "features": { "Ability": "Target Unit", "Affects": "Allied Heroes" },
+        "description": "Applies a shield to the target unit for 6 seconds which re-casts most targeted spells back to their caster. The shielded unit will still take damage from the spell."
+      }
+    },
+    "price": { "purchase": "3850", "sell": "1925" }
   },
   {
     "name": "Linken's Sphere",
     "type": "Purchasable",
     "classification": "Armor",
-    "price": {
-      "purchase": { "total": "4600", "base": "3250", "recipe": "1350" },
-      "sell": "2300"
-    },
     "stats": [
       "16 Strength",
       "16 Agility",
@@ -2198,53 +2043,34 @@
         "features": { "Ability": "Target Unit", "Affects": "Allied Heroes" },
         "description": "Temporarily removes Spellblock from the item's owner and transfers it to an allied unit for 14 seconds."
       }
-    }
+    },
+    "price": { "purchase": "4600", "sell": "2300" }
   },
   {
-    "name": "Heart of Tarrasque",
+    "name": "Shiva's Guard",
     "type": "Purchasable",
     "classification": "Armor",
-    "price": {
-      "purchase": { "total": "5100", "base": "3800", "recipe": "1300" },
-      "sell": "2550"
-    },
-    "stats": ["40 Strength", "250 Health", "1.6% Max HP Health Regen"],
-    "abilities": "None"
-  },
-  {
-    "name": "Hurricane Pike",
-    "type": "Purchasable",
-    "classification": "Armor",
-    "price": {
-      "purchase": { "total": "4450", "base": "4100", "recipe": "350" },
-      "sell": "2225"
-    },
-    "stats": [
-      "15 Strength",
-      "20 Agility",
-      "15 Intelligence",
-      "200 Health",
-      "150  Attack Range"
-    ],
+    "stats": ["30 Intelligence", "15 Armor"],
     "abilities": {
-      "Hurricane Thrust": {
-        "features": { "Ability": "Target Unit", "Affects": "Enemies / Allies" },
-        "description": "Pushes you and target enemy 450 units away from each other, and for 6 seconds, allows you to make 5 attacks against the target without range restrictions and with +100 attack speed. Works like Force Staff when used on self or allies."
+      "Arctic Blast": {
+        "features": {
+          "Ability": "No Target",
+          "Affects": "Enemies",
+          "Damage": "Magical"
+        },
+        "description": "Emits a freezing wave that deals 200 magical damage to enemies and slows their movement by 40% for 4 seconds."
       },
-      "Dragon's Reach": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "Increases attack range of ranged heroes by 150."
+      "Freezing Aura": {
+        "features": { "Ability": "Aura", "Affects": "Enemies" },
+        "description": "Reduces the attack speed of all enemies by 45 and all heals, regeneration and lifesteal by 25%."
       }
-    }
+    },
+    "price": { "purchase": "4850", "sell": "2425" }
   },
   {
     "name": "Bloodstone",
     "type": "Purchasable",
     "classification": "Armor",
-    "price": {
-      "purchase": { "total": "4400", "base": "3700", "recipe": "700" },
-      "sell": "2200"
-    },
     "stats": [
       "500 Health",
       "500 Mana",
@@ -2256,64 +2082,83 @@
         "features": { "Ability": "No Target", "Affects": "Self" },
         "description": "Increases Bloodstone's Spell Lifesteal by 2.5x and also converts the same percentage of damage dealt to mana. Lasts 6 seconds."
       }
-    }
+    },
+    "price": { "purchase": "4400", "sell": "2200" }
   },
   {
-    "name": "Lotus Orb",
+    "name": "Manta Style",
     "type": "Purchasable",
     "classification": "Armor",
-    "price": {
-      "purchase": { "total": "3850", "base": "3600", "recipe": "250" },
-      "sell": "1925"
-    },
     "stats": [
-      "6.5 Health Regeneration",
-      "250 Mana",
-      "4 Mana Regeneration",
-      "10 Armor"
+      "10 Strength",
+      "26 Agility",
+      "10 Intelligence",
+      "10% Move Speed",
+      "12 Attack Speed"
     ],
     "abilities": {
-      "Echo Shell": {
-        "features": { "Ability": "Target Unit", "Affects": "Allied Heroes" },
-        "description": "Applies a shield to the target unit for 6 seconds which re-casts most targeted spells back to their caster. The shielded unit will still take damage from the spell."
+      "Mirror Image": {
+        "features": { "Ability": "No Target", "Affects": "Self" },
+        "description": "Creates 2 images of your hero that last 20 seconds. Melee images deal 33% damage, while Ranged images deal 28%. Illusions take 300% damage."
       }
-    }
+    },
+    "price": { "purchase": "4600", "sell": "2300" }
+  },
+  {
+    "name": "Crimson Guard",
+    "type": "Purchasable",
+    "classification": "Armor",
+    "stats": ["250 Health", "12 Health Regeneration", "8 Armor"],
+    "abilities": {
+      "Guard": {
+        "features": { "Ability": "No Target", "Affects": "Allied Heroes" },
+        "description": "For 8 seconds, grant nearby allied heroes and buildings a 100% chance to block 70 + 50% of caster's strength as damage from each incoming attack. Units may only be affected by Guard once every 8 seconds."
+      },
+      "Damage Block": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "Grants a 60% chance to block 75 damage from incoming attacks on melee heroes, and 50 damage on ranged."
+      }
+    },
+    "price": { "purchase": "3725", "sell": "1862.5" }
+  },
+  {
+    "name": "Vanguard",
+    "type": "Purchasable",
+    "classification": "Armor",
+    "stats": ["250 Health", "4.5 Health Regeneration"],
+    "abilities": {
+      "Damage Block": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "Grants a 60% chance to block 50 damage from incoming attacks on melee heroes, and 25 damage on ranged."
+      }
+    },
+    "price": { "purchase": "1700", "sell": "850" }
   },
   {
     "name": "Soul Booster",
     "type": "Purchasable",
     "classification": "Armor",
-    "price": {
-      "purchase": { "total": "3000", "base": "3000", "recipe": "None" },
-      "sell": "1500"
-    },
     "stats": ["425 Health", "425 Mana"],
-    "abilities": "None"
+    "abilities": "None",
+    "price": { "purchase": "3000", "sell": "1500" }
   },
   {
-    "name": "Black King Bar",
+    "name": "Aeon Disk",
     "type": "Purchasable",
     "classification": "Armor",
-    "price": {
-      "purchase": { "total": "4050", "base": "2600", "recipe": "1450" },
-      "sell": "2025"
-    },
-    "stats": ["10 Strength", "24 Attack Damage"],
+    "stats": ["250 Health", "300 Mana"],
     "abilities": {
-      "Avatar": {
-        "features": { "Ability": "No Target", "Affects": "Self" },
-        "description": "Applies a Basic Dispel. Grants 50% Magic resistance and immunity to pure and reflected damage. For the duration of the effect, any negative effect from enemy spells has no effect."
+      "Combo Breaker": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "When you take damage and your health falls below 70%, a strong dispel is applied and you gain a  second buff that provides +75% Status Resistance and causes all damage you deal and are dealt to be reduced to zero. Only triggers on player based damage. Cooldown increases every time it triggers."
       }
-    }
+    },
+    "price": { "purchase": "3000", "sell": "1500" }
   },
   {
     "name": "Blade Mail",
     "type": "Purchasable",
     "classification": "Armor",
-    "price": {
-      "purchase": { "total": "2100", "base": "1550", "recipe": "550" },
-      "sell": "1050"
-    },
     "stats": ["7 Armor", "18 Attack Damage"],
     "abilities": {
       "Damage Return": {
@@ -2332,138 +2177,26 @@
         },
         "description": "Everytime you are attacked, you return 20 damage plus 20% of the attack damage dealt to you."
       }
-    }
+    },
+    "price": { "purchase": "2100", "sell": "1050" }
   },
   {
     "name": "Eternal Shroud",
     "type": "Purchasable",
     "classification": "Armor",
-    "price": {
-      "purchase": { "total": "3100", "base": "2500", "recipe": "600" },
-      "sell": "1550"
-    },
     "stats": ["14 Strength", "7 Health Regeneration", "30% Magic Resistance"],
     "abilities": {
       "Shroud": {
         "features": { "Ability": "Passive", "Affects": "Self" },
         "description": "Restores Mana equal to 30% of incoming enemy spell damage"
       }
-    }
-  },
-  {
-    "name": "Aeon Disk",
-    "type": "Purchasable",
-    "classification": "Armor",
-    "price": {
-      "purchase": { "total": "3000", "base": "1800", "recipe": "1200" },
-      "sell": "1500"
     },
-    "stats": ["250 Health", "300 Mana"],
-    "abilities": {
-      "Combo Breaker": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "When you take damage and your health falls below 70%, a strong dispel is applied and you gain a  second buff that provides +75% Status Resistance and causes all damage you deal and are dealt to be reduced to zero. Only triggers on player based damage. Cooldown increases every time it triggers."
-      }
-    }
-  },
-  {
-    "name": "Crimson Guard",
-    "type": "Purchasable",
-    "classification": "Armor",
-    "price": {
-      "purchase": { "total": "3725", "base": "2675", "recipe": "1050" },
-      "sell": "1862.5"
-    },
-    "stats": ["250 Health", "12 Health Regeneration", "8 Armor"],
-    "abilities": {
-      "Guard": {
-        "features": { "Ability": "No Target", "Affects": "Allied Heroes" },
-        "description": "For 8 seconds, grant nearby allied heroes and buildings a 100% chance to block 70 + 50% of caster's strength as damage from each incoming attack. Units may only be affected by Guard once every 8 seconds."
-      },
-      "Damage Block": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "Grants a 60% chance to block 75 damage from incoming attacks on melee heroes, and 50 damage on ranged."
-      }
-    }
-  },
-  {
-    "name": "Vanguard",
-    "type": "Purchasable",
-    "classification": "Armor",
-    "price": {
-      "purchase": { "total": "1700", "base": "1700", "recipe": "None" },
-      "sell": "850"
-    },
-    "stats": ["250 Health", "4.5 Health Regeneration"],
-    "abilities": {
-      "Damage Block": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "Grants a 60% chance to block 50 damage from incoming attacks on melee heroes, and 25 damage on ranged."
-      }
-    }
-  },
-  {
-    "name": "Aghanim's Blessing",
-    "type": "Purchasable",
-    "classification": "Magical",
-    "price": {
-      "purchase": { "total": "5800", "base": "4200", "recipe": "1600" },
-      "sell": "Unsellable"
-    },
-    "stats": "None",
-    "abilities": {
-      "Ability Upgrade": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "Upgrades the ultimate, and some abilities, of all heroes."
-      }
-    }
-  },
-  {
-    "name": "Octarine Core",
-    "type": "Purchasable",
-    "classification": "Magical",
-    "price": {
-      "purchase": { "total": "4600", "base": "4400", "recipe": "200" },
-      "sell": "2300"
-    },
-    "stats": ["625 Health", "625 Mana", "5 Mana Regeneration"],
-    "abilities": {
-      "Cooldown Reduction": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "Reduces the cooldown time of all spells and items by 25%."
-      }
-    }
-  },
-  {
-    "name": "Aghanim's Scepter",
-    "type": "Purchasable",
-    "classification": "Magical",
-    "price": {
-      "purchase": { "total": "4200", "base": "4200", "recipe": "None" },
-      "sell": "2100"
-    },
-    "stats": [
-      "10 Strength",
-      "10 Agility",
-      "10 Intelligence",
-      "175 Health",
-      "175 Mana"
-    ],
-    "abilities": {
-      "Ability Upgrade": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "Upgrades the ultimate, and some abilities, of all heroes."
-      }
-    }
+    "price": { "purchase": "3100", "sell": "1550" }
   },
   {
     "name": "Wind Waker",
     "type": "Purchasable",
     "classification": "Magical",
-    "price": {
-      "purchase": { "total": "6825", "base": "5425", "recipe": "1400" },
-      "sell": "3412.5"
-    },
     "stats": ["35 Intelligence", "3 Mana Regeneration", "30 Move Speed"],
     "abilities": {
       "Cyclone": {
@@ -2474,61 +2207,26 @@
         },
         "description": "Sweeps a target unit up into a cyclone, making them invulnerable for 2.5 seconds. Cyclone can be cast on yourself, enemy units or allied units. Enemy units take 50 magical damage upon landing."
       }
-    }
+    },
+    "price": { "purchase": "6825", "sell": "3412.5" }
   },
   {
-    "name": "Refresher Orb",
+    "name": "Aghanim's Blessing",
     "type": "Purchasable",
     "classification": "Magical",
-    "price": {
-      "purchase": { "total": "5000", "base": "2400", "recipe": "2600" },
-      "sell": "2500"
-    },
-    "stats": [
-      "12 Health Regeneration",
-      "6 Mana Regeneration",
-      "20 Attack Damage"
-    ],
+    "stats": "None",
     "abilities": {
-      "Reset Cooldowns": {
-        "features": { "Ability": "No Target", "Affects": "Self" },
-        "description": "Resets the cooldowns of all your items and abilities. Shares a cooldown with Refresher Shard. This item's cooldown only progresses in your hero's main inventory."
+      "Ability Upgrade": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "Upgrades the ultimate, and some abilities, of all heroes."
       }
-    }
-  },
-  {
-    "name": "Scythe of Vyse",
-    "type": "Purchasable",
-    "classification": "Magical",
-    "price": {
-      "purchase": { "total": "5550", "base": "5550", "recipe": "None" },
-      "sell": "2775"
     },
-    "stats": [
-      "10 Strength",
-      "10 Agility",
-      "35 Intelligence",
-      "8.5 Mana Regeneration"
-    ],
-    "abilities": {
-      "Hex": {
-        "features": {
-          "Ability": "Target Unit",
-          "Affects": "Enemies",
-          "Damage": "Instant Kill"
-        },
-        "description": "Turns a target unit into a harmless critter for 2.8 seconds. The target has a base movement speed of 140 and will be silenced, muted, and disarmed. Instantly destroys illusions."
-      }
-    }
+    "price": { "purchase": "5800", "sell": "Unsellable" }
   },
   {
     "name": "Gleipnir",
     "type": "Purchasable",
     "classification": "Magical",
-    "price": {
-      "purchase": { "total": "5650", "base": "4950", "recipe": "700" },
-      "sell": "2825"
-    },
     "stats": ["25 Intelligence", "350 Health", "30 Attack Damage"],
     "abilities": {
       "Eternal Chains": {
@@ -2547,16 +2245,43 @@
         },
         "description": "Grants a 30% chance on attack to release a bolt of electricity that leaps between 4 targets within a 650 radius, dealing 160 magical damage to each. Lightning proc pierces evasion."
       }
-    }
+    },
+    "price": { "purchase": "5650", "sell": "2825" }
+  },
+  {
+    "name": "Refresher Orb",
+    "type": "Purchasable",
+    "classification": "Magical",
+    "stats": [
+      "12 Health Regeneration",
+      "6 Mana Regeneration",
+      "20 Attack Damage"
+    ],
+    "abilities": {
+      "Reset Cooldowns": {
+        "features": { "Ability": "No Target", "Affects": "Self" },
+        "description": "Resets the cooldowns of all your items and abilities. Shares a cooldown with Refresher Shard. This item's cooldown only progresses in your hero's main inventory."
+      }
+    },
+    "price": { "purchase": "5000", "sell": "2500" }
+  },
+  {
+    "name": "Octarine Core",
+    "type": "Purchasable",
+    "classification": "Magical",
+    "stats": ["625 Health", "625 Mana", "5 Mana Regeneration"],
+    "abilities": {
+      "Cooldown Reduction": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "Reduces the cooldown time of all spells and items by 25%."
+      }
+    },
+    "price": { "purchase": "4600", "sell": "2300" }
   },
   {
     "name": "Orchid Malevolence",
     "type": "Purchasable",
     "classification": "Magical",
-    "price": {
-      "purchase": { "total": "3475", "base": "3200", "recipe": "275" },
-      "sell": "1737.5"
-    },
     "stats": [
       "12 Intelligence",
       "6 Health Regeneration",
@@ -2573,16 +2298,54 @@
         },
         "description": "Silences the target unit for 5 seconds. At the end of the silence, 30% of the damage received while silenced is inflicted as bonus magical damage."
       }
-    }
+    },
+    "price": { "purchase": "3475", "sell": "1737.5" }
+  },
+  {
+    "name": "Aghanim's Scepter",
+    "type": "Purchasable",
+    "classification": "Magical",
+    "stats": [
+      "10 Strength",
+      "10 Agility",
+      "10 Intelligence",
+      "175 Health",
+      "175 Mana"
+    ],
+    "abilities": {
+      "Ability Upgrade": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "Upgrades the ultimate, and some abilities, of all heroes."
+      }
+    },
+    "price": { "purchase": "4200", "sell": "2100" }
+  },
+  {
+    "name": "Scythe of Vyse",
+    "type": "Purchasable",
+    "classification": "Magical",
+    "stats": [
+      "10 Strength",
+      "10 Agility",
+      "35 Intelligence",
+      "8.5 Mana Regeneration"
+    ],
+    "abilities": {
+      "Hex": {
+        "features": {
+          "Ability": "Target Unit",
+          "Affects": "Enemies",
+          "Damage": "Instant Kill"
+        },
+        "description": "Turns a target unit into a harmless critter for 2.8 seconds. The target has a base movement speed of 140 and will be silenced, muted, and disarmed. Instantly destroys illusions."
+      }
+    },
+    "price": { "purchase": "5550", "sell": "2775" }
   },
   {
     "name": "Dagon",
     "type": "Purchasable",
     "classification": "Magical",
-    "price": {
-      "purchase": { "total": "2850", "base": "1700", "recipe": "1150" },
-      "sell": "1425"
-    },
     "stats": [
       "7/9/11/13/15 Strength",
       "7/9/11/13/15 Agility",
@@ -2599,16 +2362,30 @@
         },
         "description": "Emits a powerful burst of magical damage upon a targeted enemy unit. Heals the caster 75% of damage dealt by Dagon. Upgradable."
       }
-    }
+    },
+    "price": { "purchase": "2850", "sell": "1425" }
+  },
+  {
+    "name": "Eul's Scepter of Divinity",
+    "type": "Purchasable",
+    "classification": "Magical",
+    "stats": ["10 Intelligence", "2.5 Mana Regeneration", "20 Move Speed"],
+    "abilities": {
+      "Cyclone": {
+        "features": {
+          "Ability": "Target Unit",
+          "Affects": "Enemies / Self",
+          "Damage": "Magical"
+        },
+        "description": "Sweeps a target unit up into a cyclone, making them invulnerable for 2.5 seconds. Cyclone can only be cast on enemy units or yourself. Enemy units take 50 magical damage upon landing."
+      }
+    },
+    "price": { "purchase": "2625", "sell": "1312.5" }
   },
   {
     "name": "Witch Blade",
     "type": "Purchasable",
     "classification": "Magical",
-    "price": {
-      "purchase": { "total": "2600", "base": "2000", "recipe": "600" },
-      "sell": "1300"
-    },
     "stats": [
       "12 Intelligence",
       "6 Armor",
@@ -2624,100 +2401,99 @@
         },
         "description": "Causes your next attack to apply a poison for 4 seconds, slowing by 25% and dealing 0.75x your intelligence as damage every second. This attack has True Strike."
       }
-    }
+    },
+    "price": { "purchase": "2600", "sell": "1300" }
   },
   {
-    "name": "Aether Lens",
+    "name": "Guardian Greaves",
     "type": "Purchasable",
-    "classification": "Magical",
-    "price": {
-      "purchase": { "total": "2275", "base": "1500", "recipe": "775" },
-      "sell": "1137.5"
-    },
-    "stats": ["300 Mana", "2.5 Mana Regeneration"],
+    "classification": "Support",
+    "stats": ["250 Mana", "4 Armor", "50 Move Speed"],
     "abilities": {
-      "Aethereal Focus": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "Increases targeted spell and item cast range by 225."
+      "Mend": {
+        "features": { "Ability": "No Target", "Affects": "Allies" },
+        "description": "Restores 350 health and 200 mana to nearby allies, and removes most negative effects from the caster."
+      },
+      "Guardian Aura": {
+        "features": { "Ability": "Aura", "Affects": "Allies" },
+        "description": "Provides 2.5 health regeneration and 3 armor to allied units. If an allied hero's health falls below 25%, they receive 12 health regeneration and 8 armor."
       }
-    }
-  },
-  {
-    "name": "Eul's Scepter of Divinity",
-    "type": "Purchasable",
-    "classification": "Magical",
-    "price": {
-      "purchase": { "total": "2625", "base": "1950", "recipe": "675" },
-      "sell": "1312.5"
     },
-    "stats": ["10 Intelligence", "2.5 Mana Regeneration", "20 Move Speed"],
-    "abilities": {
-      "Cyclone": {
-        "features": {
-          "Ability": "Target Unit",
-          "Affects": "Enemies / Self",
-          "Damage": "Magical"
-        },
-        "description": "Sweeps a target unit up into a cyclone, making them invulnerable for 2.5 seconds. Cyclone can only be cast on enemy units or yourself. Enemy units take 50 magical damage upon landing."
-      }
-    }
-  },
-  {
-    "name": "Rod of Atos",
-    "type": "Purchasable",
-    "classification": "Magical",
-    "price": {
-      "purchase": { "total": "2250", "base": "2000", "recipe": "250" },
-      "sell": "1125"
-    },
-    "stats": ["15 Intelligence", "300 Health"],
-    "abilities": {
-      "Cripple": {
-        "features": { "Ability": "Target Unit", "Affects": "Enemies" },
-        "description": "Roots the target for 2 seconds."
-      }
-    }
+    "price": { "purchase": "4950", "sell": "2475" }
   },
   {
     "name": "Glimmer Cape",
     "type": "Purchasable",
     "classification": "Magical",
-    "price": {
-      "purchase": { "total": "2150", "base": "1800", "recipe": "350" },
-      "sell": "1075"
-    },
     "stats": ["25% Magic Resistance"],
     "abilities": {
       "Glimmer": {
         "features": { "Ability": "Target Unit", "Affects": "Allies" },
         "description": "After a 0.5 second delay, grants invisibility, 40 movement speed and a magic damage barrier that absorbs up to 300 damage to you or a target allied unit for 5 seconds. Can be cast while channelling."
       }
-    }
+    },
+    "price": { "purchase": "2150", "sell": "1075" }
+  },
+  {
+    "name": "Rod of Atos",
+    "type": "Purchasable",
+    "classification": "Magical",
+    "stats": ["15 Intelligence", "300 Health"],
+    "abilities": {
+      "Cripple": {
+        "features": { "Ability": "Target Unit", "Affects": "Enemies" },
+        "description": "Roots the target for 2 seconds."
+      }
+    },
+    "price": { "purchase": "2250", "sell": "1125" }
   },
   {
     "name": "Force Staff",
     "type": "Purchasable",
     "classification": "Magical",
-    "price": {
-      "purchase": { "total": "2200", "base": "1250", "recipe": "950" },
-      "sell": "1100"
-    },
     "stats": ["10 Intelligence", "175 Health"],
     "abilities": {
       "Force": {
         "features": { "Ability": "Target Unit", "Affects": "Enemies / Allies" },
         "description": "Pushes any target unit 600 units in the direction it is facing."
       }
-    }
+    },
+    "price": { "purchase": "2200", "sell": "1100" }
+  },
+  {
+    "name": "Veil of Discord",
+    "type": "Purchasable",
+    "classification": "Magical",
+    "stats": ["5 Strength", "5 Agility", "5 Intelligence"],
+    "abilities": {
+      "Magic Weakness": {
+        "features": { "Ability": "Target Area", "Affects": "Enemies" },
+        "description": "Cast a 600 radius blast that causes enemies to take 18% increased damage from spells."
+      },
+      "Basilius Aura": {
+        "features": { "Ability": "Aura", "Affects": "Allies" },
+        "description": "Grants 1.75 mana regeneration to allies."
+      }
+    },
+    "price": { "purchase": "1525", "sell": "762.5" }
+  },
+  {
+    "name": "Aether Lens",
+    "type": "Purchasable",
+    "classification": "Magical",
+    "stats": ["300 Mana", "2.5 Mana Regeneration"],
+    "abilities": {
+      "Aethereal Focus": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "Increases targeted spell and item cast range by 225."
+      }
+    },
+    "price": { "purchase": "2275", "sell": "1137.5" }
   },
   {
     "name": "Solar Crest",
     "type": "Purchasable",
     "classification": "Magical",
-    "price": {
-      "purchase": { "total": "2425", "base": "1725", "recipe": "700" },
-      "sell": "1212.5"
-    },
     "stats": [
       "6 Strength",
       "6 Agility",
@@ -2731,72 +2507,86 @@
         "features": { "Ability": "Target Unit", "Affects": "Enemies / Allies" },
         "description": "When cast on an ally, grants them 7 armor, 70 attack speed, and 15% movement speed. When cast on an enemy, removes 7 armor, 70 attack speed, and 15% movement speed. Removes the armor from the caster when used. Cannot target spell immune enemies."
       }
-    }
-  },
-  {
-    "name": "Veil of Discord",
-    "type": "Purchasable",
-    "classification": "Magical",
-    "price": {
-      "purchase": { "total": "1525", "base": "875", "recipe": "650" },
-      "sell": "762.5"
     },
-    "stats": ["5 Strength", "5 Agility", "5 Intelligence"],
-    "abilities": {
-      "Magic Weakness": {
-        "features": { "Ability": "Target Area", "Affects": "Enemies" },
-        "description": "Cast a 600 radius blast that causes enemies to take 18% increased damage from spells."
-      },
-      "Basilius Aura": {
-        "features": { "Ability": "Aura", "Affects": "Allies" },
-        "description": "Grants 1.75 mana regeneration to allies."
-      }
-    }
+    "price": { "purchase": "2425", "sell": "1212.5" }
   },
   {
-    "name": "Guardian Greaves",
+    "name": "Holy Locket",
     "type": "Purchasable",
     "classification": "Support",
-    "price": {
-      "purchase": { "total": "4950", "base": "3500", "recipe": "1450" },
-      "sell": "2475"
-    },
-    "stats": ["250 Mana", "4 Armor", "50 Move Speed"],
+    "stats": ["10 Strength", "10 Agility", "10 Intelligence"],
     "abilities": {
-      "Mend": {
-        "features": { "Ability": "No Target", "Affects": "Allies" },
-        "description": "Restores 350 health and 200 mana to nearby allies, and removes most negative effects from the caster."
+      "Energy Charge": {
+        "features": { "Ability": "Target Unit", "Affects": "Allied Heroes" },
+        "description": "Target an allied unit to instantly restore 15 health and mana per charge stored. Max 20 charges. Automatically gains a charge every 10 seconds and whenever a visible enemy within 1200 range uses an ability."
       },
-      "Guardian Aura": {
+      "Holy Blessing": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "Amplifies heals you provide by 30%."
+      },
+      "Regeneration Aura": {
         "features": { "Ability": "Aura", "Affects": "Allies" },
-        "description": "Provides 2.5 health regeneration and 3 armor to allied units. If an allied hero's health falls below 25%, they receive 12 health regeneration and 8 armor."
+        "description": "Grants 3 health regeneration to allies."
       }
-    }
+    },
+    "price": { "purchase": "2400", "sell": "1200" }
+  },
+  {
+    "name": "Drum of Endurance",
+    "type": "Purchasable",
+    "classification": "Support",
+    "stats": ["7 Strength", "7 Intelligence"],
+    "abilities": {
+      "Endurance": {
+        "features": { "Ability": "No Target", "Affects": "Allies" },
+        "description": "Consumes a charge and gives +45 attack speed and +13% movement speed to nearby allies for 6 seconds. Comes with 8 charges."
+      },
+      "Swiftness Aura": {
+        "features": { "Ability": "Aura", "Affects": "Allies" },
+        "description": "Grants 20 movement speed to allies."
+      }
+    },
+    "price": { "purchase": "1650", "sell": "825" }
   },
   {
     "name": "Vladmir's Offering",
     "type": "Purchasable",
     "classification": "Support",
-    "price": {
-      "purchase": { "total": "2450", "base": "2200", "recipe": "250" },
-      "sell": "1225"
-    },
     "stats": "None",
     "abilities": {
       "Vladmir's Aura": {
         "features": { "Ability": "Aura", "Affects": "Allies" },
         "description": "Grants 20% lifesteal, 18% bonus damage, 1.75 mana regeneration, and 3 armor to nearby allies. Lifesteal from creeps is reduced by 50%"
       }
-    }
+    },
+    "price": { "purchase": "2450", "sell": "1225" }
+  },
+  {
+    "name": "Boots of Bearing",
+    "type": "Purchasable",
+    "classification": "Support",
+    "stats": [
+      "8 Strength",
+      "8 Intelligence",
+      "15 Health Regeneration",
+      "65 Move Speed"
+    ],
+    "abilities": {
+      "Endurance": {
+        "features": { "Ability": "No Target", "Affects": "Allies" },
+        "description": "Gives +50 attack speed, +15% Movement Speed to nearby allies for 6 seconds. For the first 1.5 seconds allies are immune to slows."
+      },
+      "Swiftness Aura": {
+        "features": { "Ability": "Aura", "Affects": "Allies" },
+        "description": "Grants 20 movement speed to allies."
+      }
+    },
+    "price": { "purchase": "4275", "sell": "2137.5" }
   },
   {
     "name": "Spirit Vessel",
     "type": "Purchasable",
     "classification": "Support",
-    "price": {
-      "purchase": { "total": "2780", "base": "1580", "recipe": "1200" },
-      "sell": "1390"
-    },
     "stats": [
       "6 Strength",
       "6 Agility",
@@ -2814,41 +2604,13 @@
         },
         "description": "When used against enemies, it reduces health by 4% of current health per second, and reduces HP regeneration and healing by 45%. Deals 35 damage per second. When used on allies, it provides 40 health regeneration per second. Lasts 8 seconds. Gains charges every time an enemy hero dies within 1400 units. Only the closest Spirit Vessel to the dying hero will gain a charge."
       }
-    }
-  },
-  {
-    "name": "Boots of Bearing",
-    "type": "Purchasable",
-    "classification": "Support",
-    "price": {
-      "purchase": { "total": "4275", "base": "2575", "recipe": "1700" },
-      "sell": "2137.5"
     },
-    "stats": [
-      "8 Strength",
-      "8 Intelligence",
-      "15 Health Regeneration",
-      "65 Move Speed"
-    ],
-    "abilities": {
-      "Endurance": {
-        "features": { "Ability": "No Target", "Affects": "Allies" },
-        "description": "Gives +50 attack speed, +15% Movement Speed to nearby allies for 6 seconds. For the first 1.5 seconds allies are immune to slows."
-      },
-      "Swiftness Aura": {
-        "features": { "Ability": "Aura", "Affects": "Allies" },
-        "description": "Grants 20 movement speed to allies."
-      }
-    }
+    "price": { "purchase": "2780", "sell": "1390" }
   },
   {
     "name": "Pipe of Insight",
     "type": "Purchasable",
     "classification": "Support",
-    "price": {
-      "purchase": { "total": "3375", "base": "1925", "recipe": "1450" },
-      "sell": "1687.5"
-    },
     "stats": ["6 Health Regeneration", "20% Magic Resistance"],
     "abilities": {
       "Barrier": {
@@ -2859,60 +2621,26 @@
         "features": { "Ability": "Aura", "Affects": "Allies" },
         "description": "Gives allied units 2.5 health regeneration and 10% magic resistance."
       }
-    }
+    },
+    "price": { "purchase": "3375", "sell": "1687.5" }
   },
   {
-    "name": "Holy Locket",
+    "name": "Pavise",
     "type": "Purchasable",
     "classification": "Support",
-    "price": {
-      "purchase": { "total": "2400", "base": "1875", "recipe": "525" },
-      "sell": "1200"
-    },
-    "stats": ["10 Strength", "10 Agility", "10 Intelligence"],
+    "stats": ["175 Health", "2.5 Mana Regeneration", "3 Armor"],
     "abilities": {
-      "Energy Charge": {
-        "features": { "Ability": "Target Unit", "Affects": "Allied Heroes" },
-        "description": "Target an allied unit to instantly restore 15 health and mana per charge stored. Max 20 charges. Automatically gains a charge every 10 seconds and whenever a visible enemy within 1200 range uses an ability."
-      },
-      "Holy Blessing": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "Amplifies heals you provide by 30%."
-      },
-      "Regeneration Aura": {
-        "features": { "Ability": "Aura", "Affects": "Allies" },
-        "description": "Grants 3 health regeneration to allies."
+      "Protect": {
+        "features": { "Ability": "Target Unit", "Affects": "Allies" },
+        "description": "When cast on an ally, grants them a barrier that absorbs 300 physical damage. Duration: 8s."
       }
-    }
-  },
-  {
-    "name": "Drum of Endurance",
-    "type": "Purchasable",
-    "classification": "Support",
-    "price": {
-      "purchase": { "total": "1650", "base": "1150", "recipe": "500" },
-      "sell": "825"
     },
-    "stats": ["7 Strength", "7 Intelligence"],
-    "abilities": {
-      "Endurance": {
-        "features": { "Ability": "No Target", "Affects": "Allies" },
-        "description": "Consumes a charge and gives +45 attack speed and +13% movement speed to nearby allies for 6 seconds. Comes with 8 charges."
-      },
-      "Swiftness Aura": {
-        "features": { "Ability": "Aura", "Affects": "Allies" },
-        "description": "Grants 20 movement speed to allies."
-      }
-    }
+    "price": { "purchase": "1400", "sell": "700" }
   },
   {
     "name": "Mekansm",
     "type": "Purchasable",
     "classification": "Support",
-    "price": {
-      "purchase": { "total": "1775", "base": "975", "recipe": "800" },
-      "sell": "887.5"
-    },
     "stats": ["4 Armor"],
     "abilities": {
       "Restore": {
@@ -2923,64 +2651,39 @@
         "features": { "Ability": "Aura", "Affects": "Allies" },
         "description": "Grants 2.5 health regeneration to allied units in a 1200 radius."
       }
-    }
+    },
+    "price": { "purchase": "1775", "sell": "887.5" }
   },
   {
-    "name": "Pavise",
+    "name": "Ring of Basilius",
     "type": "Purchasable",
     "classification": "Support",
-    "price": {
-      "purchase": { "total": "1400", "base": "1125", "recipe": "275" },
-      "sell": "700"
-    },
-    "stats": ["175 Health", "2.5 Mana Regeneration", "3 Armor"],
+    "stats": ["0.5 Mana Regeneration"],
     "abilities": {
-      "Protect": {
-        "features": { "Ability": "Target Unit", "Affects": "Allies" },
-        "description": "When cast on an ally, grants them a barrier that absorbs 300 physical damage. Duration: 8s."
+      "Basilius Aura": {
+        "features": { "Ability": "Aura", "Affects": "Allies" },
+        "description": "Grants 1 mana regeneration to allies."
       }
-    }
+    },
+    "price": { "purchase": "425", "sell": "212.5" }
   },
   {
-    "name": "Arcane Boots",
+    "name": "Headdress",
     "type": "Purchasable",
     "classification": "Support",
-    "price": {
-      "purchase": { "total": "1300", "base": "1300", "recipe": "None" },
-      "sell": "650"
-    },
-    "stats": ["250 Mana", "45 Move Speed"],
+    "stats": ["0.5 Health Regeneration"],
     "abilities": {
-      "Replenish Mana": {
-        "features": { "Ability": "No Target", "Affects": "Allies" },
-        "description": "Restores 175 mana to all nearby allies."
+      "Regeneration Aura": {
+        "features": { "Ability": "Aura", "Affects": "Allies" },
+        "description": "Grants 2 health regeneration to allies."
       }
-    }
-  },
-  {
-    "name": "Medallion of Courage",
-    "type": "Purchasable",
-    "classification": "Support",
-    "price": {
-      "purchase": { "total": "1025", "base": "1025", "recipe": "None" },
-      "sell": "512.5"
     },
-    "stats": ["1.5 Mana Regeneration", "5 Armor"],
-    "abilities": {
-      "Valor": {
-        "features": { "Ability": "Target Unit", "Affects": "Units" },
-        "description": "If cast on an ally, grants them the 6 armor, and removing it from the caster. If cast on an enemy, reduces 6 armor on both the enemy and the caster. Cannot target spell immune enemies."
-      }
-    }
+    "price": { "purchase": "425", "sell": "212.5" }
   },
   {
     "name": "Urn of Shadows",
     "type": "Purchasable",
     "classification": "Support",
-    "price": {
-      "purchase": { "total": "880", "base": "505", "recipe": "375" },
-      "sell": "440"
-    },
     "stats": [
       "2 Strength",
       "2 Agility",
@@ -2997,65 +2700,39 @@
         },
         "description": "Provides 30 health regeneration when cast on allies, and deals 25 damage per second when cast on enemies. Lasts 8 seconds. Gains charges every time an enemy hero dies within 1400 units. Only the closest Urn to the dying hero will gain a charge."
       }
-    }
+    },
+    "price": { "purchase": "880", "sell": "440" }
   },
   {
     "name": "Tranquil Boots",
     "type": "Purchasable",
     "classification": "Support",
-    "price": {
-      "purchase": { "total": "925", "base": "925", "recipe": "None" },
-      "sell": "462.5"
-    },
     "stats": ["14 Health Regeneration", "65 Move Speed"],
     "abilities": {
       "Break": {
         "features": { "Ability": "Passive", "Affects": "Self" },
         "description": "Whenever you attack a hero or are attacked by any unit, the bonus 14 HP regen is lost and the movement speed bonus is reduced to 40 for 13 seconds."
       }
-    }
-  },
-  {
-    "name": "Bracer",
-    "type": "Purchasable",
-    "classification": "Accessories",
-    "price": {
-      "purchase": { "total": "505", "base": "295", "recipe": "210" },
-      "sell": "252.5"
     },
-    "stats": [
-      "5/10 Strength",
-      "2/4 Agility",
-      "2/4 Intelligence",
-      "0.75/1.5 Health Regeneration",
-      "3/6 Attack Damage"
-    ],
-    "abilities": "None"
+    "price": { "purchase": "925", "sell": "462.5" }
   },
   {
-    "name": "Ring of Basilius",
+    "name": "Arcane Boots",
     "type": "Purchasable",
     "classification": "Support",
-    "price": {
-      "purchase": { "total": "425", "base": "175", "recipe": "250" },
-      "sell": "212.5"
-    },
-    "stats": ["0.5 Mana Regeneration"],
+    "stats": ["250 Mana", "45 Move Speed"],
     "abilities": {
-      "Basilius Aura": {
-        "features": { "Ability": "Aura", "Affects": "Allies" },
-        "description": "Grants 1 mana regeneration to allies."
+      "Replenish Mana": {
+        "features": { "Ability": "No Target", "Affects": "Allies" },
+        "description": "Restores 175 mana to all nearby allies."
       }
-    }
+    },
+    "price": { "purchase": "1300", "sell": "650" }
   },
   {
     "name": "Null Talisman",
     "type": "Purchasable",
     "classification": "Accessories",
-    "price": {
-      "purchase": { "total": "505", "base": "295", "recipe": "210" },
-      "sell": "252.5"
-    },
     "stats": [
       "2/4 Strength",
       "2/4 Agility",
@@ -3063,353 +2740,224 @@
       "3%/6% Mana",
       "0.75/1.5 Mana Regeneration"
     ],
-    "abilities": "None"
+    "abilities": "None",
+    "price": { "purchase": "505", "sell": "252.5" }
   },
   {
-    "name": "Wraith Band",
+    "name": "Bracer",
     "type": "Purchasable",
     "classification": "Accessories",
-    "price": {
-      "purchase": { "total": "505", "base": "295", "recipe": "210" },
-      "sell": "252.5"
-    },
     "stats": [
-      "2/4 Strength",
-      "5/10 Agility",
+      "5/10 Strength",
+      "2/4 Agility",
       "2/4 Intelligence",
-      "2/4 Armor",
-      "5/10 Attack Speed"
+      "0.75/1.5 Health Regeneration",
+      "3/6 Attack Damage"
     ],
-    "abilities": "None"
+    "abilities": "None",
+    "price": { "purchase": "505", "sell": "252.5" }
+  },
+  {
+    "name": "Medallion of Courage",
+    "type": "Purchasable",
+    "classification": "Support",
+    "stats": ["1.5 Mana Regeneration", "5 Armor"],
+    "abilities": {
+      "Valor": {
+        "features": { "Ability": "Target Unit", "Affects": "Units" },
+        "description": "If cast on an ally, grants them the 6 armor, and removing it from the caster. If cast on an enemy, reduces 6 armor on both the enemy and the caster. Cannot target spell immune enemies."
+      }
+    },
+    "price": { "purchase": "1025", "sell": "512.5" }
+  },
+  {
+    "name": "Reaver",
+    "type": "Purchasable",
+    "classification": "Secret",
+    "stats": ["25 Strength"],
+    "abilities": "None",
+    "price": { "purchase": "2800", "sell": "1400" }
   },
   {
     "name": "Magic Wand",
     "type": "Purchasable",
     "classification": "Accessories",
-    "price": {
-      "purchase": { "total": "450", "base": "300", "recipe": "150" },
-      "sell": "225"
-    },
     "stats": ["3 Strength", "3 Agility", "3 Intelligence"],
     "abilities": {
       "Energy Charge": {
         "features": { "Ability": "No Target", "Affects": "Self" },
         "description": "Instantly restores 15 health and mana per charge stored. Max 20 charges. Gains a charge whenever a visible enemy within 1200 range uses an ability."
       }
-    }
-  },
-  {
-    "name": "Mystic Staff",
-    "type": "Purchasable",
-    "classification": "Secret",
-    "price": {
-      "purchase": { "total": "2800", "base": "2800", "recipe": "None" },
-      "sell": "1400"
     },
-    "stats": ["25 Intelligence"],
-    "abilities": "None"
-  },
-  {
-    "name": "Sacred Relic",
-    "type": "Purchasable",
-    "classification": "Secret",
-    "price": {
-      "purchase": { "total": "3400", "base": "3400", "recipe": "None" },
-      "sell": "1700"
-    },
-    "stats": ["55 Attack Damage"],
-    "abilities": "None"
-  },
-  {
-    "name": "Reaver",
-    "type": "Purchasable",
-    "classification": "Secret",
-    "price": {
-      "purchase": { "total": "2800", "base": "2800", "recipe": "None" },
-      "sell": "1400"
-    },
-    "stats": ["25 Strength"],
-    "abilities": "None"
-  },
-  {
-    "name": "Demon Edge",
-    "type": "Purchasable",
-    "classification": "Secret",
-    "price": {
-      "purchase": { "total": "2200", "base": "2200", "recipe": "None" },
-      "sell": "1100"
-    },
-    "stats": ["40 Attack Damage"],
-    "abilities": "None"
-  },
-  {
-    "name": "Hyperstone",
-    "type": "Purchasable",
-    "classification": "Secret",
-    "price": {
-      "purchase": { "total": "2000", "base": "2000", "recipe": "None" },
-      "sell": "1000"
-    },
-    "stats": ["60 Attack Speed"],
-    "abilities": "None"
-  },
-  {
-    "name": "Platemail",
-    "type": "Purchasable",
-    "classification": "Secret",
-    "price": {
-      "purchase": { "total": "1400", "base": "1400", "recipe": "None" },
-      "sell": "700"
-    },
-    "stats": ["10 Armor"],
-    "abilities": "None"
+    "price": { "purchase": "450", "sell": "225" }
   },
   {
     "name": "Ultimate Orb",
     "type": "Purchasable",
     "classification": "Secret",
-    "price": {
-      "purchase": { "total": "2050", "base": "2050", "recipe": "None" },
-      "sell": "1025"
-    },
     "stats": ["10 Strength", "10 Agility", "10 Intelligence"],
-    "abilities": "None"
-  },
-  {
-    "name": "Point Booster",
-    "type": "Purchasable",
-    "classification": "Secret",
-    "price": {
-      "purchase": { "total": "1200", "base": "1200", "recipe": "None" },
-      "sell": "600"
-    },
-    "stats": ["175 Health", "175 Mana"],
-    "abilities": "None"
+    "abilities": "None",
+    "price": { "purchase": "2050", "sell": "1025" }
   },
   {
     "name": "Eaglesong",
     "type": "Purchasable",
     "classification": "Secret",
-    "price": {
-      "purchase": { "total": "2800", "base": "2800", "recipe": "None" },
-      "sell": "1400"
-    },
     "stats": ["25 Agility"],
-    "abilities": "None"
+    "abilities": "None",
+    "price": { "purchase": "2800", "sell": "1400" }
   },
   {
-    "name": "Cornucopia",
+    "name": "Mystic Staff",
     "type": "Purchasable",
     "classification": "Secret",
-    "price": {
-      "purchase": { "total": "1200", "base": "1200", "recipe": "None" },
-      "sell": "600"
-    },
-    "stats": [
-      "5 Health Regeneration",
-      "2 Mana Regeneration",
-      "7 Attack Damage"
-    ],
-    "abilities": "None"
+    "stats": ["25 Intelligence"],
+    "abilities": "None",
+    "price": { "purchase": "2800", "sell": "1400" }
   },
   {
-    "name": "Talisman of Evasion",
+    "name": "Hyperstone",
     "type": "Purchasable",
     "classification": "Secret",
-    "price": {
-      "purchase": { "total": "1300", "base": "1300", "recipe": "None" },
-      "sell": "650"
-    },
-    "stats": ["15% Evasion"],
-    "abilities": "None"
+    "stats": ["60 Attack Speed"],
+    "abilities": "None",
+    "price": { "purchase": "2000", "sell": "1000" }
   },
   {
-    "name": "Ghost Scepter",
-    "type": "Purchasable",
-    "classification": "Miscellaneous",
-    "price": {
-      "purchase": { "total": "1500", "base": "1500", "recipe": "None" },
-      "sell": "750"
-    },
-    "stats": ["5 Strength", "5 Agility", "5 Intelligence"],
-    "abilities": {
-      "Ghost Form": {
-        "features": { "Ability": "No Target", "Affects": "Self" },
-        "description": "You enter ghost form for 4 seconds, becoming immune to physical damage, but are unable to attack and 40% more vulnerable to magic damage."
-      }
-    }
-  },
-  {
-    "name": "Vitality Booster",
+    "name": "Demon Edge",
     "type": "Purchasable",
     "classification": "Secret",
-    "price": {
-      "purchase": { "total": "1000", "base": "1000", "recipe": "None" },
-      "sell": "500"
-    },
-    "stats": ["250 Health"],
-    "abilities": "None"
+    "stats": ["40 Attack Damage"],
+    "abilities": "None",
+    "price": { "purchase": "2200", "sell": "1100" }
   },
   {
-    "name": "Blink Dagger",
+    "name": "Sacred Relic",
     "type": "Purchasable",
-    "classification": "Miscellaneous",
-    "price": {
-      "purchase": { "total": "2250", "base": "2250", "recipe": "None" },
-      "sell": "1125"
-    },
-    "stats": "None",
-    "abilities": {
-      "Blink": {
-        "features": { "Ability": "Target Point", "Affects": "Self" },
-        "description": "Teleport to a target point up to 1200 units away. Blink Dagger cannot be used for 3 seconds after taking damage from an enemy hero or Roshan."
-      }
-    }
+    "classification": "Secret",
+    "stats": ["55 Attack Damage"],
+    "abilities": "None",
+    "price": { "purchase": "3400", "sell": "1700" }
   },
   {
     "name": "Ring of Health",
     "type": "Purchasable",
     "classification": "Secret",
-    "price": {
-      "purchase": { "total": "700", "base": "700", "recipe": "None" },
-      "sell": "350"
-    },
     "stats": ["4.5 Health Regeneration"],
-    "abilities": "None"
+    "abilities": "None",
+    "price": { "purchase": "700", "sell": "350" }
   },
   {
     "name": "Energy Booster",
     "type": "Purchasable",
     "classification": "Secret",
-    "price": {
-      "purchase": { "total": "800", "base": "800", "recipe": "None" },
-      "sell": "400"
-    },
     "stats": ["250 Mana"],
-    "abilities": "None"
-  },
-  {
-    "name": "Shadow Amulet",
-    "type": "Purchasable",
-    "classification": "Miscellaneous",
-    "price": {
-      "purchase": { "total": "1000", "base": "1000", "recipe": "None" },
-      "sell": "500"
-    },
-    "stats": "None",
-    "abilities": {
-      "Fade": {
-        "features": { "Ability": "Target Unit", "Affects": "Allies" },
-        "description": "Grants invisibility to you or a target allied hero as long as the target unit remains still. Has a 1.25 second fade time, and breaks instantly upon moving. There is no cooldown when using this item on yourself."
-      }
-    }
+    "abilities": "None",
+    "price": { "purchase": "800", "sell": "400" }
   },
   {
     "name": "Void Stone",
     "type": "Purchasable",
     "classification": "Secret",
-    "price": {
-      "purchase": { "total": "700", "base": "700", "recipe": "None" },
-      "sell": "350"
-    },
     "stats": ["1.75 Mana Regeneration"],
-    "abilities": "None"
+    "abilities": "None",
+    "price": { "purchase": "700", "sell": "350" }
+  },
+  {
+    "name": "Cornucopia",
+    "type": "Purchasable",
+    "classification": "Secret",
+    "stats": [
+      "5 Health Regeneration",
+      "2 Mana Regeneration",
+      "7 Attack Damage"
+    ],
+    "abilities": "None",
+    "price": { "purchase": "1200", "sell": "600" }
+  },
+  {
+    "name": "Talisman of Evasion",
+    "type": "Purchasable",
+    "classification": "Secret",
+    "stats": ["15% Evasion"],
+    "abilities": "None",
+    "price": { "purchase": "1300", "sell": "650" }
+  },
+  {
+    "name": "Platemail",
+    "type": "Purchasable",
+    "classification": "Secret",
+    "stats": ["10 Armor"],
+    "abilities": "None",
+    "price": { "purchase": "1400", "sell": "700" }
+  },
+  {
+    "name": "Vitality Booster",
+    "type": "Purchasable",
+    "classification": "Secret",
+    "stats": ["250 Health"],
+    "abilities": "None",
+    "price": { "purchase": "1000", "sell": "500" }
+  },
+  {
+    "name": "Point Booster",
+    "type": "Purchasable",
+    "classification": "Secret",
+    "stats": ["175 Health", "175 Mana"],
+    "abilities": "None",
+    "price": { "purchase": "1200", "sell": "600" }
+  },
+  {
+    "name": "Cloak",
+    "type": "Purchasable",
+    "classification": "Miscellaneous",
+    "stats": ["20% Magic Resistance"],
+    "abilities": "None",
+    "price": { "purchase": "800", "sell": "400" }
   },
   {
     "name": "Morbid Mask",
     "type": "Purchasable",
     "classification": "Miscellaneous",
-    "price": {
-      "purchase": { "total": "900", "base": "900", "recipe": "None" },
-      "sell": "450"
-    },
     "stats": "None",
     "abilities": {
       "Lifesteal": {
         "features": { "Ability": "Passive", "Affects": "Self" },
         "description": "Heals the attacker for 18% of attack damage dealt. Lifesteal from creeps is reduced by 50%"
       }
-    }
+    },
+    "price": { "purchase": "900", "sell": "450" }
   },
   {
-    "name": "Boots of Speed",
+    "name": "Blink Dagger",
     "type": "Purchasable",
     "classification": "Miscellaneous",
-    "price": {
-      "purchase": { "total": "500", "base": "500", "recipe": "None" },
-      "sell": "250"
-    },
-    "stats": ["45 Move Speed"],
-    "abilities": "None"
-  },
-  {
-    "name": "Wind Lace",
-    "type": "Purchasable",
-    "classification": "Miscellaneous",
-    "price": {
-      "purchase": { "total": "250", "base": "250", "recipe": "None" },
-      "sell": "125"
-    },
-    "stats": ["20 Move Speed"],
-    "abilities": "None"
-  },
-  {
-    "name": "Fluffy Hat",
-    "type": "Purchasable",
-    "classification": "Miscellaneous",
-    "price": {
-      "purchase": { "total": "250", "base": "250", "recipe": "None" },
-      "sell": "125"
-    },
-    "stats": ["125 Health"],
-    "abilities": "None"
-  },
-  {
-    "name": "Cloak",
-    "type": "Purchasable",
-    "classification": "Miscellaneous",
-    "price": {
-      "purchase": { "total": "800", "base": "800", "recipe": "None" },
-      "sell": "400"
-    },
-    "stats": ["20% Magic Resistance"],
-    "abilities": "None"
-  },
-  {
-    "name": "Magic Stick",
-    "type": "Purchasable",
-    "classification": "Miscellaneous",
-    "price": {
-      "purchase": { "total": "200", "base": "200", "recipe": "None" },
-      "sell": "100"
-    },
     "stats": "None",
     "abilities": {
-      "Energy Charge": {
-        "features": { "Ability": "No Target", "Affects": "Self" },
-        "description": "Instantly restores 15 health and mana per charge stored. Max 10 charges. Gains a charge whenever a visible enemy within 1200 range uses an ability."
+      "Blink": {
+        "features": { "Ability": "Target Point", "Affects": "Self" },
+        "description": "Teleport to a target point up to 1200 units away. Blink Dagger cannot be used for 3 seconds after taking damage from an enemy hero or Roshan."
       }
-    }
+    },
+    "price": { "purchase": "2250", "sell": "1125" }
   },
   {
-    "name": "Sage's Mask",
+    "name": "Voodoo Mask",
     "type": "Purchasable",
     "classification": "Miscellaneous",
-    "price": {
-      "purchase": { "total": "175", "base": "175", "recipe": "None" },
-      "sell": "87.5"
+    "stats": "None",
+    "abilities": {
+      "Spell Lifesteal": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "10% of spell damage dealt to enemy heroes is returned to the caster as health, regardless of spell damage type. Lifesteal reduced to 2% against creeps."
+      }
     },
-    "stats": ["0.7 Mana Regeneration"],
-    "abilities": "None"
+    "price": { "purchase": "700", "sell": "350" }
   },
   {
     "name": "Gem of True Sight",
     "type": "Purchasable",
     "classification": "Miscellaneous",
-    "price": {
-      "purchase": { "total": "900", "base": "900", "recipe": "None" },
-      "sell": "Unsellable"
-    },
     "stats": "None",
     "abilities": {
       "Reveal": {
@@ -3424,43 +2972,60 @@
         "features": { "Ability": "Passive", "Affects": "Enemies" },
         "description": "Dropped on death, and cannot be destroyed."
       }
-    }
+    },
+    "price": { "purchase": "900", "sell": "Unsellable" }
   },
   {
-    "name": "Voodoo Mask",
+    "name": "Shadow Amulet",
     "type": "Purchasable",
     "classification": "Miscellaneous",
-    "price": {
-      "purchase": { "total": "700", "base": "700", "recipe": "None" },
-      "sell": "350"
-    },
     "stats": "None",
     "abilities": {
-      "Spell Lifesteal": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "10% of spell damage dealt to enemy heroes is returned to the caster as health, regardless of spell damage type. Lifesteal reduced to 2% against creeps."
+      "Fade": {
+        "features": { "Ability": "Target Unit", "Affects": "Allies" },
+        "description": "Grants invisibility to you or a target allied hero as long as the target unit remains still. Has a 1.25 second fade time, and breaks instantly upon moving. There is no cooldown when using this item on yourself."
       }
-    }
+    },
+    "price": { "purchase": "1000", "sell": "500" }
   },
   {
-    "name": "Quarterstaff",
+    "name": "Boots of Speed",
     "type": "Purchasable",
-    "classification": "Equipment",
-    "price": {
-      "purchase": { "total": "875", "base": "875", "recipe": "None" },
-      "sell": "437.5"
+    "classification": "Miscellaneous",
+    "stats": ["45 Move Speed"],
+    "abilities": "None",
+    "price": { "purchase": "500", "sell": "250" }
+  },
+  {
+    "name": "Ghost Scepter",
+    "type": "Purchasable",
+    "classification": "Miscellaneous",
+    "stats": ["5 Strength", "5 Agility", "5 Intelligence"],
+    "abilities": {
+      "Ghost Form": {
+        "features": { "Ability": "No Target", "Affects": "Self" },
+        "description": "You enter ghost form for 4 seconds, becoming immune to physical damage, but are unable to attack and 40% more vulnerable to magic damage."
+      }
     },
-    "stats": ["10 Attack Damage", "10 Attack Speed"],
-    "abilities": "None"
+    "price": { "purchase": "1500", "sell": "750" }
+  },
+  {
+    "name": "Magic Stick",
+    "type": "Purchasable",
+    "classification": "Miscellaneous",
+    "stats": "None",
+    "abilities": {
+      "Energy Charge": {
+        "features": { "Ability": "No Target", "Affects": "Self" },
+        "description": "Instantly restores 15 health and mana per charge stored. Max 10 charges. Gains a charge whenever a visible enemy within 1200 range uses an ability."
+      }
+    },
+    "price": { "purchase": "200", "sell": "100" }
   },
   {
     "name": "Javelin",
     "type": "Purchasable",
     "classification": "Equipment",
-    "price": {
-      "purchase": { "total": "1100", "base": "1100", "recipe": "None" },
-      "sell": "550"
-    },
     "stats": "None",
     "abilities": {
       "Pierce": {
@@ -3471,162 +3036,159 @@
         },
         "description": "Grants each attack a 30% chance to pierce through evasion and deal 70 bonus magical damage."
       }
-    }
+    },
+    "price": { "purchase": "1100", "sell": "550" }
   },
   {
-    "name": "Helm of Iron Will",
+    "name": "Wind Lace",
     "type": "Purchasable",
-    "classification": "Equipment",
-    "price": {
-      "purchase": { "total": "975", "base": "975", "recipe": "None" },
-      "sell": "487.5"
-    },
-    "stats": ["5 Health Regeneration", "6 Armor"],
-    "abilities": "None"
+    "classification": "Miscellaneous",
+    "stats": ["20 Move Speed"],
+    "abilities": "None",
+    "price": { "purchase": "250", "sell": "125" }
   },
   {
-    "name": "Claymore",
+    "name": "Fluffy Hat",
     "type": "Purchasable",
-    "classification": "Equipment",
-    "price": {
-      "purchase": { "total": "1350", "base": "1350", "recipe": "None" },
-      "sell": "675"
-    },
-    "stats": ["20 Attack Damage"],
-    "abilities": "None"
-  },
-  {
-    "name": "Mithril Hammer",
-    "type": "Purchasable",
-    "classification": "Equipment",
-    "price": {
-      "purchase": { "total": "1600", "base": "1600", "recipe": "None" },
-      "sell": "800"
-    },
-    "stats": ["24 Attack Damage"],
-    "abilities": "None"
-  },
-  {
-    "name": "Blitz Knuckles",
-    "type": "Purchasable",
-    "classification": "Equipment",
-    "price": {
-      "purchase": { "total": "1000", "base": "1000", "recipe": "None" },
-      "sell": "500"
-    },
-    "stats": ["35 Attack Speed"],
-    "abilities": "None"
+    "classification": "Miscellaneous",
+    "stats": ["125 Health"],
+    "abilities": "None",
+    "price": { "purchase": "250", "sell": "125" }
   },
   {
     "name": "Ring of Regen",
     "type": "Purchasable",
     "classification": "Miscellaneous",
-    "price": {
-      "purchase": { "total": "175", "base": "175", "recipe": "None" },
-      "sell": "87.5"
-    },
     "stats": ["1.25 Health Regeneration"],
-    "abilities": "None"
+    "abilities": "None",
+    "price": { "purchase": "175", "sell": "87.5" }
   },
   {
-    "name": "Broadsword",
+    "name": "Sage's Mask",
+    "type": "Purchasable",
+    "classification": "Miscellaneous",
+    "stats": ["0.7 Mana Regeneration"],
+    "abilities": "None",
+    "price": { "purchase": "175", "sell": "87.5" }
+  },
+  {
+    "name": "Claymore",
     "type": "Purchasable",
     "classification": "Equipment",
-    "price": {
-      "purchase": { "total": "1000", "base": "1000", "recipe": "None" },
-      "sell": "500"
-    },
-    "stats": ["15 Attack Damage"],
-    "abilities": "None"
+    "stats": ["20 Attack Damage"],
+    "abilities": "None",
+    "price": { "purchase": "1350", "sell": "675" }
+  },
+  {
+    "name": "Mithril Hammer",
+    "type": "Purchasable",
+    "classification": "Equipment",
+    "stats": ["24 Attack Damage"],
+    "abilities": "None",
+    "price": { "purchase": "1600", "sell": "800" }
   },
   {
     "name": "Chainmail",
     "type": "Purchasable",
     "classification": "Equipment",
-    "price": {
-      "purchase": { "total": "550", "base": "550", "recipe": "None" },
-      "sell": "275"
-    },
     "stats": ["4 Armor"],
-    "abilities": "None"
+    "abilities": "None",
+    "price": { "purchase": "550", "sell": "275" }
   },
   {
-    "name": "Quelling Blade",
+    "name": "Quarterstaff",
     "type": "Purchasable",
     "classification": "Equipment",
-    "price": {
-      "purchase": { "total": "100", "base": "100", "recipe": "None" },
-      "sell": "50"
-    },
-    "stats": "None",
-    "abilities": {
-      "Chop Tree": {
-        "features": { "Ability": "Target Unit", "Affects": "Trees" },
-        "description": "Destroy a target tree."
-      },
-      "Quell": {
-        "features": { "Ability": "Passive", "Affects": "Enemy Units" },
-        "description": "Increases attack damage against non-hero units by 8 for melee heroes, and 4 for ranged."
-      }
-    }
+    "stats": ["10 Attack Damage", "10 Attack Speed"],
+    "abilities": "None",
+    "price": { "purchase": "875", "sell": "437.5" }
   },
   {
     "name": "Gloves of Haste",
     "type": "Purchasable",
     "classification": "Equipment",
-    "price": {
-      "purchase": { "total": "450", "base": "450", "recipe": "None" },
-      "sell": "225"
-    },
     "stats": ["20 Attack Speed"],
-    "abilities": "None"
+    "abilities": "None",
+    "price": { "purchase": "450", "sell": "225" }
   },
   {
     "name": "Blight Stone",
     "type": "Purchasable",
     "classification": "Equipment",
-    "price": {
-      "purchase": { "total": "300", "base": "300", "recipe": "None" },
-      "sell": "150"
-    },
     "stats": "None",
     "abilities": {
       "Lesser Corruption": {
         "features": { "Ability": "Passive", "Affects": "Units" },
         "description": "Your attacks reduce the target's armor by 2 for 8 seconds."
       }
-    }
+    },
+    "price": { "purchase": "300", "sell": "150" }
   },
   {
-    "name": "Ring of Protection",
+    "name": "Helm of Iron Will",
     "type": "Purchasable",
     "classification": "Equipment",
-    "price": {
-      "purchase": { "total": "175", "base": "175", "recipe": "None" },
-      "sell": "87.5"
-    },
-    "stats": ["2 Armor"],
-    "abilities": "None"
+    "stats": ["5 Health Regeneration", "6 Armor"],
+    "abilities": "None",
+    "price": { "purchase": "975", "sell": "487.5" }
+  },
+  {
+    "name": "Broadsword",
+    "type": "Purchasable",
+    "classification": "Equipment",
+    "stats": ["15 Attack Damage"],
+    "abilities": "None",
+    "price": { "purchase": "1000", "sell": "500" }
   },
   {
     "name": "Blades of Attack",
     "type": "Purchasable",
     "classification": "Equipment",
-    "price": {
-      "purchase": { "total": "450", "base": "450", "recipe": "None" },
-      "sell": "225"
-    },
     "stats": ["9 Attack Damage"],
-    "abilities": "None"
+    "abilities": "None",
+    "price": { "purchase": "450", "sell": "225" }
+  },
+  {
+    "name": "Blitz Knuckles",
+    "type": "Purchasable",
+    "classification": "Equipment",
+    "stats": ["35 Attack Speed"],
+    "abilities": "None",
+    "price": { "purchase": "1000", "sell": "500" }
+  },
+  {
+    "name": "Ogre Axe",
+    "type": "Purchasable",
+    "classification": "Attributes",
+    "stats": ["10 Strength"],
+    "abilities": "None",
+    "price": { "purchase": "1000", "sell": "500" }
+  },
+  {
+    "name": "Infused Raindrops",
+    "type": "Purchasable",
+    "classification": "Equipment",
+    "stats": ["0.8 Mana Regeneration"],
+    "abilities": {
+      "Magical Damage Block": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "Consumes a charge to block 120 magic damage from damage instances over 75 damage. Comes with 6 charges. When the charges are gone, the item disappears."
+      }
+    },
+    "price": { "purchase": "225", "sell": "18.8 per count" }
+  },
+  {
+    "name": "Staff of Wizardry",
+    "type": "Purchasable",
+    "classification": "Attributes",
+    "stats": ["10 Intelligence"],
+    "abilities": "None",
+    "price": { "purchase": "1000", "sell": "500" }
   },
   {
     "name": "Orb of Venom",
     "type": "Purchasable",
     "classification": "Equipment",
-    "price": {
-      "purchase": { "total": "275", "base": "275", "recipe": "None" },
-      "sell": "137.5"
-    },
     "stats": "None",
     "abilities": {
       "Poison Attack": {
@@ -3637,153 +3199,216 @@
         },
         "description": "Poisons the target, dealing 2 magical damage per second and slowing movement by 13% if the equipped hero is melee, or by 4% if they are ranged. Lasts for 2 seconds."
       }
-    }
+    },
+    "price": { "purchase": "275", "sell": "137.5" }
   },
   {
-    "name": "Infused Raindrops",
+    "name": "Ring of Protection",
     "type": "Purchasable",
     "classification": "Equipment",
-    "price": {
-      "purchase": { "total": "225", "base": "225", "recipe": "None" },
-      "sell": "18.8 per count"
-    },
-    "stats": ["0.8 Mana Regeneration"],
-    "abilities": {
-      "Magical Damage Block": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "Consumes a charge to block 120 magic damage from damage instances over 75 damage. Comes with 6 charges. When the charges are gone, the item disappears."
-      }
-    }
+    "stats": ["2 Armor"],
+    "abilities": "None",
+    "price": { "purchase": "175", "sell": "87.5" }
   },
   {
     "name": "Diadem",
     "type": "Purchasable",
     "classification": "Attributes",
-    "price": {
-      "purchase": { "total": "1000", "base": "1000", "recipe": "None" },
-      "sell": "500"
-    },
     "stats": ["6 Strength", "6 Agility", "6 Intelligence"],
-    "abilities": "None"
-  },
-  {
-    "name": "Robe of the Magi",
-    "type": "Purchasable",
-    "classification": "Attributes",
-    "price": {
-      "purchase": { "total": "450", "base": "450", "recipe": "None" },
-      "sell": "225"
-    },
-    "stats": ["6 Intelligence"],
-    "abilities": "None"
-  },
-  {
-    "name": "Belt of Strength",
-    "type": "Purchasable",
-    "classification": "Attributes",
-    "price": {
-      "purchase": { "total": "450", "base": "450", "recipe": "None" },
-      "sell": "225"
-    },
-    "stats": ["6 Strength"],
-    "abilities": "None"
+    "abilities": "None",
+    "price": { "purchase": "1000", "sell": "500" }
   },
   {
     "name": "Blade of Alacrity",
     "type": "Purchasable",
     "classification": "Attributes",
-    "price": {
-      "purchase": { "total": "1000", "base": "1000", "recipe": "None" },
-      "sell": "500"
-    },
     "stats": ["10 Agility"],
-    "abilities": "None"
+    "abilities": "None",
+    "price": { "purchase": "1000", "sell": "500" }
   },
   {
-    "name": "Band of Elvenskin",
+    "name": "Quelling Blade",
     "type": "Purchasable",
-    "classification": "Attributes",
-    "price": {
-      "purchase": { "total": "450", "base": "450", "recipe": "None" },
-      "sell": "225"
+    "classification": "Equipment",
+    "stats": "None",
+    "abilities": {
+      "Chop Tree": {
+        "features": { "Ability": "Target Unit", "Affects": "Trees" },
+        "description": "Destroy a target tree."
+      },
+      "Quell": {
+        "features": { "Ability": "Passive", "Affects": "Enemy Units" },
+        "description": "Increases attack damage against non-hero units by 8 for melee heroes, and 4 for ranged."
+      }
     },
-    "stats": ["6 Agility"],
-    "abilities": "None"
+    "price": { "purchase": "100", "sell": "50" }
   },
   {
     "name": "Crown",
     "type": "Purchasable",
     "classification": "Attributes",
-    "price": {
-      "purchase": { "total": "450", "base": "450", "recipe": "None" },
-      "sell": "225"
-    },
     "stats": ["4 Strength", "4 Agility", "4 Intelligence"],
-    "abilities": "None"
+    "abilities": "None",
+    "price": { "purchase": "450", "sell": "225" }
   },
   {
-    "name": "Ogre Axe",
+    "name": "Robe of the Magi",
     "type": "Purchasable",
     "classification": "Attributes",
-    "price": {
-      "purchase": { "total": "1000", "base": "1000", "recipe": "None" },
-      "sell": "500"
-    },
-    "stats": ["10 Strength"],
-    "abilities": "None"
+    "stats": ["6 Intelligence"],
+    "abilities": "None",
+    "price": { "purchase": "450", "sell": "225" }
   },
   {
-    "name": "Staff of Wizardry",
+    "name": "Belt of Strength",
     "type": "Purchasable",
     "classification": "Attributes",
-    "price": {
-      "purchase": { "total": "1000", "base": "1000", "recipe": "None" },
-      "sell": "500"
-    },
-    "stats": ["10 Intelligence"],
-    "abilities": "None"
+    "stats": ["6 Strength"],
+    "abilities": "None",
+    "price": { "purchase": "450", "sell": "225" }
   },
   {
-    "name": "Gauntlets of Strength",
+    "name": "Mantle of Intelligence",
     "type": "Purchasable",
     "classification": "Attributes",
-    "price": {
-      "purchase": { "total": "140", "base": "140", "recipe": "None" },
-      "sell": "70"
-    },
-    "stats": ["3 Strength"],
-    "abilities": "None"
+    "stats": ["3 Intelligence"],
+    "abilities": "None",
+    "price": { "purchase": "140", "sell": "70" }
   },
   {
     "name": "Circlet",
     "type": "Purchasable",
     "classification": "Attributes",
-    "price": {
-      "purchase": { "total": "155", "base": "155", "recipe": "None" },
-      "sell": "77.5"
-    },
     "stats": ["2 Strength", "2 Agility", "2 Intelligence"],
-    "abilities": "None"
+    "abilities": "None",
+    "price": { "purchase": "155", "sell": "77.5" }
+  },
+  {
+    "name": "Band of Elvenskin",
+    "type": "Purchasable",
+    "classification": "Attributes",
+    "stats": ["6 Agility"],
+    "abilities": "None",
+    "price": { "purchase": "450", "sell": "225" }
   },
   {
     "name": "Slippers of Agility",
     "type": "Purchasable",
     "classification": "Attributes",
-    "price": {
-      "purchase": { "total": "140", "base": "140", "recipe": "None" },
-      "sell": "70"
-    },
     "stats": ["3 Agility"],
-    "abilities": "None"
+    "abilities": "None",
+    "price": { "purchase": "140", "sell": "70" }
+  },
+  {
+    "name": "Gauntlets of Strength",
+    "type": "Purchasable",
+    "classification": "Attributes",
+    "stats": ["3 Strength"],
+    "abilities": "None",
+    "price": { "purchase": "140", "sell": "70" }
+  },
+  {
+    "name": "Town Portal Scroll",
+    "type": "Purchasable",
+    "classification": "Consumables",
+    "stats": "None",
+    "abilities": {
+      "Teleport": {
+        "features": {
+          "Ability": "Target Point / Target Unit / Channeled",
+          "Affects": "Self"
+        },
+        "description": "After channeling for 3 seconds, teleports you to a target friendly building. Double-click to teleport to your team's base fountain."
+      }
+    },
+    "price": { "purchase": "100", "sell": "50 per count" }
+  },
+  {
+    "name": "Aghanim's Shard",
+    "type": "Purchasable",
+    "classification": "Consumables",
+    "stats": "None",
+    "abilities": {
+      "Ability Upgrade": {
+        "features": { "Ability": "Passive", "Affects": "Self" },
+        "description": "Upgrades an existing ability or adds a new ability to your hero."
+      }
+    },
+    "price": { "purchase": "1400", "sell": "Unsellable" }
+  },
+  {
+    "name": "Iron Branch",
+    "type": "Purchasable",
+    "classification": "Attributes",
+    "stats": ["1 Strength", "1 Agility", "1 Intelligence"],
+    "abilities": {
+      "Plant Tree": {
+        "features": { "Ability": "Target Point" },
+        "description": "Targets the ground to plant a happy little tree that lasts for 20 seconds."
+      }
+    },
+    "price": { "purchase": "50", "sell": "25" }
+  },
+  {
+    "name": "Faerie Fire",
+    "type": "Purchasable",
+    "classification": "Consumables",
+    "stats": ["2 Attack Damage"],
+    "abilities": {
+      "Imbue": {
+        "features": { "Ability": "No Target", "Affects": "Self" },
+        "description": "Instantly restores 85 health."
+      }
+    },
+    "price": { "purchase": "65", "sell": "32.5" }
+  },
+  {
+    "name": "Tango",
+    "type": "Purchasable",
+    "classification": "Consumables",
+    "stats": "None",
+    "abilities": {
+      "Devour": {
+        "features": { "Ability": "Target Unit", "Affects": "Trees / Self" },
+        "description": "Consumes a target tree to gain 7 health regeneration for 16 seconds. Consuming an Ironwood Tree doubles the heal amount. Comes with 3 charges. Can be used on an allied hero to give them one Tango."
+      }
+    },
+    "price": { "purchase": "90", "sell": "15 per count" }
+  },
+  {
+    "name": "Dust of Appearance",
+    "type": "Purchasable",
+    "classification": "Consumables",
+    "stats": "None",
+    "abilities": {
+      "Reveal": {
+        "features": {
+          "Ability": "No Target / Aura",
+          "Affects": "Enemies",
+          "Damage": "Magical"
+        },
+        "description": "For 12 seconds, creates an area that reveals invisible and slows heroes by 20% in an 1050 radius where the caster  was standing. Invisible units revealed by dust take 25 damage. The debuff effect on enemies lingers for 8s after leaving the area of effect."
+      }
+    },
+    "price": { "purchase": "80", "sell": "40 per count" }
+  },
+  {
+    "name": "Healing Salve",
+    "type": "Purchasable",
+    "classification": "Consumables",
+    "stats": "None",
+    "abilities": {
+      "Salve": {
+        "features": { "Ability": "Target Unit", "Affects": "Allied Heroes" },
+        "description": "Grants 30 health regeneration to the target for 13 seconds. If the unit is attacked by an enemy hero or Roshan, the effect is lost. Heals for half the amount when cast on an ally."
+      }
+    },
+    "price": { "purchase": "100", "sell": "50 per count" }
   },
   {
     "name": "Bottle",
     "type": "Purchasable",
     "classification": "Consumables",
-    "price": {
-      "purchase": { "total": "675", "base": "675", "recipe": "None" },
-      "sell": "337.5"
-    },
     "stats": "None",
     "abilities": {
       "Regenerate": {
@@ -3837,110 +3462,26 @@
         "features": { "Ability": "No Target", "Affects": "Self" },
         "description": "Grants bonus XP."
       }
-    }
-  },
-  {
-    "name": "Iron Branch",
-    "type": "Purchasable",
-    "classification": "Attributes",
-    "price": {
-      "purchase": { "total": "50", "base": "50", "recipe": "None" },
-      "sell": "25"
     },
-    "stats": ["1 Strength", "1 Agility", "1 Intelligence"],
-    "abilities": {
-      "Plant Tree": {
-        "features": { "Ability": "Target Point" },
-        "description": "Targets the ground to plant a happy little tree that lasts for 20 seconds."
-      }
-    }
+    "price": { "purchase": "675", "sell": "337.5" }
   },
   {
-    "name": "Mantle of Intelligence",
-    "type": "Purchasable",
-    "classification": "Attributes",
-    "price": {
-      "purchase": { "total": "140", "base": "140", "recipe": "None" },
-      "sell": "70"
-    },
-    "stats": ["3 Intelligence"],
-    "abilities": "None"
-  },
-  {
-    "name": "Aghanim's Shard",
+    "name": "Smoke of Deceit",
     "type": "Purchasable",
     "classification": "Consumables",
-    "price": {
-      "purchase": { "total": "1400", "base": "1400", "recipe": "None" },
-      "sell": "Unsellable"
-    },
     "stats": "None",
     "abilities": {
-      "Ability Upgrade": {
-        "features": { "Ability": "Passive", "Affects": "Self" },
-        "description": "Upgrades an existing ability or adds a new ability to your hero."
+      "Disguise": {
+        "features": { "Ability": "No Target", "Affects": "Allies" },
+        "description": "Turns the caster and all allied player-controlled units in a 1200 radius invisible, and grants 15% bonus movement speed for 45 seconds. While the caster is still disguised, any allies that come within 45 range of them will also get the buff applied to them. Each smoke can only be applied once to allies. Attacking, or moving within 1025 range of an enemy hero or tower, will break the invisibility. Disguise grants invisibility that is immune to True Sight."
       }
-    }
-  },
-  {
-    "name": "Town Portal Scroll",
-    "type": "Purchasable",
-    "classification": "Consumables",
-    "price": {
-      "purchase": { "total": "100", "base": "100", "recipe": "None" },
-      "sell": "50 per count"
     },
-    "stats": "None",
-    "abilities": {
-      "Teleport": {
-        "features": {
-          "Ability": "Target Point / Target Unit / Channeled",
-          "Affects": "Self"
-        },
-        "description": "After channeling for 3 seconds, teleports you to a target friendly building. Double-click to teleport to your team's base fountain."
-      }
-    }
-  },
-  {
-    "name": "Healing Salve",
-    "type": "Purchasable",
-    "classification": "Consumables",
-    "price": {
-      "purchase": { "total": "100", "base": "100", "recipe": "None" },
-      "sell": "50 per count"
-    },
-    "stats": "None",
-    "abilities": {
-      "Salve": {
-        "features": { "Ability": "Target Unit", "Affects": "Allied Heroes" },
-        "description": "Grants 30 health regeneration to the target for 13 seconds. If the unit is attacked by an enemy hero or Roshan, the effect is lost. Heals for half the amount when cast on an ally."
-      }
-    }
-  },
-  {
-    "name": "Tango",
-    "type": "Purchasable",
-    "classification": "Consumables",
-    "price": {
-      "purchase": { "total": "90", "base": "90", "recipe": "None" },
-      "sell": "15 per count"
-    },
-    "stats": "None",
-    "abilities": {
-      "Devour": {
-        "features": { "Ability": "Target Unit", "Affects": "Trees / Self" },
-        "description": "Consumes a target tree to gain 7 health regeneration for 16 seconds. Consuming an Ironwood Tree doubles the heal amount. Comes with 3 charges. Can be used on an allied hero to give them one Tango."
-      }
-    }
+    "price": { "purchase": "50", "sell": "25 per count" }
   },
   {
     "name": "Enchanted Mango",
     "type": "Purchasable",
     "classification": "Consumables",
-    "price": {
-      "purchase": { "total": "65", "base": "65", "recipe": "None" },
-      "sell": "32.5 per count"
-    },
     "stats": ["0.4 Health Regeneration"],
     "abilities": {
       "Eat Mango": {
@@ -3950,16 +3491,13 @@
         },
         "description": "Instantly restores 100 mana."
       }
-    }
+    },
+    "price": { "purchase": "65", "sell": "32.5 per count" }
   },
   {
     "name": "Sentry Ward",
     "type": "Purchasable",
     "classification": "Consumables",
-    "price": {
-      "purchase": { "total": "50", "base": "50", "recipe": "None" },
-      "sell": "25 per count"
-    },
     "stats": "None",
     "abilities": {
       "Plant": {
@@ -3974,84 +3512,26 @@
         "features": { "Ability": "Hidden" },
         "description": "This unit is permanently invisible and phased."
       }
-    }
-  },
-  {
-    "name": "Faerie Fire",
-    "type": "Purchasable",
-    "classification": "Consumables",
-    "price": {
-      "purchase": { "total": "65", "base": "65", "recipe": "None" },
-      "sell": "32.5"
     },
-    "stats": ["2 Attack Damage"],
-    "abilities": {
-      "Imbue": {
-        "features": { "Ability": "No Target", "Affects": "Self" },
-        "description": "Instantly restores 85 health."
-      }
-    }
-  },
-  {
-    "name": "Smoke of Deceit",
-    "type": "Purchasable",
-    "classification": "Consumables",
-    "price": {
-      "purchase": { "total": "50", "base": "50", "recipe": "None" },
-      "sell": "25 per count"
-    },
-    "stats": "None",
-    "abilities": {
-      "Disguise": {
-        "features": { "Ability": "No Target", "Affects": "Allies" },
-        "description": "Turns the caster and all allied player-controlled units in a 1200 radius invisible, and grants 15% bonus movement speed for 45 seconds. While the caster is still disguised, any allies that come within 45 range of them will also get the buff applied to them. Each smoke can only be applied once to allies. Attacking, or moving within 1025 range of an enemy hero or tower, will break the invisibility. Disguise grants invisibility that is immune to True Sight."
-      }
-    }
-  },
-  {
-    "name": "Dust of Appearance",
-    "type": "Purchasable",
-    "classification": "Consumables",
-    "price": {
-      "purchase": { "total": "80", "base": "80", "recipe": "None" },
-      "sell": "40 per count"
-    },
-    "stats": "None",
-    "abilities": {
-      "Reveal": {
-        "features": {
-          "Ability": "No Target / Aura",
-          "Affects": "Enemies",
-          "Damage": "Magical"
-        },
-        "description": "For 12 seconds, creates an area that reveals invisible and slows heroes by 20% in an 1050 radius where the caster  was standing. Invisible units revealed by dust take 25 damage. The debuff effect on enemies lingers for 8s after leaving the area of effect."
-      }
-    }
+    "price": { "purchase": "50", "sell": "25 per count" }
   },
   {
     "name": "Clarity",
     "type": "Purchasable",
     "classification": "Consumables",
-    "price": {
-      "purchase": { "total": "50", "base": "50", "recipe": "None" },
-      "sell": "25 per count"
-    },
     "stats": "None",
     "abilities": {
       "Replenish": {
         "features": { "Ability": "Target Unit", "Affects": "Allied Heroes" },
         "description": "Grants 6 mana regeneration to the target for 25 seconds. If the unit is attacked by an enemy hero or Roshan, the effect is lost."
       }
-    }
+    },
+    "price": { "purchase": "50", "sell": "25 per count" }
   },
   {
     "name": "Blood Grenade",
     "type": "Purchasable",
     "classification": "Consumables",
-    "price": {
-      "purchase": { "total": "50", "base": "50", "recipe": "None" },
-      "sell": "25 per count"
-    },
     "stats": ["50 Health"],
     "abilities": {
       "Throw Grenade": {
@@ -4062,6 +3542,7 @@
         },
         "description": "Throws a grenade at the target area. Enemies in the area will take 50 damage on impact, be slowed by 15% and take 15 damage per second."
       }
-    }
+    },
+    "price": { "purchase": "50", "sell": "25 per count" }
   }
 ]

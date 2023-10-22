@@ -69,14 +69,14 @@ class ItemSpider(scrapy.Spider):
         
         item["classification"] = classification
         
-        price = self.get_item_price(response) if type == "Purchasable" else "None"
-        item["price"] = price
-        
         stats = self.get_item_stats(response)
         item["stats"] = stats
         
         abilities = self.get_abilities(response)
         item["abilities"] = abilities
+        
+        price = self.get_item_price(response) if type == "Purchasable" else "None"
+        item["price"] = price
         yield item
         
     def get_item_categories(self, response):
@@ -136,17 +136,7 @@ class ItemSpider(scrapy.Spider):
         purchase_details = response.xpath('string(//table[@class="infobox"][1]//tr[th[contains(text(), "Cost")]])').get().strip().replace("\n\n\n\n", "+").split("+")[1]
         sell = response.xpath('string(//table[@class="infobox"][1]//tr[th/a/span[contains(text(), "Sell Value")]])').get().strip().replace("\n\n\n\n", "+").split("+")[1].replace("  / Count", " per count").replace("  ", " ").strip()
         purchase_prices = purchase_details.split("  ")
-        purchase = {}
-        total = purchase_prices[0]
-        base = total
-        recipe = "None"
-        if len(purchase_prices) > 1:
-            recipe = purchase_prices[1][1:-1]
-        if recipe != "None":
-            base = str(int(total) - int(recipe))
-        purchase["total"] = total
-        purchase["base"] = base
-        purchase["recipe"] = recipe
+        purchase = purchase_prices[0]
         price["purchase"] = purchase
         price["sell"] = sell
         return price
