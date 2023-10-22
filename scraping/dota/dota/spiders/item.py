@@ -63,8 +63,8 @@ class ItemSpider(scrapy.Spider):
         name = self.get_item_name(response)
         item["name"] = name
         
-        # lore = self.get_item_lore(response)
-        # item["lore"] = lore
+        lore = self.get_item_lore(response)
+        item["lore"] = lore
         
         type = response.meta["type"]
         item["type"] = type
@@ -216,6 +216,7 @@ class ItemSpider(scrapy.Spider):
         components = components if components else "None"
         return components
     
-    # def get_item_lore(self, response):
-    #     lore = response.xpath('string(//table[@class="infobox"][1]/tbody/tr[3])').get().strip()
-    #     return lore
+    def get_item_lore(self, response):
+        lore = response.xpath('string(//table[@class="infobox"][1]/tbody/tr[3])').get().strip()
+        lore = lore if "\n" not in lore else "None"
+        return lore
