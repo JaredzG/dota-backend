@@ -200,7 +200,7 @@ class ItemSpider(scrapy.Spider):
             else:
                 components[component] = {
                     "amount": "1",
-                    "price": component_price
+                    "price": f"{component_price} per count"
                 }
         components = components if components else "None"
         return components
