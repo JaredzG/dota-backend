@@ -143,8 +143,8 @@ class ItemSpider(scrapy.Spider):
 
     def get_abilities(self, response):
             abilities = {}
-            hero_abilities = response.xpath('//div[@class="ability-background"]/div')
-            for ability in hero_abilities:
+            item_abilities = response.xpath('//div[@class="ability-background"]/div')
+            for ability in item_abilities:
                 ability_name = self.get_ability_name(ability)
                 ability_features = self.get_ability_features(ability)
                 ability_description = self.get_ability_description(ability)
