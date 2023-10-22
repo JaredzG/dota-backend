@@ -72,13 +72,13 @@ class ItemSpider(scrapy.Spider):
         stats = self.get_item_stats(response)
         item["stats"] = stats
         
-        abilities = self.get_abilities(response)
+        abilities = self.get_item_abilities(response)
         item["abilities"] = abilities
         
         price = self.get_item_price(response, type)
         item["price"] = price
         
-        components = self.get_components(response)
+        components = self.get_item_components(response)
         item["components"] = components
         yield item
         
@@ -147,7 +147,7 @@ class ItemSpider(scrapy.Spider):
             price = "None"
         return price
 
-    def get_abilities(self, response):
+    def get_item_abilities(self, response):
             abilities = {}
             item_abilities = response.xpath('//div[@class="ability-background"]/div')
             for ability in item_abilities:
@@ -195,7 +195,7 @@ class ItemSpider(scrapy.Spider):
         description = re.sub(r"\.([A-Z])", r". \1", description)
         return description
     
-    def get_components(self, response):
+    def get_item_components(self, response):
         components = {}
         item_components = response.xpath('//tr[preceding-sibling::tr[1]/th[contains(text(), "Recipe")]]/th/div[last()]/div/div/a/@title').getall()
         for i in range(len(item_components)):
