@@ -152,17 +152,18 @@ class ItemSpider(scrapy.Spider):
         return price
 
     def get_abilities(self, response):
-            hero_abilities = {}
-            abilities = response.xpath('//div[@class="ability-background"]/div')
-            for ability in abilities:
+            abilities = {}
+            hero_abilities = response.xpath('//div[@class="ability-background"]/div')
+            for ability in hero_abilities:
                 ability_name = self.get_ability_name(ability)
                 ability_features = self.get_ability_features(ability)
                 ability_description = self.get_ability_description(ability)
-                hero_abilities[ability_name] = {
+                abilities[ability_name] = {
                     "features": ability_features,
                     "description": ability_description,
                 }
-            return hero_abilities
+            abilities = abilities if abilities else "None"
+            return abilities
 
     def get_ability_name(self, ability):
         return ability.xpath("./div/span/text()").get().strip()
