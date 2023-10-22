@@ -59,14 +59,14 @@ class ItemSpider(scrapy.Spider):
                 
     def get_item_data(self, response):
         item = response.meta["item"]
-        type = response.meta["type"]
-        classification = response.meta["classification"]
         
         name = self.get_item_name(response)
         item["name"] = name
         
+        type = response.meta["type"]
         item["type"] = type
         
+        classification = response.meta["classification"]
         item["classification"] = classification
         
         stats = self.get_item_stats(response)
