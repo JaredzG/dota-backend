@@ -8,13 +8,13 @@ import scrapy
 
 class HeroItem(scrapy.Item):
     name = scrapy.Field()
-    abilities = scrapy.Field()
-    talents = scrapy.Field()
+    bio = scrapy.Field()
     descriptor = scrapy.Field()
     description = scrapy.Field()
-    bio = scrapy.Field()
-    roles = scrapy.Field()
     primary_attribute = scrapy.Field()
+    roles = scrapy.Field()
+    abilities = scrapy.Field()
+    talents = scrapy.Field()
 
 class ItemItem(scrapy.Item):
     name = scrapy.Field()

@@ -32,16 +32,16 @@ class HeroSpider(scrapy.Spider):
         bio = self.get_bio(response)
         hero["bio"] = bio
 
-        hero["primary_attribute"] = primary_attribute
-
-        roles = self.get_roles(response)
-        hero["roles"] = roles
-
         descriptor = self.get_descriptor(response)
         hero["descriptor"] = descriptor
 
         description = self.get_description(response)
         hero["description"] = description
+
+        hero["primary_attribute"] = primary_attribute
+
+        roles = self.get_roles(response)
+        hero["roles"] = roles
 
         abilities = self.get_abilities(response)
         hero["abilities"] = abilities
