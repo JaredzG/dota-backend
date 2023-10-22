@@ -63,6 +63,9 @@ class ItemSpider(scrapy.Spider):
         name = self.get_item_name(response)
         item["name"] = name
         
+        # lore = self.get_item_lore(response)
+        # item["lore"] = lore
+        
         type = response.meta["type"]
         item["type"] = type
         
@@ -200,8 +203,19 @@ class ItemSpider(scrapy.Spider):
         item_components = response.xpath('//tr[preceding-sibling::tr[1]/th[contains(text(), "Recipe")]]/th/div[last()]/div/div/a/@title').getall()
         for i in range(len(item_components)):
             component = item_components[i]
-            cost = re.findall(r"\((.*?)\)", component)[0]
+            component_price = re.findall(r"\((.*?)\)", component)
+            component_price = component_price[0] if len(component_price) > 0 else "0"
             component = re.sub(r" \(.*?\)", "", component)
-            components[component] = cost
+            if component in components:
+                components[component]["amount"] = str(int(components[component]["amount"]) + 1)
+            else:
+                components[component] = {
+                    "amount": "1",
+                    "price": component_price
+                }
         components = components if components else "None"
         return components
+    
+    # def get_item_lore(self, response):
+    #     lore = response.xpath('string(//table[@class="infobox"][1]/tbody/tr[3])').get().strip()
+    #     return lore
