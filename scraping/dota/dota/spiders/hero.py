@@ -28,25 +28,25 @@ class HeroSpider(scrapy.Spider):
         name = self.get_hero_name(response)
         hero["name"] = name
 
-        bio = self.get_bio(response)
+        bio = self.get_hero_bio(response)
         hero["bio"] = bio
 
-        descriptor = self.get_descriptor(response)
+        descriptor = self.get_hero_descriptor(response)
         hero["descriptor"] = descriptor
 
-        description = self.get_description(response)
+        description = self.get_hero_description(response)
         hero["description"] = description
 
         primary_attribute = response.meta["primary_attribute"]
         hero["primary_attribute"] = primary_attribute
 
-        roles = self.get_roles(response)
+        roles = self.get_hero_roles(response)
         hero["roles"] = roles
 
-        abilities = self.get_abilities(response)
+        abilities = self.get_hero_abilities(response)
         hero["abilities"] = abilities
         
-        talents = self.get_talents(response)
+        talents = self.get_hero_talents(response)
         hero["talents"] = talents
         yield hero
 
@@ -68,7 +68,7 @@ class HeroSpider(scrapy.Spider):
     def get_hero_name(self, response):
         return response.xpath('//div[@id="heroBio"]/div[1]/span/text()').get()
 
-    def get_abilities(self, response):
+    def get_hero_abilities(self, response):
         hero_abilities = {}
         abilities = response.xpath('//div[@class="ability-background"]/div')
         for ability in abilities:
@@ -134,7 +134,7 @@ class HeroSpider(scrapy.Spider):
         lore = ability.xpath('./div[3]/div[@class="ability-lore"]/div/i/text()').get()
         return lore
 
-    def get_descriptor(self, response):
+    def get_hero_descriptor(self, response):
         return (
             response.xpath(
                 '//table[@class="infobox"]/following-sibling::table/tbody/tr[2]/td[1]/text()'
@@ -143,7 +143,7 @@ class HeroSpider(scrapy.Spider):
             .strip()
         )
 
-    def get_description(self, response):
+    def get_hero_description(self, response):
         description = response.xpath(
             '//table[@class="infobox"]/following-sibling::table[1]/tbody/tr[3]/td[1]'
         )
@@ -152,7 +152,7 @@ class HeroSpider(scrapy.Spider):
         description = re.sub(r"\.([A-Z])", r". \1", description)
         return description
 
-    def get_bio(self, response):
+    def get_hero_bio(self, response):
         bio = " ".join(
             response.xpath('//div[@id="heroBio"]/div[3]/div[1]/div[2]/text()').getall()
         )
@@ -160,12 +160,12 @@ class HeroSpider(scrapy.Spider):
         bio = bio.replace("\n", " ")
         return bio
 
-    def get_roles(self, response):
+    def get_hero_roles(self, response):
         return response.xpath(
             '//th[text()="Roles:\n"]/following-sibling::td/a[@title="Role"]/text()'
         ).getall()
         
-    def get_talents(self, response):
+    def get_hero_talents(self, response):
         talents = {}
         levels = ["Expert", "Advanced", "Intermediate", "Novice"]
         talents_list = response.xpath('//table[@class="wikitable"]/tbody[tr[1]/th/a/span[contains(text(), "Hero Talents")]]/tr[position()>1]')
