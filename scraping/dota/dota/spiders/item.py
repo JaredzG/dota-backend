@@ -3,17 +3,6 @@ import re
 from dota.items import ItemItem
 
 
-'''
-Item Information:
-- Name
-- Price
-- Type (Shop/Neutral)
-- Classification (Category/Tier)
-- Stats
-- Passive
-- Active
-- Components
-'''
 class ItemSpider(scrapy.Spider):
     name = "item"
     allowed_domains = ["dota2.fandom.com"]
