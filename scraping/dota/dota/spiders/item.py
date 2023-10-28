@@ -18,8 +18,6 @@ class ItemSpider(scrapy.Spider):
                 category_item_lists = self.get_category_item_lists(response)
                 for i in range(len(category_item_lists)):
                     classification = categories[i]
-                    if classification == "Boss Rewards" or classification == "Collectibles":
-                        type = "Non-Purchasable"
                     category_items = self.get_category_items(category_item_lists[i])
                     for j in range(len(category_items)):
                         item_url = "https://dota2.fandom.com" + category_items[j]
@@ -75,18 +73,11 @@ class ItemSpider(scrapy.Spider):
         yield item
         
     def get_item_categories(self, response):
-        categories = response.xpath('//h3[position()!=12 and position()<15]/span/@id').getall()
-        for i in range(len(categories)):
-            category = categories[i]
-            if category == "Boss_Rewards":
-                category = "Boss Rewards"
-            elif category == "Collectible_Items":
-                category = "Collectibles"
-            categories[i] = category
+        categories = response.xpath('//h3[position()<12]/span/@id').getall()
         return categories
     
     def get_category_item_lists(self, response):
-        return response.xpath('//div[@class="itemlist"][position()<14]')
+        return response.xpath('//div[@class="itemlist"][position()<12]')
     
     def get_category_items(self, category):
         return category.xpath('./div/a[position() mod 2 = 0]/@href').getall()
