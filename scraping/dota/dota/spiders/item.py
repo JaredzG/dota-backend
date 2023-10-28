@@ -13,10 +13,10 @@ class ItemSpider(scrapy.Spider):
         match url:
             case "https://dota2.fandom.com/wiki/Items":
                 item = ItemItem()
-                type = "Purchasable"
                 categories = self.get_item_categories(response)
                 category_item_lists = self.get_category_item_lists(response)
                 for i in range(len(category_item_lists)):
+                    type = "Basic" if i < 5 else "Upgrade"
                     classification = categories[i]
                     category_items = self.get_category_items(category_item_lists[i])
                     for j in range(len(category_items)):
