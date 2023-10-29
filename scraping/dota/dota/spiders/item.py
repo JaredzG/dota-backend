@@ -95,8 +95,11 @@ class ItemSpider(scrapy.Spider):
         return response.xpath('//span[@class="mw-page-title-main"]/text()').get()
     
     def get_item_stats(self, response):
-        stats = response.xpath('string(//table[@class="infobox"][1]//tr[th/span[contains(text(), "Bonus")]])').get().strip().split("+")[1:]
-        stats = stats if stats else "None"
+        stats = response.xpath('string(//table[@class="infobox"][1]//tr[th/span[contains(text(), "Bonus")]])').get().strip()
+        if stats:
+            stats = stats.replace("+", ":+").split(":")[1:]
+        else:
+            stats = "None"
         if len(stats) >= 2:
             first_stat = stats[0]
             second_stat = stats[1]
@@ -115,6 +118,7 @@ class ItemSpider(scrapy.Spider):
                 stats[0] = new_first_stat
                 stats[1] = new_second_stat
                 stats.append(new_third_stat)
+        stats = stats if stats else "None"
         return stats
     
     def get_item_price(self, response, type):
