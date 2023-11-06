@@ -168,7 +168,7 @@ class HeroSpider(scrapy.Spider):
     def get_hero_talents(self, response):
         talents = {}
         levels = ["Expert", "Advanced", "Intermediate", "Novice"]
-        talents_list = response.xpath('//table[@class="wikitable"]/tbody[tr[1]/th/a/span[contains(text(), "Hero Talents")]]/tr[position()>1]')
+        talents_list = response.xpath('(//table[@class="wikitable"]/tbody[tr[1]/th/a/span[contains(text(), "Hero Talents")]]/tr[position()>1])[1]')
         for i in range(len(talents_list) - 1, -1, -1):
             talent = talents_list[i]
             left = talent.xpath("string(./td[1])").get().strip().replace("  ", " ")
