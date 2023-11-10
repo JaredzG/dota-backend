@@ -14,7 +14,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 # the application crashes without emitting any logs due to buffering.
 ENV PYTHONUNBUFFERED=1
 
-WORKDIR /app/src
+WORKDIR /app
 
 # Create a non-privileged user that the app will run under.
 # See https://docs.docker.com/go/dockerfile-user-best-practices/
@@ -43,6 +43,8 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 COPY . .
 
 RUN apt-get update && apt-get install -y make
+
+EXPOSE 8000
 
 # Run the application.
 CMD ["tail", "-f", "/dev/null"]
