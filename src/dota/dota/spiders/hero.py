@@ -45,7 +45,7 @@ class HeroSpider(scrapy.Spider):
 
         abilities = self.get_hero_abilities(response)
         hero["abilities"] = abilities
-        
+
         talents = self.get_hero_talents(response)
         hero["talents"] = talents
         yield hero
@@ -72,11 +72,22 @@ class HeroSpider(scrapy.Spider):
         abilities = {}
         hero_abilities = response.xpath('//div[@class="ability-background"]/div')
         for ability in hero_abilities:
-            ability_name = self.get_ability_name(ability)
-            ability_features = self.get_ability_features(ability)
-            ability_description = self.get_ability_description(ability)
-            ability_upgrades = self.get_ability_upgrades(ability)
-            ability_lore = self.get_ability_lore(ability)
+            ability_name = ability.xpath("./div/span/text()").get()
+
+            ability_features = ability.xpath("string(./div[2]/div[2]/div[1])").get()
+
+            ability_description = ability.xpath(
+                "./div[2]/div[2]/div[2]//text()"
+            ).getall()
+
+            ability_upgrades = ability.xpath(
+                'string(.//div[(count(div)=4 and div[1]//div[contains(text(), "Aghanim")] and div[3]//div[contains(text(), "Aghanim")]) or (count(div)=2 and div[1]//div[contains(text(), "Aghanim")])])'
+            ).get()
+
+            ability_lore = ability.xpath(
+                './div[3]/div[@class="ability-lore"]/div/i/text()'
+            ).get()
+
             abilities[ability_name] = {
                 "features": ability_features,
                 "description": ability_description,
@@ -85,94 +96,36 @@ class HeroSpider(scrapy.Spider):
             }
         return abilities
 
-    def get_ability_name(self, ability):
-        return ability.xpath("./div/span/text()").get().strip()
-    
-    def get_ability_features(self, ability):
-        features = {}
-        ability_features = ability.xpath("string(./div[2]/div[2]/div[1])").get().strip()
-        ability_features = ability_features.replace("\xa0", "")
-        ability_features = ability_features.split("\n")
-        for i in range(len(ability_features)):
-            feature = ability_features[i]
-            feature = re.sub(r"\(.*?\)", "", feature)
-            feature = feature.replace("  ", " ")
-            feature = feature.strip()
-            if "Ability" in feature:
-                feature_value = feature[7:]
-                features["Ability"] = feature_value
-            elif "Affects" in feature:
-                feature_value = feature[7:]
-                features["Affects"] = feature_value
-            elif "Damage" in feature:
-                feature_value = feature[6:]
-                features["Damage"] = feature_value
-            ability_features[i] = feature
-        return features
-
-    def get_ability_description(self, ability):
-        description = "".join(
-            ability.xpath("./div[2]/div[2]/div[2]//text()").getall()
-        ).strip()
-        description = description.replace("\n", "")
-        description = description.replace('"', "`")
-        description = re.sub(r"\.([A-Z])", r". \1", description)
-        return description
-    
-    def get_ability_upgrades(self, ability):
-        upgrades = {}
-        aghs_upgrades = ability.xpath('string(.//div[(count(div)=4 and div[1]//div[contains(text(), "Aghanim")] and div[3]//div[contains(text(), "Aghanim")]) or (count(div)=2 and div[1]//div[contains(text(), "Aghanim")])])').get().strip().split("\n")
-        aghs_upgrades = list(filter(lambda item: item != "", aghs_upgrades))
-        for i in range(0, len(aghs_upgrades), 2):
-            if "Scepter" in aghs_upgrades[i]:
-                upgrades["Aghanim's Scepter"] = aghs_upgrades[i + 1]
-            elif "Shard" in aghs_upgrades[i]:
-                upgrades["Aghanim's Shard"] = aghs_upgrades[i + 1]
-        return upgrades
-
-    def get_ability_lore(self, ability):
-        lore = ability.xpath('./div[3]/div[@class="ability-lore"]/div/i/text()').get()
-        return lore
-
     def get_hero_descriptor(self, response):
-        return (
-            response.xpath(
-                '//table[@class="infobox"]/following-sibling::table/tbody/tr[2]/td[1]/text()'
-            )
-            .get()
-            .strip()
-        )
+        return response.xpath(
+            '//table[@class="infobox"]/following-sibling::table/tbody/tr[2]/td[1]/text()'
+        ).get()
 
     def get_hero_description(self, response):
-        description = response.xpath(
-            '//table[@class="infobox"]/following-sibling::table[1]/tbody/tr[3]/td[1]'
-        )
-        description = description.xpath("string(.)").get().strip()
-        description = description.replace('"', "`")
-        description = re.sub(r"\.([A-Z])", r". \1", description)
-        return description
+        return response.xpath(
+            'string(//table[@class="infobox"]/following-sibling::table[1]/tbody/tr[3]/td[1])'
+        ).get()
 
     def get_hero_bio(self, response):
-        bio = " ".join(
-            response.xpath('//div[@id="heroBio"]/div[3]/div[1]/div[2]/text()').getall()
-        )
-        bio = bio.replace('"', "`")
-        bio = bio.replace("\n", " ")
-        return bio
+        return response.xpath(
+            '//div[@id="heroBio"]/div[3]/div[1]/div[2]/text()'
+        ).getall()
 
     def get_hero_roles(self, response):
         return response.xpath(
             '//th[text()="Roles:\n"]/following-sibling::td/a[@title="Role"]/text()'
         ).getall()
-        
+
     def get_hero_talents(self, response):
         talents = {}
         levels = ["Expert", "Advanced", "Intermediate", "Novice"]
-        talents_list = response.xpath('(//table[@class="wikitable"]/tbody[tr[1]/th/a/span[contains(text(), "Hero Talents")]]/tr[position()>1])[1]')
+        talents_list = response.xpath(
+            '(//table[@class="wikitable"]/tbody[tr[1]/th/a/span[contains(text(), "Hero Talents")]])[1]/tr[position()>1]'
+        )
         for i in range(len(talents_list) - 1, -1, -1):
             talent = talents_list[i]
-            left = talent.xpath("string(./td[1])").get().strip().replace("  ", " ")
-            right = talent.xpath("string(./td[2])").get().strip().replace("  ", " ")
+            left = talent.xpath("string(td[1])").get()
+            right = talent.xpath("string(td[2])").get()
             talents[levels[i]] = {
                 "left": left,
                 "right": right,
