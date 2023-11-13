@@ -24,30 +24,14 @@ class HeroSpider(scrapy.Spider):
 
     def get_hero_data(self, response):
         hero = response.meta["hero"]
-
-        name = self.get_hero_name(response)
-        hero["name"] = name
-
-        bio = self.get_hero_bio(response)
-        hero["bio"] = bio
-
-        descriptor = self.get_hero_descriptor(response)
-        hero["descriptor"] = descriptor
-
-        description = self.get_hero_description(response)
-        hero["description"] = description
-
-        primary_attribute = response.meta["primary_attribute"]
-        hero["primary_attribute"] = primary_attribute
-
-        roles = self.get_hero_roles(response)
-        hero["roles"] = roles
-
-        abilities = self.get_hero_abilities(response)
-        hero["abilities"] = abilities
-
-        talents = self.get_hero_talents(response)
-        hero["talents"] = talents
+        hero["name"] = self.get_hero_name(response)
+        hero["bio"] = self.get_hero_bio(response)
+        hero["descriptor"] = self.get_hero_descriptor(response)
+        hero["description"] = self.get_hero_description(response)
+        hero["primary_attribute"] = response.meta["primary_attribute"]
+        hero["roles"] = self.get_hero_roles(response)
+        hero["abilities"] = self.get_hero_abilities(response)
+        hero["talents"] = self.get_hero_talents(response)
         yield hero
 
     def get_hero_table(self, response):
@@ -68,33 +52,10 @@ class HeroSpider(scrapy.Spider):
     def get_hero_name(self, response):
         return response.xpath('//div[@id="heroBio"]/div[1]/span/text()').get()
 
-    def get_hero_abilities(self, response):
-        abilities = {}
-        hero_abilities = response.xpath('//div[@class="ability-background"]/div')
-        for ability in hero_abilities:
-            ability_name = ability.xpath("./div/span/text()").get()
-
-            ability_features = ability.xpath("string(./div[2]/div[2]/div[1])").get()
-
-            ability_description = ability.xpath(
-                "./div[2]/div[2]/div[2]//text()"
-            ).getall()
-
-            ability_upgrades = ability.xpath(
-                'string(.//div[(count(div)=4 and div[1]//div[contains(text(), "Aghanim")] and div[3]//div[contains(text(), "Aghanim")]) or (count(div)=2 and div[1]//div[contains(text(), "Aghanim")])])'
-            ).get()
-
-            ability_lore = ability.xpath(
-                './div[3]/div[@class="ability-lore"]/div/i/text()'
-            ).get()
-
-            abilities[ability_name] = {
-                "features": ability_features,
-                "description": ability_description,
-                "upgrades": ability_upgrades if ability_upgrades else "None",
-                "lore": ability_lore if ability_lore else "None",
-            }
-        return abilities
+    def get_hero_bio(self, response):
+        return response.xpath(
+            '//div[@id="heroBio"]/div[3]/div[1]/div[2]/text()'
+        ).getall()
 
     def get_hero_descriptor(self, response):
         return response.xpath(
@@ -106,15 +67,33 @@ class HeroSpider(scrapy.Spider):
             'string(//table[@class="infobox"]/following-sibling::table[1]/tbody/tr[3]/td[1])'
         ).get()
 
-    def get_hero_bio(self, response):
-        return response.xpath(
-            '//div[@id="heroBio"]/div[3]/div[1]/div[2]/text()'
-        ).getall()
-
     def get_hero_roles(self, response):
         return response.xpath(
             '//th[text()="Roles:\n"]/following-sibling::td/a[@title="Role"]/text()'
         ).getall()
+
+    def get_hero_abilities(self, response):
+        abilities = {}
+        hero_abilities = response.xpath('//div[@class="ability-background"]/div')
+        for ability in hero_abilities:
+            ability_name = ability.xpath("./div/span/text()").get()
+            ability_features = ability.xpath("string(./div[2]/div[2]/div[1])").get()
+            ability_description = ability.xpath(
+                "./div[2]/div[2]/div[2]//text()"
+            ).getall()
+            ability_upgrades = ability.xpath(
+                'string(.//div[(count(div)=4 and div[1]//div[contains(text(), "Aghanim")] and div[3]//div[contains(text(), "Aghanim")]) or (count(div)=2 and div[1]//div[contains(text(), "Aghanim")])])'
+            ).get()
+            ability_lore = ability.xpath(
+                './div[3]/div[@class="ability-lore"]/div/i/text()'
+            ).get()
+            abilities[ability_name] = {
+                "features": ability_features,
+                "description": ability_description,
+                "upgrades": ability_upgrades if ability_upgrades else "None",
+                "lore": ability_lore if ability_lore else "None",
+            }
+        return abilities
 
     def get_hero_talents(self, response):
         talents = {}
