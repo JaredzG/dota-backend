@@ -64,10 +64,9 @@ class ItemSpider(scrapy.Spider):
 
         item["stats"] = self.get_item_stats(response)
 
-        abilities = self.get_item_abilities(response)
-        item["abilities"] = abilities
+        item["abilities"] = self.get_item_abilities(response)
 
-        price = self.get_item_price(response, type)
+        price = self.get_item_price(response, response.meta["type"])
         item["price"] = price
 
         components = self.get_item_components(response)
@@ -99,7 +98,9 @@ class ItemSpider(scrapy.Spider):
         return response.xpath('//span[@class="mw-page-title-main"]/text()').get()
 
     def get_item_lore(self, response):
-        return response.xpath('string(//table[@class="infobox"][1]/tbody/tr[3])').get()
+        return response.xpath(
+            'string(//table[@class="infobox"][1]/tbody[count(tr)>2]/tr[position()=count(../tr)-1])'
+        ).get()
 
     def get_item_stats(self, response):
         return response.xpath(
@@ -124,7 +125,7 @@ class ItemSpider(scrapy.Spider):
 
     def get_item_price(self, response, type):
         price = {}
-        if type == "Purchasable":
+        if type == "Basic" or type == "Upgrade":
             purchase_details = (
                 response.xpath(
                     'string(//table[@class="infobox"][1]//tr[th[contains(text(), "Cost")]])'
