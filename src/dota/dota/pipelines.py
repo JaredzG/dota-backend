@@ -21,7 +21,7 @@ class HeroBioPipeline:
                 )
                 return item
             else:
-                raise DropItem(f"Missing price in {item}")
+                raise DropItem(f"Missing bio in {item}")
         else:
             return item
 
@@ -34,7 +34,7 @@ class HeroDescriptorPipeline:
                 adapter["descriptor"] = adapter["descriptor"].strip()
                 return item
             else:
-                raise DropItem(f"Missing price in {item}")
+                raise DropItem(f"Missing descriptor in {item}")
         else:
             return item
 
@@ -51,7 +51,7 @@ class HeroDescriptionPipeline:
                 )
                 return item
             else:
-                raise DropItem(f"Missing price in {item}")
+                raise DropItem(f"Missing description in {item}")
         else:
             return item
 
@@ -68,7 +68,6 @@ class HeroAbilitiesPipeline:
                     old_features = adapter["abilities"][name]["features"]
                     old_description = adapter["abilities"][name]["description"]
                     old_upgrades = adapter["abilities"][name]["upgrades"]
-
                     new_name = name.strip()
                     new_features = self.get_ability_features(old_features)
                     new_description = self.get_ability_description(old_description)
@@ -83,13 +82,13 @@ class HeroAbilitiesPipeline:
                 adapter["abilities"] = abilities
                 return item
             else:
-                raise DropItem(f"Missing price in {item}")
+                raise DropItem(f"Missing abilities in {item}")
         else:
             return item
 
-    def get_ability_features(self, ability_features):
+    def get_ability_features(self, old_features):
         features = {}
-        new_features = ability_features.strip().replace("\xa0", "").split("\n")
+        new_features = old_features.strip().replace("\xa0", "").split("\n")
         for i in range(len(new_features)):
             feature = re.sub(r"\(.*?\)", "", new_features[i]).replace("  ", " ").strip()
             if "Ability" in feature:
@@ -176,6 +175,122 @@ class HeroTalentsPipeline:
                 adapter["talents"] = talents
                 return item
             else:
-                raise DropItem(f"Missing price in {item}")
+                raise DropItem(f"Missing talents in {item}")
         else:
             return item
+
+
+class ItemLorePipeline:
+    def process_item(self, item, spider):
+        if isinstance(item, ItemItem):
+            adapter = ItemAdapter(item)
+            if adapter.get("lore"):
+                old_lore = adapter["lore"].strip()
+                adapter["lore"] = old_lore if "\n" not in old_lore else "None"
+                return item
+            else:
+                raise DropItem(f"Missing lore in {item}")
+        else:
+            return item
+
+
+class ItemStatsPipeline:
+    def process_item(self, item, spider):
+        if isinstance(item, ItemItem):
+            adapter = ItemAdapter(item)
+            if adapter.get("stats"):
+                old_stats = adapter["stats"].strip()
+                if old_stats:
+                    stats = old_stats.replace("+", ":+").split(":")[1:]
+                    if len(stats) >= 2:
+                        first_stat = stats[0]
+                        second_stat = stats[1]
+                        if "\n" in first_stat:
+                            new_first_stat = first_stat[0 : first_stat.index("\n")]
+                            stats[0] = new_first_stat
+                            new_second_stat = re.sub("  ", " ", second_stat)
+                            stats[1] = new_second_stat
+                            new_stats = [" or ".join(stats)]
+                            stats = new_stats
+                        elif "-" in first_stat:
+                            split_first_stat = re.search(r"(.*?)([-].*)", first_stat)
+                            new_first_stat = split_first_stat.group(1)
+                            new_second_stat = split_first_stat.group(2)
+                            new_third_stat = stats[1].replace("/min", "per minute")
+                            stats[0] = new_first_stat
+                            stats[1] = new_second_stat
+                            stats.append(new_third_stat)
+                    for i in range(len(stats)):
+                        stats[i] = (
+                            stats[i]
+                            .replace("  ", " ")
+                            .replace("/ ", "/")
+                            .replace(" /", "/")
+                            .replace("/", " / ")
+                        )
+                    if not stats:
+                        stats = "None"
+                adapter["stats"] = stats
+                return item
+            else:
+                raise DropItem(f"Missing stats in {item}")
+        else:
+            return item
+
+
+class ItemAbilitiesPipeline:
+    def process_item(self, item, spider):
+        if isinstance(item, ItemItem):
+            adapter = ItemAdapter(item)
+            if adapter.get("abilities"):
+                if adapter["abilities"] != "None":
+                    abilities = {}
+                    old_abilities = adapter["abilities"]
+                    ability_names = old_abilities.keys()
+                    for name in ability_names:
+                        old_features = adapter["abilities"][name]["features"]
+                        old_description = adapter["abilities"][name]["description"]
+                        new_name = name.strip()
+                        new_features = self.get_ability_features(old_features)
+                        new_description = self.get_ability_description(old_description)
+                        abilities[new_name] = {
+                            "features": new_features,
+                            "description": new_description,
+                        }
+                    adapter["abilities"] = abilities
+                return item
+            else:
+                raise DropItem(f"Missing abilities in {item}")
+        else:
+            return item
+
+    def get_ability_features(self, old_features):
+        features = {}
+        new_features = old_features.strip().replace("\xa0", "").split("\n")
+        for i in range(len(new_features)):
+            feature = re.sub(r"\(.*?\)", "", new_features[i]).replace("  ", " ").strip()
+            if "Ability" in feature:
+                feature_value = feature[7:]
+                features["Ability"] = feature_value
+            elif "Affects" in feature:
+                feature_value = feature[7:]
+                features["Affects"] = feature_value
+            elif "Damage" in feature:
+                feature_value = feature[6:]
+                features["Damage"] = feature_value
+            new_features[i] = feature
+        return features
+
+    def get_ability_description(self, old_description):
+        description = re.sub(
+            r"\.([A-Z])",
+            r". \1",
+            "".join(old_description)
+            .strip()
+            .replace("\n", "")
+            .replace('"', "`")
+            .replace("/ ", "/")
+            .replace(" /", "/")
+            .replace("/", " / "),
+        )
+        return description
