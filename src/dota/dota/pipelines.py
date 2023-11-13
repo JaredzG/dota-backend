@@ -88,6 +88,7 @@ class HeroAbilitiesPipeline:
 
     def get_ability_features(self, old_features):
         features = {}
+        features_list = ["Ability", "Affects", "Damage"]
         new_features = old_features.strip().replace("\xa0", "").split("\n")
         for i in range(len(new_features)):
             feature = re.sub(r"\(.*?\)", "", new_features[i]).replace("  ", " ").strip()
@@ -100,7 +101,9 @@ class HeroAbilitiesPipeline:
             elif "Damage" in feature:
                 feature_value = feature[6:]
                 features["Damage"] = feature_value
-            new_features[i] = feature
+        for i in range(len(features_list)):
+            if features_list[i] not in features:
+                features[features_list[i]] = "None"
         return features
 
     def get_ability_description(self, old_description):
@@ -185,8 +188,8 @@ class ItemLorePipeline:
         if isinstance(item, ItemItem):
             adapter = ItemAdapter(item)
             if adapter.get("lore"):
-                old_lore = adapter["lore"].strip()
-                adapter["lore"] = old_lore if "\n" not in old_lore else "None"
+                new_lore = adapter["lore"].strip()
+                adapter["lore"] = new_lore if new_lore else "None"
                 return item
             else:
                 raise DropItem(f"Missing lore in {item}")
@@ -266,6 +269,7 @@ class ItemAbilitiesPipeline:
 
     def get_ability_features(self, old_features):
         features = {}
+        features_list = ["Ability", "Affects", "Damage"]
         new_features = old_features.strip().replace("\xa0", "").split("\n")
         for i in range(len(new_features)):
             feature = re.sub(r"\(.*?\)", "", new_features[i]).replace("  ", " ").strip()
@@ -278,7 +282,9 @@ class ItemAbilitiesPipeline:
             elif "Damage" in feature:
                 feature_value = feature[6:]
                 features["Damage"] = feature_value
-            new_features[i] = feature
+        for i in range(len(features_list)):
+            if features_list[i] not in features:
+                features[features_list[i]] = "None"
         return features
 
     def get_ability_description(self, old_description):
