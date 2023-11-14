@@ -53,24 +53,14 @@ class ItemSpider(scrapy.Spider):
 
     def get_item_data(self, response):
         item = response.meta["item"]
-
         item["name"] = self.get_item_name(response)
-
         item["lore"] = self.get_item_lore(response)
-
         item["type"] = response.meta["type"]
-
         item["classification"] = response.meta["classification"]
-
         item["stats"] = self.get_item_stats(response)
-
         item["abilities"] = self.get_item_abilities(response)
-
-        price = self.get_item_price(response, response.meta["type"])
-        item["price"] = price
-
-        components = self.get_item_components(response)
-        item["components"] = components
+        item["price"] = self.get_item_price(response, response.meta["type"])
+        item["components"] = self.get_item_components(response)
         yield item
 
     def get_item_categories(self, response):
@@ -108,71 +98,40 @@ class ItemSpider(scrapy.Spider):
         ).get()
 
     def get_item_abilities(self, response):
-        abilities = {}
         item_abilities = response.xpath('//div[@class="ability-background"]/div')
-        for ability in item_abilities:
-            ability_name = ability.xpath("./div/span/text()").get()
-            ability_features = ability.xpath("string(./div[2]/div[2]/div[1])").get()
-            ability_description = ability.xpath(
-                "./div[2]/div[2]/div[2]//text()"
-            ).getall()
-            abilities[ability_name] = {
-                "features": ability_features,
-                "description": ability_description,
-            }
-        abilities = abilities if abilities else "None"
-        return abilities
+        if item_abilities:
+            abilities = {}
+            for ability in item_abilities:
+                ability_name = ability.xpath("./div/span/text()").get()
+                ability_features = ability.xpath("string(./div[2]/div[2]/div[1])").get()
+                ability_description = ability.xpath(
+                    "./div[2]/div[2]/div[2]//text()"
+                ).getall()
+                abilities[ability_name] = {
+                    "features": ability_features,
+                    "description": ability_description,
+                }
+            return abilities
+        else:
+            return "None"
 
     def get_item_price(self, response, type):
-        price = {}
         if type == "Basic" or type == "Upgrade":
-            purchase_details = (
-                response.xpath(
-                    'string(//table[@class="infobox"][1]//tr[th[contains(text(), "Cost")]])'
-                )
-                .get()
-                .strip()
-                .replace("\n\n\n\n", "+")
-                .split("+")[1]
-            )
-            sell = (
-                response.xpath(
-                    'string(//table[@class="infobox"][1]//tr[th/a/span[contains(text(), "Sell Value")]])'
-                )
-                .get()
-                .strip()
-                .replace("\n\n\n\n", "+")
-                .split("+")[1]
-                .replace("  / Count", " per count")
-                .replace("  ", " ")
-                .strip()
-            )
-            purchase_prices = purchase_details.split("  ")
-            purchase = purchase_prices[0]
-            price["purchase"] = purchase
-            price["sell"] = sell
+            price = {}
+            purchase_price = response.xpath(
+                'string(//table[@class="infobox"][1]//tr[th[contains(text(), "Cost")]])'
+            ).get()
+            sell_price = response.xpath(
+                'string(//table[@class="infobox"][1]//tr[th/a/span[contains(text(), "Sell Value")]])'
+            ).get()
+            price["purchase"] = purchase_price
+            price["sell"] = sell_price
+            return price
         else:
-            price = "None"
-        return price
+            return "None"
 
     def get_item_components(self, response):
-        components = {}
-        item_components = response.xpath(
+        components = response.xpath(
             '//tr[preceding-sibling::tr[1]/th[contains(text(), "Recipe")]]/th/div[last()]/div/div/a/@title'
         ).getall()
-        for i in range(len(item_components)):
-            component = item_components[i]
-            component_price = re.findall(r"\((.*?)\)", component)
-            component_price = component_price[0] if len(component_price) > 0 else "0"
-            component = re.sub(r" \(.*?\)", "", component)
-            if component in components:
-                components[component]["amount"] = str(
-                    int(components[component]["amount"]) + 1
-                )
-            else:
-                components[component] = {
-                    "amount": "1",
-                    "price": f"{component_price} per count",
-                }
-        components = components if components else "None"
-        return components
+        return components if components else "None"

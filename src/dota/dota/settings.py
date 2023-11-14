@@ -72,6 +72,8 @@ ITEM_PIPELINES = {
     "dota.pipelines.ItemLorePipeline": 600,
     "dota.pipelines.ItemStatsPipeline": 700,
     "dota.pipelines.ItemAbilitiesPipeline": 800,
+    "dota.pipelines.ItemPricePipeline": 900,
+    "dota.pipelines.ItemComponentsPipeline": 1000,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

@@ -90,8 +90,8 @@ class HeroAbilitiesPipeline:
         features = {}
         features_list = ["Ability", "Affects", "Damage"]
         new_features = old_features.strip().replace("\xa0", "").split("\n")
-        for i in range(len(new_features)):
-            feature = re.sub(r"\(.*?\)", "", new_features[i]).replace("  ", " ").strip()
+        for feature in new_features:
+            feature = re.sub(r"\(.*?\)", "", feature).replace("  ", " ").strip()
             if "Ability" in feature:
                 feature_value = feature[7:]
                 features["Ability"] = feature_value
@@ -101,9 +101,9 @@ class HeroAbilitiesPipeline:
             elif "Damage" in feature:
                 feature_value = feature[6:]
                 features["Damage"] = feature_value
-        for i in range(len(features_list)):
-            if features_list[i] not in features:
-                features[features_list[i]] = "None"
+        for feature in features_list:
+            if feature not in features:
+                features[feature] = "None"
         return features
 
     def get_ability_description(self, old_description):
@@ -271,8 +271,8 @@ class ItemAbilitiesPipeline:
         features = {}
         features_list = ["Ability", "Affects", "Damage"]
         new_features = old_features.strip().replace("\xa0", "").split("\n")
-        for i in range(len(new_features)):
-            feature = re.sub(r"\(.*?\)", "", new_features[i]).replace("  ", " ").strip()
+        for feature in new_features:
+            feature = re.sub(r"\(.*?\)", "", feature).replace("  ", " ").strip()
             if "Ability" in feature:
                 feature_value = feature[7:]
                 features["Ability"] = feature_value
@@ -282,9 +282,9 @@ class ItemAbilitiesPipeline:
             elif "Damage" in feature:
                 feature_value = feature[6:]
                 features["Damage"] = feature_value
-        for i in range(len(features_list)):
-            if features_list[i] not in features:
-                features[features_list[i]] = "None"
+        for feature in features_list:
+            if feature not in features:
+                features[feature] = "None"
         return features
 
     def get_ability_description(self, old_description):
@@ -300,3 +300,69 @@ class ItemAbilitiesPipeline:
             .replace("/", " / "),
         )
         return description
+
+
+class ItemPricePipeline:
+    def process_item(self, item, spider):
+        if isinstance(item, ItemItem):
+            adapter = ItemAdapter(item)
+            if adapter.get("price"):
+                if adapter["price"] != "None":
+                    new_price = {}
+                    new_purchase_price = (
+                        adapter["price"]["purchase"]
+                        .strip()
+                        .replace("\n\n\n\n", "+")
+                        .split("+")[1]
+                        .split("  ")[0]
+                        .replace("-", "0")
+                    )
+                    new_sell_price = (
+                        adapter["price"]["sell"]
+                        .strip()
+                        .replace("\n\n\n\n", "+")
+                        .split("+")[1]
+                        .replace("  / Count", " per count")
+                        .replace("  ", " ")
+                        .strip()
+                        .replace("-", "0")
+                    )
+                    new_price["purchase"] = new_purchase_price
+                    new_price["sell"] = new_sell_price
+                    adapter["price"] = new_price
+                return item
+            else:
+                raise DropItem(f"Missing price in {item}")
+        else:
+            return item
+
+
+class ItemComponentsPipeline:
+    def process_item(self, item, spider):
+        if isinstance(item, ItemItem):
+            adapter = ItemAdapter(item)
+            if adapter.get("components"):
+                if adapter["components"] != "None":
+                    new_components = {}
+                    old_components = adapter["components"]
+                    for component in old_components:
+                        component_price = re.findall(r"\((.*?)\)", component)
+                        component_price = (
+                            component_price[0] if len(component_price) > 0 else "0"
+                        )
+                        component = re.sub(r" \(.*?\)", "", component)
+                        if component in new_components:
+                            new_components[component]["amount"] = str(
+                                int(new_components[component]["amount"]) + 1
+                            )
+                        else:
+                            new_components[component] = {
+                                "amount": "1",
+                                "price": f"{component_price} per count",
+                            }
+                    adapter["components"] = new_components
+                return item
+            else:
+                raise DropItem(f"Missing components in {item}")
+        else:
+            return item
