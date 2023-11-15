@@ -26,15 +26,15 @@ class HeroBioPipeline:
             return item
 
 
-class HeroDescriptorPipeline:
+class HeroIdentityPipeline:
     def process_item(self, item, spider):
         if isinstance(item, HeroItem):
             adapter = ItemAdapter(item)
-            if adapter.get("descriptor"):
-                adapter["descriptor"] = adapter["descriptor"].strip()
+            if adapter.get("identity"):
+                adapter["identity"] = adapter["identity"].strip()
                 return item
             else:
-                raise DropItem(f"Missing descriptor in {item}")
+                raise DropItem(f"Missing identity in {item}")
         else:
             return item
 

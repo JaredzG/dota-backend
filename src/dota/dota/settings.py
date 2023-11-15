@@ -65,7 +65,7 @@ ROBOTSTXT_OBEY = True
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     "dota.pipelines.HeroBioPipeline": 100,
-    "dota.pipelines.HeroDescriptorPipeline": 200,
+    "dota.pipelines.HeroIdentityPipeline": 200,
     "dota.pipelines.HeroDescriptionPipeline": 300,
     "dota.pipelines.HeroAbilitiesPipeline": 400,
     "dota.pipelines.HeroTalentsPipeline": 500,

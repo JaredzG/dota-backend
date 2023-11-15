@@ -9,7 +9,7 @@ import scrapy
 class HeroItem(scrapy.Item):
     name = scrapy.Field()
     bio = scrapy.Field()
-    descriptor = scrapy.Field()
+    identity = scrapy.Field()
     description = scrapy.Field()
     primary_attribute = scrapy.Field()
     roles = scrapy.Field()
