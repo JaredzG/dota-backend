@@ -1,5 +1,4 @@
 import scrapy
-import re
 from dota.items import HeroItem
 
 
@@ -73,7 +72,7 @@ class HeroSpider(scrapy.Spider):
         ).getall()
 
     def get_hero_abilities(self, response):
-        abilities = {}
+        abilities = []
         hero_abilities = response.xpath('//div[@class="ability-background"]/div')
         for ability in hero_abilities:
             ability_name = ability.xpath("./div/span/text()").get()
@@ -87,26 +86,33 @@ class HeroSpider(scrapy.Spider):
             ability_lore = ability.xpath(
                 './div[3]/div[@class="ability-lore"]/div/i/text()'
             ).get()
-            abilities[ability_name] = {
-                "features": ability_features,
-                "description": ability_description,
-                "upgrades": ability_upgrades if ability_upgrades else "None",
-                "lore": ability_lore if ability_lore else "None",
-            }
+            abilities.append(
+                {
+                    "name": ability_name,
+                    "features": ability_features,
+                    "description": ability_description,
+                    "upgrades": ability_upgrades if ability_upgrades else "None",
+                    "lore": ability_lore if ability_lore else "None",
+                }
+            )
         return abilities
 
     def get_hero_talents(self, response):
-        talents = {}
+        talents = []
         levels = ["Expert", "Advanced", "Intermediate", "Novice"]
         talents_list = response.xpath(
             '(//table[@class="wikitable"]/tbody[tr[1]/th/a/span[contains(text(), "Hero Talents")]])[1]/tr[position()>1]'
         )
         for i in range(len(talents_list) - 1, -1, -1):
+            level = levels[i]
             talent = talents_list[i]
-            left = talent.xpath("string(td[1])").get()
-            right = talent.xpath("string(td[2])").get()
-            talents[levels[i]] = {
-                "left": left,
-                "right": right,
-            }
+            left_route = talent.xpath("string(td[1])").get()
+            right_route = talent.xpath("string(td[2])").get()
+            talents.append(
+                {
+                    "level": level,
+                    "left_route": left_route,
+                    "right_route": right_route,
+                }
+            )
         return talents

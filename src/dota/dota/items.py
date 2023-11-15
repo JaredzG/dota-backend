@@ -16,6 +16,7 @@ class HeroItem(scrapy.Item):
     abilities = scrapy.Field()
     talents = scrapy.Field()
 
+
 class ItemItem(scrapy.Item):
     name = scrapy.Field()
     lore = scrapy.Field()
@@ -23,5 +24,5 @@ class ItemItem(scrapy.Item):
     classification = scrapy.Field()
     stats = scrapy.Field()
     abilities = scrapy.Field()
-    price = scrapy.Field()
+    prices = scrapy.Field()
     components = scrapy.Field()

@@ -1,5 +1,4 @@
 import scrapy
-import re
 from dota.items import ItemItem
 
 
@@ -59,7 +58,7 @@ class ItemSpider(scrapy.Spider):
         item["classification"] = response.meta["classification"]
         item["stats"] = self.get_item_stats(response)
         item["abilities"] = self.get_item_abilities(response)
-        item["price"] = self.get_item_price(response, response.meta["type"])
+        item["prices"] = self.get_item_prices(response, response.meta["type"])
         item["components"] = self.get_item_components(response)
         yield item
 
@@ -100,33 +99,36 @@ class ItemSpider(scrapy.Spider):
     def get_item_abilities(self, response):
         item_abilities = response.xpath('//div[@class="ability-background"]/div')
         if item_abilities:
-            abilities = {}
+            abilities = []
             for ability in item_abilities:
                 ability_name = ability.xpath("./div/span/text()").get()
                 ability_features = ability.xpath("string(./div[2]/div[2]/div[1])").get()
                 ability_description = ability.xpath(
                     "./div[2]/div[2]/div[2]//text()"
                 ).getall()
-                abilities[ability_name] = {
-                    "features": ability_features,
-                    "description": ability_description,
-                }
+                abilities.append(
+                    {
+                        "name": ability_name,
+                        "features": ability_features,
+                        "description": ability_description,
+                    }
+                )
             return abilities
         else:
             return "None"
 
-    def get_item_price(self, response, type):
+    def get_item_prices(self, response, type):
         if type == "Basic" or type == "Upgrade":
-            price = {}
-            purchase_price = response.xpath(
+            prices = []
+            purchase_amount = response.xpath(
                 'string(//table[@class="infobox"][1]//tr[th[contains(text(), "Cost")]])'
             ).get()
-            sell_price = response.xpath(
+            sell_amount = response.xpath(
                 'string(//table[@class="infobox"][1]//tr[th/a/span[contains(text(), "Sell Value")]])'
             ).get()
-            price["purchase"] = purchase_price
-            price["sell"] = sell_price
-            return price
+            prices.append({"type": "Purchase", "amount": purchase_amount})
+            prices.append({"type": "Sell", "amount": sell_amount})
+            return prices
         else:
             return "None"
 
