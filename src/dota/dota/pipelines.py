@@ -17,7 +17,10 @@ class HeroBioPipeline:
             adapter = ItemAdapter(item)
             if adapter.get("bio"):
                 adapter["bio"] = (
-                    " ".join(adapter["bio"]).replace('"', "`").replace("\n", " ")
+                    " ".join(adapter["bio"])
+                    .replace('"', "`")
+                    .replace("\n", " ")
+                    .replace("’", "'")
                 )
                 return item
             else:
@@ -72,7 +75,7 @@ class HeroAbilitiesPipeline:
                     new_features = self.get_ability_features(old_features)
                     new_description = self.get_ability_description(old_description)
                     new_upgrades = self.get_ability_upgrades(old_upgrades)
-                    new_lore = ability["lore"]
+                    new_lore = ability["lore"].replace("‘", "'").replace("’", "'")
                     abilities.append(
                         {
                             "name": new_name,
