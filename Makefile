@@ -1,8 +1,11 @@
-.PHONY: hero
+.PHONY: scrape_heroes scrape_items
 
-all: scrape
+all: scrape_heroes scrape_items
 
-scrape:
+scrape_heroes:
 	@cd src/dota && \
-	scrapy crawl hero -O ../../data/hero.json && \
+	scrapy crawl hero -O ../../data/hero.json
+
+scrape_items:
+	@cd src/dota && \
 	scrapy crawl item -O ../../data/item.json
