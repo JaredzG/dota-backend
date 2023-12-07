@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "tsc -p ./configs/tsconfig.json --pretty -d",
     "migration:generate": "drizzle-kit generate:pg --config=./configs/drizzle.config.ts",
-    "migration:run": "tsx src/migrate.ts"
+    "migration:push": "tsx ./src/db/migrate.ts",
+    "migration:drop": "drizzle-kit drop --config=./configs/drizzle.config.ts"
   },
   "author": "",
   "license": "ISC",
