@@ -11,20 +11,20 @@ from dota.items import HeroItem, ItemItem
 import re
 
 
-class HeroBioPipeline:
+class HeroBiographyPipeline:
     def process_item(self, item, spider):
         if isinstance(item, HeroItem):
             adapter = ItemAdapter(item)
-            if adapter.get("bio"):
-                adapter["bio"] = (
-                    " ".join(adapter["bio"])
+            if adapter.get("biography"):
+                adapter["biography"] = (
+                    " ".join(adapter["biography"])
                     .replace('"', "`")
                     .replace("\n", " ")
                     .replace("’", "'")
                 )
                 return item
             else:
-                raise DropItem(f"Missing bio in {item}")
+                raise DropItem(f"Missing biography in {item}")
         else:
             return item
 
