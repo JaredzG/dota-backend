@@ -1,8 +1,8 @@
-import type { Config } from "drizzle-kit"
-import * as fs from "fs"
+import type { Config } from "drizzle-kit";
+import * as fs from "fs";
 
 export default {
-  schema: "./src/db/schemas/*",
+  schema: "./src/db/schema.ts",
   out: "./drizzle",
   driver: "pg",
   dbCredentials: {
@@ -12,4 +12,4 @@ export default {
     password: fs.readFileSync("/run/secrets/postgres-password", "utf8"),
     database: process.env.DOTA_DB_NAME as string,
   },
-} satisfies Config
+} satisfies Config;
