@@ -37,6 +37,7 @@ export const roleTypeEnum = pgEnum("role_type", [
 export const heroRole = pgTable(
   "hero_role",
   {
+    id: serial("id").unique(),
     heroId: integer("hero_id")
       .references(() => hero.id)
       .notNull(),
@@ -141,6 +142,7 @@ export const itemAbility = pgTable("item_ability", {
 export const itemStat = pgTable(
   "item_stat",
   {
+    id: serial("id").unique(),
     itemId: integer("item_id")
       .references(() => item.id)
       .notNull(),
