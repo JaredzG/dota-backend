@@ -1,7 +1,7 @@
 import * as fs from "fs";
 
-const heroesFilePath = "/data/heroes.json";
-const itemsFilePath = "/data/items.json";
+const heroesFilePath = "data/heroes.json";
+const itemsFilePath = "data/items.json";
 
 fs.readFile(heroesFilePath, "utf-8", (err, data) => {
   if (err) {
