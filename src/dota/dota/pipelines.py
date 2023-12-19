@@ -16,11 +16,13 @@ class HeroBiographyPipeline:
         if isinstance(item, HeroItem):
             adapter = ItemAdapter(item)
             if adapter.get("biography"):
-                adapter["biography"] = (
+                adapter["biography"] = re.sub(
+                    r"\.([A-Za-z])",
+                    r". \1",
                     " ".join(adapter["biography"])
                     .replace('"', "`")
                     .replace("\n", " ")
-                    .replace("’", "'")
+                    .replace("’", "'"),
                 )
                 return item
             else:
@@ -137,10 +139,14 @@ class HeroAbilitiesPipeline:
                     upgrades.append(
                         {
                             "type": "Aghanim's Scepter",
-                            "description": aghs_upgrades[i + 1]
-                            .replace("/ ", "/")
-                            .replace(" /", "/")
-                            .replace("/", " / "),
+                            "description": re.sub(
+                                r"\.([A-Za-z])",
+                                r". \1",
+                                aghs_upgrades[i + 1]
+                                .replace("/ ", "/")
+                                .replace(" /", "/")
+                                .replace("/", " / "),
+                            ),
                         }
                     )
 
@@ -148,10 +154,14 @@ class HeroAbilitiesPipeline:
                     upgrades.append(
                         {
                             "type": "Aghanim's Shard",
-                            "description": aghs_upgrades[i + 1]
-                            .replace("/ ", "/")
-                            .replace(" /", "/")
-                            .replace("/", " / "),
+                            "description": re.sub(
+                                r"\.([A-Za-z])",
+                                r". \1",
+                                aghs_upgrades[i + 1]
+                                .replace("/ ", "/")
+                                .replace(" /", "/")
+                                .replace("/", " / "),
+                            ),
                         }
                     )
             return upgrades
