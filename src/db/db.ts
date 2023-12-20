@@ -16,7 +16,7 @@ export const pool = new Pool({
 
 export const db = drizzle(pool);
 
-export const createPool = () => {
+export const createPool = (): pg.Pool => {
   return new Pool({
     host: process.env.DOTA_DB_HOST,
     port: 5432,

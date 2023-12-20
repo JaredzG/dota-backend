@@ -1,9 +1,79 @@
 {
-  "id": "18fb5a28-d1cc-458b-9b14-c1facec76c7f",
+  "id": "8959cef5-8b1b-4f47-9873-48d81ea4d0cb",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
   "tables": {
+    "item_component": {
+      "name": "item_component",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "item_id": {
+          "name": "item_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "amount": {
+          "name": "amount",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "price": {
+          "name": "price",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "item_component_item_id_item_id_fk": {
+          "name": "item_component_item_id_item_id_fk",
+          "tableFrom": "item_component",
+          "tableTo": "item",
+          "columnsFrom": [
+            "item_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "item_component_item_id_name": {
+          "name": "item_component_item_id_name",
+          "columns": [
+            "item_id",
+            "name"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "item_component_id_unique": {
+          "name": "item_component_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
     "hero": {
       "name": "hero",
       "schema": "",
@@ -11,13 +81,13 @@
         "id": {
           "name": "id",
           "type": "serial",
-          "primaryKey": true,
+          "primaryKey": false,
           "notNull": true
         },
         "name": {
           "name": "name",
           "type": "text",
-          "primaryKey": false,
+          "primaryKey": true,
           "notNull": true
         },
         "biography": {
@@ -48,7 +118,15 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {
+        "hero_id_unique": {
+          "name": "hero_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
     },
     "hero_ability": {
       "name": "hero_ability",
@@ -57,7 +135,7 @@
         "id": {
           "name": "id",
           "type": "serial",
-          "primaryKey": true,
+          "primaryKey": false,
           "notNull": true
         },
         "hero_id": {
@@ -76,7 +154,7 @@
           "name": "lore",
           "type": "text",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "description": {
           "name": "description",
@@ -94,13 +172,13 @@
           "name": "damage_type",
           "type": "text",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "affected_target": {
           "name": "affected_target",
           "type": "text",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         }
       },
       "indexes": {},
@@ -119,13 +197,35 @@
           "onUpdate": "no action"
         }
       },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "compositePrimaryKeys": {
+        "hero_ability_hero_id_name": {
+          "name": "hero_ability_hero_id_name",
+          "columns": [
+            "hero_id",
+            "name"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "hero_ability_id_unique": {
+          "name": "hero_ability_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
     },
     "hero_role": {
       "name": "hero_role",
       "schema": "",
       "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
         "hero_id": {
           "name": "hero_id",
           "type": "integer",
@@ -164,16 +264,276 @@
           ]
         }
       },
-      "uniqueConstraints": {}
+      "uniqueConstraints": {
+        "hero_role_id_unique": {
+          "name": "hero_role_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
     },
-    "talent": {
-      "name": "talent",
+    "item": {
+      "name": "item",
       "schema": "",
       "columns": {
         "id": {
           "name": "id",
           "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
           "primaryKey": true,
+          "notNull": true
+        },
+        "lore": {
+          "name": "lore",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "item_type": {
+          "name": "item_type",
+          "type": "item_type",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "classification": {
+          "name": "classification",
+          "type": "classification",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "item_id_unique": {
+          "name": "item_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "item_ability": {
+      "name": "item_ability",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "item_id": {
+          "name": "item_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ability_type": {
+          "name": "ability_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "damage_type": {
+          "name": "damage_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "affected_target": {
+          "name": "affected_target",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "item_ability_item_id_item_id_fk": {
+          "name": "item_ability_item_id_item_id_fk",
+          "tableFrom": "item_ability",
+          "tableTo": "item",
+          "columnsFrom": [
+            "item_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "item_ability_item_id_name": {
+          "name": "item_ability_item_id_name",
+          "columns": [
+            "item_id",
+            "name"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "item_ability_id_unique": {
+          "name": "item_ability_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "item_stat": {
+      "name": "item_stat",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "item_id": {
+          "name": "item_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "item_stat_item_id_item_id_fk": {
+          "name": "item_stat_item_id_item_id_fk",
+          "tableFrom": "item_stat",
+          "tableTo": "item",
+          "columnsFrom": [
+            "item_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "item_stat_item_id_description": {
+          "name": "item_stat_item_id_description",
+          "columns": [
+            "item_id",
+            "description"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "item_stat_id_unique": {
+          "name": "item_stat_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "item_price": {
+      "name": "item_price",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "item_id": {
+          "name": "item_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "price_type": {
+          "name": "price_type",
+          "type": "price_type",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "amount": {
+          "name": "amount",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "item_price_item_id_item_id_fk": {
+          "name": "item_price_item_id_item_id_fk",
+          "tableFrom": "item_price",
+          "tableTo": "item",
+          "columnsFrom": [
+            "item_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "item_price_item_id_price_type": {
+          "name": "item_price_item_id_price_type",
+          "columns": [
+            "item_id",
+            "price_type"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "item_price_id_unique": {
+          "name": "item_price_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "hero_talent": {
+      "name": "hero_talent",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
           "notNull": true
         },
         "hero_id": {
@@ -203,9 +563,9 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "talent_hero_id_hero_id_fk": {
-          "name": "talent_hero_id_hero_id_fk",
-          "tableFrom": "talent",
+        "hero_talent_hero_id_hero_id_fk": {
+          "name": "hero_talent_hero_id_hero_id_fk",
+          "tableFrom": "hero_talent",
           "tableTo": "hero",
           "columnsFrom": [
             "hero_id"
@@ -217,17 +577,33 @@
           "onUpdate": "no action"
         }
       },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "compositePrimaryKeys": {
+        "hero_talent_hero_id_talent_level": {
+          "name": "hero_talent_hero_id_talent_level",
+          "columns": [
+            "hero_id",
+            "talent_level"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "hero_talent_id_unique": {
+          "name": "hero_talent_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
     },
-    "upgrade": {
-      "name": "upgrade",
+    "hero_ability_upgrade": {
+      "name": "hero_ability_upgrade",
       "schema": "",
       "columns": {
         "id": {
           "name": "id",
           "type": "serial",
-          "primaryKey": true,
+          "primaryKey": false,
           "notNull": true
         },
         "ability_id": {
@@ -236,24 +612,24 @@
           "primaryKey": false,
           "notNull": true
         },
-        "description": {
-          "name": "description",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
         "upgrade_type": {
           "name": "upgrade_type",
           "type": "upgrade_type",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
           "primaryKey": false,
           "notNull": true
         }
       },
       "indexes": {},
       "foreignKeys": {
-        "upgrade_ability_id_hero_ability_id_fk": {
-          "name": "upgrade_ability_id_hero_ability_id_fk",
-          "tableFrom": "upgrade",
+        "hero_ability_upgrade_ability_id_hero_ability_id_fk": {
+          "name": "hero_ability_upgrade_ability_id_hero_ability_id_fk",
+          "tableFrom": "hero_ability_upgrade",
           "tableTo": "hero_ability",
           "columnsFrom": [
             "ability_id"
@@ -265,11 +641,63 @@
           "onUpdate": "no action"
         }
       },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "compositePrimaryKeys": {
+        "hero_ability_upgrade_ability_id_upgrade_type": {
+          "name": "hero_ability_upgrade_ability_id_upgrade_type",
+          "columns": [
+            "ability_id",
+            "upgrade_type"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "hero_ability_upgrade_id_unique": {
+          "name": "hero_ability_upgrade_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
     }
   },
   "enums": {
+    "classification": {
+      "name": "classification",
+      "values": {
+        "Consumables": "Consumables",
+        "Attributes": "Attributes",
+        "Equipment": "Equipment",
+        "Miscellaneous": "Miscellaneous",
+        "Secret": "Secret",
+        "Accessories": "Accessories",
+        "Support": "Support",
+        "Magical": "Magical",
+        "Armor": "Armor",
+        "Weapons": "Weapons",
+        "Artifacts": "Artifacts",
+        "Tier 1": "Tier 1",
+        "Tier 2": "Tier 2",
+        "Tier 3": "Tier 3",
+        "Tier 4": "Tier 4",
+        "Tier 5": "Tier 5"
+      }
+    },
+    "item_type": {
+      "name": "item_type",
+      "values": {
+        "Basic": "Basic",
+        "Upgrade": "Upgrade",
+        "Neutral": "Neutral"
+      }
+    },
+    "price_type": {
+      "name": "price_type",
+      "values": {
+        "Purchase": "Purchase",
+        "Sell": "Sell"
+      }
+    },
     "primary_attribute": {
       "name": "primary_attribute",
       "values": {

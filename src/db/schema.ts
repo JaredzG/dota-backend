@@ -15,8 +15,8 @@ export const primaryAttributeEnum = pgEnum("primary_attribute", [
 ]);
 
 export const hero = pgTable("hero", {
-  id: serial("id").primaryKey(),
-  name: text("name").notNull(),
+  id: serial("id").unique(),
+  name: text("name").primaryKey(),
   biography: text("biography").notNull(),
   identity: text("identity").notNull(),
   description: text("description").notNull(),
@@ -50,32 +50,48 @@ export const heroRole = pgTable(
   }
 );
 
-export const heroAbility = pgTable("hero_ability", {
-  id: serial("id").primaryKey(),
-  heroId: integer("hero_id")
-    .references(() => hero.id)
-    .notNull(),
-  name: text("name").notNull(),
-  lore: text("lore"),
-  description: text("description").notNull(),
-  abilityType: text("ability_type").notNull(),
-  damageType: text("damage_type"),
-  affectedTarget: text("affected_target"),
-});
+export const heroAbility = pgTable(
+  "hero_ability",
+  {
+    id: serial("id").unique(),
+    heroId: integer("hero_id")
+      .references(() => hero.id)
+      .notNull(),
+    name: text("name").notNull(),
+    lore: text("lore").notNull(),
+    description: text("description").notNull(),
+    abilityType: text("ability_type").notNull(),
+    damageType: text("damage_type").notNull(),
+    affectedTarget: text("affected_target").notNull(),
+  },
+  (table) => {
+    return {
+      pk: primaryKey({ columns: [table.heroId, table.name] }),
+    };
+  }
+);
 
 export const upgradeTypeEnum = pgEnum("upgrade_type", [
   "Aghanim Shard",
   "Aghanim Scepter",
 ]);
 
-export const upgrade = pgTable("upgrade", {
-  id: serial("id").primaryKey(),
-  abilityId: integer("ability_id")
-    .references(() => heroAbility.id)
-    .notNull(),
-  description: text("description").notNull(),
-  upgradeType: upgradeTypeEnum("upgrade_type").notNull(),
-});
+export const upgrade = pgTable(
+  "hero_ability_upgrade",
+  {
+    id: serial("id").unique(),
+    abilityId: integer("ability_id")
+      .references(() => heroAbility.id)
+      .notNull(),
+    upgradeType: upgradeTypeEnum("upgrade_type").notNull(),
+    description: text("description").notNull(),
+  },
+  (table) => {
+    return {
+      pk: primaryKey({ columns: [table.abilityId, table.upgradeType] }),
+    };
+  }
+);
 
 export const talentLevelEnum = pgEnum("talent_level", [
   "Novice",
@@ -84,15 +100,23 @@ export const talentLevelEnum = pgEnum("talent_level", [
   "Expert",
 ]);
 
-export const talent = pgTable("talent", {
-  id: serial("id").primaryKey(),
-  heroId: integer("hero_id")
-    .references(() => hero.id)
-    .notNull(),
-  talentLevel: talentLevelEnum("talent_level").notNull(),
-  leftRoute: text("left_route").notNull(),
-  rightRoute: text("right_route").notNull(),
-});
+export const talent = pgTable(
+  "hero_talent",
+  {
+    id: serial("id").unique(),
+    heroId: integer("hero_id")
+      .references(() => hero.id)
+      .notNull(),
+    talentLevel: talentLevelEnum("talent_level").notNull(),
+    leftRoute: text("left_route").notNull(),
+    rightRoute: text("right_route").notNull(),
+  },
+  (table) => {
+    return {
+      pk: primaryKey({ columns: [table.heroId, table.talentLevel] }),
+    };
+  }
+);
 
 export const itemTypeEnum = pgEnum("item_type", [
   "Basic",
@@ -120,24 +144,32 @@ export const classificationEnum = pgEnum("classification", [
 ]);
 
 export const item = pgTable("item", {
-  id: serial("id").primaryKey(),
-  name: text("name").notNull(),
-  lore: text("lore"),
+  id: serial("id").unique(),
+  name: text("name").primaryKey(),
+  lore: text("lore").notNull(),
   itemType: itemTypeEnum("item_type").notNull(),
   classification: classificationEnum("classification").notNull(),
 });
 
-export const itemAbility = pgTable("item_ability", {
-  id: serial("id").primaryKey(),
-  itemId: integer("item_id")
-    .references(() => item.id)
-    .notNull(),
-  name: text("name").notNull(),
-  description: text("description").notNull(),
-  abilityType: text("ability_type").notNull(),
-  damageType: text("damage_type"),
-  affectedTarget: text("affected_target"),
-});
+export const itemAbility = pgTable(
+  "item_ability",
+  {
+    id: serial("id").unique(),
+    itemId: integer("item_id")
+      .references(() => item.id)
+      .notNull(),
+    name: text("name").notNull(),
+    description: text("description").notNull(),
+    abilityType: text("ability_type").notNull(),
+    damageType: text("damage_type").notNull(),
+    affectedTarget: text("affected_target").notNull(),
+  },
+  (table) => {
+    return {
+      pk: primaryKey({ columns: [table.itemId, table.name] }),
+    };
+  }
+);
 
 export const itemStat = pgTable(
   "item_stat",
@@ -157,21 +189,37 @@ export const itemStat = pgTable(
 
 export const priceTypeEnum = pgEnum("price_type", ["Purchase", "Sell"]);
 
-export const price = pgTable("price", {
-  id: serial("id").primaryKey(),
-  itemId: integer("item_id")
-    .references(() => item.id)
-    .notNull(),
-  priceType: priceTypeEnum("price_type").notNull(),
-  amount: text("amount").notNull(),
-});
+export const price = pgTable(
+  "item_price",
+  {
+    id: serial("id").unique(),
+    itemId: integer("item_id")
+      .references(() => item.id)
+      .notNull(),
+    priceType: priceTypeEnum("price_type").notNull(),
+    amount: text("amount").notNull(),
+  },
+  (table) => {
+    return {
+      pk: primaryKey({ columns: [table.itemId, table.priceType] }),
+    };
+  }
+);
 
-export const component = pgTable("component", {
-  id: serial("id").primaryKey(),
-  itemId: integer("item_id")
-    .references(() => item.id)
-    .notNull(),
-  name: text("name").notNull(),
-  amount: text("amount").notNull(),
-  price: text("price").notNull(),
-});
+export const component = pgTable(
+  "item_component",
+  {
+    id: serial("id").unique(),
+    itemId: integer("item_id")
+      .references(() => item.id)
+      .notNull(),
+    name: text("name").notNull(),
+    amount: text("amount").notNull(),
+    price: text("price").notNull(),
+  },
+  (table) => {
+    return {
+      pk: primaryKey({ columns: [table.itemId, table.name] }),
+    };
+  }
+);

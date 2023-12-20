@@ -5,22 +5,8 @@
     {
       "idx": 0,
       "version": "5",
-      "when": 1701991943336,
-      "tag": "0000_romantic_starhawk",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1702078070595,
-      "tag": "0001_handy_talisman",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "5",
-      "when": 1702512203558,
-      "tag": "0002_silent_sway",
+      "when": 1703037673572,
+      "tag": "0000_dear_risque",
       "breakpoints": true
     }
   ]
