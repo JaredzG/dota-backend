@@ -17,12 +17,16 @@ class HeroBiographyPipeline:
             adapter = ItemAdapter(item)
             if adapter.get("biography"):
                 adapter["biography"] = re.sub(
-                    r"\.([A-Za-z])",
-                    r". \1",
-                    " ".join(adapter["biography"])
-                    .replace('"', "`")
-                    .replace("\n", " ")
-                    .replace("’", "'"),
+                    r"(\w+)$",
+                    r"\1.",
+                    re.sub(
+                        r"\.([A-Za-z])",
+                        r". \1",
+                        " ".join(adapter["biography"])
+                        .replace('"', "`")
+                        .replace("\n", " ")
+                        .replace("’", "'"),
+                    ),
                 )
                 return item
             else:
@@ -36,7 +40,9 @@ class HeroIdentityPipeline:
         if isinstance(item, HeroItem):
             adapter = ItemAdapter(item)
             if adapter.get("identity"):
-                adapter["identity"] = adapter["identity"].strip()
+                adapter["identity"] = re.sub(
+                    r"(\w+)$", r"\1.", adapter["identity"].strip()
+                )
                 return item
             else:
                 raise DropItem(f"Missing identity in {item}")
@@ -50,9 +56,13 @@ class HeroDescriptionPipeline:
             adapter = ItemAdapter(item)
             if adapter.get("description"):
                 adapter["description"] = re.sub(
-                    r"\.([A-Z])",
-                    r". \1",
-                    adapter["description"].strip().replace('"', "`"),
+                    r"(\w+)$",
+                    r"\1.",
+                    re.sub(
+                        r"\.([A-Z])",
+                        r". \1",
+                        adapter["description"].strip().replace('"', "`"),
+                    ),
                 )
                 return item
             else:
@@ -116,15 +126,19 @@ class HeroAbilitiesPipeline:
 
     def get_ability_description(self, old_description):
         description = re.sub(
-            r"\.([A-Z])",
-            r". \1",
-            "".join(old_description)
-            .strip()
-            .replace("\n", "")
-            .replace('"', "`")
-            .replace("/ ", "/")
-            .replace(" /", "/")
-            .replace("/", " / "),
+            r"(\w+)$",
+            r"\1.",
+            re.sub(
+                r"\.([A-Z])",
+                r". \1",
+                "".join(old_description)
+                .strip()
+                .replace("\n", "")
+                .replace('"', "`")
+                .replace("/ ", "/")
+                .replace(" /", "/")
+                .replace("/", " / "),
+            ),
         )
         return description
 
@@ -140,12 +154,16 @@ class HeroAbilitiesPipeline:
                         {
                             "type": "Aghanim's Scepter",
                             "description": re.sub(
-                                r"\.([A-Za-z])",
-                                r". \1",
-                                aghs_upgrades[i + 1]
-                                .replace("/ ", "/")
-                                .replace(" /", "/")
-                                .replace("/", " / "),
+                                r"(\w+)$",
+                                r"\1.",
+                                re.sub(
+                                    r"\.([A-Za-z])",
+                                    r". \1",
+                                    aghs_upgrades[i + 1]
+                                    .replace("/ ", "/")
+                                    .replace(" /", "/")
+                                    .replace("/", " / "),
+                                ),
                             ),
                         }
                     )
@@ -155,12 +173,16 @@ class HeroAbilitiesPipeline:
                         {
                             "type": "Aghanim's Shard",
                             "description": re.sub(
-                                r"\.([A-Za-z])",
-                                r". \1",
-                                aghs_upgrades[i + 1]
-                                .replace("/ ", "/")
-                                .replace(" /", "/")
-                                .replace("/", " / "),
+                                r"(\w+)$",
+                                r"\1.",
+                                re.sub(
+                                    r"\.([A-Za-z])",
+                                    r". \1",
+                                    aghs_upgrades[i + 1]
+                                    .replace("/ ", "/")
+                                    .replace(" /", "/")
+                                    .replace("/", " / "),
+                                ),
                             ),
                         }
                     )
@@ -208,7 +230,9 @@ class ItemLorePipeline:
             adapter = ItemAdapter(item)
             if adapter.get("lore"):
                 new_lore = adapter["lore"].strip()
-                adapter["lore"] = new_lore if new_lore else "None"
+                adapter["lore"] = (
+                    re.sub(r"(\w+)$", r"\1.", new_lore) if new_lore else "None"
+                )
                 return item
             else:
                 raise DropItem(f"Missing lore in {item}")
@@ -311,15 +335,19 @@ class ItemAbilitiesPipeline:
 
     def get_ability_description(self, old_description):
         description = re.sub(
-            r"\.([A-Z])",
-            r". \1",
-            "".join(old_description)
-            .strip()
-            .replace("\n", "")
-            .replace('"', "`")
-            .replace("/ ", "/")
-            .replace(" /", "/")
-            .replace("/", " / "),
+            r"(\w+)$",
+            r"\1.",
+            re.sub(
+                r"\.([A-Z])",
+                r". \1",
+                "".join(old_description)
+                .strip()
+                .replace("\n", "")
+                .replace('"', "`")
+                .replace("/ ", "/")
+                .replace(" /", "/")
+                .replace("/", " / "),
+            ),
         )
         return description
 
