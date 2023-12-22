@@ -44,6 +44,6 @@ class HeroMetaItem(scrapy.Item):
 
 class ItemMetaItem(scrapy.Item):
     name = scrapy.Field()
-    uses = scrapy.Field()
+    times_bought = scrapy.Field()
     use_percentage = scrapy.Field()
     win_percentage = scrapy.Field()

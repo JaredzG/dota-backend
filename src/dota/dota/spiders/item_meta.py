@@ -28,7 +28,7 @@ class ItemMetaSpider(scrapy.Spider):
             row_values = row.xpath("td[position()>0]/@data-value").getall()
             if row_values[0] in item_names:
                 item_meta["name"] = row_values[0]
-                item_meta["uses"] = row_values[1]
+                item_meta["times_bought"] = row_values[1]
                 item_meta["use_percentage"] = row_values[2]
                 item_meta["win_percentage"] = row_values[3]
                 yield item_meta
