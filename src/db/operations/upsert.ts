@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import { connectDB, createPool } from "../db";
-import { hero, heroAbility, heroRole, primaryAttributeEnum } from "../schema";
+import { hero, heroAbility, heroRole } from "../schema";
 
 interface Hero {
   id?: number;
@@ -9,6 +9,16 @@ interface Hero {
   identity: string;
   description: string;
   primary_attribute: "Strength" | "Agility" | "Intelligence" | "Universal";
+  herald_guardian_crusader_pick_percentage: string;
+  herald_guardian_crusader_win_percentage: string;
+  archon_pick_percentage: string;
+  archon_win_percentage: string;
+  legend_pick_percentage: string;
+  legend_win_percentage: string;
+  ancient_pick_percentage: string;
+  ancient_win_percentage: string;
+  divine_immortal_pick_percentage: string;
+  divine_immortal_win_percentage: string;
 }
 
 interface HeroRole {
@@ -38,9 +48,13 @@ interface HeroAbility {
 
 const heroesFilePath = "data/heroes.json";
 const itemsFilePath = "data/items.json";
+const heroesMetaFilePath = "data/heroes.meta.json";
+const itemsMetaFilePath = "data/items.meta.json";
 
 const heroes = JSON.parse(fs.readFileSync(heroesFilePath, "utf-8"));
 const items = JSON.parse(fs.readFileSync(itemsFilePath, "utf-8"));
+const heroesMeta = JSON.parse(fs.readFileSync(heroesMetaFilePath, "utf-8"));
+const itemsMeta = JSON.parse(fs.readFileSync(itemsMetaFilePath, "utf-8"));
 const pool = createPool();
 const db = connectDB(pool);
 const {
@@ -52,14 +66,37 @@ const {
   roles,
   abilities,
   talents,
-} = heroes[123];
+} = heroes[111];
+const {
+  herald_guardian_crusader_pick_percentage,
+  herald_guardian_crusader_win_percentage,
+  archon_pick_percentage,
+  archon_win_percentage,
+  legend_pick_percentage,
+  legend_win_percentage,
+  ancient_pick_percentage,
+  ancient_win_percentage,
+  divine_immortal_pick_percentage,
+  divine_immortal_win_percentage,
+} = heroesMeta[120];
 const heroEntry: Hero = {
   name,
   biography,
   identity,
   description,
   primary_attribute,
+  herald_guardian_crusader_pick_percentage,
+  herald_guardian_crusader_win_percentage,
+  archon_pick_percentage,
+  archon_win_percentage,
+  legend_pick_percentage,
+  legend_win_percentage,
+  ancient_pick_percentage,
+  ancient_win_percentage,
+  divine_immortal_pick_percentage,
+  divine_immortal_win_percentage,
 };
+console.log(heroEntry);
 const insertedHero: Hero[] = await db
   .insert(hero)
   .values(heroEntry)
@@ -117,5 +154,5 @@ for (let ability of abilities) {
     // Write code to handle when there are no ability upgrades.
   }
 }
-// console.log(items[97]);
+// console.log(items[98]);
 await pool.end();

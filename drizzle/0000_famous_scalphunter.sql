@@ -1,17 +1,5 @@
 DO $$ BEGIN
- CREATE TYPE "classification" AS ENUM('Consumables', 'Attributes', 'Equipment', 'Miscellaneous', 'Secret', 'Accessories', 'Support', 'Magical', 'Armor', 'Weapons', 'Artifacts', 'Tier 1', 'Tier 2', 'Tier 3', 'Tier 4', 'Tier 5');
-EXCEPTION
- WHEN duplicate_object THEN null;
-END $$;
---> statement-breakpoint
-DO $$ BEGIN
- CREATE TYPE "item_type" AS ENUM('Basic', 'Upgrade', 'Neutral');
-EXCEPTION
- WHEN duplicate_object THEN null;
-END $$;
---> statement-breakpoint
-DO $$ BEGIN
- CREATE TYPE "price_type" AS ENUM('Purchase', 'Sell');
+ CREATE TYPE "upgrade_type" AS ENUM('Aghanim Shard', 'Aghanim Scepter');
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
@@ -35,20 +23,22 @@ EXCEPTION
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
- CREATE TYPE "upgrade_type" AS ENUM('Aghanim Shard', 'Aghanim Scepter');
+ CREATE TYPE "classification" AS ENUM('Consumables', 'Attributes', 'Equipment', 'Miscellaneous', 'Secret', 'Accessories', 'Support', 'Magical', 'Armor', 'Weapons', 'Artifacts', 'Tier 1', 'Tier 2', 'Tier 3', 'Tier 4', 'Tier 5');
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
 --> statement-breakpoint
-CREATE TABLE IF NOT EXISTS "item_component" (
-	"id" serial NOT NULL,
-	"item_id" integer NOT NULL,
-	"name" text NOT NULL,
-	"amount" text NOT NULL,
-	"price" text NOT NULL,
-	CONSTRAINT item_component_item_id_name PRIMARY KEY("item_id","name"),
-	CONSTRAINT "item_component_id_unique" UNIQUE("id")
-);
+DO $$ BEGIN
+ CREATE TYPE "price_type" AS ENUM('Purchase', 'Sell');
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ CREATE TYPE "item_type" AS ENUM('Basic', 'Upgrade', 'Neutral');
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "hero" (
 	"id" serial NOT NULL,
@@ -57,6 +47,16 @@ CREATE TABLE IF NOT EXISTS "hero" (
 	"identity" text NOT NULL,
 	"description" text NOT NULL,
 	"primary_attribute" "primary_attribute" NOT NULL,
+	"herald_guardian_crusader_pick_percentage" numeric(4, 2) NOT NULL,
+	"herald_guardian_crusader_win_percentage" numeric(4, 2) NOT NULL,
+	"archon_pick_percentage" numeric(4, 2) NOT NULL,
+	"archon_win_percentage" numeric(4, 2) NOT NULL,
+	"legend_pick_percentage" numeric(4, 2) NOT NULL,
+	"legend_win_percentage" numeric(4, 2) NOT NULL,
+	"ancient_pick_percentage" numeric(4, 2) NOT NULL,
+	"ancient_win_percentage" numeric(4, 2) NOT NULL,
+	"divine_immortal_pick_percentage" numeric(4, 2) NOT NULL,
+	"divine_immortal_win_percentage" numeric(4, 2) NOT NULL,
 	CONSTRAINT "hero_id_unique" UNIQUE("id")
 );
 --> statement-breakpoint
@@ -81,12 +81,25 @@ CREATE TABLE IF NOT EXISTS "hero_role" (
 	CONSTRAINT "hero_role_id_unique" UNIQUE("id")
 );
 --> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "hero_talent" (
+	"id" serial NOT NULL,
+	"hero_id" integer NOT NULL,
+	"talent_level" "talent_level" NOT NULL,
+	"left_route" text NOT NULL,
+	"right_route" text NOT NULL,
+	CONSTRAINT hero_talent_hero_id_talent_level PRIMARY KEY("hero_id","talent_level"),
+	CONSTRAINT "hero_talent_id_unique" UNIQUE("id")
+);
+--> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "item" (
 	"id" serial NOT NULL,
 	"name" text PRIMARY KEY NOT NULL,
 	"lore" text NOT NULL,
 	"item_type" "item_type" NOT NULL,
 	"classification" "classification" NOT NULL,
+	"times_bought" integer NOT NULL,
+	"use_percentage" numeric(4, 2) NOT NULL,
+	"win_percentage" numeric(4, 2) NOT NULL,
 	CONSTRAINT "item_id_unique" UNIQUE("id")
 );
 --> statement-breakpoint
@@ -100,6 +113,16 @@ CREATE TABLE IF NOT EXISTS "item_ability" (
 	"affected_target" text NOT NULL,
 	CONSTRAINT item_ability_item_id_name PRIMARY KEY("item_id","name"),
 	CONSTRAINT "item_ability_id_unique" UNIQUE("id")
+);
+--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "item_component" (
+	"id" serial NOT NULL,
+	"item_id" integer NOT NULL,
+	"name" text NOT NULL,
+	"amount" text NOT NULL,
+	"price" text NOT NULL,
+	CONSTRAINT item_component_item_id_name PRIMARY KEY("item_id","name"),
+	CONSTRAINT "item_component_id_unique" UNIQUE("id")
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "item_stat" (
@@ -119,16 +142,6 @@ CREATE TABLE IF NOT EXISTS "item_price" (
 	CONSTRAINT "item_price_id_unique" UNIQUE("id")
 );
 --> statement-breakpoint
-CREATE TABLE IF NOT EXISTS "hero_talent" (
-	"id" serial NOT NULL,
-	"hero_id" integer NOT NULL,
-	"talent_level" "talent_level" NOT NULL,
-	"left_route" text NOT NULL,
-	"right_route" text NOT NULL,
-	CONSTRAINT hero_talent_hero_id_talent_level PRIMARY KEY("hero_id","talent_level"),
-	CONSTRAINT "hero_talent_id_unique" UNIQUE("id")
-);
---> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "hero_ability_upgrade" (
 	"id" serial NOT NULL,
 	"ability_id" integer NOT NULL,
@@ -137,12 +150,6 @@ CREATE TABLE IF NOT EXISTS "hero_ability_upgrade" (
 	CONSTRAINT hero_ability_upgrade_ability_id_upgrade_type PRIMARY KEY("ability_id","upgrade_type"),
 	CONSTRAINT "hero_ability_upgrade_id_unique" UNIQUE("id")
 );
---> statement-breakpoint
-DO $$ BEGIN
- ALTER TABLE "item_component" ADD CONSTRAINT "item_component_item_id_item_id_fk" FOREIGN KEY ("item_id") REFERENCES "item"("id") ON DELETE no action ON UPDATE no action;
-EXCEPTION
- WHEN duplicate_object THEN null;
-END $$;
 --> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "hero_ability" ADD CONSTRAINT "hero_ability_hero_id_hero_id_fk" FOREIGN KEY ("hero_id") REFERENCES "hero"("id") ON DELETE no action ON UPDATE no action;
@@ -157,7 +164,19 @@ EXCEPTION
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
+ ALTER TABLE "hero_talent" ADD CONSTRAINT "hero_talent_hero_id_hero_id_fk" FOREIGN KEY ("hero_id") REFERENCES "hero"("id") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
  ALTER TABLE "item_ability" ADD CONSTRAINT "item_ability_item_id_item_id_fk" FOREIGN KEY ("item_id") REFERENCES "item"("id") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "item_component" ADD CONSTRAINT "item_component_item_id_item_id_fk" FOREIGN KEY ("item_id") REFERENCES "item"("id") ON DELETE no action ON UPDATE no action;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
@@ -170,12 +189,6 @@ END $$;
 --> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "item_price" ADD CONSTRAINT "item_price_item_id_item_id_fk" FOREIGN KEY ("item_id") REFERENCES "item"("id") ON DELETE no action ON UPDATE no action;
-EXCEPTION
- WHEN duplicate_object THEN null;
-END $$;
---> statement-breakpoint
-DO $$ BEGIN
- ALTER TABLE "hero_talent" ADD CONSTRAINT "hero_talent_hero_id_hero_id_fk" FOREIGN KEY ("hero_id") REFERENCES "hero"("id") ON DELETE no action ON UPDATE no action;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;

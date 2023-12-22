@@ -1,79 +1,9 @@
 {
-  "id": "8959cef5-8b1b-4f47-9873-48d81ea4d0cb",
+  "id": "7f84fa7e-395e-4d3f-8f7e-9ad871137094",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
   "tables": {
-    "item_component": {
-      "name": "item_component",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "serial",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "item_id": {
-          "name": "item_id",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "name": {
-          "name": "name",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "amount": {
-          "name": "amount",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "price": {
-          "name": "price",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {
-        "item_component_item_id_item_id_fk": {
-          "name": "item_component_item_id_item_id_fk",
-          "tableFrom": "item_component",
-          "tableTo": "item",
-          "columnsFrom": [
-            "item_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {
-        "item_component_item_id_name": {
-          "name": "item_component_item_id_name",
-          "columns": [
-            "item_id",
-            "name"
-          ]
-        }
-      },
-      "uniqueConstraints": {
-        "item_component_id_unique": {
-          "name": "item_component_id_unique",
-          "nullsNotDistinct": false,
-          "columns": [
-            "id"
-          ]
-        }
-      }
-    },
     "hero": {
       "name": "hero",
       "schema": "",
@@ -111,6 +41,66 @@
         "primary_attribute": {
           "name": "primary_attribute",
           "type": "primary_attribute",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "herald_guardian_crusader_pick_percentage": {
+          "name": "herald_guardian_crusader_pick_percentage",
+          "type": "numeric(4, 2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "herald_guardian_crusader_win_percentage": {
+          "name": "herald_guardian_crusader_win_percentage",
+          "type": "numeric(4, 2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "archon_pick_percentage": {
+          "name": "archon_pick_percentage",
+          "type": "numeric(4, 2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "archon_win_percentage": {
+          "name": "archon_win_percentage",
+          "type": "numeric(4, 2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "legend_pick_percentage": {
+          "name": "legend_pick_percentage",
+          "type": "numeric(4, 2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "legend_win_percentage": {
+          "name": "legend_win_percentage",
+          "type": "numeric(4, 2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ancient_pick_percentage": {
+          "name": "ancient_pick_percentage",
+          "type": "numeric(4, 2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ancient_win_percentage": {
+          "name": "ancient_win_percentage",
+          "type": "numeric(4, 2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "divine_immortal_pick_percentage": {
+          "name": "divine_immortal_pick_percentage",
+          "type": "numeric(4, 2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "divine_immortal_win_percentage": {
+          "name": "divine_immortal_win_percentage",
+          "type": "numeric(4, 2)",
           "primaryKey": false,
           "notNull": true
         }
@@ -274,6 +264,76 @@
         }
       }
     },
+    "hero_talent": {
+      "name": "hero_talent",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "hero_id": {
+          "name": "hero_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "talent_level": {
+          "name": "talent_level",
+          "type": "talent_level",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "left_route": {
+          "name": "left_route",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "right_route": {
+          "name": "right_route",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "hero_talent_hero_id_hero_id_fk": {
+          "name": "hero_talent_hero_id_hero_id_fk",
+          "tableFrom": "hero_talent",
+          "tableTo": "hero",
+          "columnsFrom": [
+            "hero_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "hero_talent_hero_id_talent_level": {
+          "name": "hero_talent_hero_id_talent_level",
+          "columns": [
+            "hero_id",
+            "talent_level"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "hero_talent_id_unique": {
+          "name": "hero_talent_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
     "item": {
       "name": "item",
       "schema": "",
@@ -305,6 +365,24 @@
         "classification": {
           "name": "classification",
           "type": "classification",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "times_bought": {
+          "name": "times_bought",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "use_percentage": {
+          "name": "use_percentage",
+          "type": "numeric(4, 2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "win_percentage": {
+          "name": "win_percentage",
+          "type": "numeric(4, 2)",
           "primaryKey": false,
           "notNull": true
         }
@@ -397,6 +475,76 @@
       "uniqueConstraints": {
         "item_ability_id_unique": {
           "name": "item_ability_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "item_component": {
+      "name": "item_component",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "item_id": {
+          "name": "item_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "amount": {
+          "name": "amount",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "price": {
+          "name": "price",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "item_component_item_id_item_id_fk": {
+          "name": "item_component_item_id_item_id_fk",
+          "tableFrom": "item_component",
+          "tableTo": "item",
+          "columnsFrom": [
+            "item_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "item_component_item_id_name": {
+          "name": "item_component_item_id_name",
+          "columns": [
+            "item_id",
+            "name"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "item_component_id_unique": {
+          "name": "item_component_id_unique",
           "nullsNotDistinct": false,
           "columns": [
             "id"
@@ -526,76 +674,6 @@
         }
       }
     },
-    "hero_talent": {
-      "name": "hero_talent",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "serial",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "hero_id": {
-          "name": "hero_id",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "talent_level": {
-          "name": "talent_level",
-          "type": "talent_level",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "left_route": {
-          "name": "left_route",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "right_route": {
-          "name": "right_route",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {
-        "hero_talent_hero_id_hero_id_fk": {
-          "name": "hero_talent_hero_id_hero_id_fk",
-          "tableFrom": "hero_talent",
-          "tableTo": "hero",
-          "columnsFrom": [
-            "hero_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {
-        "hero_talent_hero_id_talent_level": {
-          "name": "hero_talent_hero_id_talent_level",
-          "columns": [
-            "hero_id",
-            "talent_level"
-          ]
-        }
-      },
-      "uniqueConstraints": {
-        "hero_talent_id_unique": {
-          "name": "hero_talent_id_unique",
-          "nullsNotDistinct": false,
-          "columns": [
-            "id"
-          ]
-        }
-      }
-    },
     "hero_ability_upgrade": {
       "name": "hero_ability_upgrade",
       "schema": "",
@@ -662,40 +740,11 @@
     }
   },
   "enums": {
-    "classification": {
-      "name": "classification",
+    "upgrade_type": {
+      "name": "upgrade_type",
       "values": {
-        "Consumables": "Consumables",
-        "Attributes": "Attributes",
-        "Equipment": "Equipment",
-        "Miscellaneous": "Miscellaneous",
-        "Secret": "Secret",
-        "Accessories": "Accessories",
-        "Support": "Support",
-        "Magical": "Magical",
-        "Armor": "Armor",
-        "Weapons": "Weapons",
-        "Artifacts": "Artifacts",
-        "Tier 1": "Tier 1",
-        "Tier 2": "Tier 2",
-        "Tier 3": "Tier 3",
-        "Tier 4": "Tier 4",
-        "Tier 5": "Tier 5"
-      }
-    },
-    "item_type": {
-      "name": "item_type",
-      "values": {
-        "Basic": "Basic",
-        "Upgrade": "Upgrade",
-        "Neutral": "Neutral"
-      }
-    },
-    "price_type": {
-      "name": "price_type",
-      "values": {
-        "Purchase": "Purchase",
-        "Sell": "Sell"
+        "Aghanim Shard": "Aghanim Shard",
+        "Aghanim Scepter": "Aghanim Scepter"
       }
     },
     "primary_attribute": {
@@ -729,11 +778,40 @@
         "Expert": "Expert"
       }
     },
-    "upgrade_type": {
-      "name": "upgrade_type",
+    "classification": {
+      "name": "classification",
       "values": {
-        "Aghanim Shard": "Aghanim Shard",
-        "Aghanim Scepter": "Aghanim Scepter"
+        "Consumables": "Consumables",
+        "Attributes": "Attributes",
+        "Equipment": "Equipment",
+        "Miscellaneous": "Miscellaneous",
+        "Secret": "Secret",
+        "Accessories": "Accessories",
+        "Support": "Support",
+        "Magical": "Magical",
+        "Armor": "Armor",
+        "Weapons": "Weapons",
+        "Artifacts": "Artifacts",
+        "Tier 1": "Tier 1",
+        "Tier 2": "Tier 2",
+        "Tier 3": "Tier 3",
+        "Tier 4": "Tier 4",
+        "Tier 5": "Tier 5"
+      }
+    },
+    "price_type": {
+      "name": "price_type",
+      "values": {
+        "Purchase": "Purchase",
+        "Sell": "Sell"
+      }
+    },
+    "item_type": {
+      "name": "item_type",
+      "values": {
+        "Basic": "Basic",
+        "Upgrade": "Upgrade",
+        "Neutral": "Neutral"
       }
     }
   },
