@@ -8,7 +8,7 @@ import {
   primaryKey,
 } from "drizzle-orm/pg-core";
 
-export const heroPrimaryAttributeEnum = pgEnum("primary_attribute", [
+export const heroPrimaryAttributeEnum = pgEnum("hero_primary_attribute", [
   "Strength",
   "Agility",
   "Intelligence",
@@ -21,50 +21,10 @@ export const hero = pgTable("hero", {
   biography: text("biography").notNull(),
   identity: text("identity").notNull(),
   description: text("description").notNull(),
-  primary_attribute: heroPrimaryAttributeEnum("primary_attribute").notNull(),
-  herald_guardian_crusader_pick_percentage: numeric(
-    "herald_guardian_crusader_pick_percentage",
-    { precision: 4, scale: 2 }
-  ).notNull(),
-  herald_guardian_crusader_win_percentage: numeric(
-    "herald_guardian_crusader_win_percentage",
-    { precision: 4, scale: 2 }
-  ).notNull(),
-  archon_pick_percentage: numeric("archon_pick_percentage", {
-    precision: 4,
-    scale: 2,
-  }).notNull(),
-  archon_win_percentage: numeric("archon_win_percentage", {
-    precision: 4,
-    scale: 2,
-  }).notNull(),
-  legend_pick_percentage: numeric("legend_pick_percentage", {
-    precision: 4,
-    scale: 2,
-  }).notNull(),
-  legend_win_percentage: numeric("legend_win_percentage", {
-    precision: 4,
-    scale: 2,
-  }).notNull(),
-  ancient_pick_percentage: numeric("ancient_pick_percentage", {
-    precision: 4,
-    scale: 2,
-  }).notNull(),
-  ancient_win_percentage: numeric("ancient_win_percentage", {
-    precision: 4,
-    scale: 2,
-  }).notNull(),
-  divine_immortal_pick_percentage: numeric("divine_immortal_pick_percentage", {
-    precision: 4,
-    scale: 2,
-  }).notNull(),
-  divine_immortal_win_percentage: numeric("divine_immortal_win_percentage", {
-    precision: 4,
-    scale: 2,
-  }).notNull(),
+  primaryAttribute: heroPrimaryAttributeEnum("primary_attribute").notNull(),
 });
 
-export const heroRoleTypeEnum = pgEnum("role_type", [
+export const heroRoleTypeEnum = pgEnum("hero_role_type", [
   "Carry",
   "Support",
   "Nuker",
@@ -82,11 +42,11 @@ export const heroRole = pgTable(
     heroId: integer("hero_id")
       .references(() => hero.id)
       .notNull(),
-    roleType: heroRoleTypeEnum("role_type").notNull(),
+    type: heroRoleTypeEnum("type").notNull(),
   },
   (table) => {
     return {
-      pk: primaryKey({ columns: [table.heroId, table.roleType] }),
+      pk: primaryKey({ columns: [table.heroId, table.type] }),
     };
   }
 );
@@ -112,29 +72,29 @@ export const heroAbility = pgTable(
   }
 );
 
-export const abilityUpgradeTypeEnum = pgEnum("upgrade_type", [
+export const heroAbilityUpgradeTypeEnum = pgEnum("hero_ability_upgrade_type", [
   "Aghanim Shard",
   "Aghanim Scepter",
 ]);
 
-export const upgrade = pgTable(
+export const heroAbilityUpgrade = pgTable(
   "hero_ability_upgrade",
   {
     id: serial("id").unique(),
     abilityId: integer("ability_id")
       .references(() => heroAbility.id)
       .notNull(),
-    upgradeType: abilityUpgradeTypeEnum("upgrade_type").notNull(),
+    type: heroAbilityUpgradeTypeEnum("type").notNull(),
     description: text("description").notNull(),
   },
   (table) => {
     return {
-      pk: primaryKey({ columns: [table.abilityId, table.upgradeType] }),
+      pk: primaryKey({ columns: [table.abilityId, table.type] }),
     };
   }
 );
 
-export const heroTalentLevelEnum = pgEnum("talent_level", [
+export const heroTalentLevelEnum = pgEnum("hero_talent_level", [
   "Novice",
   "Intermediate",
   "Advanced",
@@ -148,13 +108,47 @@ export const heroTalent = pgTable(
     heroId: integer("hero_id")
       .references(() => hero.id)
       .notNull(),
-    talentLevel: heroTalentLevelEnum("talent_level").notNull(),
-    leftRoute: text("left_route").notNull(),
-    rightRoute: text("right_route").notNull(),
+    level: heroTalentLevelEnum("level").notNull(),
+    type: text("type").notNull(),
+    effect: text("effect").notNull(),
   },
   (table) => {
     return {
-      pk: primaryKey({ columns: [table.heroId, table.talentLevel] }),
+      pk: primaryKey({ columns: [table.heroId, table.level, table.type] }),
+    };
+  }
+);
+
+export const heroMetaInfoTypeEnum = pgEnum("hero_meta_info_type", [
+  "Pick_Percentage",
+  "Win_Percentage",
+]);
+
+export const heroMetaInfoRankEnum = pgEnum("hero_meta_info_rank", [
+  "Herald_Guardian_Crusader",
+  "Archon",
+  "Legend",
+  "Ancient",
+  "Divine_Immortal",
+]);
+
+export const heroMetaInfo = pgTable(
+  "hero_meta_info",
+  {
+    id: serial("id").unique(),
+    heroId: integer("hero_id")
+      .references(() => hero.id)
+      .notNull(),
+    type: heroMetaInfoTypeEnum("type").notNull(),
+    rank: heroMetaInfoRankEnum("rank").notNull(),
+    percentage: numeric("percentage", {
+      precision: 4,
+      scale: 2,
+    }).notNull(),
+  },
+  (table) => {
+    return {
+      pk: primaryKey({ columns: [table.heroId, table.type, table.rank] }),
     };
   }
 );
@@ -165,7 +159,7 @@ export const itemTypeEnum = pgEnum("item_type", [
   "Neutral",
 ]);
 
-export const itemClassificationEnum = pgEnum("classification", [
+export const itemClassificationEnum = pgEnum("item_classification", [
   "Consumables",
   "Attributes",
   "Equipment",
@@ -188,17 +182,8 @@ export const item = pgTable("item", {
   id: serial("id").unique(),
   name: text("name").primaryKey(),
   lore: text("lore").notNull(),
-  itemType: itemTypeEnum("item_type").notNull(),
+  type: itemTypeEnum("type").notNull(),
   classification: itemClassificationEnum("classification").notNull(),
-  times_bought: integer("times_bought").notNull(),
-  use_percentage: numeric("use_percentage", {
-    precision: 4,
-    scale: 2,
-  }).notNull(),
-  win_percentage: numeric("win_percentage", {
-    precision: 4,
-    scale: 2,
-  }).notNull(),
 });
 
 export const itemAbility = pgTable(
@@ -237,7 +222,10 @@ export const itemStat = pgTable(
   }
 );
 
-export const itemPriceTypeEnum = pgEnum("price_type", ["Purchase", "Sell"]);
+export const itemPriceTypeEnum = pgEnum("item_price_type", [
+  "Purchase",
+  "Sell",
+]);
 
 export const price = pgTable(
   "item_price",
@@ -246,12 +234,12 @@ export const price = pgTable(
     itemId: integer("item_id")
       .references(() => item.id)
       .notNull(),
-    priceType: itemPriceTypeEnum("price_type").notNull(),
+    type: itemPriceTypeEnum("type").notNull(),
     amount: text("amount").notNull(),
   },
   (table) => {
     return {
-      pk: primaryKey({ columns: [table.itemId, table.priceType] }),
+      pk: primaryKey({ columns: [table.itemId, table.type] }),
     };
   }
 );
@@ -270,6 +258,39 @@ export const itemComponent = pgTable(
   (table) => {
     return {
       pk: primaryKey({ columns: [table.itemId, table.name] }),
+    };
+  }
+);
+
+export const itemMetaInfo = pgTable("item_meta_info", {
+  id: serial("id").unique(),
+  itemId: integer("item_id")
+    .references(() => item.id)
+    .primaryKey(),
+  uses: integer("uses").notNull(),
+});
+
+export const itemMetaInfoPercentageTypeEnum = pgEnum("item_meta_info_type", [
+  "Use_Percentage",
+  "Win_Percentage",
+]);
+
+export const itemMetaInfoPercentage = pgTable(
+  "item_meta_info_percentage",
+  {
+    id: serial("id").unique(),
+    itemMetaInfoId: integer("item_meta_info_id")
+      .references(() => itemMetaInfo.id)
+      .notNull(),
+    type: itemMetaInfoPercentageTypeEnum("type").notNull(),
+    percentage: numeric("percentage", {
+      precision: 4,
+      scale: 2,
+    }),
+  },
+  (table) => {
+    return {
+      pk: primaryKey({ columns: [table.itemMetaInfoId, table.type] }),
     };
   }
 );
