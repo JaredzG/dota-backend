@@ -1,7 +1,7 @@
 import scrapy
 import json
 import os
-from dota.items import ItemMetaItem
+from dota.items import ItemMetaInfoItem
 
 
 class ItemMetaSpider(scrapy.Spider):
@@ -24,11 +24,10 @@ class ItemMetaSpider(scrapy.Spider):
         item_names = [item["name"] for item in items_data]
         item_rows = response.xpath("//tbody/tr")
         for row in item_rows:
-            item_meta = ItemMetaItem()
+            item_meta = ItemMetaInfoItem()
             row_values = row.xpath("td[position()>0]/@data-value").getall()
             if row_values[0] in item_names:
                 item_meta["name"] = row_values[0]
-                item_meta["times_bought"] = row_values[1]
-                item_meta["use_percentage"] = row_values[2]
-                item_meta["win_percentage"] = row_values[3]
+                item_meta["uses"] = row_values[1]
+                item_meta["percentages"] = row_values[2:]
                 yield item_meta

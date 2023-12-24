@@ -28,22 +28,12 @@ class ItemItem(scrapy.Item):
     components = scrapy.Field()
 
 
-class HeroMetaItem(scrapy.Item):
+class HeroMetaInfoItem(scrapy.Item):
     name = scrapy.Field()
-    herald_guardian_crusader_pick_percentage = scrapy.Field()
-    herald_guardian_crusader_win_percentage = scrapy.Field()
-    archon_pick_percentage = scrapy.Field()
-    archon_win_percentage = scrapy.Field()
-    legend_pick_percentage = scrapy.Field()
-    legend_win_percentage = scrapy.Field()
-    ancient_pick_percentage = scrapy.Field()
-    ancient_win_percentage = scrapy.Field()
-    divine_immortal_pick_percentage = scrapy.Field()
-    divine_immortal_win_percentage = scrapy.Field()
+    percentages = scrapy.Field()
 
 
-class ItemMetaItem(scrapy.Item):
+class ItemMetaInfoItem(scrapy.Item):
     name = scrapy.Field()
-    times_bought = scrapy.Field()
-    use_percentage = scrapy.Field()
-    win_percentage = scrapy.Field()
+    uses = scrapy.Field()
+    percentages = scrapy.Field()
