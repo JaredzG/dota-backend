@@ -7,7 +7,7 @@
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 from scrapy.exceptions import DropItem
-from dota.items import HeroItem, ItemItem
+from dota.items import HeroItem, ItemItem, HeroMetaInfoItem, ItemMetaInfoItem
 import re
 
 
@@ -30,7 +30,7 @@ class HeroBiographyPipeline:
                 )
                 return item
             else:
-                raise DropItem(f"Missing biography in {item}")
+                raise DropItem(f"Missing biography in {item}.")
         else:
             return item
 
@@ -45,7 +45,7 @@ class HeroIdentityPipeline:
                 )
                 return item
             else:
-                raise DropItem(f"Missing identity in {item}")
+                raise DropItem(f"Missing identity in {item}.")
         else:
             return item
 
@@ -66,7 +66,7 @@ class HeroDescriptionPipeline:
                 )
                 return item
             else:
-                raise DropItem(f"Missing description in {item}")
+                raise DropItem(f"Missing description in {item}.")
         else:
             return item
 
@@ -100,7 +100,7 @@ class HeroAbilitiesPipeline:
                 adapter["abilities"] = abilities
                 return item
             else:
-                raise DropItem(f"Missing abilities in {item}")
+                raise DropItem(f"Missing abilities in {item}.")
         else:
             return item
 
@@ -202,13 +202,8 @@ class HeroTalentsPipeline:
                     talents.append(
                         {
                             "level": talent["level"],
-                            "left_route": talent["left_route"]
-                            .strip()
-                            .replace("  ", " ")
-                            .replace("/ ", "/")
-                            .replace(" /", "/")
-                            .replace("/", " / "),
-                            "right_route": talent["right_route"]
+                            "type": talent["type"],
+                            "effect": talent["effect"]
                             .strip()
                             .replace("  ", " ")
                             .replace("/ ", "/")
@@ -219,7 +214,7 @@ class HeroTalentsPipeline:
                 adapter["talents"] = talents
                 return item
             else:
-                raise DropItem(f"Missing talents in {item}")
+                raise DropItem(f"Missing talents in {item}.")
         else:
             return item
 
@@ -235,7 +230,7 @@ class ItemLorePipeline:
                 )
                 return item
             else:
-                raise DropItem(f"Missing lore in {item}")
+                raise DropItem(f"Missing lore in {item}.")
         else:
             return item
 
@@ -279,7 +274,7 @@ class ItemStatsPipeline:
                 adapter["stats"] = stats
                 return item
             else:
-                raise DropItem(f"Missing stats in {item}")
+                raise DropItem(f"Missing stats in {item}.")
         else:
             return item
 
@@ -309,7 +304,7 @@ class ItemAbilitiesPipeline:
                     adapter["abilities"] = abilities
                 return item
             else:
-                raise DropItem(f"Missing abilities in {item}")
+                raise DropItem(f"Missing abilities in {item}.")
         else:
             return item
 
@@ -398,7 +393,7 @@ class ItemPricePipeline:
                     adapter["prices"] = prices
                 return item
             else:
-                raise DropItem(f"Missing prices in {item}")
+                raise DropItem(f"Missing prices in {item}.")
         else:
             return item
 
@@ -437,6 +432,64 @@ class ItemComponentsPipeline:
                     adapter["components"] = components
                 return item
             else:
-                raise DropItem(f"Missing components in {item}")
+                raise DropItem(f"Missing components in {item}.")
+        else:
+            return item
+
+
+class HeroMetaInfoPipeline:
+    def process_item(self, item, spider):
+        if isinstance(item, HeroMetaInfoItem):
+            adapter = ItemAdapter(item)
+            if adapter.get("name"):
+                percentages = []
+                old_percentages = adapter["percentages"]
+                ranks = [
+                    "Herald_Guardian_Crusader",
+                    "Archon",
+                    "Legend",
+                    "Ancient",
+                    "Divine_Immortal",
+                ]
+                types = ["Pick_Percentage", "Win_Percentage"]
+                for i in range(0, len(old_percentages), 2):
+                    percentages.append(
+                        {
+                            "rank": ranks[i // 2],
+                            "type": types[i % 2],
+                            "percentage": old_percentages[i],
+                        }
+                    )
+                    percentages.append(
+                        {
+                            "rank": ranks[(i + 1) // 2],
+                            "type": types[(i + 1) % 2],
+                            "percentage": old_percentages[i + 1],
+                        }
+                    )
+                adapter["percentages"] = percentages
+                return item
+            else:
+                raise DropItem(f"Missing name in {item} meta information.")
+        else:
+            return item
+
+
+class ItemMetaInfoPipeline:
+    def process_item(self, item, spider):
+        if isinstance(item, ItemMetaInfoItem):
+            adapter = ItemAdapter(item)
+            if adapter.get("name"):
+                percentages = []
+                old_percentages = adapter.get("percentages")
+                types = ["Use_Percentage", "Win_Percentage"]
+                for i in range(len(old_percentages)):
+                    percentages.append(
+                        {"type": types[i], "percentage": old_percentages[i]}
+                    )
+                adapter["percentages"] = percentages
+                return item
+            else:
+                raise DropItem(f"Missing name in {item} meta information.")
         else:
             return item
