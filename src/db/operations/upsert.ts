@@ -1,6 +1,13 @@
 import * as fs from "fs";
 import { connectDB, createPool } from "../db";
-import { hero, heroAbility, heroRole } from "../schema";
+import {
+  hero,
+  heroAbility,
+  heroAbilityUpgrade,
+  heroMetaInfo,
+  heroRole,
+  heroTalent,
+} from "../schema";
 
 interface Hero {
   id?: number;
@@ -8,23 +15,13 @@ interface Hero {
   biography: string;
   identity: string;
   description: string;
-  primary_attribute: "Strength" | "Agility" | "Intelligence" | "Universal";
-  herald_guardian_crusader_pick_percentage: string;
-  herald_guardian_crusader_win_percentage: string;
-  archon_pick_percentage: string;
-  archon_win_percentage: string;
-  legend_pick_percentage: string;
-  legend_win_percentage: string;
-  ancient_pick_percentage: string;
-  ancient_win_percentage: string;
-  divine_immortal_pick_percentage: string;
-  divine_immortal_win_percentage: string;
+  primaryAttribute: "Strength" | "Agility" | "Intelligence" | "Universal";
 }
 
 interface HeroRole {
   id?: number;
   heroId: number;
-  roleType:
+  type:
     | "Carry"
     | "Support"
     | "Nuker"
@@ -46,113 +43,172 @@ interface HeroAbility {
   affectedTarget: string;
 }
 
+interface HeroAbilityUpgrade {
+  id?: number;
+  abilityId: number;
+  type: "Aghanim Shard" | "Aghanim Scepter";
+  description: string;
+}
+
+interface HeroTalent {
+  id?: number;
+  heroId: number;
+  level: "Novice" | "Intermediate" | "Advanced" | "Expert";
+  type: string;
+  effect: string;
+}
+
+interface HeroMetaInfo {
+  id?: number;
+  heroId: number;
+  type: "Pick_Percentage" | "Win_Percentage";
+  rank:
+    | "Herald_Guardian_Crusader"
+    | "Archon"
+    | "Legend"
+    | "Ancient"
+    | "Divine_Immortal";
+  percentage: string;
+}
+
 const heroesFilePath = "data/heroes.json";
 const itemsFilePath = "data/items.json";
 const heroesMetaFilePath = "data/heroes.meta.json";
 const itemsMetaFilePath = "data/items.meta.json";
 
-const heroes = JSON.parse(fs.readFileSync(heroesFilePath, "utf-8"));
-const items = JSON.parse(fs.readFileSync(itemsFilePath, "utf-8"));
-const heroesMeta = JSON.parse(fs.readFileSync(heroesMetaFilePath, "utf-8"));
-const itemsMeta = JSON.parse(fs.readFileSync(itemsMetaFilePath, "utf-8"));
+const heroItems: Array<any> = JSON.parse(
+  fs.readFileSync(heroesFilePath, "utf-8")
+);
+// const itemItems = JSON.parse(fs.readFileSync(itemsFilePath, "utf-8"));
+const heroMetaInfoItems: Array<any> = JSON.parse(
+  fs.readFileSync(heroesMetaFilePath, "utf-8")
+);
+// const itemMetaInfoItems = JSON.parse(fs.readFileSync(itemsMetaFilePath, "utf-8"));
 const pool = createPool();
 const db = connectDB(pool);
-const {
-  name,
-  biography,
-  identity,
-  description,
-  primary_attribute,
-  roles,
-  abilities,
-  talents,
-} = heroes[111];
-const {
-  herald_guardian_crusader_pick_percentage,
-  herald_guardian_crusader_win_percentage,
-  archon_pick_percentage,
-  archon_win_percentage,
-  legend_pick_percentage,
-  legend_win_percentage,
-  ancient_pick_percentage,
-  ancient_win_percentage,
-  divine_immortal_pick_percentage,
-  divine_immortal_win_percentage,
-} = heroesMeta[120];
-const heroEntry: Hero = {
-  name,
-  biography,
-  identity,
-  description,
-  primary_attribute,
-  herald_guardian_crusader_pick_percentage,
-  herald_guardian_crusader_win_percentage,
-  archon_pick_percentage,
-  archon_win_percentage,
-  legend_pick_percentage,
-  legend_win_percentage,
-  ancient_pick_percentage,
-  ancient_win_percentage,
-  divine_immortal_pick_percentage,
-  divine_immortal_win_percentage,
-};
-console.log(heroEntry);
-const insertedHero: Hero[] = await db
-  .insert(hero)
-  .values(heroEntry)
-  .onConflictDoUpdate({
-    target: hero.name,
-    set: heroEntry,
-  })
-  .returning();
-const insertedHeroId = insertedHero[0].id as number;
-for (let role of roles) {
-  const heroRoleEntry: HeroRole = {
-    heroId: insertedHeroId,
-    roleType: role,
-  };
-  await db
-    .insert(heroRole)
-    .values(heroRoleEntry)
-    .onConflictDoUpdate({
-      target: [heroRole.heroId, heroRole.roleType],
-      set: heroRoleEntry,
-    });
-}
-for (let ability of abilities) {
+for (let heroItem of heroItems) {
   const {
-    name,
-    lore,
+    name: heroName,
+    biography,
+    identity,
     description,
-    features: {
-      ability_type: abilityType,
-      affected_target: affectedTarget,
-      damage_type: damageType,
-    },
-    upgrades,
-  } = ability;
-  const heroAbilityEntry: HeroAbility = {
-    heroId: insertedHeroId,
-    name,
-    lore,
+    primary_attribute: primaryAttribute,
+    roles,
+    abilities,
+    talents,
+  } = heroItem;
+  const { percentages: heroMetaPercentages } = heroMetaInfoItems.filter(
+    (heroMetaInfoItem) => heroName.includes(heroMetaInfoItem["name"])
+  )[0];
+  const heroEntry: Hero = {
+    name: heroName,
+    biography,
+    identity,
     description,
-    abilityType,
-    damageType,
-    affectedTarget,
+    primaryAttribute,
   };
-  const insertedHeroAbility: HeroAbility[] = await db
-    .insert(heroAbility)
-    .values(heroAbilityEntry)
+  const insertedHero: Hero[] = await db
+    .insert(hero)
+    .values(heroEntry)
     .onConflictDoUpdate({
-      target: [heroAbility.heroId, heroAbility.name],
-      set: heroAbilityEntry,
+      target: hero.name,
+      set: heroEntry,
     })
     .returning();
-  if (Array.isArray(upgrades)) {
-    // Write code to handle when there are ability upgrades.
-  } else {
-    // Write code to handle when there are no ability upgrades.
+  const insertedHeroId: number = insertedHero[0].id as number;
+  for (let role of roles) {
+    const heroRoleEntry: HeroRole = {
+      heroId: insertedHeroId,
+      type: role,
+    };
+    await db
+      .insert(heroRole)
+      .values(heroRoleEntry)
+      .onConflictDoUpdate({
+        target: [heroRole.heroId, heroRole.type],
+        set: heroRoleEntry,
+      });
+  }
+  for (let ability of abilities) {
+    const {
+      name,
+      lore,
+      description,
+      features: {
+        ability_type: abilityType,
+        affected_target: affectedTarget,
+        damage_type: damageType,
+      },
+      upgrades,
+    } = ability;
+    const heroAbilityEntry: HeroAbility = {
+      heroId: insertedHeroId,
+      name,
+      lore,
+      description,
+      abilityType,
+      damageType,
+      affectedTarget,
+    };
+    const insertedHeroAbility: HeroAbility[] = await db
+      .insert(heroAbility)
+      .values(heroAbilityEntry)
+      .onConflictDoUpdate({
+        target: [heroAbility.heroId, heroAbility.name],
+        set: heroAbilityEntry,
+      })
+      .returning();
+    const insertedHeroAbilityId: number = insertedHeroAbility[0].id as number;
+    if (Array.isArray(upgrades)) {
+      for (let upgrade of upgrades) {
+        const { type, description } = upgrade;
+        const heroAbilityUpgradeEntry: HeroAbilityUpgrade = {
+          abilityId: insertedHeroAbilityId,
+          type:
+            type === "Aghanim's Shard" ? "Aghanim Shard" : "Aghanim Scepter",
+          description,
+        };
+        await db
+          .insert(heroAbilityUpgrade)
+          .values(heroAbilityUpgradeEntry)
+          .onConflictDoUpdate({
+            target: [heroAbilityUpgrade.abilityId, heroAbilityUpgrade.type],
+            set: heroAbilityUpgradeEntry,
+          });
+      }
+    }
+  }
+  for (let talent of talents) {
+    const { level, type, effect } = talent;
+    const heroTalentEntry: HeroTalent = {
+      heroId: insertedHeroId,
+      level,
+      type,
+      effect,
+    };
+    await db
+      .insert(heroTalent)
+      .values(heroTalentEntry)
+      .onConflictDoUpdate({
+        target: [heroTalent.heroId, heroTalent.level, heroTalent.type],
+        set: heroTalentEntry,
+      });
+  }
+  for (let metaPercentage of heroMetaPercentages) {
+    const { rank, type, percentage } = metaPercentage;
+    const heroMetaInfoEntry: HeroMetaInfo = {
+      heroId: insertedHeroId,
+      rank,
+      type,
+      percentage,
+    };
+    await db
+      .insert(heroMetaInfo)
+      .values(heroMetaInfoEntry)
+      .onConflictDoUpdate({
+        target: [heroMetaInfo.heroId, heroMetaInfo.rank, heroMetaInfo.type],
+        set: heroMetaInfoEntry,
+      });
   }
 }
-// console.log(items[98]);
 await pool.end();
