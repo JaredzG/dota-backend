@@ -106,13 +106,8 @@ class HeroSpider(scrapy.Spider):
         for i in range(len(talents_list) - 1, -1, -1):
             level = levels[i]
             talent = talents_list[i]
-            left_route = talent.xpath("string(td[1])").get()
-            right_route = talent.xpath("string(td[2])").get()
-            talents.append(
-                {
-                    "level": level,
-                    "left_route": left_route,
-                    "right_route": right_route,
-                }
-            )
+            x_type_effect = talent.xpath("string(td[1])").get()
+            y_type_effect = talent.xpath("string(td[2])").get()
+            talents.append({"level": level, "type": "X", "effect": x_type_effect})
+            talents.append({"level": level, "type": "Y", "effect": y_type_effect})
         return talents
