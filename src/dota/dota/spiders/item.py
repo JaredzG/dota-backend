@@ -126,8 +126,8 @@ class ItemSpider(scrapy.Spider):
             sell_amount = response.xpath(
                 'string(//table[@class="infobox"][1]//tr[th/a/span[contains(text(), "Sell Value")]])'
             ).get()
-            prices.append({"type": "Purchase", "amount": purchase_amount})
-            prices.append({"type": "Sell", "amount": sell_amount})
+            prices.append({"type": "Purchase Price", "amount": purchase_amount})
+            prices.append({"type": "Sell Price", "amount": sell_amount})
             return prices
         else:
             return "None"

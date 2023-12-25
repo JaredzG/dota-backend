@@ -153,10 +153,10 @@ class HeroAbilitiesPipeline:
                 filter(lambda item: item != "", old_upgrades.strip().split("\n"))
             )
             for i in range(0, len(aghs_upgrades), 2):
-                if "Scepter" in aghs_upgrades[i]:
+                if "Shard" in aghs_upgrades[i]:
                     upgrades.append(
                         {
-                            "type": "Scepter",
+                            "type": "Shard Upgrade",
                             "description": re.sub(
                                 r"(\w+)$",
                                 r"\1.",
@@ -171,11 +171,10 @@ class HeroAbilitiesPipeline:
                             ),
                         }
                     )
-
-                if "Shard" in aghs_upgrades[i]:
+                if "Scepter" in aghs_upgrades[i]:
                     upgrades.append(
                         {
-                            "type": "Shard",
+                            "type": "Scepter Upgrade",
                             "description": re.sub(
                                 r"(\w+)$",
                                 r"\1.",
@@ -253,7 +252,9 @@ class ItemStatsPipeline:
                         if "\n" in first_stat:
                             new_first_stat = first_stat[0 : first_stat.index("\n")]
                             stats[0] = new_first_stat
-                            new_second_stat = re.sub("  ", " ", second_stat)
+                            new_second_stat = (
+                                re.sub("  ", " ", second_stat) + " (Universal Heroes)"
+                            )
                             stats[1] = new_second_stat
                             new_stats = [" or ".join(stats)]
                             stats = new_stats
@@ -455,13 +456,13 @@ class HeroMetaInfoPipeline:
                 percentages = []
                 old_percentages = adapter["percentages"]
                 ranks = [
-                    "Herald_Guardian_Crusader",
+                    "Herald / Guardian / Crusader",
                     "Archon",
                     "Legend",
                     "Ancient",
-                    "Divine_Immortal",
+                    "Divine / Immortal",
                 ]
-                types = ["Pick_Percentage", "Win_Percentage"]
+                types = ["Pick Percentage", "Win Percentage"]
                 for i in range(0, len(old_percentages), 2):
                     percentages.append(
                         {
@@ -492,7 +493,7 @@ class ItemMetaInfoPipeline:
             if adapter.get("name"):
                 percentages = []
                 old_percentages = adapter.get("percentages")
-                types = ["Use_Percentage", "Win_Percentage"]
+                types = ["Use Percentage", "Win Percentage"]
                 for i in range(len(old_percentages)):
                     percentages.append(
                         {"type": types[i], "percentage": old_percentages[i]}
