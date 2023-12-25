@@ -63,8 +63,8 @@ export const heroAbility = pgTable(
     lore: text("lore"),
     description: text("description").notNull(),
     abilityType: text("ability_type").notNull(),
-    damageType: text("damage_type"),
     affectedTarget: text("affected_target"),
+    damageType: text("damage_type"),
     hasShardUpgrade: boolean("has_shard_upgrade").notNull(),
     hasScepterUpgrade: boolean("has_scepter_upgrade").notNull(),
   },
@@ -76,8 +76,8 @@ export const heroAbility = pgTable(
 );
 
 export const heroAbilityUpgradeTypeEnum = pgEnum("hero_ability_upgrade_type", [
-  "Shard",
-  "Scepter",
+  "Shard Upgrade",
+  "Scepter Upgrade",
 ]);
 
 export const heroAbilityUpgrade = pgTable(
@@ -123,16 +123,16 @@ export const heroTalent = pgTable(
 );
 
 export const heroMetaInfoTypeEnum = pgEnum("hero_meta_info_type", [
-  "Pick_Percentage",
-  "Win_Percentage",
+  "Pick Percentage",
+  "Win Percentage",
 ]);
 
 export const heroMetaInfoRankEnum = pgEnum("hero_meta_info_rank", [
-  "Herald_Guardian_Crusader",
+  "Herald / Guardian / Crusader",
   "Archon",
   "Legend",
   "Ancient",
-  "Divine_Immortal",
+  "Divine / Immortal",
 ]);
 
 export const heroMetaInfo = pgTable(
@@ -142,8 +142,8 @@ export const heroMetaInfo = pgTable(
     heroId: integer("hero_id")
       .references(() => hero.id)
       .notNull(),
-    type: heroMetaInfoTypeEnum("type").notNull(),
     rank: heroMetaInfoRankEnum("rank").notNull(),
+    type: heroMetaInfoTypeEnum("type").notNull(),
     percentage: numeric("percentage", {
       precision: 4,
       scale: 2,
@@ -151,7 +151,7 @@ export const heroMetaInfo = pgTable(
   },
   (table) => {
     return {
-      pk: primaryKey({ columns: [table.heroId, table.type, table.rank] }),
+      pk: primaryKey({ columns: [table.heroId, table.rank, table.type] }),
     };
   }
 );
@@ -187,7 +187,27 @@ export const item = pgTable("item", {
   lore: text("lore"),
   type: itemTypeEnum("type").notNull(),
   classification: itemClassificationEnum("classification").notNull(),
+  hasStats: boolean("has_stats").notNull(),
+  hasAbilities: boolean("has_abilities").notNull(),
+  hasPrices: boolean("has_prices").notNull(),
+  hasComponents: boolean("has_components").notNull(),
 });
+
+export const itemStat = pgTable(
+  "item_stat",
+  {
+    id: serial("id").unique(),
+    itemId: integer("item_id")
+      .references(() => item.id)
+      .notNull(),
+    effect: text("effect").notNull(),
+  },
+  (table) => {
+    return {
+      pk: primaryKey({ columns: [table.itemId, table.effect] }),
+    };
+  }
+);
 
 export const itemAbility = pgTable(
   "item_ability",
@@ -199,11 +219,8 @@ export const itemAbility = pgTable(
     name: text("name").notNull(),
     description: text("description").notNull(),
     abilityType: text("ability_type").notNull(),
-    damageType: text("damage_type"),
     affectedTarget: text("affected_target"),
-    hasStats: boolean("has_stats").notNull(),
-    hasPrices: boolean("has_prices").notNull(),
-    hasComponents: boolean("has_components").notNull(),
+    damageType: text("damage_type"),
   },
   (table) => {
     return {
@@ -212,28 +229,12 @@ export const itemAbility = pgTable(
   }
 );
 
-export const itemStat = pgTable(
-  "item_stat",
-  {
-    id: serial("id").unique(),
-    itemId: integer("item_id")
-      .references(() => item.id)
-      .notNull(),
-    description: text("description").notNull(),
-  },
-  (table) => {
-    return {
-      pk: primaryKey({ columns: [table.itemId, table.description] }),
-    };
-  }
-);
-
 export const itemPriceTypeEnum = pgEnum("item_price_type", [
-  "Purchase",
-  "Sell",
+  "Purchase Price",
+  "Sell Price",
 ]);
 
-export const price = pgTable(
+export const itemPrice = pgTable(
   "item_price",
   {
     id: serial("id").unique(),
@@ -273,12 +274,12 @@ export const itemMetaInfo = pgTable("item_meta_info", {
   itemId: integer("item_id")
     .references(() => item.id)
     .primaryKey(),
-  uses: integer("uses").notNull(),
+  uses: text("uses").notNull(),
 });
 
 export const itemMetaInfoPercentageTypeEnum = pgEnum("item_meta_info_type", [
-  "Use_Percentage",
-  "Win_Percentage",
+  "Use Percentage",
+  "Win Percentage",
 ]);
 
 export const itemMetaInfoPercentage = pgTable(

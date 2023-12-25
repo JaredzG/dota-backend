@@ -1,5 +1,5 @@
 {
-  "id": "69da2079-0475-451a-a56f-ab1effb48497",
+  "id": "f94d6bc6-9a8a-49d0-8aa0-e7aa3be49102",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -98,14 +98,14 @@
           "primaryKey": false,
           "notNull": true
         },
-        "damage_type": {
-          "name": "damage_type",
+        "affected_target": {
+          "name": "affected_target",
           "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "affected_target": {
-          "name": "affected_target",
+        "damage_type": {
+          "name": "damage_type",
           "type": "text",
           "primaryKey": false,
           "notNull": false
@@ -238,15 +238,15 @@
           "primaryKey": false,
           "notNull": true
         },
-        "type": {
-          "name": "type",
-          "type": "hero_meta_info_type",
-          "primaryKey": false,
-          "notNull": true
-        },
         "rank": {
           "name": "rank",
           "type": "hero_meta_info_rank",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
+          "type": "hero_meta_info_type",
           "primaryKey": false,
           "notNull": true
         },
@@ -274,12 +274,12 @@
         }
       },
       "compositePrimaryKeys": {
-        "hero_meta_info_hero_id_type_rank": {
-          "name": "hero_meta_info_hero_id_type_rank",
+        "hero_meta_info_hero_id_rank_type": {
+          "name": "hero_meta_info_hero_id_rank_type",
           "columns": [
             "hero_id",
-            "type",
-            "rank"
+            "rank",
+            "type"
           ]
         }
       },
@@ -455,6 +455,30 @@
           "type": "item_classification",
           "primaryKey": false,
           "notNull": true
+        },
+        "has_stats": {
+          "name": "has_stats",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "has_abilities": {
+          "name": "has_abilities",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "has_prices": {
+          "name": "has_prices",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "has_components": {
+          "name": "has_components",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
         }
       },
       "indexes": {},
@@ -504,35 +528,17 @@
           "primaryKey": false,
           "notNull": true
         },
-        "damage_type": {
-          "name": "damage_type",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        },
         "affected_target": {
           "name": "affected_target",
           "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "has_stats": {
-          "name": "has_stats",
-          "type": "boolean",
+        "damage_type": {
+          "name": "damage_type",
+          "type": "text",
           "primaryKey": false,
-          "notNull": true
-        },
-        "has_prices": {
-          "name": "has_prices",
-          "type": "boolean",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "has_components": {
-          "name": "has_components",
-          "type": "boolean",
-          "primaryKey": false,
-          "notNull": true
+          "notNull": false
         }
       },
       "indexes": {},
@@ -658,7 +664,7 @@
         },
         "uses": {
           "name": "uses",
-          "type": "integer",
+          "type": "text",
           "primaryKey": false,
           "notNull": true
         }
@@ -754,64 +760,6 @@
         }
       }
     },
-    "item_stat": {
-      "name": "item_stat",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "serial",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "item_id": {
-          "name": "item_id",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "description": {
-          "name": "description",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {
-        "item_stat_item_id_item_id_fk": {
-          "name": "item_stat_item_id_item_id_fk",
-          "tableFrom": "item_stat",
-          "tableTo": "item",
-          "columnsFrom": [
-            "item_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {
-        "item_stat_item_id_description": {
-          "name": "item_stat_item_id_description",
-          "columns": [
-            "item_id",
-            "description"
-          ]
-        }
-      },
-      "uniqueConstraints": {
-        "item_stat_id_unique": {
-          "name": "item_stat_id_unique",
-          "nullsNotDistinct": false,
-          "columns": [
-            "id"
-          ]
-        }
-      }
-    },
     "item_price": {
       "name": "item_price",
       "schema": "",
@@ -875,31 +823,89 @@
           ]
         }
       }
+    },
+    "item_stat": {
+      "name": "item_stat",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "item_id": {
+          "name": "item_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "effect": {
+          "name": "effect",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "item_stat_item_id_item_id_fk": {
+          "name": "item_stat_item_id_item_id_fk",
+          "tableFrom": "item_stat",
+          "tableTo": "item",
+          "columnsFrom": [
+            "item_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "item_stat_item_id_effect": {
+          "name": "item_stat_item_id_effect",
+          "columns": [
+            "item_id",
+            "effect"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "item_stat_id_unique": {
+          "name": "item_stat_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
     }
   },
   "enums": {
     "hero_ability_upgrade_type": {
       "name": "hero_ability_upgrade_type",
       "values": {
-        "Shard": "Shard",
-        "Scepter": "Scepter"
+        "Shard Upgrade": "Shard Upgrade",
+        "Scepter Upgrade": "Scepter Upgrade"
       }
     },
     "hero_meta_info_rank": {
       "name": "hero_meta_info_rank",
       "values": {
-        "Herald_Guardian_Crusader": "Herald_Guardian_Crusader",
+        "Herald / Guardian / Crusader": "Herald / Guardian / Crusader",
         "Archon": "Archon",
         "Legend": "Legend",
         "Ancient": "Ancient",
-        "Divine_Immortal": "Divine_Immortal"
+        "Divine / Immortal": "Divine / Immortal"
       }
     },
     "hero_meta_info_type": {
       "name": "hero_meta_info_type",
       "values": {
-        "Pick_Percentage": "Pick_Percentage",
-        "Win_Percentage": "Win_Percentage"
+        "Pick Percentage": "Pick Percentage",
+        "Win Percentage": "Win Percentage"
       }
     },
     "hero_primary_attribute": {
@@ -957,15 +963,15 @@
     "item_meta_info_type": {
       "name": "item_meta_info_type",
       "values": {
-        "Use_Percentage": "Use_Percentage",
-        "Win_Percentage": "Win_Percentage"
+        "Use Percentage": "Use Percentage",
+        "Win Percentage": "Win Percentage"
       }
     },
     "item_price_type": {
       "name": "item_price_type",
       "values": {
-        "Purchase": "Purchase",
-        "Sell": "Sell"
+        "Purchase Price": "Purchase Price",
+        "Sell Price": "Sell Price"
       }
     },
     "item_type": {
