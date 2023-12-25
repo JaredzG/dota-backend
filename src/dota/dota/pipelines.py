@@ -87,7 +87,11 @@ class HeroAbilitiesPipeline:
                     new_features = self.get_ability_features(old_features)
                     new_description = self.get_ability_description(old_description)
                     new_upgrades = self.get_ability_upgrades(old_upgrades)
-                    new_lore = ability["lore"].replace("‘", "'").replace("’", "'")
+                    new_lore = (
+                        ability["lore"].replace("‘", "'").replace("’", "'")
+                        if ability["lore"] != "None"
+                        else None
+                    )
                     abilities.append(
                         {
                             "name": new_name,
@@ -121,7 +125,7 @@ class HeroAbilitiesPipeline:
                 features["damage_type"] = feature_value
         for feature in features_list:
             if feature not in features:
-                features[feature] = "None"
+                features[feature] = None
         return features
 
     def get_ability_description(self, old_description):
@@ -152,7 +156,7 @@ class HeroAbilitiesPipeline:
                 if "Scepter" in aghs_upgrades[i]:
                     upgrades.append(
                         {
-                            "type": "Aghanim's Scepter",
+                            "type": "Scepter",
                             "description": re.sub(
                                 r"(\w+)$",
                                 r"\1.",
@@ -171,7 +175,7 @@ class HeroAbilitiesPipeline:
                 if "Shard" in aghs_upgrades[i]:
                     upgrades.append(
                         {
-                            "type": "Aghanim's Shard",
+                            "type": "Shard",
                             "description": re.sub(
                                 r"(\w+)$",
                                 r"\1.",
@@ -188,7 +192,7 @@ class HeroAbilitiesPipeline:
                     )
             return upgrades
         else:
-            return old_upgrades
+            return None
 
 
 class HeroTalentsPipeline:
@@ -226,7 +230,7 @@ class ItemLorePipeline:
             if adapter.get("lore"):
                 new_lore = adapter["lore"].strip()
                 adapter["lore"] = (
-                    re.sub(r"(\w+)$", r"\1.", new_lore) if new_lore else "None"
+                    re.sub(r"(\w+)$", r"\1.", new_lore) if new_lore else None
                 )
                 return item
             else:
@@ -270,7 +274,7 @@ class ItemStatsPipeline:
                             .replace("/", " / ")
                         )
                     if not stats:
-                        stats = "None"
+                        stats = None
                 adapter["stats"] = stats
                 return item
             else:
@@ -302,6 +306,8 @@ class ItemAbilitiesPipeline:
                             }
                         )
                     adapter["abilities"] = abilities
+                else:
+                    adapter["abilities"] = None
                 return item
             else:
                 raise DropItem(f"Missing abilities in {item}.")
@@ -325,7 +331,7 @@ class ItemAbilitiesPipeline:
                 features["damage_type"] = feature_value
         for feature in features_list:
             if feature not in features:
-                features[feature] = "None"
+                features[feature] = None
         return features
 
     def get_ability_description(self, old_description):
@@ -391,6 +397,8 @@ class ItemPricePipeline:
                                 }
                             )
                     adapter["prices"] = prices
+                else:
+                    adapter["prices"] = None
                 return item
             else:
                 raise DropItem(f"Missing prices in {item}.")
@@ -430,6 +438,8 @@ class ItemComponentsPipeline:
                                 }
                             )
                     adapter["components"] = components
+                else:
+                    adapter["components"] = None
                 return item
             else:
                 raise DropItem(f"Missing components in {item}.")
