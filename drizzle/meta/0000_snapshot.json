@@ -1,5 +1,5 @@
 {
-  "id": "3e750a8c-2524-4fd6-8aea-d6ec3b667668",
+  "id": "69da2079-0475-451a-a56f-ab1effb48497",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -84,7 +84,7 @@
           "name": "lore",
           "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "description": {
           "name": "description",
@@ -102,11 +102,23 @@
           "name": "damage_type",
           "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "affected_target": {
           "name": "affected_target",
           "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "has_shard_upgrade": {
+          "name": "has_shard_upgrade",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "has_scepter_upgrade": {
+          "name": "has_scepter_upgrade",
+          "type": "boolean",
           "primaryKey": false,
           "notNull": true
         }
@@ -430,7 +442,7 @@
           "name": "lore",
           "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "type": {
           "name": "type",
@@ -496,11 +508,29 @@
           "name": "damage_type",
           "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "affected_target": {
           "name": "affected_target",
           "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "has_stats": {
+          "name": "has_stats",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "has_prices": {
+          "name": "has_prices",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "has_components": {
+          "name": "has_components",
+          "type": "boolean",
           "primaryKey": false,
           "notNull": true
         }
@@ -851,8 +881,8 @@
     "hero_ability_upgrade_type": {
       "name": "hero_ability_upgrade_type",
       "values": {
-        "Aghanim Shard": "Aghanim Shard",
-        "Aghanim Scepter": "Aghanim Scepter"
+        "Shard": "Shard",
+        "Scepter": "Scepter"
       }
     },
     "hero_meta_info_rank": {

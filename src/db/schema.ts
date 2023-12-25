@@ -6,6 +6,7 @@ import {
   pgEnum,
   pgTable,
   primaryKey,
+  boolean,
 } from "drizzle-orm/pg-core";
 
 export const heroPrimaryAttributeEnum = pgEnum("hero_primary_attribute", [
@@ -59,11 +60,13 @@ export const heroAbility = pgTable(
       .references(() => hero.id)
       .notNull(),
     name: text("name").notNull(),
-    lore: text("lore").notNull(),
+    lore: text("lore"),
     description: text("description").notNull(),
     abilityType: text("ability_type").notNull(),
-    damageType: text("damage_type").notNull(),
-    affectedTarget: text("affected_target").notNull(),
+    damageType: text("damage_type"),
+    affectedTarget: text("affected_target"),
+    hasShardUpgrade: boolean("has_shard_upgrade").notNull(),
+    hasScepterUpgrade: boolean("has_scepter_upgrade").notNull(),
   },
   (table) => {
     return {
@@ -73,8 +76,8 @@ export const heroAbility = pgTable(
 );
 
 export const heroAbilityUpgradeTypeEnum = pgEnum("hero_ability_upgrade_type", [
-  "Aghanim Shard",
-  "Aghanim Scepter",
+  "Shard",
+  "Scepter",
 ]);
 
 export const heroAbilityUpgrade = pgTable(
@@ -181,7 +184,7 @@ export const itemClassificationEnum = pgEnum("item_classification", [
 export const item = pgTable("item", {
   id: serial("id").unique(),
   name: text("name").primaryKey(),
-  lore: text("lore").notNull(),
+  lore: text("lore"),
   type: itemTypeEnum("type").notNull(),
   classification: itemClassificationEnum("classification").notNull(),
 });
@@ -196,8 +199,11 @@ export const itemAbility = pgTable(
     name: text("name").notNull(),
     description: text("description").notNull(),
     abilityType: text("ability_type").notNull(),
-    damageType: text("damage_type").notNull(),
-    affectedTarget: text("affected_target").notNull(),
+    damageType: text("damage_type"),
+    affectedTarget: text("affected_target"),
+    hasStats: boolean("has_stats").notNull(),
+    hasPrices: boolean("has_prices").notNull(),
+    hasComponents: boolean("has_components").notNull(),
   },
   (table) => {
     return {

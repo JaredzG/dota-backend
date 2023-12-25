@@ -1,5 +1,5 @@
 DO $$ BEGIN
- CREATE TYPE "hero_ability_upgrade_type" AS ENUM('Aghanim Shard', 'Aghanim Scepter');
+ CREATE TYPE "hero_ability_upgrade_type" AS ENUM('Shard', 'Scepter');
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
@@ -72,11 +72,13 @@ CREATE TABLE IF NOT EXISTS "hero_ability" (
 	"id" serial NOT NULL,
 	"hero_id" integer NOT NULL,
 	"name" text NOT NULL,
-	"lore" text NOT NULL,
+	"lore" text,
 	"description" text NOT NULL,
 	"ability_type" text NOT NULL,
-	"damage_type" text NOT NULL,
-	"affected_target" text NOT NULL,
+	"damage_type" text,
+	"affected_target" text,
+	"has_shard_upgrade" boolean NOT NULL,
+	"has_scepter_upgrade" boolean NOT NULL,
 	CONSTRAINT hero_ability_hero_id_name PRIMARY KEY("hero_id","name"),
 	CONSTRAINT "hero_ability_id_unique" UNIQUE("id")
 );
@@ -121,7 +123,7 @@ CREATE TABLE IF NOT EXISTS "hero_talent" (
 CREATE TABLE IF NOT EXISTS "item" (
 	"id" serial NOT NULL,
 	"name" text PRIMARY KEY NOT NULL,
-	"lore" text NOT NULL,
+	"lore" text,
 	"type" "item_type" NOT NULL,
 	"classification" "item_classification" NOT NULL,
 	CONSTRAINT "item_id_unique" UNIQUE("id")
@@ -133,8 +135,11 @@ CREATE TABLE IF NOT EXISTS "item_ability" (
 	"name" text NOT NULL,
 	"description" text NOT NULL,
 	"ability_type" text NOT NULL,
-	"damage_type" text NOT NULL,
-	"affected_target" text NOT NULL,
+	"damage_type" text,
+	"affected_target" text,
+	"has_stats" boolean NOT NULL,
+	"has_prices" boolean NOT NULL,
+	"has_components" boolean NOT NULL,
 	CONSTRAINT item_ability_item_id_name PRIMARY KEY("item_id","name"),
 	CONSTRAINT "item_ability_id_unique" UNIQUE("id")
 );

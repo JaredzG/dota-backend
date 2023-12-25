@@ -36,17 +36,19 @@ interface HeroAbility {
   id?: number;
   heroId: number;
   name: string;
-  lore: string;
+  lore: string | null;
   description: string;
   abilityType: string;
-  damageType: string;
-  affectedTarget: string;
+  damageType: string | null;
+  affectedTarget: string | null;
+  hasShardUpgrade: boolean;
+  hasScepterUpgrade: boolean;
 }
 
 interface HeroAbilityUpgrade {
   id?: number;
   abilityId: number;
-  type: "Aghanim Shard" | "Aghanim Scepter";
+  type: "Shard" | "Scepter";
   description: string;
 }
 
@@ -76,11 +78,9 @@ const itemsFilePath = "data/items.json";
 const heroesMetaFilePath = "data/heroes.meta.json";
 const itemsMetaFilePath = "data/items.meta.json";
 
-const heroItems: Array<any> = JSON.parse(
-  fs.readFileSync(heroesFilePath, "utf-8")
-);
+const heroItems = JSON.parse(fs.readFileSync(heroesFilePath, "utf-8"));
 // const itemItems = JSON.parse(fs.readFileSync(itemsFilePath, "utf-8"));
-const heroMetaInfoItems: Array<any> = JSON.parse(
+const heroMetaInfoItems = JSON.parse(
   fs.readFileSync(heroesMetaFilePath, "utf-8")
 );
 // const itemMetaInfoItems = JSON.parse(fs.readFileSync(itemsMetaFilePath, "utf-8"));
@@ -141,6 +141,17 @@ for (let heroItem of heroItems) {
       },
       upgrades,
     } = ability;
+    let hasShardUpgrade = false;
+    let hasScepterUpgrade = false;
+    if (upgrades !== null) {
+      for (let upgrade of upgrades) {
+        if (upgrade.type === "Shard") {
+          hasShardUpgrade = true;
+        } else if (upgrade.type === "Scepter") {
+          hasScepterUpgrade = true;
+        }
+      }
+    }
     const heroAbilityEntry: HeroAbility = {
       heroId: insertedHeroId,
       name,
@@ -149,6 +160,8 @@ for (let heroItem of heroItems) {
       abilityType,
       damageType,
       affectedTarget,
+      hasShardUpgrade,
+      hasScepterUpgrade,
     };
     const insertedHeroAbility: HeroAbility[] = await db
       .insert(heroAbility)
@@ -159,13 +172,12 @@ for (let heroItem of heroItems) {
       })
       .returning();
     const insertedHeroAbilityId: number = insertedHeroAbility[0].id as number;
-    if (Array.isArray(upgrades)) {
+    if (upgrades !== null) {
       for (let upgrade of upgrades) {
         const { type, description } = upgrade;
         const heroAbilityUpgradeEntry: HeroAbilityUpgrade = {
           abilityId: insertedHeroAbilityId,
-          type:
-            type === "Aghanim's Shard" ? "Aghanim Shard" : "Aghanim Scepter",
+          type,
           description,
         };
         await db
