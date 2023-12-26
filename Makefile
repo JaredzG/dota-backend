@@ -1,19 +1,19 @@
-.PHONY: all scrape_heroes scrape_items scrape_heroes_meta scrape_items_meta
+.PHONY: all heroes items heroesm itemsm
 
-all: scrape_heroes scrape_items scrape_heroes_meta scrape_items_meta
+all: heroes items heroesm itemsm
 
-scrape_heroes:
+heroes:
 	@cd src/dota && \
 	scrapy crawl hero -O ../../data/heroes.json
 
-scrape_items:
+items:
 	@cd src/dota && \
 	scrapy crawl item -O ../../data/items.json
 
-scrape_heroes_meta:
+heroesm:
 	@cd src/dota && \
 	scrapy crawl hero-meta -O ../../data/heroes.meta.json
 
-scrape_items_meta:
+itemsm:
 	@cd src/dota && \
 	scrapy crawl item-meta -O ../../data/items.meta.json
