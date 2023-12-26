@@ -92,6 +92,30 @@ class HeroAbilitiesPipeline:
                         if ability["lore"] != "None"
                         else None
                     )
+                    if "Templar Assassin" in adapter["name"]:
+                        duplicate_ability = False
+                        for new_ability in abilities:
+                            if new_ability["name"] == new_name:
+                                duplicate_ability = True
+                                break
+                        if duplicate_ability:
+                            continue
+                    elif "Lone Druid" in adapter["name"]:
+                        duplicate_ability = False
+                        for new_ability in abilities:
+                            if new_ability["name"] == new_name:
+                                duplicate_ability = True
+                                break
+                        if duplicate_ability:
+                            new_name += " (Spirit Bear)"
+                    elif "Visage" in adapter["name"]:
+                        duplicate_ability = False
+                        for new_ability in abilities:
+                            if new_ability["name"] == new_name:
+                                duplicate_ability = True
+                                break
+                        if duplicate_ability:
+                            new_name += " (Familiars)"
                     abilities.append(
                         {
                             "name": new_name,
