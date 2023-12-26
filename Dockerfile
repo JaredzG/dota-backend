@@ -35,5 +35,7 @@ COPY . .
 # Expose the port that the application listens on.
 EXPOSE 8001
 
+RUN apk update && apk add --no-cache make
+
 # Run the application.
 CMD ["tail", "-f", "/dev/null"]
