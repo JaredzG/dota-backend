@@ -1,4 +1,13 @@
-.PHONY: upsert delete check
+.PHONY: gen push drop upsert delete check
+
+gen:
+	@npm run migration:generate
+
+push:
+	@npm run migration:push
+
+drop:
+	@npm run migration:drop
 
 upsert:
 	@npx tsx src/db/operations/upsert_all.ts
