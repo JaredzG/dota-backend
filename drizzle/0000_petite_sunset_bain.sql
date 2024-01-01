@@ -5,6 +5,18 @@ EXCEPTION
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
+ CREATE TYPE "hero_attack_type" AS ENUM('Melee', 'Ranged');
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ CREATE TYPE "hero_complexity" AS ENUM('Simple', 'Moderate', 'Complex');
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
  CREATE TYPE "hero_meta_info_rank" AS ENUM('Herald / Guardian / Crusader', 'Archon', 'Legend', 'Ancient', 'Divine / Immortal');
 EXCEPTION
  WHEN duplicate_object THEN null;
@@ -64,6 +76,8 @@ CREATE TABLE IF NOT EXISTS "hero" (
 	"biography" text NOT NULL,
 	"identity" text NOT NULL,
 	"description" text NOT NULL,
+	"complexity" "hero_complexity" NOT NULL,
+	"attack_type" "hero_attack_type" NOT NULL,
 	"primary_attribute" "hero_primary_attribute" NOT NULL,
 	CONSTRAINT "hero_id_unique" UNIQUE("id")
 );

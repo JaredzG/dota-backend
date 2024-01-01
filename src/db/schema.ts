@@ -9,6 +9,17 @@ import {
   boolean,
 } from "drizzle-orm/pg-core";
 
+export const heroComplexityEnum = pgEnum("hero_complexity", [
+  "Simple",
+  "Moderate",
+  "Complex",
+]);
+
+export const heroAttackTypeEnum = pgEnum("hero_attack_type", [
+  "Melee",
+  "Ranged",
+]);
+
 export const heroPrimaryAttributeEnum = pgEnum("hero_primary_attribute", [
   "Strength",
   "Agility",
@@ -22,6 +33,8 @@ export const hero = pgTable("hero", {
   biography: text("biography").notNull(),
   identity: text("identity").notNull(),
   description: text("description").notNull(),
+  complexity: heroComplexityEnum("complexity").notNull(),
+  attackType: heroAttackTypeEnum("attack_type").notNull(),
   primaryAttribute: heroPrimaryAttributeEnum("primary_attribute").notNull(),
 });
 

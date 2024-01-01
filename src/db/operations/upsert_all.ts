@@ -22,6 +22,8 @@ interface Hero {
   biography: string;
   identity: string;
   description: string;
+  complexity: "Simple" | "Moderate" | "Complex";
+  attackType: "Melee" | "Ranged";
   primaryAttribute: "Strength" | "Agility" | "Intelligence" | "Universal";
 }
 
@@ -165,27 +167,34 @@ const heroMetaInfoItems = JSON.parse(
 const itemMetaInfoItems = JSON.parse(
   fs.readFileSync(itemsMetaFilePath, "utf-8")
 );
-const pool = createPool();
-const db = connectDB(pool);
-for (let heroItem of heroItems) {
+const pool = await createPool();
+const db = await connectDB(pool);
+for (const heroItem of heroItems) {
   const {
     name,
     biography,
     identity,
     description,
+    complexity,
+    attack_type: attackType,
     primary_attribute: primaryAttribute,
     roles,
     abilities,
     talents,
   } = heroItem;
-  const { percentages } = heroMetaInfoItems.filter((heroMetaInfoItem) =>
-    name.includes(heroMetaInfoItem["name"])
+  const { percentages } = heroMetaInfoItems.filter(
+    (heroMetaInfoItem: {
+      name: string;
+      percentages: Array<{ rank: string; type: string; percentage: string }>;
+    }) => name.includes(heroMetaInfoItem.name)
   )[0];
   const heroEntry: Hero = {
     name,
     biography,
     identity,
     description,
+    complexity,
+    attackType,
     primaryAttribute,
   };
   const insertedHero: Hero[] = await db
@@ -196,8 +205,8 @@ for (let heroItem of heroItems) {
       set: heroEntry,
     })
     .returning();
-  const insertedHeroId: number = insertedHero[0].id as number;
-  for (let role of roles) {
+  const insertedHeroId: number = insertedHero[0].id ?? 0;
+  for (const role of roles) {
     const heroRoleEntry: HeroRole = {
       heroId: insertedHeroId,
       type: role,
@@ -210,7 +219,7 @@ for (let heroItem of heroItems) {
         set: heroRoleEntry,
       });
   }
-  for (let ability of abilities) {
+  for (const ability of abilities) {
     const {
       name,
       lore,
@@ -225,7 +234,7 @@ for (let heroItem of heroItems) {
     let hasShardUpgrade = false;
     let hasScepterUpgrade = false;
     if (upgrades !== null) {
-      for (let upgrade of upgrades) {
+      for (const upgrade of upgrades) {
         if (upgrade.type === "Shard") {
           hasShardUpgrade = true;
         } else if (upgrade.type === "Scepter") {
@@ -252,9 +261,9 @@ for (let heroItem of heroItems) {
         set: heroAbilityEntry,
       })
       .returning();
-    const insertedHeroAbilityId: number = insertedHeroAbility[0].id as number;
+    const insertedHeroAbilityId: number = insertedHeroAbility[0].id ?? 0;
     if (upgrades !== null) {
-      for (let upgrade of upgrades) {
+      for (const upgrade of upgrades) {
         const { type, description } = upgrade;
         const heroAbilityUpgradeEntry: HeroAbilityUpgrade = {
           abilityId: insertedHeroAbilityId,
@@ -271,7 +280,7 @@ for (let heroItem of heroItems) {
       }
     }
   }
-  for (let talent of talents) {
+  for (const talent of talents) {
     const { level, type, effect } = talent;
     const heroTalentEntry: HeroTalent = {
       heroId: insertedHeroId,
@@ -287,7 +296,7 @@ for (let heroItem of heroItems) {
         set: heroTalentEntry,
       });
   }
-  for (let metaPercentage of percentages) {
+  for (const metaPercentage of percentages) {
     const { rank, type, percentage } = metaPercentage;
     const heroMetaInfoEntry: HeroMetaInfo = {
       heroId: insertedHeroId,
@@ -305,7 +314,7 @@ for (let heroItem of heroItems) {
   }
 }
 
-for (let itemItem of itemItems) {
+for (const itemItem of itemItems) {
   const {
     name,
     lore,
@@ -317,7 +326,11 @@ for (let itemItem of itemItems) {
     components,
   } = itemItem;
   const { uses, percentages } = itemMetaInfoItems.filter(
-    (itemMetaInfoItem) => itemMetaInfoItem.name === name
+    (itemMetaInfoItem: {
+      name: string;
+      uses: string;
+      percentages: Array<{ type: string; percentage: string }>;
+    }) => itemMetaInfoItem.name === name
   )[0];
   let hasStats = false;
   let hasAbilities = false;
@@ -353,9 +366,9 @@ for (let itemItem of itemItems) {
       set: itemEntry,
     })
     .returning();
-  const insertedItemId: number = insertedItem[0].id as number;
+  const insertedItemId: number = insertedItem[0].id ?? 0;
   if (stats !== null) {
-    for (let stat of stats) {
+    for (const stat of stats) {
       const itemStatEntry: ItemStat = {
         itemId: insertedItemId,
         effect: stat,
@@ -370,7 +383,7 @@ for (let itemItem of itemItems) {
     }
   }
   if (abilities !== null) {
-    for (let ability of abilities) {
+    for (const ability of abilities) {
       const {
         name,
         description,
@@ -398,7 +411,7 @@ for (let itemItem of itemItems) {
     }
   }
   if (prices !== null) {
-    for (let price of prices) {
+    for (const price of prices) {
       const { type, amount } = price;
       const itemPriceEntry: ItemPrice = {
         itemId: insertedItemId,
@@ -415,7 +428,7 @@ for (let itemItem of itemItems) {
     }
   }
   if (components !== null) {
-    for (let component of components) {
+    for (const component of components) {
       const { name, amount, price } = component;
       const itemComponentEntry: ItemComponent = {
         itemId: insertedItemId,
@@ -444,8 +457,8 @@ for (let itemItem of itemItems) {
       set: itemMetaInfoEntry,
     })
     .returning();
-  const returnedItemMetaInfoId: number = returnedItemMetaInfo[0].id as number;
-  for (let metaPercentage of percentages) {
+  const returnedItemMetaInfoId: number = returnedItemMetaInfo[0].id ?? 0;
+  for (const metaPercentage of percentages) {
     const { type, percentage } = metaPercentage;
     const itemMetaInfoPercentageEntry: ItemMetaInfoPercentage = {
       itemMetaInfoId: returnedItemMetaInfoId,

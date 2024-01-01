@@ -1,5 +1,5 @@
 {
-  "id": "f94d6bc6-9a8a-49d0-8aa0-e7aa3be49102",
+  "id": "3e9e9336-ec42-42db-9147-70b25ee5a1a3",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -35,6 +35,18 @@
         "description": {
           "name": "description",
           "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "complexity": {
+          "name": "complexity",
+          "type": "hero_complexity",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "attack_type": {
+          "name": "attack_type",
+          "type": "hero_attack_type",
           "primaryKey": false,
           "notNull": true
         },
@@ -889,6 +901,21 @@
       "values": {
         "Shard Upgrade": "Shard Upgrade",
         "Scepter Upgrade": "Scepter Upgrade"
+      }
+    },
+    "hero_attack_type": {
+      "name": "hero_attack_type",
+      "values": {
+        "Melee": "Melee",
+        "Ranged": "Ranged"
+      }
+    },
+    "hero_complexity": {
+      "name": "hero_complexity",
+      "values": {
+        "Simple": "Simple",
+        "Moderate": "Moderate",
+        "Complex": "Complex"
       }
     },
     "hero_meta_info_rank": {
