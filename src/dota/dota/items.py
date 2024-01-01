@@ -11,6 +11,8 @@ class HeroItem(scrapy.Item):
     biography = scrapy.Field()
     identity = scrapy.Field()
     description = scrapy.Field()
+    complexity = scrapy.Field()
+    attack_type = scrapy.Field()
     primary_attribute = scrapy.Field()
     roles = scrapy.Field()
     abilities = scrapy.Field()

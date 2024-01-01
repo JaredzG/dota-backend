@@ -71,6 +71,25 @@ class HeroDescriptionPipeline:
             return item
 
 
+class HeroComplexityPipeline:
+    def process_item(self, item, spider):
+        if isinstance(item, HeroItem):
+            adapter = ItemAdapter(item)
+            if adapter.get("complexity"):
+                match adapter["complexity"]:
+                    case "1.0":
+                        adapter["complexity"] = "Simple"
+                    case "2.0":
+                        adapter["complexity"] = "Moderate"
+                    case "3.0":
+                        adapter["complexity"] = "Complex"
+                return item
+            else:
+                raise DropItem(f"Missing complexity in {item}.")
+        else:
+            return item
+
+
 class HeroAbilitiesPipeline:
     def process_item(self, item, spider):
         if isinstance(item, HeroItem):

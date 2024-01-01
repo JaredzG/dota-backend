@@ -65,17 +65,18 @@ ROBOTSTXT_OBEY = True
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     "dota.pipelines.HeroBiographyPipeline": 0,
-    "dota.pipelines.HeroIdentityPipeline": 100,
-    "dota.pipelines.HeroDescriptionPipeline": 200,
-    "dota.pipelines.HeroAbilitiesPipeline": 300,
-    "dota.pipelines.HeroTalentsPipeline": 400,
-    "dota.pipelines.ItemLorePipeline": 500,
-    "dota.pipelines.ItemStatsPipeline": 600,
-    "dota.pipelines.ItemAbilitiesPipeline": 700,
-    "dota.pipelines.ItemPricePipeline": 800,
-    "dota.pipelines.ItemComponentsPipeline": 900,
-    "dota.pipelines.HeroMetaInfoPipeline": 950,
-    "dota.pipelines.ItemMetaInfoPipeline": 1000,
+    "dota.pipelines.HeroIdentityPipeline": 50,
+    "dota.pipelines.HeroDescriptionPipeline": 100,
+    "dota.pipelines.HeroComplexityPipeline": 150,
+    "dota.pipelines.HeroAbilitiesPipeline": 200,
+    "dota.pipelines.HeroTalentsPipeline": 250,
+    "dota.pipelines.ItemLorePipeline": 300,
+    "dota.pipelines.ItemStatsPipeline": 350,
+    "dota.pipelines.ItemAbilitiesPipeline": 400,
+    "dota.pipelines.ItemPricePipeline": 450,
+    "dota.pipelines.ItemComponentsPipeline": 500,
+    "dota.pipelines.HeroMetaInfoPipeline": 550,
+    "dota.pipelines.ItemMetaInfoPipeline": 600,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

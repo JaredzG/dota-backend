@@ -27,6 +27,8 @@ class HeroSpider(scrapy.Spider):
         hero["biography"] = self.get_hero_biography(response)
         hero["identity"] = self.get_hero_identity(response)
         hero["description"] = self.get_hero_description(response)
+        hero["complexity"] = self.get_hero_complexity(response)
+        hero["attack_type"] = self.get_hero_attack_type(response)
         hero["primary_attribute"] = response.meta["primary_attribute"]
         hero["roles"] = self.get_hero_roles(response)
         hero["abilities"] = self.get_hero_abilities(response)
@@ -64,6 +66,14 @@ class HeroSpider(scrapy.Spider):
     def get_hero_description(self, response):
         return response.xpath(
             'string(//table[@class="infobox"]/following-sibling::table[1]/tbody/tr[3]/td[1])'
+        ).get()
+
+    def get_hero_complexity(self, response):
+        return response.xpath('count(//tr[th/a[text()="Complexity"]]/td/a)').get()
+
+    def get_hero_attack_type(self, response):
+        return response.xpath(
+            '(//a[@title="Melee" or @title="Ranged"])[1]/@title'
         ).get()
 
     def get_hero_roles(self, response):
