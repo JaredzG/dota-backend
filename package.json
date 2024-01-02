@@ -6,9 +6,9 @@
   "type": "module",
   "scripts": {
     "build": "tsc -p ./configs/tsconfig.json --pretty -d",
-    "migration:generate": "drizzle-kit generate:pg",
-    "migration:push": "tsx ./src/db/migrate.ts",
-    "migration:drop": "drizzle-kit drop"
+    "generate": "drizzle-kit generate:pg",
+    "push": "tsx ./src/db/migrate.ts",
+    "drop": "drizzle-kit drop"
   },
   "author": "",
   "license": "ISC",
