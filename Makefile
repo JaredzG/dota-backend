@@ -1,6 +1,6 @@
-.PHONY: all heroes items heroesm itemsm
+.PHONY: scrape heroes items heroesm itemsm
 
-all: heroes items heroesm itemsm
+scrape: heroes items heroesm itemsm
 
 heroes:
 	@cd src/dota && \
