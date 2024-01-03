@@ -1,12 +1,11 @@
 import Fastify from "fastify";
 
-const {
-  NODE_ENV: environment = "development",
-  SERVER_HOST: host = "0.0.0.0",
-  SERVER_PORT: port = "8004",
-} = process.env;
+const ENVIRONMENT = process.env.NODE_ENV ?? "development";
+const HOST = process.env.SERVER_HOST ?? "0.0.0.0";
+const PORT = parseInt(process.env.SERVER_PORT ?? "8004");
+
 let logOption;
-switch (environment) {
+switch (ENVIRONMENT) {
   case "development":
     logOption = {
       transport: {
@@ -30,7 +29,7 @@ const fastify = Fastify({
 
 fastify.get("/", async (request, reply) => {
   return { hello: "world" };
-  // return { msg: "lol" };
+  // return { msg: "xd" };
 });
 
 /**
@@ -38,8 +37,8 @@ fastify.get("/", async (request, reply) => {
  */
 const start = async (): Promise<void> => {
   try {
-    await fastify.listen({ host, port: parseInt(port) });
-    console.log(`Server listening on port ${port}`);
+    await fastify.listen({ host: HOST, port: PORT });
+    console.log(`Server listening on port ${PORT}`);
   } catch (err) {
     fastify.log.error(err);
     process.exit(1);
