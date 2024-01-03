@@ -21,6 +21,7 @@ module.exports = {
     project: "./dota-database/tsconfig.json",
   },
   plugins: ["prettier"],
+  ignorePatterns: ["**/*.*js"],
   rules: {
     "prettier/prettier": [
       "error",
