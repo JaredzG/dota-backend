@@ -2,7 +2,7 @@ import Fastify from "fastify";
 
 const ENVIRONMENT = process.env.NODE_ENV ?? "development";
 const HOST = process.env.SERVER_HOST ?? "0.0.0.0";
-const PORT = parseInt(process.env.SERVER_PORT ?? "8004");
+const PORT = parseInt(process.env.SERVER_PORT ?? "8080");
 
 let logOption;
 switch (ENVIRONMENT) {
