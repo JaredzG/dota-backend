@@ -2,17 +2,26 @@
   "name": "dota-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.ts",
   "type": "module",
   "scripts": {
     "serve": "nodemon -L --exec node --loader ts-node/esm ./src/server.ts",
     "watch": "tsc --watch",
-    "dev": "concurrently \"npm run serve\" \"npm run watch\""
+    "dev": "concurrently \"npm run serve\" \"npm run watch\"",
+    "generate": "drizzle-kit generate:pg",
+    "push": "tsx ./src/db/migrate.ts",
+    "drop": "drizzle-kit drop",
+    "upsert": "tsx src/db/operations/upsert_all.ts",
+    "delete": "tsx src/db/operations/delete_all.ts",
+    "check": "tsx src/db/operations/check_rows_sequences.ts"
   },
-  "author": "",
+  "author": "jaredzg",
   "license": "ISC",
   "dependencies": {
-    "fastify": "^4.25.2"
+    "fastify": "^4.25.2",
+    "drizzle-orm": "^0.29.0",
+    "fs": "^0.0.1-security",
+    "pg": "^8.11.3"
   },
   "devDependencies": {
     "@types/node": "^20.10.5",
@@ -30,6 +39,7 @@
     "prettier": "^3.1.1",
     "ts-node": "^10.9.2",
     "tsx": "^4.7.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "drizzle-kit": "^0.20.1"
   }
 }

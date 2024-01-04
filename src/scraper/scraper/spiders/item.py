@@ -1,5 +1,5 @@
 import scrapy
-from dota.items import ItemItem
+from scraper.items import ItemItem
 
 
 class ItemSpider(scrapy.Spider):

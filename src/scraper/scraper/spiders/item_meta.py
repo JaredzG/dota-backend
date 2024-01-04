@@ -1,7 +1,7 @@
 import scrapy
 import json
 import os
-from dota.items import ItemMetaInfoItem
+from scraper.items import ItemMetaInfoItem
 
 
 class ItemMetaSpider(scrapy.Spider):

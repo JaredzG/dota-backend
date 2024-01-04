@@ -7,7 +7,7 @@
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 from scrapy.exceptions import DropItem
-from dota.items import HeroItem, ItemItem, HeroMetaInfoItem, ItemMetaInfoItem
+from scraper.items import HeroItem, ItemItem, HeroMetaInfoItem, ItemMetaInfoItem
 import re
 
 

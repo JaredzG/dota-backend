@@ -1,0 +1,1019 @@
+{
+  "id": "3e9e9336-ec42-42db-9147-70b25ee5a1a3",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "5",
+  "dialect": "pg",
+  "tables": {
+    "hero": {
+      "name": "hero",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "biography": {
+          "name": "biography",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "identity": {
+          "name": "identity",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "complexity": {
+          "name": "complexity",
+          "type": "hero_complexity",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "attack_type": {
+          "name": "attack_type",
+          "type": "hero_attack_type",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "primary_attribute": {
+          "name": "primary_attribute",
+          "type": "hero_primary_attribute",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "hero_id_unique": {
+          "name": "hero_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "hero_ability": {
+      "name": "hero_ability",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "hero_id": {
+          "name": "hero_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "lore": {
+          "name": "lore",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ability_type": {
+          "name": "ability_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "affected_target": {
+          "name": "affected_target",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "damage_type": {
+          "name": "damage_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "has_shard_upgrade": {
+          "name": "has_shard_upgrade",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "has_scepter_upgrade": {
+          "name": "has_scepter_upgrade",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "hero_ability_hero_id_hero_id_fk": {
+          "name": "hero_ability_hero_id_hero_id_fk",
+          "tableFrom": "hero_ability",
+          "tableTo": "hero",
+          "columnsFrom": [
+            "hero_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "hero_ability_hero_id_name": {
+          "name": "hero_ability_hero_id_name",
+          "columns": [
+            "hero_id",
+            "name"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "hero_ability_id_unique": {
+          "name": "hero_ability_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "hero_ability_upgrade": {
+      "name": "hero_ability_upgrade",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ability_id": {
+          "name": "ability_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
+          "type": "hero_ability_upgrade_type",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "hero_ability_upgrade_ability_id_hero_ability_id_fk": {
+          "name": "hero_ability_upgrade_ability_id_hero_ability_id_fk",
+          "tableFrom": "hero_ability_upgrade",
+          "tableTo": "hero_ability",
+          "columnsFrom": [
+            "ability_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "hero_ability_upgrade_ability_id_type": {
+          "name": "hero_ability_upgrade_ability_id_type",
+          "columns": [
+            "ability_id",
+            "type"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "hero_ability_upgrade_id_unique": {
+          "name": "hero_ability_upgrade_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "hero_meta_info": {
+      "name": "hero_meta_info",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "hero_id": {
+          "name": "hero_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rank": {
+          "name": "rank",
+          "type": "hero_meta_info_rank",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
+          "type": "hero_meta_info_type",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "percentage": {
+          "name": "percentage",
+          "type": "numeric(4, 2)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "hero_meta_info_hero_id_hero_id_fk": {
+          "name": "hero_meta_info_hero_id_hero_id_fk",
+          "tableFrom": "hero_meta_info",
+          "tableTo": "hero",
+          "columnsFrom": [
+            "hero_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "hero_meta_info_hero_id_rank_type": {
+          "name": "hero_meta_info_hero_id_rank_type",
+          "columns": [
+            "hero_id",
+            "rank",
+            "type"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "hero_meta_info_id_unique": {
+          "name": "hero_meta_info_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "hero_role": {
+      "name": "hero_role",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "hero_id": {
+          "name": "hero_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
+          "type": "hero_role_type",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "hero_role_hero_id_hero_id_fk": {
+          "name": "hero_role_hero_id_hero_id_fk",
+          "tableFrom": "hero_role",
+          "tableTo": "hero",
+          "columnsFrom": [
+            "hero_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "hero_role_hero_id_type": {
+          "name": "hero_role_hero_id_type",
+          "columns": [
+            "hero_id",
+            "type"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "hero_role_id_unique": {
+          "name": "hero_role_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "hero_talent": {
+      "name": "hero_talent",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "hero_id": {
+          "name": "hero_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "level": {
+          "name": "level",
+          "type": "hero_talent_level",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "effect": {
+          "name": "effect",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "hero_talent_hero_id_hero_id_fk": {
+          "name": "hero_talent_hero_id_hero_id_fk",
+          "tableFrom": "hero_talent",
+          "tableTo": "hero",
+          "columnsFrom": [
+            "hero_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "hero_talent_hero_id_level_type": {
+          "name": "hero_talent_hero_id_level_type",
+          "columns": [
+            "hero_id",
+            "level",
+            "type"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "hero_talent_id_unique": {
+          "name": "hero_talent_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "item": {
+      "name": "item",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "lore": {
+          "name": "lore",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "type": {
+          "name": "type",
+          "type": "item_type",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "classification": {
+          "name": "classification",
+          "type": "item_classification",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "has_stats": {
+          "name": "has_stats",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "has_abilities": {
+          "name": "has_abilities",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "has_prices": {
+          "name": "has_prices",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "has_components": {
+          "name": "has_components",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "item_id_unique": {
+          "name": "item_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "item_ability": {
+      "name": "item_ability",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "item_id": {
+          "name": "item_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ability_type": {
+          "name": "ability_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "affected_target": {
+          "name": "affected_target",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "damage_type": {
+          "name": "damage_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "item_ability_item_id_item_id_fk": {
+          "name": "item_ability_item_id_item_id_fk",
+          "tableFrom": "item_ability",
+          "tableTo": "item",
+          "columnsFrom": [
+            "item_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "item_ability_item_id_name": {
+          "name": "item_ability_item_id_name",
+          "columns": [
+            "item_id",
+            "name"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "item_ability_id_unique": {
+          "name": "item_ability_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "item_component": {
+      "name": "item_component",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "item_id": {
+          "name": "item_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "amount": {
+          "name": "amount",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "price": {
+          "name": "price",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "item_component_item_id_item_id_fk": {
+          "name": "item_component_item_id_item_id_fk",
+          "tableFrom": "item_component",
+          "tableTo": "item",
+          "columnsFrom": [
+            "item_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "item_component_item_id_name": {
+          "name": "item_component_item_id_name",
+          "columns": [
+            "item_id",
+            "name"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "item_component_id_unique": {
+          "name": "item_component_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "item_meta_info": {
+      "name": "item_meta_info",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "item_id": {
+          "name": "item_id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "uses": {
+          "name": "uses",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "item_meta_info_item_id_item_id_fk": {
+          "name": "item_meta_info_item_id_item_id_fk",
+          "tableFrom": "item_meta_info",
+          "tableTo": "item",
+          "columnsFrom": [
+            "item_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "item_meta_info_id_unique": {
+          "name": "item_meta_info_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "item_meta_info_percentage": {
+      "name": "item_meta_info_percentage",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "item_meta_info_id": {
+          "name": "item_meta_info_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
+          "type": "item_meta_info_type",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "percentage": {
+          "name": "percentage",
+          "type": "numeric(4, 2)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "item_meta_info_percentage_item_meta_info_id_item_meta_info_id_fk": {
+          "name": "item_meta_info_percentage_item_meta_info_id_item_meta_info_id_fk",
+          "tableFrom": "item_meta_info_percentage",
+          "tableTo": "item_meta_info",
+          "columnsFrom": [
+            "item_meta_info_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "item_meta_info_percentage_item_meta_info_id_type": {
+          "name": "item_meta_info_percentage_item_meta_info_id_type",
+          "columns": [
+            "item_meta_info_id",
+            "type"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "item_meta_info_percentage_id_unique": {
+          "name": "item_meta_info_percentage_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "item_price": {
+      "name": "item_price",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "item_id": {
+          "name": "item_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
+          "type": "item_price_type",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "amount": {
+          "name": "amount",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "item_price_item_id_item_id_fk": {
+          "name": "item_price_item_id_item_id_fk",
+          "tableFrom": "item_price",
+          "tableTo": "item",
+          "columnsFrom": [
+            "item_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "item_price_item_id_type": {
+          "name": "item_price_item_id_type",
+          "columns": [
+            "item_id",
+            "type"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "item_price_id_unique": {
+          "name": "item_price_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "item_stat": {
+      "name": "item_stat",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "item_id": {
+          "name": "item_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "effect": {
+          "name": "effect",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "item_stat_item_id_item_id_fk": {
+          "name": "item_stat_item_id_item_id_fk",
+          "tableFrom": "item_stat",
+          "tableTo": "item",
+          "columnsFrom": [
+            "item_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "item_stat_item_id_effect": {
+          "name": "item_stat_item_id_effect",
+          "columns": [
+            "item_id",
+            "effect"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "item_stat_id_unique": {
+          "name": "item_stat_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    }
+  },
+  "enums": {
+    "hero_ability_upgrade_type": {
+      "name": "hero_ability_upgrade_type",
+      "values": {
+        "Shard Upgrade": "Shard Upgrade",
+        "Scepter Upgrade": "Scepter Upgrade"
+      }
+    },
+    "hero_attack_type": {
+      "name": "hero_attack_type",
+      "values": {
+        "Melee": "Melee",
+        "Ranged": "Ranged"
+      }
+    },
+    "hero_complexity": {
+      "name": "hero_complexity",
+      "values": {
+        "Simple": "Simple",
+        "Moderate": "Moderate",
+        "Complex": "Complex"
+      }
+    },
+    "hero_meta_info_rank": {
+      "name": "hero_meta_info_rank",
+      "values": {
+        "Herald / Guardian / Crusader": "Herald / Guardian / Crusader",
+        "Archon": "Archon",
+        "Legend": "Legend",
+        "Ancient": "Ancient",
+        "Divine / Immortal": "Divine / Immortal"
+      }
+    },
+    "hero_meta_info_type": {
+      "name": "hero_meta_info_type",
+      "values": {
+        "Pick Percentage": "Pick Percentage",
+        "Win Percentage": "Win Percentage"
+      }
+    },
+    "hero_primary_attribute": {
+      "name": "hero_primary_attribute",
+      "values": {
+        "Strength": "Strength",
+        "Agility": "Agility",
+        "Intelligence": "Intelligence",
+        "Universal": "Universal"
+      }
+    },
+    "hero_role_type": {
+      "name": "hero_role_type",
+      "values": {
+        "Carry": "Carry",
+        "Support": "Support",
+        "Nuker": "Nuker",
+        "Disabler": "Disabler",
+        "Durable": "Durable",
+        "Escape": "Escape",
+        "Pusher": "Pusher",
+        "Initiator": "Initiator"
+      }
+    },
+    "hero_talent_level": {
+      "name": "hero_talent_level",
+      "values": {
+        "Novice": "Novice",
+        "Intermediate": "Intermediate",
+        "Advanced": "Advanced",
+        "Expert": "Expert"
+      }
+    },
+    "item_classification": {
+      "name": "item_classification",
+      "values": {
+        "Consumables": "Consumables",
+        "Attributes": "Attributes",
+        "Equipment": "Equipment",
+        "Miscellaneous": "Miscellaneous",
+        "Secret": "Secret",
+        "Accessories": "Accessories",
+        "Support": "Support",
+        "Magical": "Magical",
+        "Armor": "Armor",
+        "Weapons": "Weapons",
+        "Artifacts": "Artifacts",
+        "Tier 1": "Tier 1",
+        "Tier 2": "Tier 2",
+        "Tier 3": "Tier 3",
+        "Tier 4": "Tier 4",
+        "Tier 5": "Tier 5"
+      }
+    },
+    "item_meta_info_type": {
+      "name": "item_meta_info_type",
+      "values": {
+        "Use Percentage": "Use Percentage",
+        "Win Percentage": "Win Percentage"
+      }
+    },
+    "item_price_type": {
+      "name": "item_price_type",
+      "values": {
+        "Purchase Price": "Purchase Price",
+        "Sell Price": "Sell Price"
+      }
+    },
+    "item_type": {
+      "name": "item_type",
+      "values": {
+        "Basic": "Basic",
+        "Upgrade": "Upgrade",
+        "Neutral": "Neutral"
+      }
+    }
+  },
+  "schemas": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}

@@ -1,4 +1,4 @@
-# Scrapy settings for dota project
+# Scrapy settings for scraper project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,14 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "dota"
+BOT_NAME = "scraper"
 
-SPIDER_MODULES = ["dota.spiders"]
-NEWSPIDER_MODULE = "dota.spiders"
+SPIDER_MODULES = ["scraper.spiders"]
+NEWSPIDER_MODULE = "scraper.spiders"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-# USER_AGENT = "dota (+http://www.yourdomain.com)"
+# USER_AGENT = "scraper (+http://www.yourdomain.com)"
 USER_AGENT = "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36"
 
 # Obey robots.txt rules
@@ -46,13 +46,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 # SPIDER_MIDDLEWARES = {
-#    "dota.middlewares.DotaSpiderMiddleware": 543,
+#    "scraper.middlewares.ScraperSpiderMiddleware": 543,
 # }
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 # DOWNLOADER_MIDDLEWARES = {
-#    "dota.middlewares.DotaDownloaderMiddleware": 543,
+#    "scraper.middlewares.ScraperDownloaderMiddleware": 543,
 # }
 
 # Enable or disable extensions
@@ -64,19 +64,19 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    "dota.pipelines.HeroBiographyPipeline": 0,
-    "dota.pipelines.HeroIdentityPipeline": 50,
-    "dota.pipelines.HeroDescriptionPipeline": 100,
-    "dota.pipelines.HeroComplexityPipeline": 150,
-    "dota.pipelines.HeroAbilitiesPipeline": 200,
-    "dota.pipelines.HeroTalentsPipeline": 250,
-    "dota.pipelines.ItemLorePipeline": 300,
-    "dota.pipelines.ItemStatsPipeline": 350,
-    "dota.pipelines.ItemAbilitiesPipeline": 400,
-    "dota.pipelines.ItemPricePipeline": 450,
-    "dota.pipelines.ItemComponentsPipeline": 500,
-    "dota.pipelines.HeroMetaInfoPipeline": 550,
-    "dota.pipelines.ItemMetaInfoPipeline": 600,
+    "scraper.pipelines.HeroBiographyPipeline": 0,
+    "scraper.pipelines.HeroIdentityPipeline": 50,
+    "scraper.pipelines.HeroDescriptionPipeline": 100,
+    "scraper.pipelines.HeroComplexityPipeline": 150,
+    "scraper.pipelines.HeroAbilitiesPipeline": 200,
+    "scraper.pipelines.HeroTalentsPipeline": 250,
+    "scraper.pipelines.ItemLorePipeline": 300,
+    "scraper.pipelines.ItemStatsPipeline": 350,
+    "scraper.pipelines.ItemAbilitiesPipeline": 400,
+    "scraper.pipelines.ItemPricePipeline": 450,
+    "scraper.pipelines.ItemComponentsPipeline": 500,
+    "scraper.pipelines.HeroMetaInfoPipeline": 550,
+    "scraper.pipelines.ItemMetaInfoPipeline": 600,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
