@@ -10,7 +10,8 @@ class ItemMetaSpider(scrapy.Spider):
     start_urls = ["https://www.dotabuff.com/items"]
 
     def parse(self, response):
-        no_container_file_path = "../../../temp/data/items.json"
+        print(os.getcwd())
+        no_container_file_path = "../../../data/items.json"
         container_file_path = "../../data/items.json"
         items_data = None
         if os.path.exists(no_container_file_path):
