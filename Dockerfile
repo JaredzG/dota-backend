@@ -35,7 +35,7 @@ COPY . .
 # Expose the port that the application listens on.
 EXPOSE 8004
 
-RUN apk update && apk add --no-cache make
+RUN apk update && apk add --no-cache make python3 py3-pip
 
 # Run the application.
 CMD ["tail", "-f", "/dev/null"]
