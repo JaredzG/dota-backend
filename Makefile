@@ -1,4 +1,4 @@
-.PHONY: dev serve watch dbgen dbpush dbdrop dbupsert dbdelete dbcheck
+.PHONY: dev serve watch scrall scrh scri scrhm scrim scremp dbgen dbpush dbdrop dbupsert dbdelete dbcheck
 
 dev:
 	@npm run dev
@@ -9,20 +9,38 @@ serve:
 watch:
 	@npm run watch
 
+scrall:
+	@npm run scrall
+
+scrh:
+	@npm run scrh
+
+scri:
+	@npm run scri
+
+scrhm:
+	@npm run scrhm
+
+scrim:
+	@npm run scrim
+
+scremp:
+	@npm run scremp
+
 dbgen:
-	@npm run generate
+	@npm run dbgen
 
 dbpush:
-	@npm run push
+	@npm run dbpush
 
 dbdrop:
-	@npm run drop
+	@npm run dbdrop
 
 dbupsert:
-	@npm run upsert
+	@npm run dbupsert
 
 dbdelete:
-	@npm run delete
+	@npm run dbdelete
 
 dbcheck:
-	@npm run check
+	@npm run dbcheck
