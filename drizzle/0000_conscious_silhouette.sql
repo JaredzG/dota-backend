@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS "hero_ability" (
 	"damage_type" text,
 	"has_shard_upgrade" boolean NOT NULL,
 	"has_scepter_upgrade" boolean NOT NULL,
-	CONSTRAINT hero_ability_hero_id_name PRIMARY KEY("hero_id","name"),
+	CONSTRAINT "hero_ability_hero_id_name_pk" PRIMARY KEY("hero_id","name"),
 	CONSTRAINT "hero_ability_id_unique" UNIQUE("id")
 );
 --> statement-breakpoint
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS "hero_ability_upgrade" (
 	"ability_id" integer NOT NULL,
 	"type" "hero_ability_upgrade_type" NOT NULL,
 	"description" text NOT NULL,
-	CONSTRAINT hero_ability_upgrade_ability_id_type PRIMARY KEY("ability_id","type"),
+	CONSTRAINT "hero_ability_upgrade_ability_id_type_pk" PRIMARY KEY("ability_id","type"),
 	CONSTRAINT "hero_ability_upgrade_id_unique" UNIQUE("id")
 );
 --> statement-breakpoint
@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS "hero_meta_info" (
 	"rank" "hero_meta_info_rank" NOT NULL,
 	"type" "hero_meta_info_type" NOT NULL,
 	"percentage" numeric(4, 2) NOT NULL,
-	CONSTRAINT hero_meta_info_hero_id_rank_type PRIMARY KEY("hero_id","rank","type"),
+	CONSTRAINT "hero_meta_info_hero_id_rank_type_pk" PRIMARY KEY("hero_id","rank","type"),
 	CONSTRAINT "hero_meta_info_id_unique" UNIQUE("id")
 );
 --> statement-breakpoint
@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS "hero_role" (
 	"id" serial NOT NULL,
 	"hero_id" integer NOT NULL,
 	"type" "hero_role_type" NOT NULL,
-	CONSTRAINT hero_role_hero_id_type PRIMARY KEY("hero_id","type"),
+	CONSTRAINT "hero_role_hero_id_type_pk" PRIMARY KEY("hero_id","type"),
 	CONSTRAINT "hero_role_id_unique" UNIQUE("id")
 );
 --> statement-breakpoint
@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS "hero_talent" (
 	"level" "hero_talent_level" NOT NULL,
 	"type" text NOT NULL,
 	"effect" text NOT NULL,
-	CONSTRAINT hero_talent_hero_id_level_type PRIMARY KEY("hero_id","level","type"),
+	CONSTRAINT "hero_talent_hero_id_level_type_pk" PRIMARY KEY("hero_id","level","type"),
 	CONSTRAINT "hero_talent_id_unique" UNIQUE("id")
 );
 --> statement-breakpoint
@@ -155,7 +155,7 @@ CREATE TABLE IF NOT EXISTS "item_ability" (
 	"ability_type" text NOT NULL,
 	"affected_target" text,
 	"damage_type" text,
-	CONSTRAINT item_ability_item_id_name PRIMARY KEY("item_id","name"),
+	CONSTRAINT "item_ability_item_id_name_pk" PRIMARY KEY("item_id","name"),
 	CONSTRAINT "item_ability_id_unique" UNIQUE("id")
 );
 --> statement-breakpoint
@@ -165,7 +165,7 @@ CREATE TABLE IF NOT EXISTS "item_component" (
 	"name" text NOT NULL,
 	"amount" text NOT NULL,
 	"price" text NOT NULL,
-	CONSTRAINT item_component_item_id_name PRIMARY KEY("item_id","name"),
+	CONSTRAINT "item_component_item_id_name_pk" PRIMARY KEY("item_id","name"),
 	CONSTRAINT "item_component_id_unique" UNIQUE("id")
 );
 --> statement-breakpoint
@@ -181,7 +181,7 @@ CREATE TABLE IF NOT EXISTS "item_meta_info_percentage" (
 	"item_meta_info_id" integer NOT NULL,
 	"type" "item_meta_info_type" NOT NULL,
 	"percentage" numeric(4, 2),
-	CONSTRAINT item_meta_info_percentage_item_meta_info_id_type PRIMARY KEY("item_meta_info_id","type"),
+	CONSTRAINT "item_meta_info_percentage_item_meta_info_id_type_pk" PRIMARY KEY("item_meta_info_id","type"),
 	CONSTRAINT "item_meta_info_percentage_id_unique" UNIQUE("id")
 );
 --> statement-breakpoint
@@ -190,7 +190,7 @@ CREATE TABLE IF NOT EXISTS "item_price" (
 	"item_id" integer NOT NULL,
 	"type" "item_price_type" NOT NULL,
 	"amount" text NOT NULL,
-	CONSTRAINT item_price_item_id_type PRIMARY KEY("item_id","type"),
+	CONSTRAINT "item_price_item_id_type_pk" PRIMARY KEY("item_id","type"),
 	CONSTRAINT "item_price_id_unique" UNIQUE("id")
 );
 --> statement-breakpoint
@@ -198,7 +198,7 @@ CREATE TABLE IF NOT EXISTS "item_stat" (
 	"id" serial NOT NULL,
 	"item_id" integer NOT NULL,
 	"effect" text NOT NULL,
-	CONSTRAINT item_stat_item_id_effect PRIMARY KEY("item_id","effect"),
+	CONSTRAINT "item_stat_item_id_effect_pk" PRIMARY KEY("item_id","effect"),
 	CONSTRAINT "item_stat_id_unique" UNIQUE("id")
 );
 --> statement-breakpoint

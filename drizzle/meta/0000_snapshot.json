@@ -1,5 +1,5 @@
 {
-  "id": "3e9e9336-ec42-42db-9147-70b25ee5a1a3",
+  "id": "b6fb81a5-9e82-4565-9490-a3bd5e19b20d",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -152,8 +152,8 @@
         }
       },
       "compositePrimaryKeys": {
-        "hero_ability_hero_id_name": {
-          "name": "hero_ability_hero_id_name",
+        "hero_ability_hero_id_name_pk": {
+          "name": "hero_ability_hero_id_name_pk",
           "columns": [
             "hero_id",
             "name"
@@ -216,8 +216,8 @@
         }
       },
       "compositePrimaryKeys": {
-        "hero_ability_upgrade_ability_id_type": {
-          "name": "hero_ability_upgrade_ability_id_type",
+        "hero_ability_upgrade_ability_id_type_pk": {
+          "name": "hero_ability_upgrade_ability_id_type_pk",
           "columns": [
             "ability_id",
             "type"
@@ -286,8 +286,8 @@
         }
       },
       "compositePrimaryKeys": {
-        "hero_meta_info_hero_id_rank_type": {
-          "name": "hero_meta_info_hero_id_rank_type",
+        "hero_meta_info_hero_id_rank_type_pk": {
+          "name": "hero_meta_info_hero_id_rank_type_pk",
           "columns": [
             "hero_id",
             "rank",
@@ -345,8 +345,8 @@
         }
       },
       "compositePrimaryKeys": {
-        "hero_role_hero_id_type": {
-          "name": "hero_role_hero_id_type",
+        "hero_role_hero_id_type_pk": {
+          "name": "hero_role_hero_id_type_pk",
           "columns": [
             "hero_id",
             "type"
@@ -415,8 +415,8 @@
         }
       },
       "compositePrimaryKeys": {
-        "hero_talent_hero_id_level_type": {
-          "name": "hero_talent_hero_id_level_type",
+        "hero_talent_hero_id_level_type_pk": {
+          "name": "hero_talent_hero_id_level_type_pk",
           "columns": [
             "hero_id",
             "level",
@@ -570,8 +570,8 @@
         }
       },
       "compositePrimaryKeys": {
-        "item_ability_item_id_name": {
-          "name": "item_ability_item_id_name",
+        "item_ability_item_id_name_pk": {
+          "name": "item_ability_item_id_name_pk",
           "columns": [
             "item_id",
             "name"
@@ -640,8 +640,8 @@
         }
       },
       "compositePrimaryKeys": {
-        "item_component_item_id_name": {
-          "name": "item_component_item_id_name",
+        "item_component_item_id_name_pk": {
+          "name": "item_component_item_id_name_pk",
           "columns": [
             "item_id",
             "name"
@@ -754,8 +754,8 @@
         }
       },
       "compositePrimaryKeys": {
-        "item_meta_info_percentage_item_meta_info_id_type": {
-          "name": "item_meta_info_percentage_item_meta_info_id_type",
+        "item_meta_info_percentage_item_meta_info_id_type_pk": {
+          "name": "item_meta_info_percentage_item_meta_info_id_type_pk",
           "columns": [
             "item_meta_info_id",
             "type"
@@ -818,8 +818,8 @@
         }
       },
       "compositePrimaryKeys": {
-        "item_price_item_id_type": {
-          "name": "item_price_item_id_type",
+        "item_price_item_id_type_pk": {
+          "name": "item_price_item_id_type_pk",
           "columns": [
             "item_id",
             "type"
@@ -876,8 +876,8 @@
         }
       },
       "compositePrimaryKeys": {
-        "item_stat_item_id_effect": {
-          "name": "item_stat_item_id_effect",
+        "item_stat_item_id_effect_pk": {
+          "name": "item_stat_item_id_effect_pk",
           "columns": [
             "item_id",
             "effect"
@@ -1012,8 +1012,8 @@
   },
   "schemas": {},
   "_meta": {
+    "columns": {},
     "schemas": {},
-    "tables": {},
-    "columns": {}
+    "tables": {}
   }
 }
