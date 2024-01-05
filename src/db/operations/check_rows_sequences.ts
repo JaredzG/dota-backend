@@ -11,24 +11,27 @@ const rowCountsResult = await db.execute(
 const lastSequenceValuesResult = await db.execute(
   sql`SELECT sequencename, last_value FROM pg_sequences`
 );
-for (const table of rowCountsResult.rows) {
+const tables = rowCountsResult.rows.filter(
+  (row) => String(row.table_name) !== "__drizzle_migrations"
+);
+const sequences = lastSequenceValuesResult.rows.filter(
+  (row) => String(row.sequencename) !== "__drizzle_migrations"
+);
+for (const table of tables) {
   const { table_name: tableName, row_count: rowCount } = table;
   const { sequencename: sequenceName, last_value: lastValue } =
-    lastSequenceValuesResult.rows.filter(
-      (sequence) =>
-        (sequence.sequencename as string).slice(0, -7) === (tableName as string)
+    sequences.filter(
+      (sequence) => String(sequence.sequencename).slice(0, -7) === tableName
     )[0];
-  if (rowCount !== lastValue) {
+  if (rowCount === lastValue || (rowCount === "0" && lastValue === null)) {
     console.log(
-      `Error: Unequal values -- ${tableName as string} (${
-        rowCount as string
-      }) | ${sequenceName as string} (${lastValue as string})`
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      `Success: Equal values -- ${tableName} (${rowCount}) | ${sequenceName} (${lastValue})`
     );
   } else {
     console.log(
-      `Success: Equal values -- ${tableName as string} (${
-        rowCount as string
-      }) | ${sequenceName as string} (${lastValue as string})`
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      `Error: Unequal values -- ${tableName} (${rowCount}) | ${sequenceName} (${lastValue})`
     );
   }
 }
