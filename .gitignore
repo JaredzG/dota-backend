@@ -53,3 +53,4 @@ docs/_build/
 **/.venv
 **/node_modules
 **/dist
+**/data
