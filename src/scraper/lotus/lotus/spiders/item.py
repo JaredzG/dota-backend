@@ -1,5 +1,5 @@
 import scrapy
-from scraper.items import ItemItem
+from lotus.items import ItemItem
 
 
 class ItemSpider(scrapy.Spider):

@@ -24,7 +24,7 @@ for (const spider of args) {
     `scrapy`,
     ["crawl", spider, "-O", `../../../data/${spiderOutput[spider]}.json`],
     {
-      cwd: "src/scraper/scraper",
+      cwd: "src/scraper/lotus",
       encoding: "utf-8",
       maxBuffer: 1024 * 2048,
     }

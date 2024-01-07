@@ -1,15 +1,17 @@
 {
-  "name": "dota-backend",
+  "name": "lotus-app-manager",
   "version": "1.0.0",
   "description": "",
   "main": "server.ts",
+  "author": "jaredzg",
+  "license": "ISC",
   "type": "module",
   "scripts": {
-    "scrall": "tsx src/scraper/scraper.ts hero item hero-meta item-meta",
-    "scrh": "tsx src/scraper/scraper.ts hero",
-    "scri": "tsx src/scraper/scraper.ts item",
-    "scrhm": "tsx src/scraper/scraper.ts hero-meta",
-    "scrim": "tsx src/scraper/scraper.ts item-meta",
+    "scrall": "tsx src/scraper/scrape.ts hero item hero-meta item-meta",
+    "scrh": "tsx src/scraper/scrape.ts hero",
+    "scri": "tsx src/scraper/scrape.ts item",
+    "scrhm": "tsx src/scraper/scrape.ts hero-meta",
+    "scrim": "tsx src/scraper/scrape.ts item-meta",
     "scremp": "rm data/heroes.json data/items.json data/heroes.meta.json data/items.meta.json",
     "dbgen": "drizzle-kit generate:pg",
     "dbpush": "tsx ./src/db/migrate.ts",
@@ -18,8 +20,6 @@
     "dbdelete": "tsx src/db/operations/delete_all.ts",
     "dbcheck": "tsx src/db/operations/check_rows_sequences.ts"
   },
-  "author": "jaredzg",
-  "license": "ISC",
   "dependencies": {
     "drizzle-orm": "^0.29.0",
     "fs": "^0.0.1-security",

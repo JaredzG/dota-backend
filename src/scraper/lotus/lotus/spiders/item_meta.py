@@ -1,7 +1,7 @@
 import scrapy
 import json
 import os
-from scraper.items import ItemMetaInfoItem
+from lotus.items import ItemMetaInfoItem
 
 
 class ItemMetaSpider(scrapy.Spider):

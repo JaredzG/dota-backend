@@ -1,4 +1,4 @@
-# Scrapy settings for scraper project
+# Scrapy settings for lotus project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,14 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "scraper"
+BOT_NAME = "lotus"
 
-SPIDER_MODULES = ["scraper.spiders"]
-NEWSPIDER_MODULE = "scraper.spiders"
+SPIDER_MODULES = ["lotus.spiders"]
+NEWSPIDER_MODULE = "lotus.spiders"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-# USER_AGENT = "scraper (+http://www.yourdomain.com)"
+# USER_AGENT = "lotus (+http://www.yourdomain.com)"
 USER_AGENT = "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36"
 
 # Obey robots.txt rules
@@ -46,13 +46,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 # SPIDER_MIDDLEWARES = {
-#    "scraper.middlewares.ScraperSpiderMiddleware": 543,
+#    "lotus.middlewares.lotusSpiderMiddleware": 543,
 # }
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 # DOWNLOADER_MIDDLEWARES = {
-#    "scraper.middlewares.ScraperDownloaderMiddleware": 543,
+#    "lotus.middlewares.lotusDownloaderMiddleware": 543,
 # }
 
 # Enable or disable extensions
@@ -64,19 +64,19 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    "scraper.pipelines.HeroBiographyPipeline": 0,
-    "scraper.pipelines.HeroIdentityPipeline": 50,
-    "scraper.pipelines.HeroDescriptionPipeline": 100,
-    "scraper.pipelines.HeroComplexityPipeline": 150,
-    "scraper.pipelines.HeroAbilitiesPipeline": 200,
-    "scraper.pipelines.HeroTalentsPipeline": 250,
-    "scraper.pipelines.ItemLorePipeline": 300,
-    "scraper.pipelines.ItemStatsPipeline": 350,
-    "scraper.pipelines.ItemAbilitiesPipeline": 400,
-    "scraper.pipelines.ItemPricePipeline": 450,
-    "scraper.pipelines.ItemComponentsPipeline": 500,
-    "scraper.pipelines.HeroMetaInfoPipeline": 550,
-    "scraper.pipelines.ItemMetaInfoPipeline": 600,
+    "lotus.pipelines.HeroBiographyPipeline": 0,
+    "lotus.pipelines.HeroIdentityPipeline": 50,
+    "lotus.pipelines.HeroDescriptionPipeline": 100,
+    "lotus.pipelines.HeroComplexityPipeline": 150,
+    "lotus.pipelines.HeroAbilitiesPipeline": 200,
+    "lotus.pipelines.HeroTalentsPipeline": 250,
+    "lotus.pipelines.ItemLorePipeline": 300,
+    "lotus.pipelines.ItemStatsPipeline": 350,
+    "lotus.pipelines.ItemAbilitiesPipeline": 400,
+    "lotus.pipelines.ItemPricePipeline": 450,
+    "lotus.pipelines.ItemComponentsPipeline": 500,
+    "lotus.pipelines.HeroMetaInfoPipeline": 550,
+    "lotus.pipelines.ItemMetaInfoPipeline": 600,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

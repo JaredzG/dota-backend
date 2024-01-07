@@ -11,7 +11,7 @@ const DB_USER = process.env.DB_USER ?? "postgres";
 const DB_PASSWORD_FILE =
   process.env.DB_PASSWORD_FILE ?? "/run/secrets/postgres-password";
 const DB_PASSWORD = fs.readFileSync(DB_PASSWORD_FILE, "utf8");
-const DB_NAME = process.env.DB_NAME ?? "dota-database";
+const DB_NAME = process.env.DB_NAME ?? "lotus-database";
 
 export const createPool = async (): Promise<pg.Pool> => {
   return new Pool({
