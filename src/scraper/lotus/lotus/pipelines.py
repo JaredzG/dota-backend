@@ -123,10 +123,10 @@ class HeroAbilitiesPipeline:
                         duplicate_ability = False
                         for new_ability in abilities:
                             if new_ability["name"] == new_name:
-                                duplicate_ability = True
+                                new_name += " (Spirit Bear)"
                                 break
-                        if duplicate_ability:
-                            new_name += " (Spirit Bear)"
+                        if new_name == "Universal Unit":
+                            continue
                     elif "Visage" in adapter["name"]:
                         duplicate_ability = False
                         for new_ability in abilities:
@@ -135,6 +135,31 @@ class HeroAbilitiesPipeline:
                                 break
                         if duplicate_ability:
                             new_name += " (Familiars)"
+                    elif "Underlord" in adapter["name"]:
+                        if new_name in ["Warp"]:
+                            continue
+                    elif "Io" in adapter["name"]:
+                        if new_name in ["Io Innate"]:
+                            continue
+                    elif "Rubick" in adapter["name"]:
+                        if new_name in [
+                            "Stolen Spell 1",
+                            "Stolen Spell 2",
+                        ]:
+                            continue
+                    elif "Alchemist" in adapter["name"]:
+                        if new_name in ["Aghanim's Scepter Synth"]:
+                            continue
+                    elif "Arc Warden" in adapter["name"]:
+                        if new_name in ["Tempest"]:
+                            continue
+                    elif "Beastmaster" in adapter["name"]:
+                        if new_name in ["Dive Bomb"]:
+                            new_name += " (Hawk)"
+                        elif new_name in ["Poison"]:
+                            new_name += " (Boar)"
+                        elif new_name in ["Max Health Aura", "Movespeed Aura"]:
+                            continue
                     abilities.append(
                         {
                             "name": new_name,
@@ -289,10 +314,17 @@ class ItemStatsPipeline:
                 old_stats = adapter["stats"].strip()
                 if old_stats:
                     stats = old_stats.replace("+", ":+").split(":")[1:]
-                    if len(stats) >= 2:
+                    if adapter["name"] in [
+                        "Apex",
+                        "Pupil's Gift",
+                        "Philosopher's Stone",
+                    ]:
                         first_stat = stats[0]
                         second_stat = stats[1]
-                        if "\n" in first_stat:
+                        if adapter["name"] in [
+                            "Apex",
+                            "Pupil's Gift",
+                        ]:
                             new_first_stat = first_stat[0 : first_stat.index("\n")]
                             stats[0] = new_first_stat
                             new_second_stat = (
@@ -301,7 +333,9 @@ class ItemStatsPipeline:
                             stats[1] = new_second_stat
                             new_stats = [" or ".join(stats)]
                             stats = new_stats
-                        elif "-" in first_stat:
+                        elif adapter["name"] in [
+                            "Philosopher's Stone",
+                        ]:
                             split_first_stat = re.search(r"(.*?)([-].*)", first_stat)
                             new_first_stat = split_first_stat.group(1)
                             new_second_stat = split_first_stat.group(2)
