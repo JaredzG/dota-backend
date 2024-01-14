@@ -7,12 +7,6 @@
   "license": "ISC",
   "type": "module",
   "scripts": {
-    "scrall": "tsx src/scraper/scrape.ts hero item hero-meta item-meta",
-    "scrh": "tsx src/scraper/scrape.ts hero",
-    "scri": "tsx src/scraper/scrape.ts item",
-    "scrhm": "tsx src/scraper/scrape.ts hero-meta",
-    "scrim": "tsx src/scraper/scrape.ts item-meta",
-    "scremp": "rm data/heroes.json data/items.json data/heroes.meta.json data/items.meta.json",
     "dbgen": "drizzle-kit generate:pg",
     "dbpush": "tsx ./src/db/migrate.ts",
     "dbdrop": "drizzle-kit drop",
