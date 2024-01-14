@@ -9,23 +9,22 @@ serve:
 watch:
 	@npm run watch
 
-scrall:
-	@npm run scrall
+scrall: scrh scri scrhm scrim
 
 scrh:
-	@npm run scrh
+	@cd src/scraper/lotus && scrapy crawl hero -O ../../../data/heroes.json
 
 scri:
-	@npm run scri
+	@cd src/scraper/lotus && scrapy crawl item -O ../../../data/items.json
 
 scrhm:
-	@npm run scrhm
+	@cd src/scraper/lotus && scrapy crawl hero-meta -O ../../../data/heroes.meta.json
 
 scrim:
-	@npm run scrim
+	@cd src/scraper/lotus && scrapy crawl item-meta -O ../../../data/items.meta.json
 
 scremp:
-	@npm run scremp
+	@rm data/heroes.json data/items.json data/heroes.meta.json data/items.meta.json
 
 dbgen:
 	@npm run dbgen

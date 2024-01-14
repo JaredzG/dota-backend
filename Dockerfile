@@ -29,13 +29,14 @@ RUN --mount=type=bind,source=package.json,target=package.json \
 # Run the application as a non-root user.
 # USER node
 
+RUN apk update && apk add --no-cache make python3 py3-pip
+
+RUN --mount=type=cache,target=/root/.cache/pip \
+    --mount=type=bind,source=requirements.txt,target=requirements.txt \
+    python -m pip install -r requirements.txt
+
 # Copy the rest of the source files into the image.
 COPY . .
-
-# Expose the port that the application listens on.
-EXPOSE 8004
-
-RUN apk update && apk add --no-cache make python3 py3-pip
 
 # Run the application.
 CMD ["tail", "-f", "/dev/null"]
