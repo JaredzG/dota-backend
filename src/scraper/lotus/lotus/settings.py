@@ -70,13 +70,15 @@ ITEM_PIPELINES = {
     "lotus.pipelines.HeroComplexityPipeline": 150,
     "lotus.pipelines.HeroAbilitiesPipeline": 200,
     "lotus.pipelines.HeroTalentsPipeline": 250,
-    "lotus.pipelines.ItemLorePipeline": 300,
-    "lotus.pipelines.ItemStatsPipeline": 350,
-    "lotus.pipelines.ItemAbilitiesPipeline": 400,
-    "lotus.pipelines.ItemPricePipeline": 450,
-    "lotus.pipelines.ItemComponentsPipeline": 500,
-    "lotus.pipelines.HeroMetaInfoPipeline": 550,
-    "lotus.pipelines.ItemMetaInfoPipeline": 600,
+    "lotus.pipelines.ItemNamePipeline": 300,
+    "lotus.pipelines.ItemClassificationPipeline": 350,
+    "lotus.pipelines.ItemLorePipeline": 400,
+    "lotus.pipelines.ItemStatsPipeline": 450,
+    "lotus.pipelines.ItemAbilitiesPipeline": 500,
+    "lotus.pipelines.ItemPricePipeline": 550,
+    "lotus.pipelines.ItemComponentsPipeline": 600,
+    "lotus.pipelines.HeroMetaInfoPipeline": 650,
+    "lotus.pipelines.ItemMetaInfoPipeline": 700,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

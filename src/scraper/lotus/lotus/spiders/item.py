@@ -21,6 +21,21 @@ class ItemSpider(scrapy.Spider):
                     type = "Basic" if i < 5 else "Upgrade"
                     classification = categories[i]
                     category_items = self.get_category_items(category_item_lists[i])
+                    if classification in ["Consumables"]:
+                        category_items.append("/wiki/Observer_and_Sentry_Wards")
+                    elif classification in ["Miscellaneous"]:
+                        category_items.append("/wiki/Void_Stone")
+                    elif classification in ["Accessories"]:
+                        category_items.append("/wiki/Boots_of_Travel_2")
+                    elif classification in ["Magical"]:
+                        category_items.extend(
+                            [
+                                "/wiki/Dagon_2",
+                                "/wiki/Dagon_3",
+                                "/wiki/Dagon_4",
+                                "/wiki/Dagon_5",
+                            ]
+                        )
                     for j in range(len(category_items)):
                         item_url = "https://dota2.fandom.com" + category_items[j]
                         item_meta = {
