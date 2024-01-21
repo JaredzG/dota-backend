@@ -29,11 +29,11 @@ RUN --mount=type=bind,source=package.json,target=package.json \
 # Run the application as a non-root user.
 # USER node
 
-RUN apk update && apk add --no-cache make python3 py3-pip
+RUN apk update && apk add --no-cache make python3 py3-pip build-base python3-dev libffi-dev
 
 RUN --mount=type=cache,target=/root/.cache/pip \
     --mount=type=bind,source=requirements.txt,target=requirements.txt \
-    python -m pip install -r requirements.txt
+    python3 -m pip install -r requirements.txt
 
 # Copy the rest of the source files into the image.
 COPY . .
