@@ -15,6 +15,7 @@
     "dbcheck": "tsx src/db/operations/check_rows_sequences.ts"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.496.0",
     "drizzle-orm": "^0.29.0",
     "fs": "^0.0.1-security",
     "pg": "^8.11.3"

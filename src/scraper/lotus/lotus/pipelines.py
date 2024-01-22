@@ -678,6 +678,15 @@ class ItemStatsPipeline:
                             stats.append(new_third_stat)
                     elif adapter["name"] in ["Vambrace"]:
                         stats = ["+8 Main Attribute", "+2 Other Attributes"]
+                    elif adapter["name"] in ["Dagon (Level 1)"]:
+                        new_stats = []
+                        for stat in stats:
+                            value = re.split("/", stat)[0]
+                            property = (
+                                re.search(r"[A-Za-z()\s]+$", stat).group().strip()
+                            )
+                            new_stats.append(f"{value} {property}")
+                        stats = new_stats
                     for i in range(len(stats)):
                         stats[i] = (
                             stats[i]
