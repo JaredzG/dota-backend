@@ -1,5 +1,5 @@
 {
-  "id": "91e4fd6d-b975-4b95-b9d6-46f5aa89ac5a",
+  "id": "4757de6e-02a5-4362-a9bd-be0b682b7452",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -55,6 +55,18 @@
           "type": "hero_primary_attribute",
           "primaryKey": false,
           "notNull": true
+        },
+        "primary_image_url": {
+          "name": "primary_image_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "secondary_image_url": {
+          "name": "secondary_image_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
         }
       },
       "indexes": {},
@@ -133,6 +145,12 @@
           "type": "boolean",
           "primaryKey": false,
           "notNull": true
+        },
+        "image_url": {
+          "name": "image_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
         }
       },
       "indexes": {},
@@ -496,6 +514,12 @@
           "type": "boolean",
           "primaryKey": false,
           "notNull": true
+        },
+        "image_url": {
+          "name": "image_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
         }
       },
       "indexes": {},

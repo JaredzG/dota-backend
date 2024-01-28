@@ -1,13 +1,10 @@
 import * as fs from "fs";
 import path from "path";
-import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { connectDB, createPool } from "../db";
 import {
-  hero,
   heroAbility,
   heroAbilityUpgrade,
   heroMetaInfo,
-  heroRole,
   heroTalent,
   item,
   itemAbility,
@@ -17,44 +14,7 @@ import {
   itemPrice,
   itemStat,
 } from "../schema";
-
-interface Hero {
-  id?: number;
-  name: string;
-  biography: string;
-  identity: string;
-  description: string;
-  complexity: "Simple" | "Moderate" | "Complex";
-  attackType: "Melee" | "Ranged";
-  primaryAttribute: "Strength" | "Agility" | "Intelligence" | "Universal";
-}
-
-interface HeroRole {
-  id?: number;
-  heroId: number;
-  type:
-    | "Carry"
-    | "Support"
-    | "Nuker"
-    | "Disabler"
-    | "Durable"
-    | "Escape"
-    | "Pusher"
-    | "Initiator";
-}
-
-interface HeroAbility {
-  id?: number;
-  heroId: number;
-  name: string;
-  lore: string | null;
-  description: string;
-  abilityType: string;
-  damageType: string | null;
-  affectedTarget: string | null;
-  hasShardUpgrade: boolean;
-  hasScepterUpgrade: boolean;
-}
+import upsertHero from "../../utils/db/upsert_hero";
 
 interface HeroAbilityUpgrade {
   id?: number;
@@ -110,6 +70,7 @@ interface Item {
   hasAbilities: boolean;
   hasPrices: boolean;
   hasComponents: boolean;
+  imageUrl: string | null;
 }
 
 interface ItemStat {
@@ -170,190 +131,12 @@ const itemMetaInfoItems = JSON.parse(
   fs.readFileSync(itemsMetaFilePath, "utf-8")
 );
 
-const heroImages = fs.readdirSync("images/heroes");
-const heroSelectionImages = fs.readdirSync("images/heroes2");
-const abilityImages = fs.readdirSync("images/abilities");
-const itemImages = fs.readdirSync("images/items");
-
 const pool = await createPool();
 const db = await connectDB(pool);
 
-const S3_BUCKET_NAME = process.env.S3_BUCKET_NAME ?? "lotus-app-images";
-const S3_BUCKET_REGION = process.env.S3_BUCKET_REGION ?? "us-east-2";
-const S3_BUCKET_ACCESS_KEY =
-  process.env.S3_BUCKET_ACCESS_KEY ?? "AKIA55IGFKLCGNSIHZWT";
-const S3_BUCKET_SECRET_ACCESS_KEY_FILE =
-  process.env.S33_BUCKET_SECRET_ACCESS_KEY_FILE ??
-  "/run/secrets/s3-bucket-secret-access-key";
-const S3_BUCKET_SECRET_ACCESS_KEY = fs.readFileSync(
-  S3_BUCKET_SECRET_ACCESS_KEY_FILE,
-  "utf-8"
-);
-
-const s3 = new S3Client({
-  credentials: {
-    accessKeyId: S3_BUCKET_ACCESS_KEY,
-    secretAccessKey: S3_BUCKET_SECRET_ACCESS_KEY,
-  },
-  region: S3_BUCKET_REGION,
-});
-
-const contentType = "image/png";
-
 for (const heroItem of heroItems) {
-  const {
-    name,
-    biography,
-    identity,
-    description,
-    complexity,
-    attack_type: attackType,
-    primary_attribute: primaryAttribute,
-    roles,
-    abilities,
-    talents,
-  } = heroItem;
-  const { percentages } = heroMetaInfoItems.filter(
-    (heroMetaInfoItem: {
-      name: string;
-      percentages: Array<{ rank: string; type: string; percentage: string }>;
-    }) => name.includes(heroMetaInfoItem.name)
-  )[0];
-  const heroEntry: Hero = {
-    name,
-    biography,
-    identity,
-    description,
-    complexity,
-    attackType,
-    primaryAttribute,
-  };
-  const insertedHero: Hero[] = await db
-    .insert(hero)
-    .values(heroEntry)
-    .onConflictDoUpdate({
-      target: hero.name,
-      set: heroEntry,
-    })
-    .returning();
-  const insertedHeroName: string =
-    insertedHero[0].name
-      .toLowerCase()
-      .replaceAll(" ", "_")
-      .replaceAll(",", "") ?? "";
-  const insertedHeroId: number = insertedHero[0].id ?? 0;
-  const heroImage = heroImages.filter((hero) =>
-    insertedHeroName.includes(hero.replace(".png", ""))
-  )[0];
-  const heroSelectionImage = heroSelectionImages.filter((hero) =>
-    insertedHeroName.includes(hero.replace(".png", ""))
-  )[0];
-  if (heroSelectionImage === undefined || heroSelectionImage === "wisp.png") {
-    console.log(heroSelectionImage);
-  }
-  const uploadHeroImageCommand = new PutObjectCommand({
-    Bucket: S3_BUCKET_NAME,
-    Key: heroImage,
-    Body: fs.readFileSync(path.join("images/heroes", heroImage)),
-    ContentType: contentType,
-  });
-  const uploadHeroSelectionImageCommand = new PutObjectCommand({
-    Bucket: S3_BUCKET_NAME,
-    Key: heroSelectionImage.replace(".png", "_2.png"),
-    Body: fs.readFileSync(path.join("images/heroes2", heroSelectionImage)),
-    ContentType: contentType,
-  });
-  // await s3.send(uploadHeroImageCommand);
-  // await s3.send(uploadHeroSelectionImageCommand);
-  for (const role of roles) {
-    const heroRoleEntry: HeroRole = {
-      heroId: insertedHeroId,
-      type: role,
-    };
-    await db
-      .insert(heroRole)
-      .values(heroRoleEntry)
-      .onConflictDoUpdate({
-        target: [heroRole.heroId, heroRole.type],
-        set: heroRoleEntry,
-      });
-  }
-  for (const ability of abilities) {
-    const {
-      name,
-      lore,
-      description,
-      features: {
-        ability_type: abilityType,
-        affected_target: affectedTarget,
-        damage_type: damageType,
-      },
-      upgrades,
-    } = ability;
-    let hasShardUpgrade = false;
-    let hasScepterUpgrade = false;
-    if (upgrades !== null) {
-      for (const upgrade of upgrades) {
-        if (upgrade.type === "Shard") {
-          hasShardUpgrade = true;
-        } else if (upgrade.type === "Scepter") {
-          hasScepterUpgrade = true;
-        }
-      }
-    }
-    const heroAbilityEntry: HeroAbility = {
-      heroId: insertedHeroId,
-      name,
-      lore,
-      description,
-      abilityType,
-      damageType,
-      affectedTarget,
-      hasShardUpgrade,
-      hasScepterUpgrade,
-    };
-    const insertedHeroAbility: HeroAbility[] = await db
-      .insert(heroAbility)
-      .values(heroAbilityEntry)
-      .onConflictDoUpdate({
-        target: [heroAbility.heroId, heroAbility.name],
-        set: heroAbilityEntry,
-      })
-      .returning();
-    const insertedHeroAbilityName: string =
-      insertedHeroAbility[0].name
-        .toLowerCase()
-        .replaceAll(" ", "_")
-        .replaceAll(",", "") ?? "";
-    const insertedHeroAbilityId: number = insertedHeroAbility[0].id ?? 0;
-    const heroAbilityImage = abilityImages.filter((ability) =>
-      ability.includes(insertedHeroAbilityName)
-    )[0];
-    const uploadHeroAbilityImageCommand = new PutObjectCommand({
-      Bucket: S3_BUCKET_NAME,
-      Key: heroAbilityImage,
-      Body: fs.readFileSync(path.join("images/abilities", heroAbilityImage)),
-      ContentType: contentType,
-    });
-    // await s3.send(uploadHeroAbilityImageCommand);
-    if (upgrades !== null) {
-      for (const upgrade of upgrades) {
-        const { type, description } = upgrade;
-        const heroAbilityUpgradeEntry: HeroAbilityUpgrade = {
-          abilityId: insertedHeroAbilityId,
-          type,
-          description,
-        };
-        await db
-          .insert(heroAbilityUpgrade)
-          .values(heroAbilityUpgradeEntry)
-          .onConflictDoUpdate({
-            target: [heroAbilityUpgrade.abilityId, heroAbilityUpgrade.type],
-            set: heroAbilityUpgradeEntry,
-          });
-      }
-    }
-  }
+  await upsertHero(db, heroItem, heroMetaInfoItems);
+
   for (const talent of talents) {
     const { level, type, effect } = talent;
     const heroTalentEntry: HeroTalent = {
@@ -431,6 +214,7 @@ for (const itemItem of itemItems) {
     hasAbilities,
     hasPrices,
     hasComponents,
+    imageUrl: null,
   };
   const insertedItem: Item[] = await db
     .insert(item)
@@ -440,22 +224,7 @@ for (const itemItem of itemItems) {
       set: itemEntry,
     })
     .returning();
-  const insertedItemName: string =
-    insertedItem[0].name
-      .toLowerCase()
-      .replaceAll(" ", "_")
-      .replaceAll(",", "") ?? "";
   const insertedItemId: number = insertedItem[0].id ?? 0;
-  const itemImage = itemImages.filter((ability) =>
-    ability.includes(insertedItemName)
-  )[0];
-  const uploadItemImageCommand = new PutObjectCommand({
-    Bucket: S3_BUCKET_NAME,
-    Key: itemImage,
-    Body: fs.readFileSync(path.join("images/items", itemImage)),
-    ContentType: contentType,
-  });
-  // await s3.send(uploadItemImageCommand);
   if (stats !== null) {
     for (const stat of stats) {
       const itemStatEntry: ItemStat = {
