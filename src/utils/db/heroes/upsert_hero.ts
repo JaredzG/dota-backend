@@ -1,14 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { GetObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-import { hero } from "../../db/schema";
-import { eq } from "drizzle-orm";
+import { hero } from "../../../db/schema";
+import { getHeroImages } from "../../s3/hero_images";
 import upsertHeroRoles from "./upsert_hero_roles";
-import { getHeroImages } from "../s3/hero_images";
+import upsertHeroAbilities from "./upsert_hero_abilities";
+import upsertHeroTalents from "./upsert_hero_talents";
+import upsertHeroMetaInfo from "./upsert_hero_meta_info";
 
 interface Hero {
   id?: number;
   name: string;
+  alias: string;
   biography: string;
   identity: string;
   description: string;
@@ -22,12 +25,13 @@ interface Hero {
 const upsertHero = async (
   db: any,
   s3: any,
+  s3BucketName: any,
   heroItem: any,
-  heroMetaInfoItems: any,
-  s3BucketName: any
+  heroMetaInfoItems: any
 ): Promise<void> => {
   const {
     name,
+    alias,
     biography,
     identity,
     description,
@@ -46,7 +50,7 @@ const upsertHero = async (
     }) => name.includes(heroMetaInfoItem.name)
   )[0];
 
-  const [heroPrimaryImage, heroSecondaryImage] = await getHeroImages(name);
+  const [heroPrimaryImage, heroSecondaryImage] = await getHeroImages(alias);
 
   const getHeroPrimaryImageCommand = new GetObjectCommand({
     Bucket: s3BucketName,
@@ -67,6 +71,7 @@ const upsertHero = async (
 
   const heroEntry: Hero = {
     name,
+    alias,
     biography,
     identity,
     description,
@@ -88,18 +93,20 @@ const upsertHero = async (
 
   const insertedHeroId: number = insertedHero[0].id ?? 0;
 
-  const updatedHero = await db
-    .update(hero)
-    .set({
-      primary_image_url: primaryImageUrl,
-      secondary_image_url: secondaryImageUrl,
-    })
-    .where(eq(hero.id, insertedHeroId))
-    .returning();
+  await upsertHeroRoles(db, insertedHeroId, roles);
 
-  const updatedHeroId: number = updatedHero[0].id ?? 0;
+  await upsertHeroAbilities(
+    db,
+    insertedHeroId,
+    alias,
+    abilities,
+    s3,
+    s3BucketName
+  );
 
-  await upsertHeroRoles(db, updatedHeroId, roles);
+  await upsertHeroTalents(db, insertedHeroId, talents);
+
+  await upsertHeroMetaInfo(db, insertedHeroId, percentages);
 };
 
 export default upsertHero;

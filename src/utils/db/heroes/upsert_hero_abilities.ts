@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-import * as fs from "fs";
-import path from "path";
-import { PutObjectCommand, GetObjectCommand } from "@aws-sdk/client-s3";
+import { GetObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-import { heroAbility } from "../../db/schema";
+import { heroAbility } from "../../../db/schema";
+import { getHeroAbilityImage } from "../../s3/hero_ability_images";
+import upsertHeroAbilityUpgrades from "./upsert_hero_ability_upgrades";
 
 interface HeroAbility {
   id?: number;
@@ -22,14 +22,10 @@ interface HeroAbility {
 const upsertHeroAbilities = async (
   db: any,
   heroId: any,
+  heroName: any,
   abilities: any,
-  heroMetaInfoItems: any,
-  heroPrimaryImages: any,
-  heroSecondaryImages: any,
-  heroAbilityImages: any,
   s3: any,
-  bucketName: any,
-  contentType: any
+  s3BucketName: any
 ): Promise<void> => {
   for (const ability of abilities) {
     const {
@@ -45,6 +41,7 @@ const upsertHeroAbilities = async (
     } = ability;
     let hasShardUpgrade = false;
     let hasScepterUpgrade = false;
+
     if (upgrades !== null) {
       for (const upgrade of upgrades) {
         if (upgrade.type === "Shard") {
@@ -54,6 +51,16 @@ const upsertHeroAbilities = async (
         }
       }
     }
+
+    const heroAbilityImage = await getHeroAbilityImage(heroName, name);
+
+    const getHeroAbilityImageCommand = new GetObjectCommand({
+      Bucket: s3BucketName,
+      Key: heroAbilityImage,
+    });
+
+    const imageUrl = await getSignedUrl(s3, getHeroAbilityImageCommand);
+
     const heroAbilityEntry: HeroAbility = {
       heroId,
       name,
@@ -64,8 +71,9 @@ const upsertHeroAbilities = async (
       affectedTarget,
       hasShardUpgrade,
       hasScepterUpgrade,
-      imageUrl: null,
+      imageUrl,
     };
+
     const insertedHeroAbility: HeroAbility[] = await db
       .insert(heroAbility)
       .values(heroAbilityEntry)
@@ -74,39 +82,10 @@ const upsertHeroAbilities = async (
         set: heroAbilityEntry,
       })
       .returning();
-    const insertedHeroAbilityName: string =
-      insertedHeroAbility[0].name
-        .toLowerCase()
-        .replaceAll(" ", "_")
-        .replaceAll(",", "") ?? "";
+
     const insertedHeroAbilityId: number = insertedHeroAbility[0].id ?? 0;
-    const heroAbilityImage = heroAbilityImages.filter((ability: any) =>
-      ability.includes(insertedHeroAbilityName)
-    )[0];
-    const uploadHeroAbilityImageCommand = new PutObjectCommand({
-      Bucket: bucketName,
-      Key: heroAbilityImage,
-      Body: fs.readFileSync(path.join("images/abilities", heroAbilityImage)),
-      ContentType: contentType,
-    });
-    await s3.send(uploadHeroAbilityImageCommand);
-    if (upgrades !== null) {
-      for (const upgrade of upgrades) {
-        const { type, description } = upgrade;
-        const heroAbilityUpgradeEntry: HeroAbilityUpgrade = {
-          abilityId: insertedHeroAbilityId,
-          type,
-          description,
-        };
-        await db
-          .insert(heroAbilityUpgrade)
-          .values(heroAbilityUpgradeEntry)
-          .onConflictDoUpdate({
-            target: [heroAbilityUpgrade.abilityId, heroAbilityUpgrade.type],
-            set: heroAbilityUpgradeEntry,
-          });
-      }
-    }
+
+    await upsertHeroAbilityUpgrades(db, insertedHeroAbilityId, upgrades);
   }
 };
 

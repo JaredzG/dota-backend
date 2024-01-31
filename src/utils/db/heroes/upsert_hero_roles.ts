@@ -1,4 +1,5 @@
-import { heroRole } from "../../db/schema";
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+import { heroRole } from "../../../db/schema";
 
 interface HeroRole {
   id?: number;
@@ -24,6 +25,7 @@ const upsertHeroRoles = async (
       heroId,
       type: role,
     };
+
     await db
       .insert(heroRole)
       .values(heroRoleEntry)
