@@ -34,12 +34,18 @@ const uploadHeroImages = async (
 };
 
 const getHeroImages = async (name: string): Promise<string[]> => {
-  const heroPrimaryImage = heroPrimaryImages.filter((hero: string) =>
-    name.toLowerCase().replace(",", "").replace(" ", "_").includes(hero)
+  const heroPrimaryImage = heroPrimaryImages.filter(
+    (hero: string) =>
+      name.toLowerCase().replaceAll(",", "").replaceAll(" ", "_") ===
+      hero.replace(".png", "")
   )[0];
-  const heroSecondaryImage = heroSecondaryImages.filter((hero: string) =>
-    name.toLowerCase().replace(",", "").replace(" ", "_").includes(hero)
+
+  const heroSecondaryImage = heroSecondaryImages.filter(
+    (hero: string) =>
+      name.toLowerCase().replaceAll(",", "").replaceAll(" ", "_") ===
+      hero.replace(".png", "")
   )[0];
+
   return [heroPrimaryImage, heroSecondaryImage];
 };
 
