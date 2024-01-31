@@ -11,6 +11,19 @@ from lotus.items import HeroItem, ItemItem, HeroMetaInfoItem, ItemMetaInfoItem
 import re
 
 
+class HeroAliasPipeline:
+    def process_item(self, item, spider):
+        if isinstance(item, HeroItem):
+            adapter = ItemAdapter(item)
+            if adapter.get("alias"):
+                adapter["alias"] = adapter["alias"].strip()
+                return item
+            else:
+                raise DropItem(f"Missing alias in {item}.")
+        else:
+            return item
+
+
 class HeroBiographyPipeline:
     def process_item(self, item, spider):
         if isinstance(item, HeroItem):
@@ -445,6 +458,29 @@ class HeroAbilitiesPipeline:
                             )
                             continue
                         elif new_name in ["Familiar Talents"]:
+                            continue
+                    elif "Warlock" in adapter["name"]:
+                        if new_name in ["Permanent Immolation", "Flaming Fists"]:
+                            abilities.append(
+                                {
+                                    "name": f"{new_name} (Warlock Golem)",
+                                    "features": new_features,
+                                    "description": new_description,
+                                    "upgrades": new_upgrades,
+                                    "lore": new_lore,
+                                }
+                            )
+                            continue
+                        elif new_name in ["Eldritch Explosion"]:
+                            abilities.append(
+                                {
+                                    "name": f"{new_name} (Minor Imp)",
+                                    "features": new_features,
+                                    "description": new_description,
+                                    "upgrades": new_upgrades,
+                                    "lore": new_lore,
+                                }
+                            )
                             continue
                     abilities.append(
                         {

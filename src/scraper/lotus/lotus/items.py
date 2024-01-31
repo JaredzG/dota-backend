@@ -8,6 +8,7 @@ import scrapy
 
 class HeroItem(scrapy.Item):
     name = scrapy.Field()
+    alias = scrapy.Field()
     biography = scrapy.Field()
     identity = scrapy.Field()
     description = scrapy.Field()

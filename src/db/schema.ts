@@ -30,6 +30,7 @@ export const heroPrimaryAttributeEnum = pgEnum("hero_primary_attribute", [
 export const hero = pgTable("hero", {
   id: serial("id").unique(),
   name: text("name").primaryKey(),
+  alias: text("alias").unique(),
   biography: text("biography").notNull(),
   identity: text("identity").notNull(),
   description: text("description").notNull(),

@@ -73,6 +73,7 @@ END $$;
 CREATE TABLE IF NOT EXISTS "hero" (
 	"id" serial NOT NULL,
 	"name" text PRIMARY KEY NOT NULL,
+	"alias" text,
 	"biography" text NOT NULL,
 	"identity" text NOT NULL,
 	"description" text NOT NULL,
@@ -81,7 +82,8 @@ CREATE TABLE IF NOT EXISTS "hero" (
 	"primary_attribute" "hero_primary_attribute" NOT NULL,
 	"primary_image_url" text,
 	"secondary_image_url" text,
-	CONSTRAINT "hero_id_unique" UNIQUE("id")
+	CONSTRAINT "hero_id_unique" UNIQUE("id"),
+	CONSTRAINT "hero_alias_unique" UNIQUE("alias")
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "hero_ability" (

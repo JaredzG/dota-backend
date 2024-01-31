@@ -1,5 +1,5 @@
 {
-  "id": "4757de6e-02a5-4362-a9bd-be0b682b7452",
+  "id": "a6a1137d-791d-426c-ae64-6e3a064713ae",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -19,6 +19,12 @@
           "type": "text",
           "primaryKey": true,
           "notNull": true
+        },
+        "alias": {
+          "name": "alias",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
         },
         "biography": {
           "name": "biography",
@@ -78,6 +84,13 @@
           "nullsNotDistinct": false,
           "columns": [
             "id"
+          ]
+        },
+        "hero_alias_unique": {
+          "name": "hero_alias_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "alias"
           ]
         }
       }

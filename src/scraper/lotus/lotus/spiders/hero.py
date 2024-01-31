@@ -24,6 +24,7 @@ class HeroSpider(scrapy.Spider):
     def get_hero_data(self, response):
         hero = response.meta["hero"]
         hero["name"] = self.get_hero_name(response)
+        hero["alias"] = self.get_hero_alias(response)
         hero["biography"] = self.get_hero_biography(response)
         hero["identity"] = self.get_hero_identity(response)
         hero["description"] = self.get_hero_description(response)
@@ -52,6 +53,9 @@ class HeroSpider(scrapy.Spider):
 
     def get_hero_name(self, response):
         return response.xpath('//div[@id="heroBio"]/div[1]/span/text()').get()
+
+    def get_hero_alias(self, response):
+        return response.xpath("//h1/text()").get()
 
     def get_hero_biography(self, response):
         return response.xpath(

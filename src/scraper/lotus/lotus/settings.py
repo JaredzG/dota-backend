@@ -64,21 +64,22 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    "lotus.pipelines.HeroBiographyPipeline": 0,
-    "lotus.pipelines.HeroIdentityPipeline": 50,
-    "lotus.pipelines.HeroDescriptionPipeline": 100,
-    "lotus.pipelines.HeroComplexityPipeline": 150,
-    "lotus.pipelines.HeroAbilitiesPipeline": 200,
-    "lotus.pipelines.HeroTalentsPipeline": 250,
-    "lotus.pipelines.ItemNamePipeline": 300,
-    "lotus.pipelines.ItemClassificationPipeline": 350,
-    "lotus.pipelines.ItemLorePipeline": 400,
-    "lotus.pipelines.ItemStatsPipeline": 450,
-    "lotus.pipelines.ItemAbilitiesPipeline": 500,
-    "lotus.pipelines.ItemPricePipeline": 550,
-    "lotus.pipelines.ItemComponentsPipeline": 600,
-    "lotus.pipelines.HeroMetaInfoPipeline": 650,
-    "lotus.pipelines.ItemMetaInfoPipeline": 700,
+    "lotus.pipelines.HeroAliasPipeline": 0,
+    "lotus.pipelines.HeroBiographyPipeline": 50,
+    "lotus.pipelines.HeroIdentityPipeline": 100,
+    "lotus.pipelines.HeroDescriptionPipeline": 150,
+    "lotus.pipelines.HeroComplexityPipeline": 200,
+    "lotus.pipelines.HeroAbilitiesPipeline": 250,
+    "lotus.pipelines.HeroTalentsPipeline": 300,
+    "lotus.pipelines.ItemNamePipeline": 350,
+    "lotus.pipelines.ItemClassificationPipeline": 400,
+    "lotus.pipelines.ItemLorePipeline": 450,
+    "lotus.pipelines.ItemStatsPipeline": 500,
+    "lotus.pipelines.ItemAbilitiesPipeline": 550,
+    "lotus.pipelines.ItemPricePipeline": 600,
+    "lotus.pipelines.ItemComponentsPipeline": 650,
+    "lotus.pipelines.HeroMetaInfoPipeline": 700,
+    "lotus.pipelines.ItemMetaInfoPipeline": 750,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
