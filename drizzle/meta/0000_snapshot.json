@@ -1,5 +1,5 @@
 {
-  "id": "a6a1137d-791d-426c-ae64-6e3a064713ae",
+  "id": "150ebde9-29ee-437f-8bc0-d852592f4005",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -62,14 +62,14 @@
           "primaryKey": false,
           "notNull": true
         },
-        "primary_image_url": {
-          "name": "primary_image_url",
+        "primary_image_key": {
+          "name": "primary_image_key",
           "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "secondary_image_url": {
-          "name": "secondary_image_url",
+        "secondary_image_key": {
+          "name": "secondary_image_key",
           "type": "text",
           "primaryKey": false,
           "notNull": false
@@ -91,6 +91,20 @@
           "nullsNotDistinct": false,
           "columns": [
             "alias"
+          ]
+        },
+        "hero_primary_image_key_unique": {
+          "name": "hero_primary_image_key_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "primary_image_key"
+          ]
+        },
+        "hero_secondary_image_key_unique": {
+          "name": "hero_secondary_image_key_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "secondary_image_key"
           ]
         }
       }
@@ -159,8 +173,8 @@
           "primaryKey": false,
           "notNull": true
         },
-        "image_url": {
-          "name": "image_url",
+        "image_key": {
+          "name": "image_key",
           "type": "text",
           "primaryKey": false,
           "notNull": false
@@ -198,6 +212,13 @@
           "nullsNotDistinct": false,
           "columns": [
             "id"
+          ]
+        },
+        "hero_ability_image_key_unique": {
+          "name": "hero_ability_image_key_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "image_key"
           ]
         }
       }
@@ -528,8 +549,8 @@
           "primaryKey": false,
           "notNull": true
         },
-        "image_url": {
-          "name": "image_url",
+        "image_key": {
+          "name": "image_key",
           "type": "text",
           "primaryKey": false,
           "notNull": false
@@ -544,6 +565,13 @@
           "nullsNotDistinct": false,
           "columns": [
             "id"
+          ]
+        },
+        "item_image_key_unique": {
+          "name": "item_image_key_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "image_key"
           ]
         }
       }

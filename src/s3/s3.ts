@@ -1,8 +1,5 @@
 import * as fs from "fs";
 import { S3Client } from "@aws-sdk/client-s3";
-import { uploadHeroImages } from "../utils/s3/hero_images";
-import { uploadHeroAbilityImages } from "../utils/s3/hero_ability_images";
-import { uploadItemImages } from "../utils/s3/item_images";
 
 const S3_BUCKET_NAME = process.env.S3_BUCKET_NAME ?? "lotus-app-images";
 const S3_BUCKET_REGION = process.env.S3_BUCKET_REGION ?? "us-east-2";
@@ -28,10 +25,4 @@ const s3BucketName = S3_BUCKET_NAME;
 
 const s3ContentType = "image/png";
 
-const uploadAllImages = async (): Promise<void> => {
-  await uploadHeroImages(s3, S3_BUCKET_NAME, s3ContentType);
-  await uploadHeroAbilityImages(s3, S3_BUCKET_NAME, s3ContentType);
-  await uploadItemImages(s3, S3_BUCKET_NAME, s3ContentType);
-};
-
-export { s3, s3BucketName, uploadAllImages };
+export { s3, s3BucketName, s3ContentType };

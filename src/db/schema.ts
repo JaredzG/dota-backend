@@ -37,8 +37,8 @@ export const hero = pgTable("hero", {
   complexity: heroComplexityEnum("complexity").notNull(),
   attackType: heroAttackTypeEnum("attack_type").notNull(),
   primaryAttribute: heroPrimaryAttributeEnum("primary_attribute").notNull(),
-  primaryImageUrl: text("primary_image_url"),
-  secondaryImageUrl: text("secondary_image_url"),
+  primaryImageKey: text("primary_image_key").unique(),
+  secondaryImageKey: text("secondary_image_key").unique(),
 });
 
 export const heroRoleTypeEnum = pgEnum("hero_role_type", [
@@ -83,7 +83,7 @@ export const heroAbility = pgTable(
     damageType: text("damage_type"),
     hasShardUpgrade: boolean("has_shard_upgrade").notNull(),
     hasScepterUpgrade: boolean("has_scepter_upgrade").notNull(),
-    imageUrl: text("image_url"),
+    imageKey: text("image_key").unique(),
   },
   (table) => {
     return {
@@ -208,7 +208,7 @@ export const item = pgTable("item", {
   hasAbilities: boolean("has_abilities").notNull(),
   hasPrices: boolean("has_prices").notNull(),
   hasComponents: boolean("has_components").notNull(),
-  imageUrl: text("image_url"),
+  imageKey: text("image_key").unique(),
 });
 
 export const itemStat = pgTable(

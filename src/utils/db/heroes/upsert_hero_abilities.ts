@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-import { GetObjectCommand } from "@aws-sdk/client-s3";
-import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+// import { GetObjectCommand } from "@aws-sdk/client-s3";
+// import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { heroAbility } from "../../../db/schema";
 import { getHeroAbilityImage } from "../../s3/hero_ability_images";
 import upsertHeroAbilityUpgrades from "./upsert_hero_ability_upgrades";
@@ -16,7 +16,7 @@ interface HeroAbility {
   affectedTarget: string | null;
   hasShardUpgrade: boolean;
   hasScepterUpgrade: boolean;
-  imageUrl: string | null;
+  imageKey: string;
 }
 
 const upsertHeroAbilities = async (
@@ -54,12 +54,14 @@ const upsertHeroAbilities = async (
 
     const heroAbilityImage = await getHeroAbilityImage(heroName, name);
 
-    const getHeroAbilityImageCommand = new GetObjectCommand({
-      Bucket: s3BucketName,
-      Key: heroAbilityImage,
-    });
+    const imageKey = heroAbilityImage;
 
-    const imageUrl = await getSignedUrl(s3, getHeroAbilityImageCommand);
+    // const getHeroAbilityImageCommand = new GetObjectCommand({
+    //   Bucket: s3BucketName,
+    //   Key: heroAbilityImage,
+    // });
+
+    // const imageUrl = await getSignedUrl(s3, getHeroAbilityImageCommand);
 
     const heroAbilityEntry: HeroAbility = {
       heroId,
@@ -71,7 +73,7 @@ const upsertHeroAbilities = async (
       affectedTarget,
       hasShardUpgrade,
       hasScepterUpgrade,
-      imageUrl,
+      imageKey,
     };
 
     const insertedHeroAbility: HeroAbility[] = await db

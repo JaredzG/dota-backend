@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-import { GetObjectCommand } from "@aws-sdk/client-s3";
-import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+// import { GetObjectCommand } from "@aws-sdk/client-s3";
+// import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { hero } from "../../../db/schema";
 import { getHeroImages } from "../../s3/hero_images";
 import upsertHeroRoles from "./upsert_hero_roles";
@@ -18,8 +18,8 @@ interface Hero {
   complexity: "Simple" | "Moderate" | "Complex";
   attackType: "Melee" | "Ranged";
   primaryAttribute: "Strength" | "Agility" | "Intelligence" | "Universal";
-  primaryImageUrl: string | null;
-  secondaryImageUrl: string | null;
+  primaryImageKey: string;
+  secondaryImageKey: string;
 }
 
 const upsertHero = async (
@@ -52,22 +52,25 @@ const upsertHero = async (
 
   const [heroPrimaryImage, heroSecondaryImage] = await getHeroImages(alias);
 
-  const getHeroPrimaryImageCommand = new GetObjectCommand({
-    Bucket: s3BucketName,
-    Key: heroPrimaryImage,
-  });
+  const primaryImageKey = heroPrimaryImage;
+  const secondaryImageKey = heroSecondaryImage.replace(".png", "_2.png");
 
-  const getHeroSecondaryImageCommand = new GetObjectCommand({
-    Bucket: s3BucketName,
-    Key: heroSecondaryImage.replace(".png", "_2.png"),
-  });
+  // const getHeroPrimaryImageCommand = new GetObjectCommand({
+  //   Bucket: s3BucketName,
+  //   Key: heroPrimaryImage,
+  // });
 
-  const primaryImageUrl = await getSignedUrl(s3, getHeroPrimaryImageCommand);
+  // const getHeroSecondaryImageCommand = new GetObjectCommand({
+  //   Bucket: s3BucketName,
+  //   Key: heroSecondaryImage.replace(".png", "_2.png"),
+  // });
 
-  const secondaryImageUrl = await getSignedUrl(
-    s3,
-    getHeroSecondaryImageCommand
-  );
+  // const primaryImageUrl = await getSignedUrl(s3, getHeroPrimaryImageCommand);
+
+  // const secondaryImageUrl = await getSignedUrl(
+  //   s3,
+  //   getHeroSecondaryImageCommand
+  // );
 
   const heroEntry: Hero = {
     name,
@@ -78,8 +81,8 @@ const upsertHero = async (
     complexity,
     attackType,
     primaryAttribute,
-    primaryImageUrl,
-    secondaryImageUrl,
+    primaryImageKey,
+    secondaryImageKey,
   };
 
   const insertedHero: Hero[] = await db

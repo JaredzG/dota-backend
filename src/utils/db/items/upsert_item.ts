@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-import { GetObjectCommand } from "@aws-sdk/client-s3";
-import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+// import { GetObjectCommand } from "@aws-sdk/client-s3";
+// import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { item } from "../../../db/schema";
 import { getItemImage } from "../../s3/item_images";
 import upsertItemStats from "./upsert_item_stats";
@@ -35,7 +35,7 @@ interface Item {
   hasAbilities: boolean;
   hasPrices: boolean;
   hasComponents: boolean;
-  imageUrl: string | null;
+  imageKey: string;
 }
 
 const upsertItem = async (
@@ -87,12 +87,14 @@ const upsertItem = async (
 
   const itemImage = await getItemImage(name);
 
-  const getItemImageCommand = new GetObjectCommand({
-    Bucket: s3BucketName,
-    Key: itemImage,
-  });
+  const imageKey = itemImage;
 
-  const imageUrl = await getSignedUrl(s3, getItemImageCommand);
+  // const getItemImageCommand = new GetObjectCommand({
+  //   Bucket: s3BucketName,
+  //   Key: itemImage,
+  // });
+
+  // const imageUrl = await getSignedUrl(s3, getItemImageCommand);
 
   const itemEntry: Item = {
     name,
@@ -103,7 +105,7 @@ const upsertItem = async (
     hasAbilities,
     hasPrices,
     hasComponents,
-    imageUrl,
+    imageKey,
   };
 
   const insertedItem: Item[] = await db

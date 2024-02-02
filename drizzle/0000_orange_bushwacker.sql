@@ -80,10 +80,12 @@ CREATE TABLE IF NOT EXISTS "hero" (
 	"complexity" "hero_complexity" NOT NULL,
 	"attack_type" "hero_attack_type" NOT NULL,
 	"primary_attribute" "hero_primary_attribute" NOT NULL,
-	"primary_image_url" text,
-	"secondary_image_url" text,
+	"primary_image_key" text,
+	"secondary_image_key" text,
 	CONSTRAINT "hero_id_unique" UNIQUE("id"),
-	CONSTRAINT "hero_alias_unique" UNIQUE("alias")
+	CONSTRAINT "hero_alias_unique" UNIQUE("alias"),
+	CONSTRAINT "hero_primary_image_key_unique" UNIQUE("primary_image_key"),
+	CONSTRAINT "hero_secondary_image_key_unique" UNIQUE("secondary_image_key")
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "hero_ability" (
@@ -97,9 +99,10 @@ CREATE TABLE IF NOT EXISTS "hero_ability" (
 	"damage_type" text,
 	"has_shard_upgrade" boolean NOT NULL,
 	"has_scepter_upgrade" boolean NOT NULL,
-	"image_url" text,
+	"image_key" text,
 	CONSTRAINT "hero_ability_hero_id_name_pk" PRIMARY KEY("hero_id","name"),
-	CONSTRAINT "hero_ability_id_unique" UNIQUE("id")
+	CONSTRAINT "hero_ability_id_unique" UNIQUE("id"),
+	CONSTRAINT "hero_ability_image_key_unique" UNIQUE("image_key")
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "hero_ability_upgrade" (
@@ -149,8 +152,9 @@ CREATE TABLE IF NOT EXISTS "item" (
 	"has_abilities" boolean NOT NULL,
 	"has_prices" boolean NOT NULL,
 	"has_components" boolean NOT NULL,
-	"image_url" text,
-	CONSTRAINT "item_id_unique" UNIQUE("id")
+	"image_key" text,
+	CONSTRAINT "item_id_unique" UNIQUE("id"),
+	CONSTRAINT "item_image_key_unique" UNIQUE("image_key")
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "item_ability" (
