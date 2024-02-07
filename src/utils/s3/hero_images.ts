@@ -57,19 +57,15 @@ const readAllHeroImageUrls = async (
       Bucket: s3BucketName,
       Key: heroPrimaryImages[i],
     });
-
     const primaryImageUrl = await getSignedUrl(s3, getHeroPrimaryImageCommand);
-
     const getHeroSecondaryImageCommand = new GetObjectCommand({
       Bucket: s3BucketName,
-      Key: heroPrimaryImages[i],
+      Key: heroSecondaryImages[i].replace(".png", "_2.png"),
     });
-
     const secondaryImageUrl = await getSignedUrl(
       s3,
       getHeroSecondaryImageCommand
     );
-
     console.log("------------------------------------------");
     console.log(`#${i + 1} -- ${primaryImageUrl} || ${secondaryImageUrl}`);
     console.log("------------------------------------------");
