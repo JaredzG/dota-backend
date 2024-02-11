@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-import { itemMetaInfo } from "../../../db/schema";
+import { itemMetaInfo } from "../../../db/schemas/items/itemMetaInfo";
 import upsertItemMetaInfoPercentages from "./upsert_item_meta_info_percentages";
 
 interface ItemMetaInfo {

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-import { itemStat } from "../../../db/schema";
+import { itemStat } from "../../../db/schemas/items/itemStat";
 
 interface ItemStat {
   id?: number;

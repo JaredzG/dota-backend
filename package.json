@@ -13,21 +13,20 @@
     "dbupsert": "tsx src/db/operations/upsert_all.ts",
     "dbdelete": "tsx src/db/operations/delete_all.ts",
     "dbcheck": "tsx src/db/operations/check_rows_sequences.ts",
-    "s3upload": "tsx src/s3/operations/upload_all.ts",
-    "s3read": "tsx src/s3/operations/read_all.ts"
+    "s3upload": "tsx src/s3/operations/upload_all.ts"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.496.0",
-    "@aws-sdk/s3-request-presigner": "^3.501.0",
     "drizzle-orm": "^0.29.0",
     "fs": "^0.0.1-security",
-    "pg": "^8.11.3"
+    "postgres": "^3.4.3"
   },
   "devDependencies": {
     "@types/node": "^20.10.6",
     "@types/pg": "^8.10.9",
     "@typescript-eslint/eslint-plugin": "^6.16.0",
-    "drizzle-kit": "^0.20.1",
+    "dotenv": "^16.4.2",
+    "drizzle-kit": "^0.20.14",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard-with-typescript": "^43.0.0",

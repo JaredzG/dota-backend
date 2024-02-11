@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-import { itemComponent } from "../../../db/schema";
+import { itemComponent } from "../../../db/schemas/items/itemComponent";
 
 interface ItemComponent {
   id?: number;

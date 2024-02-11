@@ -1,6 +1,5 @@
 import * as fs from "fs";
-import { connectDB, createPool } from "../db";
-import { s3, s3BucketName } from "../../s3/s3";
+import { db } from "../db";
 import upsertHero from "../../utils/db/heroes/upsert_hero";
 import upsertItem from "../../utils/db/items/upsert_item";
 
@@ -18,14 +17,10 @@ const itemMetaInfoItems = JSON.parse(
   fs.readFileSync(itemsMetaFilePath, "utf-8")
 );
 
-const pool = await createPool();
-const db = await connectDB(pool);
-
 for (const heroItem of heroItems) {
-  await upsertHero(db, s3, s3BucketName, heroItem, heroMetaInfoItems);
+  await upsertHero(db, heroItem, heroMetaInfoItems);
 }
 
 for (const itemItem of itemItems) {
-  await upsertItem(db, s3, s3BucketName, itemItem, itemMetaInfoItems);
+  await upsertItem(db, itemItem, itemMetaInfoItems);
 }
-await pool.end();

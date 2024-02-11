@@ -1,5 +1,5 @@
 {
-  "id": "150ebde9-29ee-437f-8bc0-d852592f4005",
+  "id": "89202e8a-ad0d-48ce-8cf7-cda606231082",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -972,13 +972,6 @@
     }
   },
   "enums": {
-    "hero_ability_upgrade_type": {
-      "name": "hero_ability_upgrade_type",
-      "values": {
-        "Shard Upgrade": "Shard Upgrade",
-        "Scepter Upgrade": "Scepter Upgrade"
-      }
-    },
     "hero_attack_type": {
       "name": "hero_attack_type",
       "values": {
@@ -992,6 +985,22 @@
         "Simple": "Simple",
         "Moderate": "Moderate",
         "Complex": "Complex"
+      }
+    },
+    "hero_primary_attribute": {
+      "name": "hero_primary_attribute",
+      "values": {
+        "Strength": "Strength",
+        "Agility": "Agility",
+        "Intelligence": "Intelligence",
+        "Universal": "Universal"
+      }
+    },
+    "hero_ability_upgrade_type": {
+      "name": "hero_ability_upgrade_type",
+      "values": {
+        "Shard Upgrade": "Shard Upgrade",
+        "Scepter Upgrade": "Scepter Upgrade"
       }
     },
     "hero_meta_info_rank": {
@@ -1009,15 +1018,6 @@
       "values": {
         "Pick Percentage": "Pick Percentage",
         "Win Percentage": "Win Percentage"
-      }
-    },
-    "hero_primary_attribute": {
-      "name": "hero_primary_attribute",
-      "values": {
-        "Strength": "Strength",
-        "Agility": "Agility",
-        "Intelligence": "Intelligence",
-        "Universal": "Universal"
       }
     },
     "hero_role_type": {
@@ -1063,6 +1063,14 @@
         "Tier 5": "Tier 5"
       }
     },
+    "item_type": {
+      "name": "item_type",
+      "values": {
+        "Basic": "Basic",
+        "Upgrade": "Upgrade",
+        "Neutral": "Neutral"
+      }
+    },
     "item_meta_info_type": {
       "name": "item_meta_info_type",
       "values": {
@@ -1075,14 +1083,6 @@
       "values": {
         "Purchase Price": "Purchase Price",
         "Sell Price": "Sell Price"
-      }
-    },
-    "item_type": {
-      "name": "item_type",
-      "values": {
-        "Basic": "Basic",
-        "Upgrade": "Upgrade",
-        "Neutral": "Neutral"
       }
     }
   },

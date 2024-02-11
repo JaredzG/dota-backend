@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-import { itemPrice } from "../../../db/schema";
+import { itemPrice } from "../../../db/schemas/items/itemPrice";
 
 interface ItemPrice {
   id?: number;

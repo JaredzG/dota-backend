@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-// import { GetObjectCommand } from "@aws-sdk/client-s3";
-// import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-import { heroAbility } from "../../../db/schema";
+import { heroAbility } from "../../../db/schemas/heroes/heroAbility";
 import { getHeroAbilityImage } from "../../s3/hero_ability_images";
 import upsertHeroAbilityUpgrades from "./upsert_hero_ability_upgrades";
 
@@ -23,9 +21,7 @@ const upsertHeroAbilities = async (
   db: any,
   heroId: any,
   heroName: any,
-  abilities: any,
-  s3: any,
-  s3BucketName: any
+  abilities: any
 ): Promise<void> => {
   for (const ability of abilities) {
     const {
@@ -55,13 +51,6 @@ const upsertHeroAbilities = async (
     const heroAbilityImage = await getHeroAbilityImage(heroName, name);
 
     const imageKey = heroAbilityImage;
-
-    // const getHeroAbilityImageCommand = new GetObjectCommand({
-    //   Bucket: s3BucketName,
-    //   Key: heroAbilityImage,
-    // });
-
-    // const imageUrl = await getSignedUrl(s3, getHeroAbilityImageCommand);
 
     const heroAbilityEntry: HeroAbility = {
       heroId,

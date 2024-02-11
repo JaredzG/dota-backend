@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-import { heroAbilityUpgrade } from "../../../db/schema";
+import { heroAbilityUpgrade } from "../../../db/schemas/heroes/heroAbilityUpgrade";
 
 interface HeroAbilityUpgrade {
   id?: number;

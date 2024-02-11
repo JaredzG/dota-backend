@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-import { heroMetaInfo } from "../../../db/schema";
+import { heroMetaInfo } from "../../../db/schemas/heroes/heroMetaInfo";
 
 interface HeroMetaInfo {
   id?: number;

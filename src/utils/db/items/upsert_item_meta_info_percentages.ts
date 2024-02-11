@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-import { itemMetaInfoPercentage } from "../../../db/schema";
+import { itemMetaInfoPercentage } from "../../../db/schemas/items/itemMetaInfoPercentage";
 
 interface ItemMetaInfoPercentage {
   id?: number;

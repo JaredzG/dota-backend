@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-import { heroRole } from "../../../db/schema";
+import { heroRole } from "../../../db/schemas/heroes/heroRole";
 
 interface HeroRole {
   id?: number;

@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import * as fs from "fs";
 import path from "path";
-import { GetObjectCommand, PutObjectCommand } from "@aws-sdk/client-s3";
-import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import { PutObjectCommand } from "@aws-sdk/client-s3";
 
 const itemImages = fs.readdirSync("images/items");
 
@@ -28,26 +27,6 @@ const uploadItemImages = async (
   }
 };
 
-const readAllItemImageUrls = async (
-  s3: any,
-  s3BucketName: any
-): Promise<void> => {
-  console.log("------------- PRINTING ITEM IMAGES -------------");
-
-  for (let i = 0; i < itemImages.length; i++) {
-    const getItemImageCommand = new GetObjectCommand({
-      Bucket: s3BucketName,
-      Key: itemImages[i],
-    });
-
-    const imageUrl = await getSignedUrl(s3, getItemImageCommand);
-
-    console.log("------------------------------------------");
-    console.log(`#${i + 1} -- ${imageUrl}`);
-    console.log("------------------------------------------");
-  }
-};
-
 const getItemImage = async (name: string): Promise<string> => {
   const itemImage = itemImages.filter(
     (item: string) =>
@@ -58,4 +37,4 @@ const getItemImage = async (name: string): Promise<string> => {
   return itemImage;
 };
 
-export { uploadItemImages, getItemImage, readAllItemImageUrls };
+export { uploadItemImages, getItemImage };

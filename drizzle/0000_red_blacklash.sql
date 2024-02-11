@@ -1,10 +1,4 @@
 DO $$ BEGIN
- CREATE TYPE "hero_ability_upgrade_type" AS ENUM('Shard Upgrade', 'Scepter Upgrade');
-EXCEPTION
- WHEN duplicate_object THEN null;
-END $$;
---> statement-breakpoint
-DO $$ BEGIN
  CREATE TYPE "hero_attack_type" AS ENUM('Melee', 'Ranged');
 EXCEPTION
  WHEN duplicate_object THEN null;
@@ -17,6 +11,18 @@ EXCEPTION
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
+ CREATE TYPE "hero_primary_attribute" AS ENUM('Strength', 'Agility', 'Intelligence', 'Universal');
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ CREATE TYPE "hero_ability_upgrade_type" AS ENUM('Shard Upgrade', 'Scepter Upgrade');
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
  CREATE TYPE "hero_meta_info_rank" AS ENUM('Herald / Guardian / Crusader', 'Archon', 'Legend', 'Ancient', 'Divine / Immortal');
 EXCEPTION
  WHEN duplicate_object THEN null;
@@ -24,12 +30,6 @@ END $$;
 --> statement-breakpoint
 DO $$ BEGIN
  CREATE TYPE "hero_meta_info_type" AS ENUM('Pick Percentage', 'Win Percentage');
-EXCEPTION
- WHEN duplicate_object THEN null;
-END $$;
---> statement-breakpoint
-DO $$ BEGIN
- CREATE TYPE "hero_primary_attribute" AS ENUM('Strength', 'Agility', 'Intelligence', 'Universal');
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
@@ -53,6 +53,12 @@ EXCEPTION
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
+ CREATE TYPE "item_type" AS ENUM('Basic', 'Upgrade', 'Neutral');
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
  CREATE TYPE "item_meta_info_type" AS ENUM('Use Percentage', 'Win Percentage');
 EXCEPTION
  WHEN duplicate_object THEN null;
@@ -60,12 +66,6 @@ END $$;
 --> statement-breakpoint
 DO $$ BEGIN
  CREATE TYPE "item_price_type" AS ENUM('Purchase Price', 'Sell Price');
-EXCEPTION
- WHEN duplicate_object THEN null;
-END $$;
---> statement-breakpoint
-DO $$ BEGIN
- CREATE TYPE "item_type" AS ENUM('Basic', 'Upgrade', 'Neutral');
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;

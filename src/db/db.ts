@@ -1,28 +1,38 @@
-import { drizzle } from "drizzle-orm/node-postgres";
-import type { NodePgDatabase } from "drizzle-orm/node-postgres";
-import pg from "pg";
-import * as fs from "fs";
+import { drizzle } from "drizzle-orm/postgres-js";
+import postgres from "postgres";
+import "dotenv/config";
+import * as heroSchema from "./schemas/heroes/hero";
+import * as heroAbilitySchema from "./schemas/heroes/heroAbility";
+import * as heroAbilityUpgradeSchema from "./schemas/heroes/heroAbilityUpgrade";
+import * as heroMetaInfoSchema from "./schemas/heroes/heroMetaInfo";
+import * as heroRoleSchema from "./schemas/heroes/heroRole";
+import * as heroTalentSchema from "./schemas/heroes/heroTalent";
+import * as itemSchema from "./schemas/items/item";
+import * as itemAbilitySchema from "./schemas/items/itemAbility";
+import * as itemComponentSchema from "./schemas/items/itemComponent";
+import * as itemMetaInfoSchema from "./schemas/items/itemMetaInfo";
+import * as itemMetaInfoPercentageSchema from "./schemas/items/itemMetaInfoPercentage";
+import * as itemPriceSchema from "./schemas/items/itemPrice";
+import * as itemStatSchema from "./schemas/items/itemStat";
 
-const { Pool } = pg;
+const URI = process.env.DB_URI ?? "";
 
-const DB_HOST = process.env.DB_HOST ?? "postgres";
-const DB_PORT = parseInt(process.env.DB_PORT ?? "5432");
-const DB_USER = process.env.DB_USER ?? "postgres";
-const DB_PASSWORD_FILE =
-  process.env.DB_PASSWORD_FILE ?? "/run/secrets/postgres-password";
-const DB_PASSWORD = fs.readFileSync(DB_PASSWORD_FILE, "utf8");
-const DB_NAME = process.env.DB_NAME ?? "lotus-database";
-
-export const createPool = async (): Promise<pg.Pool> => {
-  return new Pool({
-    host: DB_HOST,
-    port: DB_PORT,
-    user: DB_USER,
-    password: DB_PASSWORD,
-    database: DB_NAME,
-  });
+const schema = {
+  ...heroSchema,
+  ...heroAbilitySchema,
+  ...heroAbilityUpgradeSchema,
+  ...heroMetaInfoSchema,
+  ...heroRoleSchema,
+  ...heroTalentSchema,
+  ...itemSchema,
+  ...itemAbilitySchema,
+  ...itemComponentSchema,
+  ...itemMetaInfoSchema,
+  ...itemMetaInfoPercentageSchema,
+  ...itemPriceSchema,
+  ...itemStatSchema,
 };
 
-export const connectDB = async (
-  pool: pg.Pool
-): Promise<NodePgDatabase<Record<string, never>>> => drizzle(pool);
+export const client = postgres(URI, { prepare: false });
+
+export const db = drizzle(client, { schema });

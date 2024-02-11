@@ -1,8 +1,4 @@
-import { migrate } from "drizzle-orm/node-postgres/migrator";
-import { connectDB, createPool } from "./db";
+import { migrate } from "drizzle-orm/postgres-js/migrator";
+import { db } from "./db";
 
-const pool = await createPool();
-const db = await connectDB(pool);
-
-await migrate(db, { migrationsFolder: "./drizzle" });
-await pool.end();
+await migrate(db, { migrationsFolder: "drizzle" });

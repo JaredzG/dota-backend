@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import * as fs from "fs";
 import path from "path";
-import { GetObjectCommand, PutObjectCommand } from "@aws-sdk/client-s3";
-import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import { PutObjectCommand } from "@aws-sdk/client-s3";
 
 const heroAbilityImages = fs.readdirSync("images/abilities");
 
@@ -31,26 +30,6 @@ const uploadHeroAbilityImages = async (
   }
 };
 
-const readAllHeroAbilityImageUrls = async (
-  s3: any,
-  s3BucketName: any
-): Promise<void> => {
-  console.log("------------- PRINTING HERO ABILITY IMAGES -------------");
-
-  for (let i = 0; i < heroAbilityImages.length; i++) {
-    const getHeroAbilityImageCommand = new GetObjectCommand({
-      Bucket: s3BucketName,
-      Key: heroAbilityImages[i],
-    });
-
-    const imageUrl = await getSignedUrl(s3, getHeroAbilityImageCommand);
-
-    console.log("------------------------------------------");
-    console.log(`#${i + 1} -- ${imageUrl}`);
-    console.log("------------------------------------------");
-  }
-};
-
 const getHeroAbilityImage = async (
   heroName: string,
   name: string
@@ -66,8 +45,4 @@ const getHeroAbilityImage = async (
   return heroAbilityImage;
 };
 
-export {
-  uploadHeroAbilityImages,
-  getHeroAbilityImage,
-  readAllHeroAbilityImageUrls,
-};
+export { uploadHeroAbilityImages, getHeroAbilityImage };

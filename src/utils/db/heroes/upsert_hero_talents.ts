@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-import { heroTalent } from "../../../db/schema";
+import { heroTalent } from "../../../db/schemas/heroes/heroTalent";
 
 interface HeroTalent {
   id?: number;

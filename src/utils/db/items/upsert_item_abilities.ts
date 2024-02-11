@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-import { itemAbility } from "../../../db/schema";
+import { itemAbility } from "../../../db/schemas/items/itemAbility";
 
 interface ItemAbility {
   id?: number;

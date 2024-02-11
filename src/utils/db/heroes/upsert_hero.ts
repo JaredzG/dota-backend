@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-// import { GetObjectCommand } from "@aws-sdk/client-s3";
-// import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-import { hero } from "../../../db/schema";
+import { hero } from "../../../db/schemas/heroes/hero";
 import { getHeroImages } from "../../s3/hero_images";
 import upsertHeroRoles from "./upsert_hero_roles";
 import upsertHeroAbilities from "./upsert_hero_abilities";
@@ -24,8 +22,6 @@ interface Hero {
 
 const upsertHero = async (
   db: any,
-  s3: any,
-  s3BucketName: any,
   heroItem: any,
   heroMetaInfoItems: any
 ): Promise<void> => {
@@ -55,23 +51,6 @@ const upsertHero = async (
   const primaryImageKey = heroPrimaryImage;
   const secondaryImageKey = heroSecondaryImage.replace(".png", "_2.png");
 
-  // const getHeroPrimaryImageCommand = new GetObjectCommand({
-  //   Bucket: s3BucketName,
-  //   Key: heroPrimaryImage,
-  // });
-
-  // const getHeroSecondaryImageCommand = new GetObjectCommand({
-  //   Bucket: s3BucketName,
-  //   Key: heroSecondaryImage.replace(".png", "_2.png"),
-  // });
-
-  // const primaryImageUrl = await getSignedUrl(s3, getHeroPrimaryImageCommand);
-
-  // const secondaryImageUrl = await getSignedUrl(
-  //   s3,
-  //   getHeroSecondaryImageCommand
-  // );
-
   const heroEntry: Hero = {
     name,
     alias,
@@ -94,18 +73,13 @@ const upsertHero = async (
     })
     .returning();
 
+  console.log(insertedHero);
+
   const insertedHeroId: number = insertedHero[0].id ?? 0;
 
   await upsertHeroRoles(db, insertedHeroId, roles);
 
-  await upsertHeroAbilities(
-    db,
-    insertedHeroId,
-    alias,
-    abilities,
-    s3,
-    s3BucketName
-  );
+  await upsertHeroAbilities(db, insertedHeroId, alias, abilities);
 
   await upsertHeroTalents(db, insertedHeroId, talents);
 

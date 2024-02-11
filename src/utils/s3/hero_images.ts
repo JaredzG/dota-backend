@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import * as fs from "fs";
 import path from "path";
-import { GetObjectCommand, PutObjectCommand } from "@aws-sdk/client-s3";
-import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import { PutObjectCommand } from "@aws-sdk/client-s3";
 
 const heroPrimaryImages = fs.readdirSync("images/heroes");
 const heroSecondaryImages = fs.readdirSync("images/heroes2");
@@ -46,32 +45,6 @@ const uploadHeroImages = async (
   }
 };
 
-const readAllHeroImageUrls = async (
-  s3: any,
-  s3BucketName: any
-): Promise<void> => {
-  console.log("------------- PRINTING HERO IMAGES -------------");
-
-  for (let i = 0; i < heroPrimaryImages.length; i++) {
-    const getHeroPrimaryImageCommand = new GetObjectCommand({
-      Bucket: s3BucketName,
-      Key: heroPrimaryImages[i],
-    });
-    const primaryImageUrl = await getSignedUrl(s3, getHeroPrimaryImageCommand);
-    const getHeroSecondaryImageCommand = new GetObjectCommand({
-      Bucket: s3BucketName,
-      Key: heroSecondaryImages[i].replace(".png", "_2.png"),
-    });
-    const secondaryImageUrl = await getSignedUrl(
-      s3,
-      getHeroSecondaryImageCommand
-    );
-    console.log("------------------------------------------");
-    console.log(`#${i + 1} -- ${primaryImageUrl} || ${secondaryImageUrl}`);
-    console.log("------------------------------------------");
-  }
-};
-
 const getHeroImages = async (name: string): Promise<string[]> => {
   const heroPrimaryImage = heroPrimaryImages.filter(
     (hero: string) =>
@@ -88,4 +61,4 @@ const getHeroImages = async (name: string): Promise<string[]> => {
   return [heroPrimaryImage, heroSecondaryImage];
 };
 
-export { uploadHeroImages, getHeroImages, readAllHeroImageUrls };
+export { uploadHeroImages, getHeroImages };
