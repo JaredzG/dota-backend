@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import { db } from "../db";
-import upsertHero from "../../utils/db/heroes/upsert_hero";
-import upsertItem from "../../utils/db/items/upsert_item";
+import upsertHero from "../../lib/db/heroes/upsert_hero";
+import upsertItem from "../../lib/db/items/upsert_item";
 
 const heroesFilePath = "data/heroes.json";
 const itemsFilePath = "data/items.json";

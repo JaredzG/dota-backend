@@ -6,7 +6,9 @@ import {
   primaryKey,
   boolean,
 } from "drizzle-orm/pg-core";
+import { createInsertSchema } from "drizzle-zod";
 import { hero } from "./hero";
+import { type z } from "zod";
 
 export const heroAbility = pgTable(
   "hero_ability",
@@ -31,3 +33,7 @@ export const heroAbility = pgTable(
     };
   }
 );
+
+export const insertHeroAbilitySchema = createInsertSchema(heroAbility);
+
+export type HeroAbility = z.infer<typeof insertHeroAbilitySchema>;

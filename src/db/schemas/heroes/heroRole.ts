@@ -5,7 +5,9 @@ import {
   pgTable,
   primaryKey,
 } from "drizzle-orm/pg-core";
+import { createInsertSchema } from "drizzle-zod";
 import { hero } from "./hero";
+import { type z } from "zod";
 
 export const heroRoleTypeEnum = pgEnum("hero_role_type", [
   "Carry",
@@ -33,3 +35,7 @@ export const heroRole = pgTable(
     };
   }
 );
+
+export const insertHeroRoleSchema = createInsertSchema(heroRole);
+
+export type HeroRole = z.infer<typeof insertHeroRoleSchema>;

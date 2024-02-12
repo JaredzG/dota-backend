@@ -6,6 +6,7 @@ import {
   pgTable,
   primaryKey,
 } from "drizzle-orm/pg-core";
+import { createInsertSchema } from "drizzle-zod";
 import { itemMetaInfo } from "./itemMetaInfo";
 
 export const itemMetaInfoPercentageTypeEnum = pgEnum("item_meta_info_type", [
@@ -36,4 +37,8 @@ export const itemMetaInfoPercentage = pgTable(
       }),
     };
   }
+);
+
+export const insertItemMetaInfoPercentageSchema = createInsertSchema(
+  itemMetaInfoPercentage
 );

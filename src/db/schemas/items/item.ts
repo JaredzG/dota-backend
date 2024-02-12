@@ -1,4 +1,5 @@
 import { serial, text, pgEnum, pgTable, boolean } from "drizzle-orm/pg-core";
+import { createInsertSchema } from "drizzle-zod";
 
 export const itemTypeEnum = pgEnum("item_type", [
   "Basic",
@@ -37,3 +38,5 @@ export const item = pgTable("item", {
   hasComponents: boolean("has_components").notNull(),
   imageKey: text("image_key").unique(),
 });
+
+export const insertItemSchema = createInsertSchema(item);

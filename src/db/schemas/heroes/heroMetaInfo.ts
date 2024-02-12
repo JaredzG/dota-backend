@@ -6,7 +6,9 @@ import {
   pgTable,
   primaryKey,
 } from "drizzle-orm/pg-core";
+import { createInsertSchema } from "drizzle-zod";
 import { hero } from "./hero";
+import { type z } from "zod";
 
 export const heroMetaInfoTypeEnum = pgEnum("hero_meta_info_type", [
   "Pick Percentage",
@@ -43,3 +45,7 @@ export const heroMetaInfo = pgTable(
     };
   }
 );
+
+export const insertHeroMetaInfoSchema = createInsertSchema(heroMetaInfo);
+
+export type HeroMetaInfo = z.infer<typeof insertHeroMetaInfoSchema>;

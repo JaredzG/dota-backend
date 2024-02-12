@@ -1,4 +1,5 @@
 import { serial, text, integer, pgTable } from "drizzle-orm/pg-core";
+import { createInsertSchema } from "drizzle-zod";
 import { item } from "./item";
 
 export const itemMetaInfo = pgTable("item_meta_info", {
@@ -8,3 +9,5 @@ export const itemMetaInfo = pgTable("item_meta_info", {
     .primaryKey(),
   uses: text("uses").notNull(),
 });
+
+export const insertItemMetaInfoSchema = createInsertSchema(itemMetaInfo);

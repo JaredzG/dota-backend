@@ -6,7 +6,9 @@ import {
   pgTable,
   primaryKey,
 } from "drizzle-orm/pg-core";
+import { createInsertSchema } from "drizzle-zod";
 import { heroAbility } from "./heroAbility";
+import { type z } from "zod";
 
 export const heroAbilityUpgradeTypeEnum = pgEnum("hero_ability_upgrade_type", [
   "Shard Upgrade",
@@ -31,3 +33,8 @@ export const heroAbilityUpgrade = pgTable(
     };
   }
 );
+
+export const insertHeroAbilityUpgradeSchema =
+  createInsertSchema(heroAbilityUpgrade);
+
+export type HeroAbilityUpgrade = z.infer<typeof insertHeroAbilityUpgradeSchema>;

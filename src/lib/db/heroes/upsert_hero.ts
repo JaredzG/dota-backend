@@ -1,24 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-import { hero } from "../../../db/schemas/heroes/hero";
+import {
+  hero,
+  insertHeroSchema,
+  type Hero,
+} from "../../../db/schemas/heroes/hero";
 import { getHeroImages } from "../../s3/hero_images";
 import upsertHeroRoles from "./upsert_hero_roles";
 import upsertHeroAbilities from "./upsert_hero_abilities";
 import upsertHeroTalents from "./upsert_hero_talents";
 import upsertHeroMetaInfo from "./upsert_hero_meta_info";
-
-interface Hero {
-  id?: number;
-  name: string;
-  alias: string;
-  biography: string;
-  identity: string;
-  description: string;
-  complexity: "Simple" | "Moderate" | "Complex";
-  attackType: "Melee" | "Ranged";
-  primaryAttribute: "Strength" | "Agility" | "Intelligence" | "Universal";
-  primaryImageKey: string;
-  secondaryImageKey: string;
-}
 
 const upsertHero = async (
   db: any,
@@ -51,7 +41,7 @@ const upsertHero = async (
   const primaryImageKey = heroPrimaryImage;
   const secondaryImageKey = heroSecondaryImage.replace(".png", "_2.png");
 
-  const heroEntry: Hero = {
+  const heroEntry = {
     name,
     alias,
     biography,
@@ -64,26 +54,28 @@ const upsertHero = async (
     secondaryImageKey,
   };
 
-  const insertedHero: Hero[] = await db
-    .insert(hero)
-    .values(heroEntry)
-    .onConflictDoUpdate({
-      target: hero.name,
-      set: heroEntry,
-    })
-    .returning();
+  if (insertHeroSchema.safeParse(heroEntry).success) {
+    const insertedHero: Hero[] = await db
+      .insert(hero)
+      .values(heroEntry)
+      .onConflictDoUpdate({
+        target: hero.name,
+        set: heroEntry,
+      })
+      .returning();
 
-  console.log(insertedHero);
+    console.log(insertedHero[0]);
 
-  const insertedHeroId: number = insertedHero[0].id ?? 0;
+    const insertedHeroId: number = insertedHero[0].id ?? 0;
 
-  await upsertHeroRoles(db, insertedHeroId, roles);
+    await upsertHeroRoles(db, insertedHeroId, roles);
 
-  await upsertHeroAbilities(db, insertedHeroId, alias, abilities);
+    await upsertHeroAbilities(db, insertedHeroId, alias, abilities);
 
-  await upsertHeroTalents(db, insertedHeroId, talents);
+    await upsertHeroTalents(db, insertedHeroId, talents);
 
-  await upsertHeroMetaInfo(db, insertedHeroId, percentages);
+    await upsertHeroMetaInfo(db, insertedHeroId, percentages);
+  }
 };
 
 export default upsertHero;

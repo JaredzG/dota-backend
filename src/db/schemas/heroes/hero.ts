@@ -1,4 +1,6 @@
 import { serial, text, pgEnum, pgTable } from "drizzle-orm/pg-core";
+import { createInsertSchema } from "drizzle-zod";
+import { type z } from "zod";
 
 export const heroComplexityEnum = pgEnum("hero_complexity", [
   "Simple",
@@ -31,3 +33,7 @@ export const hero = pgTable("hero", {
   primaryImageKey: text("primary_image_key").unique(),
   secondaryImageKey: text("secondary_image_key").unique(),
 });
+
+export const insertHeroSchema = createInsertSchema(hero);
+
+export type Hero = z.infer<typeof insertHeroSchema>;

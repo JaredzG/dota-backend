@@ -1,21 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-import { heroAbility } from "../../../db/schemas/heroes/heroAbility";
+import {
+  heroAbility,
+  insertHeroAbilitySchema,
+  type HeroAbility,
+} from "../../../db/schemas/heroes/heroAbility";
 import { getHeroAbilityImage } from "../../s3/hero_ability_images";
 import upsertHeroAbilityUpgrades from "./upsert_hero_ability_upgrades";
-
-interface HeroAbility {
-  id?: number;
-  heroId: number;
-  name: string;
-  lore: string | null;
-  description: string;
-  abilityType: string;
-  damageType: string | null;
-  affectedTarget: string | null;
-  hasShardUpgrade: boolean;
-  hasScepterUpgrade: boolean;
-  imageKey: string;
-}
 
 const upsertHeroAbilities = async (
   db: any,
@@ -52,7 +42,7 @@ const upsertHeroAbilities = async (
 
     const imageKey = heroAbilityImage;
 
-    const heroAbilityEntry: HeroAbility = {
+    const heroAbilityEntry = {
       heroId,
       name,
       lore,
@@ -65,18 +55,22 @@ const upsertHeroAbilities = async (
       imageKey,
     };
 
-    const insertedHeroAbility: HeroAbility[] = await db
-      .insert(heroAbility)
-      .values(heroAbilityEntry)
-      .onConflictDoUpdate({
-        target: [heroAbility.heroId, heroAbility.name],
-        set: heroAbilityEntry,
-      })
-      .returning();
+    if (insertHeroAbilitySchema.safeParse(heroAbilityEntry).success) {
+      const insertedHeroAbility: HeroAbility[] = await db
+        .insert(heroAbility)
+        .values(heroAbilityEntry)
+        .onConflictDoUpdate({
+          target: [heroAbility.heroId, heroAbility.name],
+          set: heroAbilityEntry,
+        })
+        .returning();
 
-    const insertedHeroAbilityId: number = insertedHeroAbility[0].id ?? 0;
+      console.log(insertedHeroAbility[0]);
 
-    await upsertHeroAbilityUpgrades(db, insertedHeroAbilityId, upgrades);
+      const insertedHeroAbilityId: number = insertedHeroAbility[0].id ?? 0;
+
+      await upsertHeroAbilityUpgrades(db, insertedHeroAbilityId, upgrades);
+    }
   }
 };
 

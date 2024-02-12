@@ -1,8 +1,5 @@
 import { sql } from "drizzle-orm";
-import { createPool, connectDB } from "../db";
-
-const pool = await createPool();
-const db = await connectDB(pool);
+import { db } from "../db";
 
 // Check that each table id sequence last value matches the count of rows in the corresponding table.
 const rowCountsResult = await db.execute(

@@ -6,6 +6,7 @@ import {
   pgTable,
   primaryKey,
 } from "drizzle-orm/pg-core";
+import { createInsertSchema } from "drizzle-zod";
 import { item } from "./item";
 
 export const itemPriceTypeEnum = pgEnum("item_price_type", [
@@ -29,3 +30,5 @@ export const itemPrice = pgTable(
     };
   }
 );
+
+export const insertItemPriceSchema = createInsertSchema(itemPrice);

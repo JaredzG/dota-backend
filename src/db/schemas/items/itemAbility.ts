@@ -5,6 +5,7 @@ import {
   pgTable,
   primaryKey,
 } from "drizzle-orm/pg-core";
+import { createInsertSchema } from "drizzle-zod";
 import { item } from "./item";
 
 export const itemAbility = pgTable(
@@ -26,3 +27,5 @@ export const itemAbility = pgTable(
     };
   }
 );
+
+export const insertItemAbilitySchema = createInsertSchema(itemAbility);
