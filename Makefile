@@ -1,4 +1,4 @@
-.PHONY: dev serve watch scrall scrh scri scrhm scrim scremp dbgen dbpush dbdrop dbupsert dbdelete dbcheck s3upload
+.PHONY: dev serve watch scrall scrh scri scrhm scrim scremp dbgen dbpush dbdrop dbinsert dbdelete s3upload
 
 dev:
 	@npm run dev
@@ -35,14 +35,11 @@ dbpush:
 dbdrop:
 	@npm run dbdrop
 
-dbupsert:
-	@npm run dbupsert
+dbinsert:
+	@npm run dbinsert
 
 dbdelete:
 	@npm run dbdelete
-
-dbcheck:
-	@npm run dbcheck
 
 s3upload:
 	@npm run s3upload

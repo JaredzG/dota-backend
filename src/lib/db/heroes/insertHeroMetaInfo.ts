@@ -1,13 +1,13 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import {
   heroMetaInfo,
   insertHeroMetaInfoSchema,
   type HeroMetaInfo,
 } from "../../../db/schemas/heroes/heroMetaInfo";
+import { type DB } from "../../../db/db";
 
-const upsertHeroMetaInfo = async (
-  db: any,
-  heroId: any,
+const insertHeroMetaInfo = async (
+  db: DB,
+  heroId: number,
   percentages: any
 ): Promise<void> => {
   for (const metaPercentage of percentages) {
@@ -27,11 +27,12 @@ const upsertHeroMetaInfo = async (
         .onConflictDoUpdate({
           target: [heroMetaInfo.heroId, heroMetaInfo.rank, heroMetaInfo.type],
           set: heroMetaInfoEntry,
-        });
+        })
+        .returning();
 
       console.log(insertedHeroMetaInfo[0]);
     }
   }
 };
 
-export default upsertHeroMetaInfo;
+export default insertHeroMetaInfo;

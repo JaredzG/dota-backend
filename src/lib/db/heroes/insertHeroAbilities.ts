@@ -1,16 +1,16 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import {
   heroAbility,
   insertHeroAbilitySchema,
   type HeroAbility,
 } from "../../../db/schemas/heroes/heroAbility";
-import { getHeroAbilityImage } from "../../s3/hero_ability_images";
-import upsertHeroAbilityUpgrades from "./upsert_hero_ability_upgrades";
+import { getHeroAbilityImage } from "../../s3/heroAbilityImages";
+import insertHeroAbilityUpgrades from "./insertHeroAbilityUpgrades";
+import { type DB } from "../../../db/db";
 
-const upsertHeroAbilities = async (
-  db: any,
-  heroId: any,
-  heroName: any,
+const insertHeroAbilities = async (
+  db: DB,
+  heroId: number,
+  heroName: string,
   abilities: any
 ): Promise<void> => {
   for (const ability of abilities) {
@@ -38,7 +38,10 @@ const upsertHeroAbilities = async (
       }
     }
 
-    const heroAbilityImage = await getHeroAbilityImage(heroName, name);
+    const heroAbilityImage = await getHeroAbilityImage(
+      heroName,
+      name as string
+    );
 
     const imageKey = heroAbilityImage;
 
@@ -69,9 +72,9 @@ const upsertHeroAbilities = async (
 
       const insertedHeroAbilityId: number = insertedHeroAbility[0].id ?? 0;
 
-      await upsertHeroAbilityUpgrades(db, insertedHeroAbilityId, upgrades);
+      await insertHeroAbilityUpgrades(db, insertedHeroAbilityId, upgrades);
     }
   }
 };
 
-export default upsertHeroAbilities;
+export default insertHeroAbilities;

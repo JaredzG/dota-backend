@@ -10,10 +10,9 @@
     "dbgen": "drizzle-kit generate:pg",
     "dbpush": "tsx ./src/db/migrate.ts",
     "dbdrop": "drizzle-kit drop",
-    "dbupsert": "tsx src/db/operations/upsert_all.ts",
-    "dbdelete": "tsx src/db/operations/delete_all.ts",
-    "dbcheck": "tsx src/db/operations/check_rows_sequences.ts",
-    "s3upload": "tsx src/s3/operations/upload_all.ts"
+    "dbinsert": "tsx src/db/operations/insertAll.ts",
+    "dbdelete": "tsx src/db/operations/deleteAll.ts",
+    "s3upload": "tsx src/s3/operations/uploadAll.ts"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.496.0",

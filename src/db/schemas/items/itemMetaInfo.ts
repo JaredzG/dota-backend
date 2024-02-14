@@ -1,5 +1,6 @@
 import { serial, text, integer, pgTable } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
+import { type z } from "zod";
 import { item } from "./item";
 
 export const itemMetaInfo = pgTable("item_meta_info", {
@@ -11,3 +12,5 @@ export const itemMetaInfo = pgTable("item_meta_info", {
 });
 
 export const insertItemMetaInfoSchema = createInsertSchema(itemMetaInfo);
+
+export type ItemMetaInfo = z.infer<typeof insertItemMetaInfoSchema>;

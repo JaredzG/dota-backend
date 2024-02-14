@@ -1,13 +1,13 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import {
   heroRole,
   insertHeroRoleSchema,
   type HeroRole,
 } from "../../../db/schemas/heroes/heroRole";
+import { type DB } from "../../../db/db";
 
-const upsertHeroRoles = async (
-  db: any,
-  heroId: any,
+const insertHeroRoles = async (
+  db: DB,
+  heroId: number,
   roles: any
 ): Promise<void> => {
   for (const role of roles) {
@@ -23,11 +23,12 @@ const upsertHeroRoles = async (
         .onConflictDoUpdate({
           target: [heroRole.heroId, heroRole.type],
           set: heroRoleEntry,
-        });
+        })
+        .returning();
 
       console.log(insertedHeroRole[0]);
     }
   }
 };
 
-export default upsertHeroRoles;
+export default insertHeroRoles;

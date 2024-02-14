@@ -1,13 +1,13 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import {
   heroAbilityUpgrade,
   insertHeroAbilityUpgradeSchema,
   type HeroAbilityUpgrade,
 } from "../../../db/schemas/heroes/heroAbilityUpgrade";
+import { type DB } from "../../../db/db";
 
-const upsertHeroAbilityUpgrades = async (
-  db: any,
-  abilityId: any,
+const insertHeroAbilityUpgrades = async (
+  db: DB,
+  abilityId: number,
   upgrades: any
 ): Promise<void> => {
   if (upgrades !== null) {
@@ -39,4 +39,4 @@ const upsertHeroAbilityUpgrades = async (
   }
 };
 
-export default upsertHeroAbilityUpgrades;
+export default insertHeroAbilityUpgrades;

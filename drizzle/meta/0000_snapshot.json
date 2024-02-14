@@ -1,5 +1,5 @@
 {
-  "id": "89202e8a-ad0d-48ce-8cf7-cda606231082",
+  "id": "de2023b2-828f-4c8b-a8d9-ffc796d5faae",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -186,7 +186,6 @@
           "name": "hero_ability_hero_id_hero_id_fk",
           "tableFrom": "hero_ability",
           "tableTo": "hero",
-          "schemaTo": "public",
           "columnsFrom": [
             "hero_id"
           ],
@@ -258,7 +257,6 @@
           "name": "hero_ability_upgrade_ability_id_hero_ability_id_fk",
           "tableFrom": "hero_ability_upgrade",
           "tableTo": "hero_ability",
-          "schemaTo": "public",
           "columnsFrom": [
             "ability_id"
           ],
@@ -329,7 +327,6 @@
           "name": "hero_meta_info_hero_id_hero_id_fk",
           "tableFrom": "hero_meta_info",
           "tableTo": "hero",
-          "schemaTo": "public",
           "columnsFrom": [
             "hero_id"
           ],
@@ -389,7 +386,6 @@
           "name": "hero_role_hero_id_hero_id_fk",
           "tableFrom": "hero_role",
           "tableTo": "hero",
-          "schemaTo": "public",
           "columnsFrom": [
             "hero_id"
           ],
@@ -460,7 +456,6 @@
           "name": "hero_talent_hero_id_hero_id_fk",
           "tableFrom": "hero_talent",
           "tableTo": "hero",
-          "schemaTo": "public",
           "columnsFrom": [
             "hero_id"
           ],
@@ -629,7 +624,6 @@
           "name": "item_ability_item_id_item_id_fk",
           "tableFrom": "item_ability",
           "tableTo": "item",
-          "schemaTo": "public",
           "columnsFrom": [
             "item_id"
           ],
@@ -700,7 +694,6 @@
           "name": "item_component_item_id_item_id_fk",
           "tableFrom": "item_component",
           "tableTo": "item",
-          "schemaTo": "public",
           "columnsFrom": [
             "item_id"
           ],
@@ -759,7 +752,6 @@
           "name": "item_meta_info_item_id_item_id_fk",
           "tableFrom": "item_meta_info",
           "tableTo": "item",
-          "schemaTo": "public",
           "columnsFrom": [
             "item_id"
           ],
@@ -816,7 +808,6 @@
           "name": "item_meta_info_percentage_item_meta_info_id_item_meta_info_id_fk",
           "tableFrom": "item_meta_info_percentage",
           "tableTo": "item_meta_info",
-          "schemaTo": "public",
           "columnsFrom": [
             "item_meta_info_id"
           ],
@@ -881,7 +872,6 @@
           "name": "item_price_item_id_item_id_fk",
           "tableFrom": "item_price",
           "tableTo": "item",
-          "schemaTo": "public",
           "columnsFrom": [
             "item_id"
           ],
@@ -940,7 +930,6 @@
           "name": "item_stat_item_id_item_id_fk",
           "tableFrom": "item_stat",
           "tableTo": "item",
-          "schemaTo": "public",
           "columnsFrom": [
             "item_id"
           ],

@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import { db } from "../db";
-import upsertHero from "../../lib/db/heroes/upsert_hero";
-import upsertItem from "../../lib/db/items/upsert_item";
+import insertHero from "../../lib/db/heroes/insertHero";
+import insertItem from "../../lib/db/items/insertItem";
 
 const heroesFilePath = "data/heroes.json";
 const itemsFilePath = "data/items.json";
@@ -18,9 +18,9 @@ const itemMetaInfoItems = JSON.parse(
 );
 
 for (const heroItem of heroItems) {
-  await upsertHero(db, heroItem, heroMetaInfoItems);
+  await insertHero(db, heroItem, heroMetaInfoItems);
 }
 
 for (const itemItem of itemItems) {
-  await upsertItem(db, itemItem, itemMetaInfoItems);
+  await insertItem(db, itemItem, itemMetaInfoItems);
 }

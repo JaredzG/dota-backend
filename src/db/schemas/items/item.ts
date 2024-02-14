@@ -1,5 +1,6 @@
 import { serial, text, pgEnum, pgTable, boolean } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
+import { type z } from "zod";
 
 export const itemTypeEnum = pgEnum("item_type", [
   "Basic",
@@ -40,3 +41,5 @@ export const item = pgTable("item", {
 });
 
 export const insertItemSchema = createInsertSchema(item);
+
+export type Item = z.infer<typeof insertItemSchema>;

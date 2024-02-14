@@ -1,6 +1,5 @@
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
-import "dotenv/config";
 import * as heroSchema from "./schemas/heroes/hero";
 import * as heroAbilitySchema from "./schemas/heroes/heroAbility";
 import * as heroAbilityUpgradeSchema from "./schemas/heroes/heroAbilityUpgrade";
@@ -14,8 +13,9 @@ import * as itemMetaInfoSchema from "./schemas/items/itemMetaInfo";
 import * as itemMetaInfoPercentageSchema from "./schemas/items/itemMetaInfoPercentage";
 import * as itemPriceSchema from "./schemas/items/itemPrice";
 import * as itemStatSchema from "./schemas/items/itemStat";
+import "dotenv/config";
 
-const URI = process.env.DB_URI ?? "";
+const URI = process.env.DB_URI;
 
 const schema = {
   ...heroSchema,
@@ -33,6 +33,10 @@ const schema = {
   ...itemStatSchema,
 };
 
-export const client = postgres(URI, { prepare: false });
+export const client = postgres(URI, {
+  prepare: false,
+});
 
 export const db = drizzle(client, { schema });
+
+export type DB = typeof db;

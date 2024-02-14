@@ -1,17 +1,17 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import {
   hero,
   insertHeroSchema,
   type Hero,
 } from "../../../db/schemas/heroes/hero";
-import { getHeroImages } from "../../s3/hero_images";
-import upsertHeroRoles from "./upsert_hero_roles";
-import upsertHeroAbilities from "./upsert_hero_abilities";
-import upsertHeroTalents from "./upsert_hero_talents";
-import upsertHeroMetaInfo from "./upsert_hero_meta_info";
+import { getHeroImages } from "../../s3/heroImages";
+import insertHeroRoles from "./insertHeroRoles";
+import insertHeroAbilities from "./insertHeroAbilities";
+import insertHeroTalents from "./insertHeroTalents";
+import insertHeroMetaInfo from "./insertHeroMetaInfo";
+import { type DB } from "../../../db/db";
 
-const upsertHero = async (
-  db: any,
+const insertHero = async (
+  db: DB,
   heroItem: any,
   heroMetaInfoItems: any
 ): Promise<void> => {
@@ -36,7 +36,9 @@ const upsertHero = async (
     }) => name.includes(heroMetaInfoItem.name)
   )[0];
 
-  const [heroPrimaryImage, heroSecondaryImage] = await getHeroImages(alias);
+  const [heroPrimaryImage, heroSecondaryImage] = await getHeroImages(
+    alias as string
+  );
 
   const primaryImageKey = heroPrimaryImage;
   const secondaryImageKey = heroSecondaryImage.replace(".png", "_2.png");
@@ -68,14 +70,14 @@ const upsertHero = async (
 
     const insertedHeroId: number = insertedHero[0].id ?? 0;
 
-    await upsertHeroRoles(db, insertedHeroId, roles);
+    await insertHeroRoles(db, insertedHeroId, roles);
 
-    await upsertHeroAbilities(db, insertedHeroId, alias, abilities);
+    await insertHeroAbilities(db, insertedHeroId, alias as string, abilities);
 
-    await upsertHeroTalents(db, insertedHeroId, talents);
+    await insertHeroTalents(db, insertedHeroId, talents);
 
-    await upsertHeroMetaInfo(db, insertedHeroId, percentages);
+    await insertHeroMetaInfo(db, insertedHeroId, percentages);
   }
 };
 
-export default upsertHero;
+export default insertHero;

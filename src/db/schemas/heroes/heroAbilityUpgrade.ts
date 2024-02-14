@@ -7,8 +7,8 @@ import {
   primaryKey,
 } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
-import { heroAbility } from "./heroAbility";
 import { type z } from "zod";
+import { heroAbility } from "./heroAbility";
 
 export const heroAbilityUpgradeTypeEnum = pgEnum("hero_ability_upgrade_type", [
   "Shard Upgrade",

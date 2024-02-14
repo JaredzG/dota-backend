@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import * as fs from "fs";
 import path from "path";
 import { PutObjectCommand } from "@aws-sdk/client-s3";

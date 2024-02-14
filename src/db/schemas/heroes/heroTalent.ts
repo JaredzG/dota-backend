@@ -7,8 +7,8 @@ import {
   primaryKey,
 } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
-import { hero } from "./hero";
 import { type z } from "zod";
+import { hero } from "./hero";
 
 export const heroTalentLevelEnum = pgEnum("hero_talent_level", [
   "Novice",

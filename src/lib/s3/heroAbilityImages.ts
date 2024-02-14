@@ -1,14 +1,13 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import * as fs from "fs";
 import path from "path";
-import { PutObjectCommand } from "@aws-sdk/client-s3";
+import { PutObjectCommand, type S3Client } from "@aws-sdk/client-s3";
 
 const heroAbilityImages = fs.readdirSync("images/abilities");
 
 const uploadHeroAbilityImages = async (
-  s3: any,
-  s3BucketName: any,
-  s3ContentType: any
+  s3: S3Client,
+  s3BucketName: string,
+  s3ContentType: string
 ): Promise<void> => {
   console.log("------------- UPLOADING HERO ABILITY IMAGES -------------");
 
