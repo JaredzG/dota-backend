@@ -500,19 +500,19 @@ class HeroAbilitiesPipeline:
 
     def get_ability_features(self, old_features):
         features = {}
-        features_list = ["ability_type", "affected_target", "damage_type"]
+        features_list = ["ability_types", "affected_targets", "damage_types"]
         new_features = old_features.strip().replace("\xa0", "").split("\n")
         for feature in new_features:
             feature = re.sub(r"\(.*?\)", "", feature).replace("  ", " ").strip()
             if "Ability" in feature:
-                feature_value = feature[7:]
-                features["ability_type"] = feature_value
+                feature_value = feature[7:].strip().split(" / ")
+                features["ability_types"] = feature_value
             elif "Affects" in feature:
-                feature_value = feature[7:]
-                features["affected_target"] = feature_value
+                feature_value = feature[7:].strip().split(" / ")
+                features["affected_targets"] = feature_value
             elif "Damage" in feature:
-                feature_value = feature[6:]
-                features["damage_type"] = feature_value
+                feature_value = feature[6:].strip().split(" / ")
+                features["damage_types"] = feature_value
         for feature in features_list:
             if feature not in features:
                 features[feature] = None
@@ -723,14 +723,30 @@ class ItemStatsPipeline:
                             )
                             new_stats.append(f"{value} {property}")
                         stats = new_stats
-                    for i in range(len(stats)):
-                        stats[i] = (
-                            stats[i]
+                    new_stats = stats.copy()
+                    stats = []
+                    for i in range(len(new_stats)):
+                        effect = re.findall(
+                            r"(.+[^a-zA-Z]+) ([a-zA-Z ]+)",
+                            new_stats[i]
                             .replace("  ", " ")
                             .replace("/ ", "/")
                             .replace(" /", "/")
-                            .replace("/", " / ")
-                        )
+                            .replace("/", " / "),
+                        )[0]
+                        values = effect[0].replace("/ ", "/ +").split(" / ")
+                        for i in range(len(values)):
+                            stat = {
+                                "property": effect[1],
+                                "value": values[i],
+                            }
+                            if len(values) == 1:
+                                stat["variant"] = "Default"
+                            elif i == 0:
+                                stat["variant"] = "Melee"
+                            else:
+                                stat["variant"] = "Ranged"
+                            stats.append(stat)
                     if not stats:
                         stats = None
                 adapter["stats"] = stats
@@ -776,19 +792,19 @@ class ItemAbilitiesPipeline:
 
     def get_ability_features(self, old_features):
         features = {}
-        features_list = ["ability_type", "affected_target", "damage_type"]
+        features_list = ["ability_types", "affected_targets", "damage_types"]
         new_features = old_features.strip().replace("\xa0", "").split("\n")
         for feature in new_features:
             feature = re.sub(r"\(.*?\)", "", feature).replace("  ", " ").strip()
             if "Ability" in feature:
-                feature_value = feature[7:]
-                features["ability_type"] = feature_value
+                feature_value = feature[7:].strip().split(" / ")
+                features["ability_types"] = feature_value
             elif "Affects" in feature:
-                feature_value = feature[7:]
-                features["affected_target"] = feature_value
+                feature_value = feature[7:].strip().split(" / ")
+                features["affected_targets"] = feature_value
             elif "Damage" in feature:
-                feature_value = feature[6:]
-                features["damage_type"] = feature_value
+                feature_value = feature[6:].strip().split(" / ")
+                features["damage_types"] = feature_value
         for feature in features_list:
             if feature not in features:
                 features[feature] = None

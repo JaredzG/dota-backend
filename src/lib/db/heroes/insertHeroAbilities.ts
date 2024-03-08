@@ -6,6 +6,7 @@ import {
 import { getHeroAbilityImage } from "../../s3/heroAbilityImages";
 import insertHeroAbilityUpgrades from "./insertHeroAbilityUpgrades";
 import { type DB } from "../../../db/db";
+import insertHeroAbilityFeatures from "./insertHeroAbilityFeatures";
 
 const insertHeroAbilities = async (
   db: DB,
@@ -14,17 +15,7 @@ const insertHeroAbilities = async (
   abilities: any
 ): Promise<void> => {
   for (const ability of abilities) {
-    const {
-      name,
-      lore,
-      description,
-      features: {
-        ability_type: abilityType,
-        affected_target: affectedTarget,
-        damage_type: damageType,
-      },
-      upgrades,
-    } = ability;
+    const { name, lore, description, features, upgrades } = ability;
     let hasShardUpgrade = false;
     let hasScepterUpgrade = false;
 
@@ -50,9 +41,6 @@ const insertHeroAbilities = async (
       name,
       lore,
       description,
-      abilityType,
-      damageType,
-      affectedTarget,
       hasShardUpgrade,
       hasScepterUpgrade,
       imageKey,
@@ -71,6 +59,8 @@ const insertHeroAbilities = async (
       console.log(insertedHeroAbility[0]);
 
       const insertedHeroAbilityId: number = insertedHeroAbility[0].id ?? 0;
+
+      await insertHeroAbilityFeatures(db, insertedHeroAbilityId, features);
 
       await insertHeroAbilityUpgrades(db, insertedHeroAbilityId, upgrades);
     }

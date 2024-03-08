@@ -16,11 +16,13 @@ export const itemStat = pgTable(
     itemId: integer("item_id")
       .references(() => item.id)
       .notNull(),
-    effect: text("effect").notNull(),
+    property: text("property").notNull(),
+    value: text("value").notNull(),
+    variant: text("variant").notNull(),
   },
   (itemStat) => {
     return {
-      pk: primaryKey({ columns: [itemStat.itemId, itemStat.effect] }),
+      pk: primaryKey({ columns: [itemStat.itemId, itemStat.property] }),
     };
   }
 );

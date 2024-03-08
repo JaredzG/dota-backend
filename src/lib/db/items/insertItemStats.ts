@@ -14,7 +14,9 @@ const insertItemStats = async (
     for (const stat of stats) {
       const itemStatEntry = {
         itemId,
-        effect: stat,
+        property: stat.property,
+        value: stat.value,
+        variant: stat.variant,
       };
 
       if (insertItemStatSchema.safeParse(itemStatEntry).success) {
@@ -22,7 +24,7 @@ const insertItemStats = async (
           .insert(itemStat)
           .values(itemStatEntry)
           .onConflictDoUpdate({
-            target: [itemStat.itemId, itemStat.effect],
+            target: [itemStat.itemId, itemStat.property],
             set: itemStatEntry,
           })
           .returning();

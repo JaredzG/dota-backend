@@ -94,15 +94,21 @@ CREATE TABLE IF NOT EXISTS "hero_ability" (
 	"name" text NOT NULL,
 	"lore" text,
 	"description" text NOT NULL,
-	"ability_type" text NOT NULL,
-	"affected_target" text,
-	"damage_type" text,
 	"has_shard_upgrade" boolean NOT NULL,
 	"has_scepter_upgrade" boolean NOT NULL,
 	"image_key" text,
 	CONSTRAINT "hero_ability_hero_id_name_pk" PRIMARY KEY("hero_id","name"),
 	CONSTRAINT "hero_ability_id_unique" UNIQUE("id"),
 	CONSTRAINT "hero_ability_image_key_unique" UNIQUE("image_key")
+);
+--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "hero_ability_feature" (
+	"id" serial NOT NULL,
+	"hero_ability_id" integer NOT NULL,
+	"type" text NOT NULL,
+	"value" text,
+	CONSTRAINT "hero_ability_feature_hero_ability_id_type_pk" PRIMARY KEY("hero_ability_id","type"),
+	CONSTRAINT "hero_ability_feature_id_unique" UNIQUE("id")
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "hero_ability_upgrade" (
@@ -162,11 +168,17 @@ CREATE TABLE IF NOT EXISTS "item_ability" (
 	"item_id" integer NOT NULL,
 	"name" text NOT NULL,
 	"description" text NOT NULL,
-	"ability_type" text NOT NULL,
-	"affected_target" text,
-	"damage_type" text,
 	CONSTRAINT "item_ability_item_id_name_pk" PRIMARY KEY("item_id","name"),
 	CONSTRAINT "item_ability_id_unique" UNIQUE("id")
+);
+--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "item_ability_feature" (
+	"id" serial NOT NULL,
+	"item_ability_id" integer NOT NULL,
+	"type" text NOT NULL,
+	"value" text,
+	CONSTRAINT "item_ability_feature_item_ability_id_type_pk" PRIMARY KEY("item_ability_id","type"),
+	CONSTRAINT "item_ability_feature_id_unique" UNIQUE("id")
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "item_component" (
@@ -207,13 +219,21 @@ CREATE TABLE IF NOT EXISTS "item_price" (
 CREATE TABLE IF NOT EXISTS "item_stat" (
 	"id" serial NOT NULL,
 	"item_id" integer NOT NULL,
-	"effect" text NOT NULL,
-	CONSTRAINT "item_stat_item_id_effect_pk" PRIMARY KEY("item_id","effect"),
+	"property" text NOT NULL,
+	"value" text NOT NULL,
+	"variant" text NOT NULL,
+	CONSTRAINT "item_stat_item_id_property_pk" PRIMARY KEY("item_id","property"),
 	CONSTRAINT "item_stat_id_unique" UNIQUE("id")
 );
 --> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "hero_ability" ADD CONSTRAINT "hero_ability_hero_id_hero_id_fk" FOREIGN KEY ("hero_id") REFERENCES "hero"("id") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "hero_ability_feature" ADD CONSTRAINT "hero_ability_feature_hero_ability_id_hero_ability_id_fk" FOREIGN KEY ("hero_ability_id") REFERENCES "hero_ability"("id") ON DELETE no action ON UPDATE no action;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
@@ -244,6 +264,12 @@ END $$;
 --> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "item_ability" ADD CONSTRAINT "item_ability_item_id_item_id_fk" FOREIGN KEY ("item_id") REFERENCES "item"("id") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "item_ability_feature" ADD CONSTRAINT "item_ability_feature_item_ability_id_item_ability_id_fk" FOREIGN KEY ("item_ability_id") REFERENCES "item_ability"("id") ON DELETE no action ON UPDATE no action;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;

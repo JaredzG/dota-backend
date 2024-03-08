@@ -18,9 +18,6 @@ export const itemAbility = pgTable(
       .notNull(),
     name: text("name").notNull(),
     description: text("description").notNull(),
-    abilityType: text("ability_type").notNull(),
-    affectedTarget: text("affected_target"),
-    damageType: text("damage_type"),
   },
   (itemAbility) => {
     return {

@@ -1,5 +1,5 @@
 {
-  "id": "de2023b2-828f-4c8b-a8d9-ffc796d5faae",
+  "id": "afc56f67-796e-4980-8efa-41d77b7fc4a3",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -143,24 +143,6 @@
           "primaryKey": false,
           "notNull": true
         },
-        "ability_type": {
-          "name": "ability_type",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "affected_target": {
-          "name": "affected_target",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "damage_type": {
-          "name": "damage_type",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        },
         "has_shard_upgrade": {
           "name": "has_shard_upgrade",
           "type": "boolean",
@@ -218,6 +200,70 @@
           "nullsNotDistinct": false,
           "columns": [
             "image_key"
+          ]
+        }
+      }
+    },
+    "hero_ability_feature": {
+      "name": "hero_ability_feature",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "hero_ability_id": {
+          "name": "hero_ability_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "value": {
+          "name": "value",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "hero_ability_feature_hero_ability_id_hero_ability_id_fk": {
+          "name": "hero_ability_feature_hero_ability_id_hero_ability_id_fk",
+          "tableFrom": "hero_ability_feature",
+          "tableTo": "hero_ability",
+          "columnsFrom": [
+            "hero_ability_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "hero_ability_feature_hero_ability_id_type_pk": {
+          "name": "hero_ability_feature_hero_ability_id_type_pk",
+          "columns": [
+            "hero_ability_id",
+            "type"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "hero_ability_feature_id_unique": {
+          "name": "hero_ability_feature_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
           ]
         }
       }
@@ -598,24 +644,6 @@
           "type": "text",
           "primaryKey": false,
           "notNull": true
-        },
-        "ability_type": {
-          "name": "ability_type",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "affected_target": {
-          "name": "affected_target",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "damage_type": {
-          "name": "damage_type",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
         }
       },
       "indexes": {},
@@ -646,6 +674,70 @@
       "uniqueConstraints": {
         "item_ability_id_unique": {
           "name": "item_ability_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "item_ability_feature": {
+      "name": "item_ability_feature",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "item_ability_id": {
+          "name": "item_ability_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "value": {
+          "name": "value",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "item_ability_feature_item_ability_id_item_ability_id_fk": {
+          "name": "item_ability_feature_item_ability_id_item_ability_id_fk",
+          "tableFrom": "item_ability_feature",
+          "tableTo": "item_ability",
+          "columnsFrom": [
+            "item_ability_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "item_ability_feature_item_ability_id_type_pk": {
+          "name": "item_ability_feature_item_ability_id_type_pk",
+          "columns": [
+            "item_ability_id",
+            "type"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "item_ability_feature_id_unique": {
+          "name": "item_ability_feature_id_unique",
           "nullsNotDistinct": false,
           "columns": [
             "id"
@@ -917,8 +1009,20 @@
           "primaryKey": false,
           "notNull": true
         },
-        "effect": {
-          "name": "effect",
+        "property": {
+          "name": "property",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "value": {
+          "name": "value",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "variant": {
+          "name": "variant",
           "type": "text",
           "primaryKey": false,
           "notNull": true
@@ -941,11 +1045,11 @@
         }
       },
       "compositePrimaryKeys": {
-        "item_stat_item_id_effect_pk": {
-          "name": "item_stat_item_id_effect_pk",
+        "item_stat_item_id_property_pk": {
+          "name": "item_stat_item_id_property_pk",
           "columns": [
             "item_id",
-            "effect"
+            "property"
           ]
         }
       },

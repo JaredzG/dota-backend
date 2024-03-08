@@ -4,6 +4,7 @@ import {
   type ItemAbility,
 } from "../../../db/schemas/items/itemAbility";
 import { type DB } from "../../../db/db";
+import insertItemAbilityFeatures from "./insertItemAbilityFeatures";
 
 const insertItemAbilities = async (
   db: DB,
@@ -12,23 +13,12 @@ const insertItemAbilities = async (
 ): Promise<void> => {
   if (abilities !== null) {
     for (const ability of abilities) {
-      const {
-        name,
-        description,
-        features: {
-          ability_type: abilityType,
-          affected_target: affectedTarget,
-          damage_type: damageType,
-        },
-      } = ability;
+      const { name, description, features } = ability;
 
       const itemAbilityEntry = {
         itemId,
         name,
         description,
-        abilityType,
-        affectedTarget,
-        damageType,
       };
 
       if (insertItemAbilitySchema.safeParse(itemAbilityEntry).success) {
@@ -42,6 +32,10 @@ const insertItemAbilities = async (
           .returning();
 
         console.log(insertedItemAbility[0]);
+
+        const insertedItemAbilityId: number = insertedItemAbility[0].id ?? 0;
+
+        await insertItemAbilityFeatures(db, insertedItemAbilityId, features);
       }
     }
   }
