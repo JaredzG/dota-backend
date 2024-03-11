@@ -36,7 +36,9 @@ export const item = pgTable("item", {
   hasStats: boolean("has_stats").notNull(),
   hasAbilities: boolean("has_abilities").notNull(),
   hasPrices: boolean("has_prices").notNull(),
+  isComponent: boolean("is_component").notNull(),
   hasComponents: boolean("has_components").notNull(),
+  hasRecipe: boolean("has_recipe").notNull(),
   imageKey: text("image_key").unique(),
 });
 

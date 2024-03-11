@@ -24,7 +24,7 @@ const insertItem = async (
     stats,
     abilities,
     prices,
-    components,
+    component_tree: componentTree,
   } = itemItem;
 
   const { uses, percentages } = itemMetaInfoItems.filter(
@@ -38,7 +38,9 @@ const insertItem = async (
   let hasStats = false;
   let hasAbilities = false;
   let hasPrices = false;
+  let isComponent = false;
   let hasComponents = false;
+  let hasRecipe = false;
 
   if (stats !== null) {
     hasStats = true;
@@ -52,8 +54,20 @@ const insertItem = async (
     hasPrices = true;
   }
 
-  if (components !== null) {
-    hasComponents = true;
+  if (componentTree !== null) {
+    if (componentTree.buildup !== null) {
+      isComponent = true;
+    }
+    if (componentTree.base !== null) {
+      hasComponents = true;
+      if (
+        componentTree.base.some(
+          (component: any) => component.name === "Recipe"
+        ) === true
+      ) {
+        hasRecipe = true;
+      }
+    }
   }
 
   const itemImage = await getItemImage(name as string);
@@ -68,7 +82,9 @@ const insertItem = async (
     hasStats,
     hasAbilities,
     hasPrices,
+    isComponent,
     hasComponents,
+    hasRecipe,
     imageKey,
   };
 
@@ -92,7 +108,7 @@ const insertItem = async (
 
     await insertItemPrices(db, insertedItemId, prices);
 
-    await insertItemComponents(db, insertedItemId, components);
+    await insertItemComponents(db, insertedItemId, componentTree);
 
     await insertItemMetaInfo(db, insertedItemId, uses as string, percentages);
   }

@@ -121,7 +121,7 @@ class HeroAbilitiesPipeline:
                     new_upgrades = self.get_ability_upgrades(old_upgrades)
                     new_lore = (
                         ability["lore"].replace("‘", "'").replace("’", "'")
-                        if ability["lore"] != "None"
+                        if ability["lore"]
                         else None
                     )
                     if "Alchemist" in adapter["name"]:
@@ -537,7 +537,7 @@ class HeroAbilitiesPipeline:
         return description
 
     def get_ability_upgrades(self, old_upgrades):
-        if old_upgrades != "None":
+        if old_upgrades != None:
             upgrades = []
             aghs_upgrades = list(
                 filter(lambda item: item != "", old_upgrades.strip().split("\n"))
@@ -844,7 +844,7 @@ class ItemPricePipeline:
                     prices = []
                     old_prices = adapter["prices"]
                     for price in old_prices:
-                        if price["type"] == "Purchase":
+                        if price["type"] == "Purchase Price":
                             prices.append(
                                 {
                                     "type": price["type"],
@@ -888,88 +888,97 @@ class ItemPricePipeline:
             return item
 
 
-class ItemComponentsPipeline:
+class ItemComponentTreePipeline:
     def process_item(self, item, spider):
         if isinstance(item, ItemItem):
             adapter = ItemAdapter(item)
-            if adapter.get("components"):
-                if adapter["components"] != "None":
-                    components = []
-                    old_components = adapter["components"]
-                    for component in old_components:
-                        component_name = re.sub(r" \(.*?\)", "", component)
-                        component_price = re.findall(r"\((.*?)\)", component)
-                        component_price = (
-                            component_price[0] if len(component_price) > 0 else "0"
-                        )
-                        component_names = [
-                            new_component["name"] for new_component in components
-                        ]
-                        if component_name in component_names:
-                            for new_component in components:
-                                if new_component["name"] == component_name:
-                                    new_component["amount"] = str(
-                                        int(new_component["amount"]) + 1
+            if adapter.get("component_tree"):
+                if adapter["component_tree"] != "None":
+                    component_tree = {}
+                    old_component_tree = adapter["component_tree"]
+                    for level in old_component_tree:
+                        if old_component_tree[level] != None:
+                            if level not in component_tree:
+                                component_tree[level] = []
+                            for component in old_component_tree[level]:
+                                component_name = re.sub(r" \(.*?\)", "", component)
+                                component_price = re.findall(r"\((.*?)\)", component)
+                                component_price = (
+                                    component_price[0]
+                                    if len(component_price) > 0
+                                    else "0"
+                                )
+                                component_names = [
+                                    new_component["name"]
+                                    for new_component in component_tree[level]
+                                ]
+                                if component_name in component_names:
+                                    for new_component in component_tree[level]:
+                                        if new_component["name"] == component_name:
+                                            new_component["amount"] = str(
+                                                int(new_component["amount"]) + 1
+                                            )
+                                else:
+                                    if component_name in ["Boots of Travel 1"]:
+                                        component_tree[level].append(
+                                            {
+                                                "name": "Boots of Travel (Level 1)",
+                                                "amount": "1",
+                                                "price": f"{component_price} Gold per count",
+                                            }
+                                        )
+                                        continue
+                                    elif component_name in ["Dagon 1"]:
+                                        component_tree[level].append(
+                                            {
+                                                "name": "Dagon (Level 1)",
+                                                "amount": "1",
+                                                "price": f"{component_price} Gold per count",
+                                            }
+                                        )
+                                        continue
+                                    elif component_name in ["Dagon 2"]:
+                                        component_tree[level].append(
+                                            {
+                                                "name": "Dagon (Level 2)",
+                                                "amount": "1",
+                                                "price": f"{component_price} Gold per count",
+                                            }
+                                        )
+                                        continue
+                                    elif component_name in ["Dagon 3"]:
+                                        component_tree[level].append(
+                                            {
+                                                "name": "Dagon (Level 3)",
+                                                "amount": "1",
+                                                "price": f"{component_price} Gold per count",
+                                            }
+                                        )
+                                        continue
+                                    elif component_name in ["Dagon 4"]:
+                                        component_tree[level].append(
+                                            {
+                                                "name": "Dagon (Level 4)",
+                                                "amount": "1",
+                                                "price": f"{component_price} Gold per count",
+                                            }
+                                        )
+                                        continue
+                                    component_tree[level].append(
+                                        {
+                                            "name": component_name,
+                                            "amount": "1",
+                                            "price": f"{component_price} Gold per count",
+                                        }
                                     )
                         else:
-                            if component_name in ["Boots of Travel 1"]:
-                                components.append(
-                                    {
-                                        "name": "Boots of Travel (Level 1)",
-                                        "amount": "1",
-                                        "price": f"{component_price} Gold per count",
-                                    }
-                                )
-                                continue
-                            elif component_name in ["Dagon 1"]:
-                                components.append(
-                                    {
-                                        "name": "Dagon (Level 1)",
-                                        "amount": "1",
-                                        "price": f"{component_price} Gold per count",
-                                    }
-                                )
-                                continue
-                            elif component_name in ["Dagon 2"]:
-                                components.append(
-                                    {
-                                        "name": "Dagon (Level 2)",
-                                        "amount": "1",
-                                        "price": f"{component_price} Gold per count",
-                                    }
-                                )
-                                continue
-                            elif component_name in ["Dagon 3"]:
-                                components.append(
-                                    {
-                                        "name": "Dagon (Level 3)",
-                                        "amount": "1",
-                                        "price": f"{component_price} Gold per count",
-                                    }
-                                )
-                                continue
-                            elif component_name in ["Dagon 4"]:
-                                components.append(
-                                    {
-                                        "name": "Dagon (Level 4)",
-                                        "amount": "1",
-                                        "price": f"{component_price} Gold per count",
-                                    }
-                                )
-                                continue
-                            components.append(
-                                {
-                                    "name": component_name,
-                                    "amount": "1",
-                                    "price": f"{component_price} Gold per count",
-                                }
-                            )
-                    adapter["components"] = components
+                            component_tree[level] = None
+                    adapter["component_tree"] = component_tree
                 else:
-                    adapter["components"] = None
+                    adapter["component_tree"] = None
                 return item
             else:
-                raise DropItem(f"Missing components in {item}.")
+                raise DropItem(f"Missing component tree in {item}.")
         else:
             return item
 
@@ -982,11 +991,11 @@ class HeroMetaInfoPipeline:
                 percentages = []
                 old_percentages = adapter["percentages"]
                 ranks = [
-                    "Herald / Guardian / Crusader",
+                    "Herald | Guardian | Crusader",
                     "Archon",
                     "Legend",
                     "Ancient",
-                    "Divine / Immortal",
+                    "Divine | Immortal",
                 ]
                 types = ["Pick Percentage", "Win Percentage"]
                 for i in range(0, len(old_percentages), 2):

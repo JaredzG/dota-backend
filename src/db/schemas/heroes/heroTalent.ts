@@ -17,6 +17,8 @@ export const heroTalentLevelEnum = pgEnum("hero_talent_level", [
   "Expert",
 ]);
 
+export const heroTalentTypeEnum = pgEnum("hero_talent_type", ["X", "Y"]);
+
 export const heroTalent = pgTable(
   "hero_talent",
   {
@@ -25,7 +27,7 @@ export const heroTalent = pgTable(
       .references(() => hero.id)
       .notNull(),
     level: heroTalentLevelEnum("level").notNull(),
-    type: text("type").notNull(),
+    type: heroTalentTypeEnum("type").notNull(),
     effect: text("effect").notNull(),
   },
   (heroTalent) => {

@@ -28,7 +28,7 @@ class ItemItem(scrapy.Item):
     stats = scrapy.Field()
     abilities = scrapy.Field()
     prices = scrapy.Field()
-    components = scrapy.Field()
+    component_tree = scrapy.Field()
 
 
 class HeroMetaInfoItem(scrapy.Item):

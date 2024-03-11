@@ -4,10 +4,17 @@ import {
   integer,
   pgTable,
   primaryKey,
+  pgEnum,
 } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { type z } from "zod";
 import { item } from "./item";
+
+export const itemStatVariantEnum = pgEnum("item_stat_variant", [
+  "Default",
+  "Melee",
+  "Ranged",
+]);
 
 export const itemStat = pgTable(
   "item_stat",
@@ -18,7 +25,7 @@ export const itemStat = pgTable(
       .notNull(),
     property: text("property").notNull(),
     value: text("value").notNull(),
-    variant: text("variant").notNull(),
+    variant: itemStatVariantEnum("variant").notNull(),
   },
   (itemStat) => {
     return {

@@ -21,9 +21,9 @@ const insertHeroAbilities = async (
 
     if (upgrades !== null) {
       for (const upgrade of upgrades) {
-        if (upgrade.type === "Shard") {
+        if (upgrade.type === "Shard Upgrade") {
           hasShardUpgrade = true;
-        } else if (upgrade.type === "Scepter") {
+        } else if (upgrade.type === "Scepter Upgrade") {
           hasScepterUpgrade = true;
         }
       }

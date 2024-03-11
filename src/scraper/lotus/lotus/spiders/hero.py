@@ -105,8 +105,8 @@ class HeroSpider(scrapy.Spider):
                     "name": ability_name,
                     "features": ability_features,
                     "description": ability_description,
-                    "upgrades": ability_upgrades if ability_upgrades else "None",
-                    "lore": ability_lore if ability_lore else "None",
+                    "upgrades": ability_upgrades if ability_upgrades else None,
+                    "lore": ability_lore if ability_lore else None,
                 }
             )
         return abilities

@@ -1,5 +1,5 @@
 {
-  "id": "afc56f67-796e-4980-8efa-41d77b7fc4a3",
+  "id": "f7fe4d36-62c1-4047-b94e-2bcc3c7979b5",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -222,13 +222,13 @@
         },
         "type": {
           "name": "type",
-          "type": "text",
+          "type": "hero_ability_feature_type",
           "primaryKey": false,
           "notNull": true
         },
         "value": {
           "name": "value",
-          "type": "text",
+          "type": "hero_ability_feature_value",
           "primaryKey": false,
           "notNull": false
         }
@@ -485,7 +485,7 @@
         },
         "type": {
           "name": "type",
-          "type": "text",
+          "type": "hero_talent_type",
           "primaryKey": false,
           "notNull": true
         },
@@ -584,8 +584,20 @@
           "primaryKey": false,
           "notNull": true
         },
+        "is_component": {
+          "name": "is_component",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
         "has_components": {
           "name": "has_components",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "has_recipe": {
+          "name": "has_recipe",
           "type": "boolean",
           "primaryKey": false,
           "notNull": true
@@ -699,13 +711,13 @@
         },
         "type": {
           "name": "type",
-          "type": "text",
+          "type": "item_ability_feature_type",
           "primaryKey": false,
           "notNull": true
         },
         "value": {
           "name": "value",
-          "type": "text",
+          "type": "item_ability_feature_value",
           "primaryKey": false,
           "notNull": false
         }
@@ -776,6 +788,12 @@
         "price": {
           "name": "price",
           "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "level": {
+          "name": "level",
+          "type": "item_component_level",
           "primaryKey": false,
           "notNull": true
         }
@@ -1023,7 +1041,7 @@
         },
         "variant": {
           "name": "variant",
-          "type": "text",
+          "type": "item_stat_variant",
           "primaryKey": false,
           "notNull": true
         }
@@ -1089,6 +1107,52 @@
         "Universal": "Universal"
       }
     },
+    "hero_ability_feature_type": {
+      "name": "hero_ability_feature_type",
+      "values": {
+        "Ability Type": "Ability Type",
+        "Affected Target": "Affected Target",
+        "Damage Type": "Damage Type"
+      }
+    },
+    "hero_ability_feature_value": {
+      "name": "hero_ability_feature_value",
+      "values": {
+        "Active Attack Modifier": "Active Attack Modifier",
+        "Allied Heroes": "Allied Heroes",
+        "Allies": "Allies",
+        "Astral Spirit": "Astral Spirit",
+        "Aura": "Aura",
+        "Autocast": "Autocast",
+        "Boar": "Boar",
+        "Channeled": "Channeled",
+        "Enemies": "Enemies",
+        "Enemy Heroes": "Enemy Heroes",
+        "Enemy Units": "Enemy Units",
+        "Familiars": "Familiars",
+        "HP Removal": "HP Removal",
+        "Heroes": "Heroes",
+        "Instant Attack": "Instant Attack",
+        "Instant Kill": "Instant Kill",
+        "Magical": "Magical",
+        "No Target": "No Target",
+        "Passive": "Passive",
+        "Physical": "Physical",
+        "Proximity Mine": "Proximity Mine",
+        "Pure": "Pure",
+        "Self": "Self",
+        "Source Type": "Source Type",
+        "Target Area": "Target Area",
+        "Target Point": "Target Point",
+        "Target Unit": "Target Unit",
+        "The Self": "The Self",
+        "Toggle": "Toggle",
+        "Trees": "Trees",
+        "Units": "Units",
+        "Vector Targeting": "Vector Targeting",
+        "Wolves": "Wolves"
+      }
+    },
     "hero_ability_upgrade_type": {
       "name": "hero_ability_upgrade_type",
       "values": {
@@ -1099,11 +1163,11 @@
     "hero_meta_info_rank": {
       "name": "hero_meta_info_rank",
       "values": {
-        "Herald / Guardian / Crusader": "Herald / Guardian / Crusader",
+        "Herald | Guardian | Crusader": "Herald | Guardian | Crusader",
         "Archon": "Archon",
         "Legend": "Legend",
         "Ancient": "Ancient",
-        "Divine / Immortal": "Divine / Immortal"
+        "Divine | Immortal": "Divine | Immortal"
       }
     },
     "hero_meta_info_type": {
@@ -1135,6 +1199,13 @@
         "Expert": "Expert"
       }
     },
+    "hero_talent_type": {
+      "name": "hero_talent_type",
+      "values": {
+        "X": "X",
+        "Y": "Y"
+      }
+    },
     "item_classification": {
       "name": "item_classification",
       "values": {
@@ -1164,6 +1235,49 @@
         "Neutral": "Neutral"
       }
     },
+    "item_ability_feature_type": {
+      "name": "item_ability_feature_type",
+      "values": {
+        "Ability Type": "Ability Type",
+        "Affected Target": "Affected Target",
+        "Damage Type": "Damage Type"
+      }
+    },
+    "item_ability_feature_value": {
+      "name": "item_ability_feature_value",
+      "values": {
+        "Allied Heroes": "Allied Heroes",
+        "Allies": "Allies",
+        "Aura": "Aura",
+        "Channeled": "Channeled",
+        "Enemies": "Enemies",
+        "Enemy Heroes": "Enemy Heroes",
+        "Enemy Units": "Enemy Units",
+        "Heroes": "Heroes",
+        "Hidden": "Hidden",
+        "Instant Attack": "Instant Attack",
+        "Instant Kill": "Instant Kill",
+        "Magical": "Magical",
+        "No Target": "No Target",
+        "Passive": "Passive",
+        "Physical": "Physical",
+        "Self": "Self",
+        "Source Type": "Source Type",
+        "Target Area": "Target Area",
+        "Target Point": "Target Point",
+        "Target Unit": "Target Unit",
+        "Toggle": "Toggle",
+        "Trees": "Trees",
+        "Units": "Units"
+      }
+    },
+    "item_component_level": {
+      "name": "item_component_level",
+      "values": {
+        "Buildup": "Buildup",
+        "Base": "Base"
+      }
+    },
     "item_meta_info_type": {
       "name": "item_meta_info_type",
       "values": {
@@ -1176,6 +1290,14 @@
       "values": {
         "Purchase Price": "Purchase Price",
         "Sell Price": "Sell Price"
+      }
+    },
+    "item_stat_variant": {
+      "name": "item_stat_variant",
+      "values": {
+        "Default": "Default",
+        "Melee": "Melee",
+        "Ranged": "Ranged"
       }
     }
   },

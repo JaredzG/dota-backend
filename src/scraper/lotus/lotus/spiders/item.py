@@ -74,7 +74,7 @@ class ItemSpider(scrapy.Spider):
         item["stats"] = self.get_item_stats(response)
         item["abilities"] = self.get_item_abilities(response)
         item["prices"] = self.get_item_prices(response, response.meta["type"])
-        item["components"] = self.get_item_components(response)
+        item["component_tree"] = self.get_item_component_tree(response, item["name"])
         yield item
 
     def get_item_categories(self, response):
@@ -147,8 +147,22 @@ class ItemSpider(scrapy.Spider):
         else:
             return "None"
 
-    def get_item_components(self, response):
-        components = response.xpath(
-            '//tr[preceding-sibling::tr[1]/th[contains(text(), "Recipe")]]/th/div[last()]/div/div/a/@title'
-        ).getall()
-        return components if components else "None"
+    def get_item_component_tree(self, response, name):
+        component_containers = response.xpath(
+            "//tr[preceding-sibling::tr[1]/th[contains(text(), 'Recipe')]]/th/div"
+        )
+        component_levels = [
+            container.xpath(".//@title").getall() for container in component_containers
+        ]
+        component_tree = None
+        if len(component_levels) == 3:
+            component_tree = {
+                "buildup": component_levels[0],
+                "base": component_levels[2],
+            }
+        elif len(component_levels) == 2:
+            if name in component_levels[0][0]:
+                component_tree = {"buildup": None, "base": component_levels[1]}
+            else:
+                component_tree = {"buildup": component_levels[0], "base": None}
+        return component_tree if component_tree else "None"

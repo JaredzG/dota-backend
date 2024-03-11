@@ -16,11 +16,11 @@ export const heroMetaInfoTypeEnum = pgEnum("hero_meta_info_type", [
 ]);
 
 export const heroMetaInfoRankEnum = pgEnum("hero_meta_info_rank", [
-  "Herald / Guardian / Crusader",
+  "Herald | Guardian | Crusader",
   "Archon",
   "Legend",
   "Ancient",
-  "Divine / Immortal",
+  "Divine | Immortal",
 ]);
 
 export const heroMetaInfo = pgTable(

@@ -2,6 +2,8 @@ import {
   heroAbilityFeature,
   insertHeroAbilityFeatureSchema,
   type HeroAbilityFeature,
+  type heroAbilityFeatureTypeEnum,
+  type heroAbilityFeatureValueEnum,
 } from "../../../db/schemas/heroes/heroAbilityFeature";
 import { type DB } from "../../../db/db";
 
@@ -10,14 +12,22 @@ const insertHeroAbilityFeatures = async (
   heroAbilityId: number,
   features: any
 ): Promise<void> => {
-  for (const feature in features) {
-    const values = features[feature];
-
+  for (const abilityFeature in features) {
+    const values = features[abilityFeature];
+    const feature = abilityFeature
+      .split("_")
+      .map((value: string) => value[0].toUpperCase() + value.slice(1))
+      .join(" ")
+      .slice(0, -1);
     if (values !== null) {
       for (const value of values) {
-        const heroAbilityFeatureEntry = {
+        const heroAbilityFeatureEntry: {
+          heroAbilityId: number;
+          type: (typeof heroAbilityFeatureTypeEnum.enumValues)[number];
+          value: (typeof heroAbilityFeatureValueEnum.enumValues)[number] | null;
+        } = {
           heroAbilityId,
-          type: feature.slice(0, -1),
+          type: feature,
           value,
         };
 
@@ -41,9 +51,13 @@ const insertHeroAbilityFeatures = async (
         }
       }
     } else {
-      const heroAbilityFeatureEntry = {
+      const heroAbilityFeatureEntry: {
+        heroAbilityId: number;
+        type: (typeof heroAbilityFeatureTypeEnum.enumValues)[number];
+        value: (typeof heroAbilityFeatureValueEnum.enumValues)[number] | null;
+      } = {
         heroAbilityId,
-        type: feature.slice(0, -1),
+        type: feature,
         value: null,
       };
 
