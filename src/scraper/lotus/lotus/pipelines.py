@@ -845,39 +845,58 @@ class ItemPricePipeline:
                     old_prices = adapter["prices"]
                     for price in old_prices:
                         if price["type"] == "Purchase Price":
+                            price_value = re.sub(
+                                r"(\d+\.?\d*)",
+                                r"\1 Gold",
+                                price["amount"]
+                                .strip()
+                                .replace("\n\n\n\n", "+")
+                                .split("+")[1]
+                                .split("  ")[0]
+                                .replace("-", "0"),
+                            )
                             prices.append(
                                 {
                                     "type": price["type"],
-                                    "amount": re.sub(
-                                        r"(\d+\.?\d*)",
-                                        r"\1 Gold",
-                                        price["amount"]
-                                        .strip()
-                                        .replace("\n\n\n\n", "+")
-                                        .split("+")[1]
-                                        .split("  ")[0]
-                                        .replace("-", "0"),
-                                    ),
+                                    "amount": re.findall(r"\d+\.?\d*", price_value)[0],
+                                    "unit": re.findall(r"[a-zA-Z ]+", price_value)[
+                                        0
+                                    ].strip(),
                                 }
                             )
                         else:
-                            prices.append(
-                                {
-                                    "type": price["type"],
-                                    "amount": re.sub(
-                                        r"(\d+\.?\d*)",
-                                        r"\1 Gold",
-                                        price["amount"]
-                                        .strip()
-                                        .replace("\n\n\n\n", "+")
-                                        .split("+")[1]
-                                        .replace("  / Count", " per count")
-                                        .replace("  ", " ")
-                                        .strip()
-                                        .replace("-", "0"),
-                                    ),
-                                }
-                            )
+                            if "Unsellable" in price["amount"]:
+                                prices.append(
+                                    {
+                                        "type": price["type"],
+                                        "amount": None,
+                                        "unit": None,
+                                    }
+                                )
+                            else:
+                                price_value = re.sub(
+                                    r"(\d+\.?\d*)",
+                                    r"\1 Gold",
+                                    price["amount"]
+                                    .strip()
+                                    .replace("\n\n\n\n", "+")
+                                    .split("+")[1]
+                                    .replace("  / Count", " per Count")
+                                    .replace("  ", " ")
+                                    .strip()
+                                    .replace("-", "0"),
+                                )
+                                prices.append(
+                                    {
+                                        "type": price["type"],
+                                        "amount": re.findall(r"\d+\.?\d*", price_value)[
+                                            0
+                                        ],
+                                        "unit": re.findall(r"[a-zA-Z ]+", price_value)[
+                                            0
+                                        ].strip(),
+                                    }
+                                )
                     adapter["prices"] = prices
                 else:
                     adapter["prices"] = None
@@ -924,7 +943,10 @@ class ItemComponentTreePipeline:
                                             {
                                                 "name": "Boots of Travel (Level 1)",
                                                 "amount": "1",
-                                                "price": f"{component_price} Gold per count",
+                                                "price": {
+                                                    "amount": component_price,
+                                                    "unit": "Gold per Count",
+                                                },
                                             }
                                         )
                                         continue
@@ -933,7 +955,10 @@ class ItemComponentTreePipeline:
                                             {
                                                 "name": "Dagon (Level 1)",
                                                 "amount": "1",
-                                                "price": f"{component_price} Gold per count",
+                                                "price": {
+                                                    "amount": component_price,
+                                                    "unit": "Gold per Count",
+                                                },
                                             }
                                         )
                                         continue
@@ -942,7 +967,10 @@ class ItemComponentTreePipeline:
                                             {
                                                 "name": "Dagon (Level 2)",
                                                 "amount": "1",
-                                                "price": f"{component_price} Gold per count",
+                                                "price": {
+                                                    "amount": component_price,
+                                                    "unit": "Gold per Count",
+                                                },
                                             }
                                         )
                                         continue
@@ -951,7 +979,10 @@ class ItemComponentTreePipeline:
                                             {
                                                 "name": "Dagon (Level 3)",
                                                 "amount": "1",
-                                                "price": f"{component_price} Gold per count",
+                                                "price": {
+                                                    "amount": component_price,
+                                                    "unit": "Gold per Count",
+                                                },
                                             }
                                         )
                                         continue
@@ -960,7 +991,10 @@ class ItemComponentTreePipeline:
                                             {
                                                 "name": "Dagon (Level 4)",
                                                 "amount": "1",
-                                                "price": f"{component_price} Gold per count",
+                                                "price": {
+                                                    "amount": component_price,
+                                                    "unit": "Gold per Count",
+                                                },
                                             }
                                         )
                                         continue
@@ -968,7 +1002,10 @@ class ItemComponentTreePipeline:
                                         {
                                             "name": component_name,
                                             "amount": "1",
-                                            "price": f"{component_price} Gold per count",
+                                            "price": {
+                                                "amount": component_price,
+                                                "unit": "Gold per Count",
+                                            },
                                         }
                                     )
                         else:
