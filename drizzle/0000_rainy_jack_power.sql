@@ -107,6 +107,12 @@ EXCEPTION
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
+ CREATE TYPE "item_price_unit" AS ENUM('Gold', 'Gold per Count');
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
  CREATE TYPE "item_stat_variant" AS ENUM('Default', 'Melee', 'Ranged');
 EXCEPTION
  WHEN duplicate_object THEN null;
@@ -256,7 +262,8 @@ CREATE TABLE IF NOT EXISTS "item_price" (
 	"id" serial NOT NULL,
 	"item_id" integer NOT NULL,
 	"type" "item_price_type" NOT NULL,
-	"amount" text NOT NULL,
+	"amount" numeric(5, 1),
+	"unit" "item_price_unit",
 	CONSTRAINT "item_price_item_id_type_pk" PRIMARY KEY("item_id","type"),
 	CONSTRAINT "item_price_id_unique" UNIQUE("id")
 );

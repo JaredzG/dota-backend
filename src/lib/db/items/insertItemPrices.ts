@@ -12,12 +12,13 @@ const insertItemPrices = async (
 ): Promise<void> => {
   if (prices !== null) {
     for (const price of prices) {
-      const { type, amount } = price;
+      const { type, amount, unit } = price;
 
       const itemPriceEntry = {
         itemId,
         type,
         amount,
+        unit,
       };
 
       if (insertItemPriceSchema.safeParse(itemPriceEntry).success) {

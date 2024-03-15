@@ -1,10 +1,10 @@
 import {
   serial,
-  text,
   integer,
   pgEnum,
   pgTable,
   primaryKey,
+  numeric,
 } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { type z } from "zod";
@@ -15,6 +15,11 @@ export const itemPriceTypeEnum = pgEnum("item_price_type", [
   "Sell Price",
 ]);
 
+export const itemPriceUnitEnum = pgEnum("item_price_unit", [
+  "Gold",
+  "Gold per Count",
+]);
+
 export const itemPrice = pgTable(
   "item_price",
   {
@@ -23,7 +28,11 @@ export const itemPrice = pgTable(
       .references(() => item.id)
       .notNull(),
     type: itemPriceTypeEnum("type").notNull(),
-    amount: text("amount").notNull(),
+    amount: numeric("amount", {
+      precision: 5,
+      scale: 1,
+    }),
+    unit: itemPriceUnitEnum("unit"),
   },
   (itemPrice) => {
     return {

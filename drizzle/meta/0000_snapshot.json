@@ -1,5 +1,5 @@
 {
-  "id": "f7fe4d36-62c1-4047-b94e-2bcc3c7979b5",
+  "id": "4df080c9-2e11-4985-b632-d077de4a0bbd",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -971,9 +971,15 @@
         },
         "amount": {
           "name": "amount",
-          "type": "text",
+          "type": "numeric(5, 1)",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
+        },
+        "unit": {
+          "name": "unit",
+          "type": "item_price_unit",
+          "primaryKey": false,
+          "notNull": false
         }
       },
       "indexes": {},
@@ -1290,6 +1296,13 @@
       "values": {
         "Purchase Price": "Purchase Price",
         "Sell Price": "Sell Price"
+      }
+    },
+    "item_price_unit": {
+      "name": "item_price_unit",
+      "values": {
+        "Gold": "Gold",
+        "Gold per Count": "Gold per Count"
       }
     },
     "item_stat_variant": {
