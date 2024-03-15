@@ -14,7 +14,7 @@ const insertItemMetaInfo = async (
 ): Promise<void> => {
   const itemMetaInfoEntry = {
     itemId,
-    uses,
+    uses: parseInt(uses),
   };
 
   if (insertItemMetaInfoSchema.safeParse(itemMetaInfoEntry).success) {

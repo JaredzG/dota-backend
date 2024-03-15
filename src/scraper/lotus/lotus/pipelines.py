@@ -734,11 +734,17 @@ class ItemStatsPipeline:
                             .replace(" /", "/")
                             .replace("/", " / "),
                         )[0]
+                        property = effect[1].strip()
+                        if effect[1].strip() == "Gold per minute":
+                            property = "Gold per Minute"
                         values = effect[0].replace("/ ", "/ +").split(" / ")
                         for i in range(len(values)):
                             stat = {
-                                "property": effect[1],
-                                "value": values[i],
+                                "property": property,
+                                "effect": (
+                                    "Increase" if values[i][0] == "+" else "Decrease"
+                                ),
+                                "value": values[i][1:],
                             }
                             if len(values) == 1:
                                 stat["variant"] = "Default"
@@ -944,8 +950,8 @@ class ItemComponentTreePipeline:
                                                 "name": "Boots of Travel (Level 1)",
                                                 "amount": "1",
                                                 "price": {
-                                                    "amount": component_price,
-                                                    "unit": "Gold per Count",
+                                                    "price_amount": component_price,
+                                                    "price_unit": "Gold per Count",
                                                 },
                                             }
                                         )
@@ -956,8 +962,8 @@ class ItemComponentTreePipeline:
                                                 "name": "Dagon (Level 1)",
                                                 "amount": "1",
                                                 "price": {
-                                                    "amount": component_price,
-                                                    "unit": "Gold per Count",
+                                                    "price_amount": component_price,
+                                                    "price_unit": "Gold per Count",
                                                 },
                                             }
                                         )
@@ -968,8 +974,8 @@ class ItemComponentTreePipeline:
                                                 "name": "Dagon (Level 2)",
                                                 "amount": "1",
                                                 "price": {
-                                                    "amount": component_price,
-                                                    "unit": "Gold per Count",
+                                                    "price_amount": component_price,
+                                                    "price_unit": "Gold per Count",
                                                 },
                                             }
                                         )
@@ -980,8 +986,8 @@ class ItemComponentTreePipeline:
                                                 "name": "Dagon (Level 3)",
                                                 "amount": "1",
                                                 "price": {
-                                                    "amount": component_price,
-                                                    "unit": "Gold per Count",
+                                                    "price_amount": component_price,
+                                                    "price_unit": "Gold per Count",
                                                 },
                                             }
                                         )
@@ -992,8 +998,8 @@ class ItemComponentTreePipeline:
                                                 "name": "Dagon (Level 4)",
                                                 "amount": "1",
                                                 "price": {
-                                                    "amount": component_price,
-                                                    "unit": "Gold per Count",
+                                                    "price_amount": component_price,
+                                                    "price_unit": "Gold per Count",
                                                 },
                                             }
                                         )
@@ -1003,8 +1009,8 @@ class ItemComponentTreePipeline:
                                             "name": component_name,
                                             "amount": "1",
                                             "price": {
-                                                "amount": component_price,
-                                                "unit": "Gold per Count",
+                                                "price_amount": component_price,
+                                                "price_unit": "Gold per Count",
                                             },
                                         }
                                     )

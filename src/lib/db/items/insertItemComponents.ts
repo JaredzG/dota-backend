@@ -2,7 +2,6 @@ import {
   itemComponent,
   insertItemComponentSchema,
   type ItemComponent,
-  type itemComponentLevelEnum,
 } from "../../../db/schemas/items/itemComponent";
 import { type DB } from "../../../db/db";
 
@@ -21,17 +20,12 @@ const insertItemComponents = async (
         for (const component of componentTree[componentLevel]) {
           const { name, amount, price } = component;
 
-          const itemComponentEntry: {
-            itemId: number;
-            name: string;
-            amount: string;
-            price: string;
-            level: (typeof itemComponentLevelEnum.enumValues)[number];
-          } = {
+          const itemComponentEntry = {
             itemId,
             name,
-            amount,
-            price,
+            amount: parseInt(amount),
+            priceAmount: parseInt(price.price_amount),
+            priceUnit: price.price_unit,
             level,
           };
 

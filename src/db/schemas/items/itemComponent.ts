@@ -15,6 +15,11 @@ export const itemComponentLevelEnum = pgEnum("item_component_level", [
   "Base",
 ]);
 
+export const itemComponentPriceUnitEnum = pgEnum("item_component_price_unit", [
+  "Gold",
+  "Gold per Count",
+]);
+
 export const itemComponent = pgTable(
   "item_component",
   {
@@ -23,8 +28,9 @@ export const itemComponent = pgTable(
       .references(() => item.id)
       .notNull(),
     name: text("name").notNull(),
-    amount: text("amount").notNull(),
-    price: text("price").notNull(),
+    amount: integer("amount").notNull(),
+    priceAmount: integer("price_amount").notNull(),
+    priceUnit: itemComponentPriceUnitEnum("price_unit").notNull(),
     level: itemComponentLevelEnum("level").notNull(),
   },
   (itemComponent) => {

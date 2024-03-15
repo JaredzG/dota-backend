@@ -27,13 +27,14 @@ const insertItem = async (
     component_tree: componentTree,
   } = itemItem;
 
-  const { uses, percentages } = itemMetaInfoItems.filter(
-    (itemMetaInfoItem: {
-      name: string;
-      uses: string;
-      percentages: Array<{ type: string; percentage: string }>;
-    }) => itemMetaInfoItem.name === name
-  )[0];
+  const { uses, percentages }: { uses: string; percentages: any } =
+    itemMetaInfoItems.filter(
+      (itemMetaInfoItem: {
+        name: string;
+        uses: string;
+        percentages: Array<{ type: string; percentage: string }>;
+      }) => itemMetaInfoItem.name === name
+    )[0];
 
   let hasStats = false;
   let hasAbilities = false;
@@ -110,7 +111,7 @@ const insertItem = async (
 
     await insertItemComponents(db, insertedItemId, componentTree);
 
-    await insertItemMetaInfo(db, insertedItemId, uses as string, percentages);
+    await insertItemMetaInfo(db, insertedItemId, uses, percentages);
   }
 };
 

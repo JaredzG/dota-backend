@@ -1,5 +1,5 @@
 {
-  "id": "4df080c9-2e11-4985-b632-d077de4a0bbd",
+  "id": "0f59d583-7719-42ca-ba2e-335729691f8c",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -356,7 +356,7 @@
         },
         "type": {
           "name": "type",
-          "type": "hero_meta_info_type",
+          "type": "hero_meta_info_percentage_type",
           "primaryKey": false,
           "notNull": true
         },
@@ -781,13 +781,19 @@
         },
         "amount": {
           "name": "amount",
-          "type": "text",
+          "type": "integer",
           "primaryKey": false,
           "notNull": true
         },
-        "price": {
-          "name": "price",
-          "type": "text",
+        "price_amount": {
+          "name": "price_amount",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "price_unit": {
+          "name": "price_unit",
+          "type": "item_component_price_unit",
           "primaryKey": false,
           "notNull": true
         },
@@ -851,7 +857,7 @@
         },
         "uses": {
           "name": "uses",
-          "type": "text",
+          "type": "integer",
           "primaryKey": false,
           "notNull": true
         }
@@ -901,7 +907,7 @@
         },
         "type": {
           "name": "type",
-          "type": "item_meta_info_type",
+          "type": "item_meta_info_percentage_type",
           "primaryKey": false,
           "notNull": true
         },
@@ -1035,7 +1041,13 @@
         },
         "property": {
           "name": "property",
-          "type": "text",
+          "type": "item_stat_property",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "effect": {
+          "name": "effect",
+          "type": "item_stat_effect",
           "primaryKey": false,
           "notNull": true
         },
@@ -1166,6 +1178,13 @@
         "Scepter Upgrade": "Scepter Upgrade"
       }
     },
+    "hero_meta_info_percentage_type": {
+      "name": "hero_meta_info_percentage_type",
+      "values": {
+        "Pick Percentage": "Pick Percentage",
+        "Win Percentage": "Win Percentage"
+      }
+    },
     "hero_meta_info_rank": {
       "name": "hero_meta_info_rank",
       "values": {
@@ -1174,13 +1193,6 @@
         "Legend": "Legend",
         "Ancient": "Ancient",
         "Divine | Immortal": "Divine | Immortal"
-      }
-    },
-    "hero_meta_info_type": {
-      "name": "hero_meta_info_type",
-      "values": {
-        "Pick Percentage": "Pick Percentage",
-        "Win Percentage": "Win Percentage"
       }
     },
     "hero_role_type": {
@@ -1284,8 +1296,15 @@
         "Base": "Base"
       }
     },
-    "item_meta_info_type": {
-      "name": "item_meta_info_type",
+    "item_component_price_unit": {
+      "name": "item_component_price_unit",
+      "values": {
+        "Gold": "Gold",
+        "Gold per Count": "Gold per Count"
+      }
+    },
+    "item_meta_info_percentage_type": {
+      "name": "item_meta_info_percentage_type",
       "values": {
         "Use Percentage": "Use Percentage",
         "Win Percentage": "Win Percentage"
@@ -1303,6 +1322,55 @@
       "values": {
         "Gold": "Gold",
         "Gold per Count": "Gold per Count"
+      }
+    },
+    "item_stat_effect": {
+      "name": "item_stat_effect",
+      "values": {
+        "Increase": "Increase",
+        "Decrease": "Decrease"
+      }
+    },
+    "item_stat_property": {
+      "name": "item_stat_property",
+      "values": {
+        "Agility": "Agility",
+        "All Attributes": "All Attributes",
+        "AoE Radius": "AoE Radius",
+        "Armor": "Armor",
+        "Attack Damage": "Attack Damage",
+        "Attack Range": "Attack Range",
+        "Attack Speed": "Attack Speed",
+        "Base Attack Speed": "Base Attack Speed",
+        "Cast Range": "Cast Range",
+        "Debuff Duration Amp": "Debuff Duration Amp",
+        "Evasion": "Evasion",
+        "Gold per Minute": "Gold per Minute",
+        "Heal Amp": "Heal Amp",
+        "Health": "Health",
+        "Health Regen Amp": "Health Regen Amp",
+        "Health Regeneration": "Health Regeneration",
+        "Intelligence": "Intelligence",
+        "Lifesteal": "Lifesteal",
+        "Lifesteal Amp": "Lifesteal Amp",
+        "Magic Resistance": "Magic Resistance",
+        "Main Attribute": "Main Attribute",
+        "Mana": "Mana",
+        "Mana Loss Reduction": "Mana Loss Reduction",
+        "Mana Regen Amp": "Mana Regen Amp",
+        "Mana Regeneration": "Mana Regeneration",
+        "Max HP Health Regen": "Max HP Health Regen",
+        "Move Speed": "Move Speed",
+        "Night Vision": "Night Vision",
+        "Other Attributes": "Other Attributes",
+        "Projectile Speed": "Projectile Speed",
+        "Slow Resistance": "Slow Resistance",
+        "Spell Damage Amp": "Spell Damage Amp",
+        "Spell Lifesteal": "Spell Lifesteal",
+        "Spell Lifesteal Amp": "Spell Lifesteal Amp",
+        "Status Resistance": "Status Resistance",
+        "Strength": "Strength",
+        "Vision": "Vision"
       }
     },
     "item_stat_variant": {

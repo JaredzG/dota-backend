@@ -10,11 +10,6 @@ import { createInsertSchema } from "drizzle-zod";
 import { type z } from "zod";
 import { hero } from "./hero";
 
-export const heroMetaInfoTypeEnum = pgEnum("hero_meta_info_type", [
-  "Pick Percentage",
-  "Win Percentage",
-]);
-
 export const heroMetaInfoRankEnum = pgEnum("hero_meta_info_rank", [
   "Herald | Guardian | Crusader",
   "Archon",
@@ -22,6 +17,11 @@ export const heroMetaInfoRankEnum = pgEnum("hero_meta_info_rank", [
   "Ancient",
   "Divine | Immortal",
 ]);
+
+export const heroMetaInfoPercentageTypeEnum = pgEnum(
+  "hero_meta_info_percentage_type",
+  ["Pick Percentage", "Win Percentage"]
+);
 
 export const heroMetaInfo = pgTable(
   "hero_meta_info",
@@ -31,7 +31,7 @@ export const heroMetaInfo = pgTable(
       .references(() => hero.id)
       .notNull(),
     rank: heroMetaInfoRankEnum("rank").notNull(),
-    type: heroMetaInfoTypeEnum("type").notNull(),
+    type: heroMetaInfoPercentageTypeEnum("type").notNull(),
     percentage: numeric("percentage", {
       precision: 4,
       scale: 2,

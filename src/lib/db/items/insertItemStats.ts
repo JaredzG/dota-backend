@@ -12,11 +12,14 @@ const insertItemStats = async (
 ): Promise<void> => {
   if (stats !== null) {
     for (const stat of stats) {
+      const { property, effect, value, variant } = stat;
+
       const itemStatEntry = {
         itemId,
-        property: stat.property,
-        value: stat.value,
-        variant: stat.variant,
+        property,
+        effect,
+        value,
+        variant,
       };
 
       if (insertItemStatSchema.safeParse(itemStatEntry).success) {

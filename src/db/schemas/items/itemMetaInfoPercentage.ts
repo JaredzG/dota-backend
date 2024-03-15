@@ -10,10 +10,10 @@ import { createInsertSchema } from "drizzle-zod";
 import { type z } from "zod";
 import { itemMetaInfo } from "./itemMetaInfo";
 
-export const itemMetaInfoPercentageTypeEnum = pgEnum("item_meta_info_type", [
-  "Use Percentage",
-  "Win Percentage",
-]);
+export const itemMetaInfoPercentageTypeEnum = pgEnum(
+  "item_meta_info_percentage_type",
+  ["Use Percentage", "Win Percentage"]
+);
 
 export const itemMetaInfoPercentage = pgTable(
   "item_meta_info_percentage",

@@ -2,8 +2,6 @@ import {
   itemAbilityFeature,
   insertItemAbilityFeatureSchema,
   type ItemAbilityFeature,
-  type itemAbilityFeatureTypeEnum,
-  type itemAbilityFeatureValueEnum,
 } from "../../../db/schemas/items/itemAbilityFeature";
 import { type DB } from "../../../db/db";
 
@@ -22,11 +20,7 @@ const insertItemAbilityFeatures = async (
 
     if (values !== null) {
       for (const value of values) {
-        const itemAbilityFeatureEntry: {
-          itemAbilityId: number;
-          type: (typeof itemAbilityFeatureTypeEnum.enumValues)[number];
-          value: (typeof itemAbilityFeatureValueEnum.enumValues)[number] | null;
-        } = {
+        const itemAbilityFeatureEntry = {
           itemAbilityId,
           type: feature,
           value,
@@ -52,11 +46,7 @@ const insertItemAbilityFeatures = async (
         }
       }
     } else {
-      const itemAbilityFeatureEntry: {
-        itemAbilityId: number;
-        type: (typeof itemAbilityFeatureTypeEnum.enumValues)[number];
-        value: (typeof itemAbilityFeatureValueEnum.enumValues)[number] | null;
-      } = {
+      const itemAbilityFeatureEntry = {
         itemAbilityId,
         type: feature,
         value: null,
