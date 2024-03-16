@@ -20,7 +20,7 @@ export const heroMetaInfoRankEnum = pgEnum("hero_meta_info_rank", [
 
 export const heroMetaInfoPercentageTypeEnum = pgEnum(
   "hero_meta_info_percentage_type",
-  ["Pick Percentage", "Win Percentage"]
+  ["Pick Rate", "Win Rate"]
 );
 
 export const heroMetaInfo = pgTable(

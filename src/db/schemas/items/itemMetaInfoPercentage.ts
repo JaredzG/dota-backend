@@ -12,7 +12,7 @@ import { itemMetaInfo } from "./itemMetaInfo";
 
 export const itemMetaInfoPercentageTypeEnum = pgEnum(
   "item_meta_info_percentage_type",
-  ["Use Percentage", "Win Percentage"]
+  ["Usage Rate", "Win Rate"]
 );
 
 export const itemMetaInfoPercentage = pgTable(

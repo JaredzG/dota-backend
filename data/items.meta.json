@@ -1,246 +1,1954 @@
 [
-{"name": "Aghanim's Shard", "uses": "74663209", "percentages": [{"type": "Use Percentage", "percentage": "34.8596"}, {"type": "Win Percentage", "percentage": "56.4186"}]},
-{"name": "Aghanim's Scepter", "uses": "55036147", "percentages": [{"type": "Use Percentage", "percentage": "25.6959"}, {"type": "Win Percentage", "percentage": "59.7823"}]},
-{"name": "Power Treads", "uses": "51729139", "percentages": [{"type": "Use Percentage", "percentage": "24.1519"}, {"type": "Win Percentage", "percentage": "49.3626"}]},
-{"name": "Magic Wand", "uses": "48442467", "percentages": [{"type": "Use Percentage", "percentage": "22.6173"}, {"type": "Win Percentage", "percentage": "47.6435"}]},
-{"name": "Blink Dagger", "uses": "41949246", "percentages": [{"type": "Use Percentage", "percentage": "19.5857"}, {"type": "Win Percentage", "percentage": "52.3074"}]},
-{"name": "Arcane Boots", "uses": "39167310", "percentages": [{"type": "Use Percentage", "percentage": "18.2868"}, {"type": "Win Percentage", "percentage": "49.3364"}]},
-{"name": "Black King Bar", "uses": "34880240", "percentages": [{"type": "Use Percentage", "percentage": "16.2852"}, {"type": "Win Percentage", "percentage": "52.6818"}]},
-{"name": "Phase Boots", "uses": "27388880", "percentages": [{"type": "Use Percentage", "percentage": "12.7876"}, {"type": "Win Percentage", "percentage": "50.0774"}]},
-{"name": "Wraith Band", "uses": "23421201", "percentages": [{"type": "Use Percentage", "percentage": "10.9351"}, {"type": "Win Percentage", "percentage": "46.2853"}]},
-{"name": "Bracer", "uses": "22704820", "percentages": [{"type": "Use Percentage", "percentage": "10.6006"}, {"type": "Win Percentage", "percentage": "46.5114"}]},
-{"name": "Manta Style", "uses": "19470654", "percentages": [{"type": "Use Percentage", "percentage": "9.0906"}, {"type": "Win Percentage", "percentage": "56.8105"}]},
-{"name": "Aether Lens", "uses": "17688136", "percentages": [{"type": "Use Percentage", "percentage": "8.2584"}, {"type": "Win Percentage", "percentage": "53.0677"}]},
-{"name": "Dust of Appearance", "uses": "17432095", "percentages": [{"type": "Use Percentage", "percentage": "8.1389"}, {"type": "Win Percentage", "percentage": "45.1496"}]},
-{"name": "Quelling Blade", "uses": "14794162", "percentages": [{"type": "Use Percentage", "percentage": "6.9072"}, {"type": "Win Percentage", "percentage": "42.8399"}]},
-{"name": "Observer and Sentry Wards", "uses": "14763242", "percentages": [{"type": "Use Percentage", "percentage": "6.8928"}, {"type": "Win Percentage", "percentage": "39.0307"}]},
-{"name": "Blade Mail", "uses": "14714573", "percentages": [{"type": "Use Percentage", "percentage": "6.8701"}, {"type": "Win Percentage", "percentage": "49.696"}]},
-{"name": "Tranquil Boots", "uses": "13404067", "percentages": [{"type": "Use Percentage", "percentage": "6.2582"}, {"type": "Win Percentage", "percentage": "47.5195"}]},
-{"name": "Boots of Travel (Level 1)", "uses": "12875790", "percentages": [{"type": "Use Percentage", "percentage": "6.0116"}, {"type": "Win Percentage", "percentage": "61.0609"}]},
-{"name": "Glimmer Cape", "uses": "12564350", "percentages": [{"type": "Use Percentage", "percentage": "5.8661"}, {"type": "Win Percentage", "percentage": "52.3503"}]},
-{"name": "Force Staff", "uses": "12500138", "percentages": [{"type": "Use Percentage", "percentage": "5.8362"}, {"type": "Win Percentage", "percentage": "49.9799"}]},
-{"name": "Hurricane Pike", "uses": "11403686", "percentages": [{"type": "Use Percentage", "percentage": "5.3242"}, {"type": "Win Percentage", "percentage": "57.1854"}]},
-{"name": "Iron Branch", "uses": "10943674", "percentages": [{"type": "Use Percentage", "percentage": "5.1095"}, {"type": "Win Percentage", "percentage": "42.9059"}]},
-{"name": "Bottle", "uses": "10666804", "percentages": [{"type": "Use Percentage", "percentage": "4.9802"}, {"type": "Win Percentage", "percentage": "47.5363"}]},
-{"name": "Shiva's Guard", "uses": "10387567", "percentages": [{"type": "Use Percentage", "percentage": "4.8498"}, {"type": "Win Percentage", "percentage": "62.1766"}]},
-{"name": "Mind Breaker", "uses": "10288828", "percentages": [{"type": "Use Percentage", "percentage": "4.8037"}, {"type": "Win Percentage", "percentage": "53.2137"}]},
-{"name": "Hand of Midas", "uses": "10024074", "percentages": [{"type": "Use Percentage", "percentage": "4.6801"}, {"type": "Win Percentage", "percentage": "46.4024"}]},
-{"name": "Desolator", "uses": "9886734", "percentages": [{"type": "Use Percentage", "percentage": "4.616"}, {"type": "Win Percentage", "percentage": "53.608"}]},
-{"name": "Smoke of Deceit", "uses": "9338553", "percentages": [{"type": "Use Percentage", "percentage": "4.36"}, {"type": "Win Percentage", "percentage": "50.2514"}]},
-{"name": "Eul's Scepter of Divinity", "uses": "9251122", "percentages": [{"type": "Use Percentage", "percentage": "4.3192"}, {"type": "Win Percentage", "percentage": "50.835"}]},
-{"name": "Boots of Speed", "uses": "9234775", "percentages": [{"type": "Use Percentage", "percentage": "4.3116"}, {"type": "Win Percentage", "percentage": "38.0563"}]},
-{"name": "Daedalus", "uses": "9194443", "percentages": [{"type": "Use Percentage", "percentage": "4.2928"}, {"type": "Win Percentage", "percentage": "60.5215"}]},
-{"name": "Null Talisman", "uses": "8749605", "percentages": [{"type": "Use Percentage", "percentage": "4.0851"}, {"type": "Win Percentage", "percentage": "45.461"}]},
-{"name": "Sentry Ward", "uses": "8708740", "percentages": [{"type": "Use Percentage", "percentage": "4.066"}, {"type": "Win Percentage", "percentage": "44.7535"}]},
-{"name": "Magic Stick", "uses": "8324374", "percentages": [{"type": "Use Percentage", "percentage": "3.8865"}, {"type": "Win Percentage", "percentage": "44.7519"}]},
-{"name": "Paladin Sword", "uses": "8304667", "percentages": [{"type": "Use Percentage", "percentage": "3.8773"}, {"type": "Win Percentage", "percentage": "50.7416"}]},
-{"name": "Gleipnir", "uses": "8036212", "percentages": [{"type": "Use Percentage", "percentage": "3.752"}, {"type": "Win Percentage", "percentage": "57.4427"}]},
-{"name": "Mjollnir", "uses": "7765556", "percentages": [{"type": "Use Percentage", "percentage": "3.6256"}, {"type": "Win Percentage", "percentage": "59.1341"}]},
-{"name": "Butterfly", "uses": "7746514", "percentages": [{"type": "Use Percentage", "percentage": "3.6167"}, {"type": "Win Percentage", "percentage": "67.1892"}]},
-{"name": "Maelstrom", "uses": "7664063", "percentages": [{"type": "Use Percentage", "percentage": "3.5782"}, {"type": "Win Percentage", "percentage": "35.9532"}]},
-{"name": "Mage Slayer", "uses": "7641264", "percentages": [{"type": "Use Percentage", "percentage": "3.5676"}, {"type": "Win Percentage", "percentage": "53.2322"}]},
-{"name": "Elven Tunic", "uses": "7442085", "percentages": [{"type": "Use Percentage", "percentage": "3.4746"}, {"type": "Win Percentage", "percentage": "49.8346"}]},
-{"name": "Ogre Axe", "uses": "7311333", "percentages": [{"type": "Use Percentage", "percentage": "3.4136"}, {"type": "Win Percentage", "percentage": "25.1667"}]},
-{"name": "Battle Fury", "uses": "7266692", "percentages": [{"type": "Use Percentage", "percentage": "3.3927"}, {"type": "Win Percentage", "percentage": "50.9022"}]},
-{"name": "Monkey King Bar", "uses": "7239364", "percentages": [{"type": "Use Percentage", "percentage": "3.3799"}, {"type": "Win Percentage", "percentage": "56.0625"}]},
-{"name": "Linken's Sphere", "uses": "6952455", "percentages": [{"type": "Use Percentage", "percentage": "3.246"}, {"type": "Win Percentage", "percentage": "61.4704"}]},
-{"name": "Psychic Headband", "uses": "6840005", "percentages": [{"type": "Use Percentage", "percentage": "3.1935"}, {"type": "Win Percentage", "percentage": "49.8488"}]},
-{"name": "Heart of Tarrasque", "uses": "6747004", "percentages": [{"type": "Use Percentage", "percentage": "3.1501"}, {"type": "Win Percentage", "percentage": "66.3741"}]},
-{"name": "Diffusal Blade", "uses": "6618143", "percentages": [{"type": "Use Percentage", "percentage": "3.0899"}, {"type": "Win Percentage", "percentage": "44.9049"}]},
-{"name": "Timeless Relic", "uses": "6450085", "percentages": [{"type": "Use Percentage", "percentage": "3.0114"}, {"type": "Win Percentage", "percentage": "53.7318"}]},
-{"name": "Observer Ward", "uses": "6297735", "percentages": [{"type": "Use Percentage", "percentage": "2.9403"}, {"type": "Win Percentage", "percentage": "37.6224"}]},
-{"name": "Eye of Skadi", "uses": "6018673", "percentages": [{"type": "Use Percentage", "percentage": "2.81"}, {"type": "Win Percentage", "percentage": "66.1372"}]},
-{"name": "Octarine Core", "uses": "6001066", "percentages": [{"type": "Use Percentage", "percentage": "2.8018"}, {"type": "Win Percentage", "percentage": "64.4828"}]},
-{"name": "Philosopher's Stone", "uses": "5971368", "percentages": [{"type": "Use Percentage", "percentage": "2.7879"}, {"type": "Win Percentage", "percentage": "45.4114"}]},
-{"name": "Spirit Vessel", "uses": "5962386", "percentages": [{"type": "Use Percentage", "percentage": "2.7837"}, {"type": "Win Percentage", "percentage": "52.4005"}]},
-{"name": "Silver Edge", "uses": "5952025", "percentages": [{"type": "Use Percentage", "percentage": "2.7789"}, {"type": "Win Percentage", "percentage": "55.816"}]},
-{"name": "Dragon Lance", "uses": "5725169", "percentages": [{"type": "Use Percentage", "percentage": "2.673"}, {"type": "Win Percentage", "percentage": "44.6028"}]},
-{"name": "Trickster Cloak", "uses": "5663670", "percentages": [{"type": "Use Percentage", "percentage": "2.6443"}, {"type": "Win Percentage", "percentage": "50.669"}]},
-{"name": "Ghost Scepter", "uses": "5609664", "percentages": [{"type": "Use Percentage", "percentage": "2.6191"}, {"type": "Win Percentage", "percentage": "50.0233"}]},
-{"name": "Bloodthorn", "uses": "5594485", "percentages": [{"type": "Use Percentage", "percentage": "2.612"}, {"type": "Win Percentage", "percentage": "62.9004"}]},
-{"name": "Mask of Madness", "uses": "5496464", "percentages": [{"type": "Use Percentage", "percentage": "2.5662"}, {"type": "Win Percentage", "percentage": "46.2632"}]},
-{"name": "Orchid Malevolence", "uses": "5477305", "percentages": [{"type": "Use Percentage", "percentage": "2.5573"}, {"type": "Win Percentage", "percentage": "45.4627"}]},
-{"name": "Eternal Shroud", "uses": "5453268", "percentages": [{"type": "Use Percentage", "percentage": "2.546"}, {"type": "Win Percentage", "percentage": "58.4438"}]},
-{"name": "Khanda", "uses": "5434942", "percentages": [{"type": "Use Percentage", "percentage": "2.5375"}, {"type": "Win Percentage", "percentage": "60.3033"}]},
-{"name": "Vindicator's Axe", "uses": "5429270", "percentages": [{"type": "Use Percentage", "percentage": "2.5348"}, {"type": "Win Percentage", "percentage": "48.7838"}]},
-{"name": "Shadow Blade", "uses": "5361191", "percentages": [{"type": "Use Percentage", "percentage": "2.503"}, {"type": "Win Percentage", "percentage": "41.7582"}]},
-{"name": "Wind Lace", "uses": "5337699", "percentages": [{"type": "Use Percentage", "percentage": "2.4921"}, {"type": "Win Percentage", "percentage": "44.1418"}]},
-{"name": "Grove Bow", "uses": "5298296", "percentages": [{"type": "Use Percentage", "percentage": "2.4737"}, {"type": "Win Percentage", "percentage": "49.0938"}]},
-{"name": "Scythe of Vyse", "uses": "5292170", "percentages": [{"type": "Use Percentage", "percentage": "2.4708"}, {"type": "Win Percentage", "percentage": "60.143"}]},
-{"name": "Harpoon", "uses": "5142774", "percentages": [{"type": "Use Percentage", "percentage": "2.4011"}, {"type": "Win Percentage", "percentage": "59.6419"}]},
-{"name": "Kaya and Sange", "uses": "5136639", "percentages": [{"type": "Use Percentage", "percentage": "2.3982"}, {"type": "Win Percentage", "percentage": "61.3777"}]},
-{"name": "Ninja Gear", "uses": "5116374", "percentages": [{"type": "Use Percentage", "percentage": "2.3887"}, {"type": "Win Percentage", "percentage": "52.6003"}]},
-{"name": "Guardian Greaves", "uses": "5053094", "percentages": [{"type": "Use Percentage", "percentage": "2.3592"}, {"type": "Win Percentage", "percentage": "64.6305"}]},
-{"name": "Skull Basher", "uses": "5023852", "percentages": [{"type": "Use Percentage", "percentage": "2.3455"}, {"type": "Win Percentage", "percentage": "53.6477"}]},
-{"name": "Radiance", "uses": "4987128", "percentages": [{"type": "Use Percentage", "percentage": "2.3284"}, {"type": "Win Percentage", "percentage": "57.476"}]},
-{"name": "Aviana's Feather", "uses": "4886340", "percentages": [{"type": "Use Percentage", "percentage": "2.2813"}, {"type": "Win Percentage", "percentage": "52.9286"}]},
-{"name": "Assault Cuirass", "uses": "4884936", "percentages": [{"type": "Use Percentage", "percentage": "2.2807"}, {"type": "Win Percentage", "percentage": "67.7787"}]},
-{"name": "Ethereal Blade", "uses": "4803032", "percentages": [{"type": "Use Percentage", "percentage": "2.2424"}, {"type": "Win Percentage", "percentage": "59.6334"}]},
-{"name": "Satanic", "uses": "4781546", "percentages": [{"type": "Use Percentage", "percentage": "2.2324"}, {"type": "Win Percentage", "percentage": "65.3788"}]},
-{"name": "Witch Blade", "uses": "4676976", "percentages": [{"type": "Use Percentage", "percentage": "2.1836"}, {"type": "Win Percentage", "percentage": "42.4022"}]},
-{"name": "Cloak of Flames", "uses": "4595694", "percentages": [{"type": "Use Percentage", "percentage": "2.1456"}, {"type": "Win Percentage", "percentage": "51.3302"}]},
-{"name": "Disperser", "uses": "4465561", "percentages": [{"type": "Use Percentage", "percentage": "2.0849"}, {"type": "Win Percentage", "percentage": "65.9184"}]},
-{"name": "Vampire Fangs", "uses": "4366784", "percentages": [{"type": "Use Percentage", "percentage": "2.0388"}, {"type": "Win Percentage", "percentage": "47.6521"}]},
-{"name": "Clarity", "uses": "4343824", "percentages": [{"type": "Use Percentage", "percentage": "2.028"}, {"type": "Win Percentage", "percentage": "47.4355"}]},
-{"name": "Lotus Orb", "uses": "4336821", "percentages": [{"type": "Use Percentage", "percentage": "2.0248"}, {"type": "Win Percentage", "percentage": "57.7098"}]},
-{"name": "Echo Sabre", "uses": "4312508", "percentages": [{"type": "Use Percentage", "percentage": "2.0134"}, {"type": "Win Percentage", "percentage": "42.9769"}]},
-{"name": "Abyssal Blade", "uses": "4300428", "percentages": [{"type": "Use Percentage", "percentage": "2.0078"}, {"type": "Win Percentage", "percentage": "66.8921"}]},
-{"name": "Vambrace", "uses": "4285014", "percentages": [{"type": "Use Percentage", "percentage": "2.0006"}, {"type": "Win Percentage", "percentage": "46.5694"}]},
-{"name": "Ogre Seal Totem", "uses": "4256092", "percentages": [{"type": "Use Percentage", "percentage": "1.9871"}, {"type": "Win Percentage", "percentage": "47.8867"}]},
-{"name": "Crystalys", "uses": "4221783", "percentages": [{"type": "Use Percentage", "percentage": "1.9711"}, {"type": "Win Percentage", "percentage": "41.1938"}]},
-{"name": "Aeon Disk", "uses": "4205683", "percentages": [{"type": "Use Percentage", "percentage": "1.9635"}, {"type": "Win Percentage", "percentage": "59.2999"}]},
-{"name": "Staff of Wizardry", "uses": "4200804", "percentages": [{"type": "Use Percentage", "percentage": "1.9613"}, {"type": "Win Percentage", "percentage": "29.9657"}]},
-{"name": "Dandelion Amulet", "uses": "4184924", "percentages": [{"type": "Use Percentage", "percentage": "1.9539"}, {"type": "Win Percentage", "percentage": "50.608"}]},
-{"name": "Ancient Guardian", "uses": "4166819", "percentages": [{"type": "Use Percentage", "percentage": "1.9454"}, {"type": "Win Percentage", "percentage": "49.8897"}]},
-{"name": "Soul Ring", "uses": "4000370", "percentages": [{"type": "Use Percentage", "percentage": "1.8677"}, {"type": "Win Percentage", "percentage": "46.9892"}]},
-{"name": "Circlet", "uses": "3984335", "percentages": [{"type": "Use Percentage", "percentage": "1.8602"}, {"type": "Win Percentage", "percentage": "44.2314"}]},
-{"name": "Enchanted Quiver", "uses": "3905219", "percentages": [{"type": "Use Percentage", "percentage": "1.8233"}, {"type": "Win Percentage", "percentage": "50.4241"}]},
-{"name": "Refresher Orb", "uses": "3898576", "percentages": [{"type": "Use Percentage", "percentage": "1.8202"}, {"type": "Win Percentage", "percentage": "63.2622"}]},
-{"name": "Vanguard", "uses": "3769148", "percentages": [{"type": "Use Percentage", "percentage": "1.7597"}, {"type": "Win Percentage", "percentage": "45.7589"}]},
-{"name": "Defiant Shell", "uses": "3741326", "percentages": [{"type": "Use Percentage", "percentage": "1.7467"}, {"type": "Win Percentage", "percentage": "51.4309"}]},
-{"name": "Sange and Yasha", "uses": "3715931", "percentages": [{"type": "Use Percentage", "percentage": "1.7349"}, {"type": "Win Percentage", "percentage": "60.1619"}]},
-{"name": "Dragon Scale", "uses": "3668769", "percentages": [{"type": "Use Percentage", "percentage": "1.7129"}, {"type": "Win Percentage", "percentage": "48.4657"}]},
-{"name": "Orb of Corrosion", "uses": "3663893", "percentages": [{"type": "Use Percentage", "percentage": "1.7106"}, {"type": "Win Percentage", "percentage": "47.9005"}]},
-{"name": "Ascetic's Cap", "uses": "3639387", "percentages": [{"type": "Use Percentage", "percentage": "1.6991"}, {"type": "Win Percentage", "percentage": "54.0321"}]},
-{"name": "Nemesis Curse", "uses": "3595520", "percentages": [{"type": "Use Percentage", "percentage": "1.6787"}, {"type": "Win Percentage", "percentage": "49.0498"}]},
-{"name": "Parasma", "uses": "3585139", "percentages": [{"type": "Use Percentage", "percentage": "1.6738"}, {"type": "Win Percentage", "percentage": "67.4403"}]},
-{"name": "Point Booster", "uses": "3495655", "percentages": [{"type": "Use Percentage", "percentage": "1.632"}, {"type": "Win Percentage", "percentage": "35.7307"}]},
-{"name": "Solar Crest", "uses": "3474960", "percentages": [{"type": "Use Percentage", "percentage": "1.6224"}, {"type": "Win Percentage", "percentage": "57.3589"}]},
-{"name": "Vladmir's Offering", "uses": "3363556", "percentages": [{"type": "Use Percentage", "percentage": "1.5704"}, {"type": "Win Percentage", "percentage": "56.8179"}]},
-{"name": "Enchanted Mango", "uses": "3245174", "percentages": [{"type": "Use Percentage", "percentage": "1.5151"}, {"type": "Win Percentage", "percentage": "37.2278"}]},
-{"name": "Phylactery", "uses": "3241086", "percentages": [{"type": "Use Percentage", "percentage": "1.5132"}, {"type": "Win Percentage", "percentage": "48.6152"}]},
-{"name": "Morbid Mask", "uses": "3210926", "percentages": [{"type": "Use Percentage", "percentage": "1.4991"}, {"type": "Win Percentage", "percentage": "42.4942"}]},
-{"name": "Havoc Hammer", "uses": "3139009", "percentages": [{"type": "Use Percentage", "percentage": "1.4655"}, {"type": "Win Percentage", "percentage": "52.3497"}]},
-{"name": "Specialist's Array", "uses": "3119535", "percentages": [{"type": "Use Percentage", "percentage": "1.4564"}, {"type": "Win Percentage", "percentage": "48.3493"}]},
-{"name": "Heaven's Halberd", "uses": "3098284", "percentages": [{"type": "Use Percentage", "percentage": "1.4465"}, {"type": "Win Percentage", "percentage": "53.5535"}]},
-{"name": "Rattlecage", "uses": "3066853", "percentages": [{"type": "Use Percentage", "percentage": "1.4318"}, {"type": "Win Percentage", "percentage": "54.1099"}]},
-{"name": "Rod of Atos", "uses": "3012026", "percentages": [{"type": "Use Percentage", "percentage": "1.4062"}, {"type": "Win Percentage", "percentage": "49.7207"}]},
-{"name": "Tango", "uses": "3011400", "percentages": [{"type": "Use Percentage", "percentage": "1.4059"}, {"type": "Win Percentage", "percentage": "31.2738"}]},
-{"name": "Blight Stone", "uses": "2873841", "percentages": [{"type": "Use Percentage", "percentage": "1.3417"}, {"type": "Win Percentage", "percentage": "38.7749"}]},
-{"name": "Armlet of Mordiggian", "uses": "2789353", "percentages": [{"type": "Use Percentage", "percentage": "1.3023"}, {"type": "Win Percentage", "percentage": "49.9471"}]},
-{"name": "Veil of Discord", "uses": "2777166", "percentages": [{"type": "Use Percentage", "percentage": "1.2966"}, {"type": "Win Percentage", "percentage": "35.5776"}]},
-{"name": "Mithril Hammer", "uses": "2766183", "percentages": [{"type": "Use Percentage", "percentage": "1.2915"}, {"type": "Win Percentage", "percentage": "20.6763"}]},
-{"name": "Wind Waker", "uses": "2747014", "percentages": [{"type": "Use Percentage", "percentage": "1.2825"}, {"type": "Win Percentage", "percentage": "65.8244"}]},
-{"name": "Ceremonial Robe", "uses": "2670983", "percentages": [{"type": "Use Percentage", "percentage": "1.247"}, {"type": "Win Percentage", "percentage": "52.7558"}]},
-{"name": "Telescope", "uses": "2645607", "percentages": [{"type": "Use Percentage", "percentage": "1.2352"}, {"type": "Win Percentage", "percentage": "53.9377"}]},
-{"name": "Pipe of Insight", "uses": "2553027", "percentages": [{"type": "Use Percentage", "percentage": "1.1919"}, {"type": "Win Percentage", "percentage": "58.9037"}]},
-{"name": "Pupil's Gift", "uses": "2440271", "percentages": [{"type": "Use Percentage", "percentage": "1.1393"}, {"type": "Win Percentage", "percentage": "48.1536"}]},
-{"name": "Gossamer Cape", "uses": "2418513", "percentages": [{"type": "Use Percentage", "percentage": "1.1291"}, {"type": "Win Percentage", "percentage": "48.4386"}]},
-{"name": "Fairy's Trinket", "uses": "2376363", "percentages": [{"type": "Use Percentage", "percentage": "1.1095"}, {"type": "Win Percentage", "percentage": "47.0233"}]},
-{"name": "Orb of Destruction", "uses": "2317222", "percentages": [{"type": "Use Percentage", "percentage": "1.0818"}, {"type": "Win Percentage", "percentage": "48.8418"}]},
-{"name": "Blade of Alacrity", "uses": "2316448", "percentages": [{"type": "Use Percentage", "percentage": "1.0815"}, {"type": "Win Percentage", "percentage": "28.3888"}]},
-{"name": "Overwhelming Blink", "uses": "2312898", "percentages": [{"type": "Use Percentage", "percentage": "1.0798"}, {"type": "Win Percentage", "percentage": "70.2011"}]},
-{"name": "Bullwhip", "uses": "2304252", "percentages": [{"type": "Use Percentage", "percentage": "1.0758"}, {"type": "Win Percentage", "percentage": "50.0159"}]},
-{"name": "Falcon Blade", "uses": "2213015", "percentages": [{"type": "Use Percentage", "percentage": "1.0332"}, {"type": "Win Percentage", "percentage": "45.0905"}]},
-{"name": "Kaya", "uses": "2141826", "percentages": [{"type": "Use Percentage", "percentage": "1.0"}, {"type": "Win Percentage", "percentage": "47.3642"}]},
-{"name": "Stormcrafter", "uses": "2139356", "percentages": [{"type": "Use Percentage", "percentage": "0.9988"}, {"type": "Win Percentage", "percentage": "56.9378"}]},
-{"name": "Urn of Shadows", "uses": "2131045", "percentages": [{"type": "Use Percentage", "percentage": "0.9949"}, {"type": "Win Percentage", "percentage": "41.8842"}]},
-{"name": "Safety Bubble", "uses": "2116964", "percentages": [{"type": "Use Percentage", "percentage": "0.9883"}, {"type": "Win Percentage", "percentage": "46.8581"}]},
-{"name": "Eye of the Vizier", "uses": "2111669", "percentages": [{"type": "Use Percentage", "percentage": "0.9859"}, {"type": "Win Percentage", "percentage": "48.5999"}]},
-{"name": "Gem of True Sight", "uses": "2037883", "percentages": [{"type": "Use Percentage", "percentage": "0.9514"}, {"type": "Win Percentage", "percentage": "84.1728"}]},
-{"name": "Moon Shard", "uses": "2034330", "percentages": [{"type": "Use Percentage", "percentage": "0.9498"}, {"type": "Win Percentage", "percentage": "66.0113"}]},
-{"name": "Craggy Coat", "uses": "2024379", "percentages": [{"type": "Use Percentage", "percentage": "0.9451"}, {"type": "Win Percentage", "percentage": "47.6175"}]},
-{"name": "Bloodstone", "uses": "1976835", "percentages": [{"type": "Use Percentage", "percentage": "0.9229"}, {"type": "Win Percentage", "percentage": "64.6798"}]},
-{"name": "Healing Salve", "uses": "1851449", "percentages": [{"type": "Use Percentage", "percentage": "0.8644"}, {"type": "Win Percentage", "percentage": "37.1283"}]},
-{"name": "Crimson Guard", "uses": "1829535", "percentages": [{"type": "Use Percentage", "percentage": "0.8541"}, {"type": "Win Percentage", "percentage": "58.8433"}]},
-{"name": "Yasha", "uses": "1781593", "percentages": [{"type": "Use Percentage", "percentage": "0.8318"}, {"type": "Win Percentage", "percentage": "27.7235"}]},
-{"name": "Faded Broach", "uses": "1748829", "percentages": [{"type": "Use Percentage", "percentage": "0.8165"}, {"type": "Win Percentage", "percentage": "46.4804"}]},
-{"name": "Boots of Bearing", "uses": "1690699", "percentages": [{"type": "Use Percentage", "percentage": "0.7893"}, {"type": "Win Percentage", "percentage": "64.4873"}]},
-{"name": "Nullifier", "uses": "1634357", "percentages": [{"type": "Use Percentage", "percentage": "0.763"}, {"type": "Win Percentage", "percentage": "60.0179"}]},
-{"name": "Arcane Ring", "uses": "1610984", "percentages": [{"type": "Use Percentage", "percentage": "0.7521"}, {"type": "Win Percentage", "percentage": "49.8277"}]},
-{"name": "Divine Rapier", "uses": "1610378", "percentages": [{"type": "Use Percentage", "percentage": "0.7518"}, {"type": "Win Percentage", "percentage": "86.1385"}]},
-{"name": "Dagon (Level 5)", "uses": "1609439", "percentages": [{"type": "Use Percentage", "percentage": "0.7514"}, {"type": "Win Percentage", "percentage": "59.6786"}]},
-{"name": "Martyr's Plate", "uses": "1559218", "percentages": [{"type": "Use Percentage", "percentage": "0.7279"}, {"type": "Win Percentage", "percentage": "52.2293"}]},
-{"name": "Orb of Venom", "uses": "1555071", "percentages": [{"type": "Use Percentage", "percentage": "0.726"}, {"type": "Win Percentage", "percentage": "43.0912"}]},
-{"name": "Swift Blink", "uses": "1528872", "percentages": [{"type": "Use Percentage", "percentage": "0.7138"}, {"type": "Win Percentage", "percentage": "69.2211"}]},
-{"name": "Mekansm", "uses": "1518044", "percentages": [{"type": "Use Percentage", "percentage": "0.7087"}, {"type": "Win Percentage", "percentage": "47.3578"}]},
-{"name": "Platemail", "uses": "1506779", "percentages": [{"type": "Use Percentage", "percentage": "0.7035"}, {"type": "Win Percentage", "percentage": "37.036"}]},
-{"name": "Javelin", "uses": "1455581", "percentages": [{"type": "Use Percentage", "percentage": "0.6795"}, {"type": "Win Percentage", "percentage": "25.5483"}]},
-{"name": "Gauntlets of Strength", "uses": "1447746", "percentages": [{"type": "Use Percentage", "percentage": "0.6759"}, {"type": "Win Percentage", "percentage": "42.2925"}]},
-{"name": "Whisper of the Dread", "uses": "1388388", "percentages": [{"type": "Use Percentage", "percentage": "0.6482"}, {"type": "Win Percentage", "percentage": "49.3539"}]},
-{"name": "Cloak", "uses": "1366562", "percentages": [{"type": "Use Percentage", "percentage": "0.638"}, {"type": "Win Percentage", "percentage": "26.9244"}]},
-{"name": "Boots of Travel (Level 2)", "uses": "1329264", "percentages": [{"type": "Use Percentage", "percentage": "0.6206"}, {"type": "Win Percentage", "percentage": "65.9346"}]},
-{"name": "Perseverance", "uses": "1307667", "percentages": [{"type": "Use Percentage", "percentage": "0.6105"}, {"type": "Win Percentage", "percentage": "35.9781"}]},
-{"name": "Void Stone", "uses": "1288050", "percentages": [{"type": "Use Percentage", "percentage": "0.6013"}, {"type": "Win Percentage", "percentage": "28.1565"}]},
-{"name": "Ring of Protection", "uses": "1279028", "percentages": [{"type": "Use Percentage", "percentage": "0.5971"}, {"type": "Win Percentage", "percentage": "41.4664"}]},
-{"name": "Hyperstone", "uses": "1198121", "percentages": [{"type": "Use Percentage", "percentage": "0.5593"}, {"type": "Win Percentage", "percentage": "49.4978"}]},
-{"name": "Yasha and Kaya", "uses": "1120212", "percentages": [{"type": "Use Percentage", "percentage": "0.523"}, {"type": "Win Percentage", "percentage": "61.3807"}]},
-{"name": "Revenant's Brooch", "uses": "1106393", "percentages": [{"type": "Use Percentage", "percentage": "0.5165"}, {"type": "Win Percentage", "percentage": "60.5791"}]},
-{"name": "Blood Grenade", "uses": "1096951", "percentages": [{"type": "Use Percentage", "percentage": "0.5121"}, {"type": "Win Percentage", "percentage": "44.7016"}]},
-{"name": "Broom Handle", "uses": "1090965", "percentages": [{"type": "Use Percentage", "percentage": "0.5093"}, {"type": "Win Percentage", "percentage": "45.3885"}]},
-{"name": "Duelist Gloves", "uses": "1082075", "percentages": [{"type": "Use Percentage", "percentage": "0.5052"}, {"type": "Win Percentage", "percentage": "43.2875"}]},
-{"name": "Claymore", "uses": "1047390", "percentages": [{"type": "Use Percentage", "percentage": "0.489"}, {"type": "Win Percentage", "percentage": "38.6268"}]},
-{"name": "Blitz Knuckles", "uses": "1020018", "percentages": [{"type": "Use Percentage", "percentage": "0.4762"}, {"type": "Win Percentage", "percentage": "23.5926"}]},
-{"name": "Royal Jelly", "uses": "1019477", "percentages": [{"type": "Use Percentage", "percentage": "0.4759"}, {"type": "Win Percentage", "percentage": "51.4089"}]},
-{"name": "Reaver", "uses": "1018966", "percentages": [{"type": "Use Percentage", "percentage": "0.4757"}, {"type": "Win Percentage", "percentage": "50.5303"}]},
-{"name": "Trusty Shovel", "uses": "1010924", "percentages": [{"type": "Use Percentage", "percentage": "0.4719"}, {"type": "Win Percentage", "percentage": "48.691"}]},
-{"name": "Meteor Hammer", "uses": "957824", "percentages": [{"type": "Use Percentage", "percentage": "0.4472"}, {"type": "Win Percentage", "percentage": "63.5426"}]},
-{"name": "Buckler", "uses": "955963", "percentages": [{"type": "Use Percentage", "percentage": "0.4463"}, {"type": "Win Percentage", "percentage": "39.662"}]},
-{"name": "Tiara of Selemene", "uses": "941563", "percentages": [{"type": "Use Percentage", "percentage": "0.4396"}, {"type": "Win Percentage", "percentage": "52.203"}]},
-{"name": "Shadow Amulet", "uses": "912772", "percentages": [{"type": "Use Percentage", "percentage": "0.4261"}, {"type": "Win Percentage", "percentage": "29.5641"}]},
-{"name": "Infused Raindrops", "uses": "904427", "percentages": [{"type": "Use Percentage", "percentage": "0.4222"}, {"type": "Win Percentage", "percentage": "49.2678"}]},
-{"name": "Fluffy Hat", "uses": "894069", "percentages": [{"type": "Use Percentage", "percentage": "0.4174"}, {"type": "Win Percentage", "percentage": "22.0702"}]},
-{"name": "Occult Bracelet", "uses": "891218", "percentages": [{"type": "Use Percentage", "percentage": "0.4161"}, {"type": "Win Percentage", "percentage": "47.1368"}]},
-{"name": "Holy Locket", "uses": "888412", "percentages": [{"type": "Use Percentage", "percentage": "0.4147"}, {"type": "Win Percentage", "percentage": "60.9344"}]},
-{"name": "Diadem", "uses": "863895", "percentages": [{"type": "Use Percentage", "percentage": "0.4033"}, {"type": "Win Percentage", "percentage": "20.7877"}]},
-{"name": "Sange", "uses": "846041", "percentages": [{"type": "Use Percentage", "percentage": "0.395"}, {"type": "Win Percentage", "percentage": "34.6987"}]},
-{"name": "Ring of Tarrasque", "uses": "838092", "percentages": [{"type": "Use Percentage", "percentage": "0.3912"}, {"type": "Win Percentage", "percentage": "50.8099"}]},
-{"name": "Ring of Basilius", "uses": "781640", "percentages": [{"type": "Use Percentage", "percentage": "0.3649"}, {"type": "Win Percentage", "percentage": "40.7285"}]},
-{"name": "Ultimate Orb", "uses": "771373", "percentages": [{"type": "Use Percentage", "percentage": "0.3601"}, {"type": "Win Percentage", "percentage": "42.1077"}]},
-{"name": "Vitality Booster", "uses": "765225", "percentages": [{"type": "Use Percentage", "percentage": "0.3572"}, {"type": "Win Percentage", "percentage": "39.7237"}]},
-{"name": "Doubloon", "uses": "765173", "percentages": [{"type": "Use Percentage", "percentage": "0.3572"}, {"type": "Win Percentage", "percentage": "52.6296"}]},
-{"name": "Drum of Endurance", "uses": "763036", "percentages": [{"type": "Use Percentage", "percentage": "0.3562"}, {"type": "Win Percentage", "percentage": "49.1421"}]},
-{"name": "Demon Edge", "uses": "757112", "percentages": [{"type": "Use Percentage", "percentage": "0.3534"}, {"type": "Win Percentage", "percentage": "35.9263"}]},
-{"name": "Pig Pole", "uses": "750906", "percentages": [{"type": "Use Percentage", "percentage": "0.3505"}, {"type": "Win Percentage", "percentage": "45.9366"}]},
-{"name": "Lance of Pursuit", "uses": "743829", "percentages": [{"type": "Use Percentage", "percentage": "0.3472"}, {"type": "Win Percentage", "percentage": "46.0983"}]},
-{"name": "Eaglesong", "uses": "701467", "percentages": [{"type": "Use Percentage", "percentage": "0.3275"}, {"type": "Win Percentage", "percentage": "45.8738"}]},
-{"name": "Energy Booster", "uses": "696814", "percentages": [{"type": "Use Percentage", "percentage": "0.3253"}, {"type": "Win Percentage", "percentage": "36.1637"}]},
-{"name": "Headdress", "uses": "694529", "percentages": [{"type": "Use Percentage", "percentage": "0.3242"}, {"type": "Win Percentage", "percentage": "32.4838"}]},
-{"name": "Slippers of Agility", "uses": "669553", "percentages": [{"type": "Use Percentage", "percentage": "0.3126"}, {"type": "Win Percentage", "percentage": "39.5746"}]},
-{"name": "Sage's Mask", "uses": "667645", "percentages": [{"type": "Use Percentage", "percentage": "0.3117"}, {"type": "Win Percentage", "percentage": "36.4496"}]},
-{"name": "Voodoo Mask", "uses": "660958", "percentages": [{"type": "Use Percentage", "percentage": "0.3085"}, {"type": "Win Percentage", "percentage": "39.3997"}]},
-{"name": "Mystic Staff", "uses": "657465", "percentages": [{"type": "Use Percentage", "percentage": "0.3069"}, {"type": "Win Percentage", "percentage": "46.529"}]},
-{"name": "Faerie Fire", "uses": "653330", "percentages": [{"type": "Use Percentage", "percentage": "0.305"}, {"type": "Win Percentage", "percentage": "42.6239"}]},
-{"name": "Ring of Health", "uses": "625431", "percentages": [{"type": "Use Percentage", "percentage": "0.292"}, {"type": "Win Percentage", "percentage": "37.7309"}]},
-{"name": "Giant's Ring", "uses": "613356", "percentages": [{"type": "Use Percentage", "percentage": "0.2863"}, {"type": "Win Percentage", "percentage": "53.5959"}]},
-{"name": "Spark of Courage", "uses": "609546", "percentages": [{"type": "Use Percentage", "percentage": "0.2845"}, {"type": "Win Percentage", "percentage": "45.0249"}]},
-{"name": "Cornucopia", "uses": "608947", "percentages": [{"type": "Use Percentage", "percentage": "0.2843"}, {"type": "Win Percentage", "percentage": "47.3041"}]},
-{"name": "Seeds of Serenity", "uses": "592970", "percentages": [{"type": "Use Percentage", "percentage": "0.2768"}, {"type": "Win Percentage", "percentage": "48.868"}]},
-{"name": "Stygian Desolator", "uses": "561475", "percentages": [{"type": "Use Percentage", "percentage": "0.2621"}, {"type": "Win Percentage", "percentage": "52.985"}]},
-{"name": "Mirror Shield", "uses": "557466", "percentages": [{"type": "Use Percentage", "percentage": "0.2602"}, {"type": "Win Percentage", "percentage": "54.0041"}]},
-{"name": "Broadsword", "uses": "552875", "percentages": [{"type": "Use Percentage", "percentage": "0.2581"}, {"type": "Win Percentage", "percentage": "31.8498"}]},
-{"name": "Oblivion Staff", "uses": "546781", "percentages": [{"type": "Use Percentage", "percentage": "0.2552"}, {"type": "Win Percentage", "percentage": "25.2057"}]},
-{"name": "Belt of Strength", "uses": "544190", "percentages": [{"type": "Use Percentage", "percentage": "0.254"}, {"type": "Win Percentage", "percentage": "22.8813"}]},
-{"name": "Light Collector", "uses": "542992", "percentages": [{"type": "Use Percentage", "percentage": "0.2535"}, {"type": "Win Percentage", "percentage": "53.8459"}]},
-{"name": "Arcane Blink", "uses": "532596", "percentages": [{"type": "Use Percentage", "percentage": "0.2486"}, {"type": "Win Percentage", "percentage": "71.1644"}]},
-{"name": "Gloves of Haste", "uses": "517683", "percentages": [{"type": "Use Percentage", "percentage": "0.2417"}, {"type": "Win Percentage", "percentage": "20.3197"}]},
-{"name": "Apex", "uses": "462950", "percentages": [{"type": "Use Percentage", "percentage": "0.2161"}, {"type": "Win Percentage", "percentage": "52.926"}]},
-{"name": "Talisman of Evasion", "uses": "462840", "percentages": [{"type": "Use Percentage", "percentage": "0.216"}, {"type": "Win Percentage", "percentage": "37.4334"}]},
-{"name": "Pirate Hat", "uses": "456598", "percentages": [{"type": "Use Percentage", "percentage": "0.2131"}, {"type": "Win Percentage", "percentage": "52.4774"}]},
-{"name": "Mantle of Intelligence", "uses": "453007", "percentages": [{"type": "Use Percentage", "percentage": "0.2115"}, {"type": "Win Percentage", "percentage": "40.7598"}]},
-{"name": "Chainmail", "uses": "409529", "percentages": [{"type": "Use Percentage", "percentage": "0.1912"}, {"type": "Win Percentage", "percentage": "20.1323"}]},
-{"name": "Helm of Iron Will", "uses": "397039", "percentages": [{"type": "Use Percentage", "percentage": "0.1853"}, {"type": "Win Percentage", "percentage": "31.0853"}]},
-{"name": "Dagon (Level 1)", "uses": "380305", "percentages": [{"type": "Use Percentage", "percentage": "0.1775"}, {"type": "Win Percentage", "percentage": "43.2852"}]},
-{"name": "Pavise", "uses": "365131", "percentages": [{"type": "Use Percentage", "percentage": "0.1704"}, {"type": "Win Percentage", "percentage": "41.2276"}]},
-{"name": "Seer Stone", "uses": "352582", "percentages": [{"type": "Use Percentage", "percentage": "0.1646"}, {"type": "Win Percentage", "percentage": "51.8072"}]},
-{"name": "Soul Booster", "uses": "352415", "percentages": [{"type": "Use Percentage", "percentage": "0.1645"}, {"type": "Win Percentage", "percentage": "53.1248"}]},
-{"name": "Force Boots", "uses": "347500", "percentages": [{"type": "Use Percentage", "percentage": "0.1622"}, {"type": "Win Percentage", "percentage": "53.5812"}]},
-{"name": "Crown", "uses": "333239", "percentages": [{"type": "Use Percentage", "percentage": "0.1555"}, {"type": "Win Percentage", "percentage": "27.8649"}]},
-{"name": "Sacred Relic", "uses": "288460", "percentages": [{"type": "Use Percentage", "percentage": "0.1346"}, {"type": "Win Percentage", "percentage": "38.8965"}]},
-{"name": "Ring of Regen", "uses": "287788", "percentages": [{"type": "Use Percentage", "percentage": "0.1343"}, {"type": "Win Percentage", "percentage": "38.8463"}]},
-{"name": "Robe of the Magi", "uses": "279954", "percentages": [{"type": "Use Percentage", "percentage": "0.1307"}, {"type": "Win Percentage", "percentage": "26.7229"}]},
-{"name": "Book of the Dead", "uses": "271049", "percentages": [{"type": "Use Percentage", "percentage": "0.1265"}, {"type": "Win Percentage", "percentage": "55.5117"}]},
-{"name": "Dagon (Level 3)", "uses": "255959", "percentages": [{"type": "Use Percentage", "percentage": "0.1195"}, {"type": "Win Percentage", "percentage": "46.9758"}]},
-{"name": "Magic Lamp", "uses": "245474", "percentages": [{"type": "Use Percentage", "percentage": "0.1146"}, {"type": "Win Percentage", "percentage": "51.9533"}]},
-{"name": "Dagon (Level 4)", "uses": "240064", "percentages": [{"type": "Use Percentage", "percentage": "0.112"}, {"type": "Win Percentage", "percentage": "50.5173"}]},
-{"name": "Dagon (Level 2)", "uses": "236738", "percentages": [{"type": "Use Percentage", "percentage": "0.1105"}, {"type": "Win Percentage", "percentage": "43.4683"}]},
-{"name": "Blades of Attack", "uses": "229472", "percentages": [{"type": "Use Percentage", "percentage": "0.1071"}, {"type": "Win Percentage", "percentage": "25.4941"}]},
-{"name": "Band of Elvenskin", "uses": "209237", "percentages": [{"type": "Use Percentage", "percentage": "0.0976"}, {"type": "Win Percentage", "percentage": "18.3715"}]},
-{"name": "Arcanist's Armor", "uses": "152958", "percentages": [{"type": "Use Percentage", "percentage": "0.0714"}, {"type": "Win Percentage", "percentage": "55.9153"}]},
-{"name": "Book of Shadows", "uses": "142248", "percentages": [{"type": "Use Percentage", "percentage": "0.0664"}, {"type": "Win Percentage", "percentage": "50.2537"}]},
-{"name": "Helm of the Overlord", "uses": "115902", "percentages": [{"type": "Use Percentage", "percentage": "0.0541"}, {"type": "Win Percentage", "percentage": "54.5659"}]},
-{"name": "Unwavering Condition", "uses": "108961", "percentages": [{"type": "Use Percentage", "percentage": "0.0508"}, {"type": "Win Percentage", "percentage": "49.4167"}]},
-{"name": "Helm of the Dominator", "uses": "69138", "percentages": [{"type": "Use Percentage", "percentage": "0.0322"}, {"type": "Win Percentage", "percentage": "42.716"}]},
-{"name": "Town Portal Scroll", "uses": "1325", "percentages": [{"type": "Use Percentage", "percentage": "0.0006"}, {"type": "Win Percentage", "percentage": "78.566"}]},
-{"name": "Aghanim's Blessing", "uses": "930", "percentages": [{"type": "Use Percentage", "percentage": "0.0004"}, {"type": "Win Percentage", "percentage": "63.5483"}]}
+  {
+    "name": "Aghanim's Shard",
+    "uses": "76671658",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "34.8568" },
+      { "type": "Win Rate", "percentage": "56.4218" }
+    ]
+  },
+  {
+    "name": "Aghanim's Scepter",
+    "uses": "56530015",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "25.6999" },
+      { "type": "Win Rate", "percentage": "59.7829" }
+    ]
+  },
+  {
+    "name": "Power Treads",
+    "uses": "53107024",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "24.1437" },
+      { "type": "Win Rate", "percentage": "49.3587" }
+    ]
+  },
+  {
+    "name": "Magic Wand",
+    "uses": "49749837",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "22.6175" },
+      { "type": "Win Rate", "percentage": "47.6418" }
+    ]
+  },
+  {
+    "name": "Blink Dagger",
+    "uses": "43074444",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "19.5827" },
+      { "type": "Win Rate", "percentage": "52.3106" }
+    ]
+  },
+  {
+    "name": "Arcane Boots",
+    "uses": "40232357",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "18.2906" },
+      { "type": "Win Rate", "percentage": "49.3387" }
+    ]
+  },
+  {
+    "name": "Black King Bar",
+    "uses": "35851547",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "16.299" },
+      { "type": "Win Rate", "percentage": "52.6855" }
+    ]
+  },
+  {
+    "name": "Phase Boots",
+    "uses": "28141785",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "12.7939" },
+      { "type": "Win Rate", "percentage": "50.0835" }
+    ]
+  },
+  {
+    "name": "Wraith Band",
+    "uses": "24038796",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "10.9286" },
+      { "type": "Win Rate", "percentage": "46.2762" }
+    ]
+  },
+  {
+    "name": "Bracer",
+    "uses": "23359435",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "10.6197" },
+      { "type": "Win Rate", "percentage": "46.5136" }
+    ]
+  },
+  {
+    "name": "Manta Style",
+    "uses": "19977993",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "9.0824" },
+      { "type": "Win Rate", "percentage": "56.8069" }
+    ]
+  },
+  {
+    "name": "Aether Lens",
+    "uses": "18157035",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "8.2546" },
+      { "type": "Win Rate", "percentage": "53.0734" }
+    ]
+  },
+  {
+    "name": "Dust of Appearance",
+    "uses": "17893845",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "8.1349" },
+      { "type": "Win Rate", "percentage": "45.1509" }
+    ]
+  },
+  {
+    "name": "Quelling Blade",
+    "uses": "15178761",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "6.9006" },
+      { "type": "Win Rate", "percentage": "42.8367" }
+    ]
+  },
+  {
+    "name": "Observer and Sentry Wards",
+    "uses": "15160728",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "6.8924" },
+      { "type": "Win Rate", "percentage": "39.0288" }
+    ]
+  },
+  {
+    "name": "Blade Mail",
+    "uses": "15127042",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "6.8771" },
+      { "type": "Win Rate", "percentage": "49.7042" }
+    ]
+  },
+  {
+    "name": "Tranquil Boots",
+    "uses": "13760273",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "6.2557" },
+      { "type": "Win Rate", "percentage": "47.5129" }
+    ]
+  },
+  {
+    "name": "Boots of Travel (Level 1)",
+    "uses": "13220936",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "6.0105" },
+      { "type": "Win Rate", "percentage": "61.0605" }
+    ]
+  },
+  {
+    "name": "Glimmer Cape",
+    "uses": "12913901",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "5.8709" },
+      { "type": "Win Rate", "percentage": "52.3487" }
+    ]
+  },
+  {
+    "name": "Force Staff",
+    "uses": "12825517",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "5.8308" },
+      { "type": "Win Rate", "percentage": "49.9758" }
+    ]
+  },
+  {
+    "name": "Hurricane Pike",
+    "uses": "11690431",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "5.3147" },
+      { "type": "Win Rate", "percentage": "57.1871" }
+    ]
+  },
+  {
+    "name": "Iron Branch",
+    "uses": "11243260",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "5.1114" },
+      { "type": "Win Rate", "percentage": "42.8978" }
+    ]
+  },
+  {
+    "name": "Bottle",
+    "uses": "10961901",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "4.9835" },
+      { "type": "Win Rate", "percentage": "47.5438" }
+    ]
+  },
+  {
+    "name": "Shiva's Guard",
+    "uses": "10638301",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "4.8364" },
+      { "type": "Win Rate", "percentage": "62.192" }
+    ]
+  },
+  {
+    "name": "Mind Breaker",
+    "uses": "10563917",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "4.8026" },
+      { "type": "Win Rate", "percentage": "53.2154" }
+    ]
+  },
+  {
+    "name": "Hand of Midas",
+    "uses": "10295464",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "4.6805" },
+      { "type": "Win Rate", "percentage": "46.4009" }
+    ]
+  },
+  {
+    "name": "Desolator",
+    "uses": "10138355",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "4.6091" },
+      { "type": "Win Rate", "percentage": "53.6188" }
+    ]
+  },
+  {
+    "name": "Smoke of Deceit",
+    "uses": "9591262",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "4.3604" },
+      { "type": "Win Rate", "percentage": "50.2503" }
+    ]
+  },
+  {
+    "name": "Eul's Scepter of Divinity",
+    "uses": "9514530",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "4.3255" },
+      { "type": "Win Rate", "percentage": "50.8275" }
+    ]
+  },
+  {
+    "name": "Boots of Speed",
+    "uses": "9481058",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "4.3103" },
+      { "type": "Win Rate", "percentage": "38.0497" }
+    ]
+  },
+  {
+    "name": "Daedalus",
+    "uses": "9439396",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "4.2913" },
+      { "type": "Win Rate", "percentage": "60.5241" }
+    ]
+  },
+  {
+    "name": "Null Talisman",
+    "uses": "8977778",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "4.0815" },
+      { "type": "Win Rate", "percentage": "45.4656" }
+    ]
+  },
+  {
+    "name": "Sentry Ward",
+    "uses": "8942201",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "4.0653" },
+      { "type": "Win Rate", "percentage": "44.7618" }
+    ]
+  },
+  {
+    "name": "Magic Stick",
+    "uses": "8551650",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "3.8877" },
+      { "type": "Win Rate", "percentage": "44.747" }
+    ]
+  },
+  {
+    "name": "Paladin Sword",
+    "uses": "8534744",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "3.8801" },
+      { "type": "Win Rate", "percentage": "50.7448" }
+    ]
+  },
+  {
+    "name": "Gleipnir",
+    "uses": "8273742",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "3.7614" },
+      { "type": "Win Rate", "percentage": "57.4274" }
+    ]
+  },
+  {
+    "name": "Mjollnir",
+    "uses": "7962868",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "3.6201" },
+      { "type": "Win Rate", "percentage": "59.1386" }
+    ]
+  },
+  {
+    "name": "Butterfly",
+    "uses": "7952981",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "3.6156" },
+      { "type": "Win Rate", "percentage": "67.1911" }
+    ]
+  },
+  {
+    "name": "Maelstrom",
+    "uses": "7862180",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "3.5743" },
+      { "type": "Win Rate", "percentage": "35.9442" }
+    ]
+  },
+  {
+    "name": "Mage Slayer",
+    "uses": "7778650",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "3.5363" },
+      { "type": "Win Rate", "percentage": "53.2171" }
+    ]
+  },
+  {
+    "name": "Elven Tunic",
+    "uses": "7638062",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "3.4724" },
+      { "type": "Win Rate", "percentage": "49.8284" }
+    ]
+  },
+  {
+    "name": "Ogre Axe",
+    "uses": "7512679",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "3.4154" },
+      { "type": "Win Rate", "percentage": "25.1728" }
+    ]
+  },
+  {
+    "name": "Battle Fury",
+    "uses": "7484040",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "3.4024" },
+      { "type": "Win Rate", "percentage": "50.9041" }
+    ]
+  },
+  {
+    "name": "Monkey King Bar",
+    "uses": "7441465",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "3.383" },
+      { "type": "Win Rate", "percentage": "56.065" }
+    ]
+  },
+  {
+    "name": "Linken's Sphere",
+    "uses": "7136062",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "3.2442" },
+      { "type": "Win Rate", "percentage": "61.471" }
+    ]
+  },
+  {
+    "name": "Psychic Headband",
+    "uses": "7023681",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "3.1931" },
+      { "type": "Win Rate", "percentage": "49.8474" }
+    ]
+  },
+  {
+    "name": "Heart of Tarrasque",
+    "uses": "6931949",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "3.1514" },
+      { "type": "Win Rate", "percentage": "66.3817" }
+    ]
+  },
+  {
+    "name": "Diffusal Blade",
+    "uses": "6783974",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "3.0841" },
+      { "type": "Win Rate", "percentage": "44.9157" }
+    ]
+  },
+  {
+    "name": "Timeless Relic",
+    "uses": "6628839",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "3.0136" },
+      { "type": "Win Rate", "percentage": "53.7318" }
+    ]
+  },
+  {
+    "name": "Observer Ward",
+    "uses": "6462651",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.938" },
+      { "type": "Win Rate", "percentage": "37.6237" }
+    ]
+  },
+  {
+    "name": "Eye of Skadi",
+    "uses": "6174164",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.8069" },
+      { "type": "Win Rate", "percentage": "66.1332" }
+    ]
+  },
+  {
+    "name": "Octarine Core",
+    "uses": "6159360",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.8001" },
+      { "type": "Win Rate", "percentage": "64.4872" }
+    ]
+  },
+  {
+    "name": "Philosopher's Stone",
+    "uses": "6130822",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.7872" },
+      { "type": "Win Rate", "percentage": "45.4093" }
+    ]
+  },
+  {
+    "name": "Spirit Vessel",
+    "uses": "6127296",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.7856" },
+      { "type": "Win Rate", "percentage": "52.407" }
+    ]
+  },
+  {
+    "name": "Silver Edge",
+    "uses": "6099808",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.7731" },
+      { "type": "Win Rate", "percentage": "55.8136" }
+    ]
+  },
+  {
+    "name": "Dragon Lance",
+    "uses": "5876527",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.6716" },
+      { "type": "Win Rate", "percentage": "44.62" }
+    ]
+  },
+  {
+    "name": "Trickster Cloak",
+    "uses": "5816955",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.6445" },
+      { "type": "Win Rate", "percentage": "50.6736" }
+    ]
+  },
+  {
+    "name": "Ghost Scepter",
+    "uses": "5753242",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.6155" },
+      { "type": "Win Rate", "percentage": "50.026" }
+    ]
+  },
+  {
+    "name": "Bloodthorn",
+    "uses": "5746482",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.6124" },
+      { "type": "Win Rate", "percentage": "62.8959" }
+    ]
+  },
+  {
+    "name": "Mask of Madness",
+    "uses": "5639660",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.5639" },
+      { "type": "Win Rate", "percentage": "46.2515" }
+    ]
+  },
+  {
+    "name": "Orchid Malevolence",
+    "uses": "5626336",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.5578" },
+      { "type": "Win Rate", "percentage": "45.4658" }
+    ]
+  },
+  {
+    "name": "Khanda",
+    "uses": "5613998",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.5522" },
+      { "type": "Win Rate", "percentage": "60.2974" }
+    ]
+  },
+  {
+    "name": "Eternal Shroud",
+    "uses": "5608520",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.5497" },
+      { "type": "Win Rate", "percentage": "58.4414" }
+    ]
+  },
+  {
+    "name": "Vindicator's Axe",
+    "uses": "5573723",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.5339" },
+      { "type": "Win Rate", "percentage": "48.7831" }
+    ]
+  },
+  {
+    "name": "Shadow Blade",
+    "uses": "5498002",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.4995" },
+      { "type": "Win Rate", "percentage": "41.7661" }
+    ]
+  },
+  {
+    "name": "Wind Lace",
+    "uses": "5481829",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.4921" },
+      { "type": "Win Rate", "percentage": "44.1351" }
+    ]
+  },
+  {
+    "name": "Grove Bow",
+    "uses": "5437256",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.4719" },
+      { "type": "Win Rate", "percentage": "49.1034" }
+    ]
+  },
+  {
+    "name": "Scythe of Vyse",
+    "uses": "5433065",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.47" },
+      { "type": "Win Rate", "percentage": "60.142" }
+    ]
+  },
+  {
+    "name": "Kaya and Sange",
+    "uses": "5299254",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.4091" },
+      { "type": "Win Rate", "percentage": "61.3734" }
+    ]
+  },
+  {
+    "name": "Harpoon",
+    "uses": "5276626",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.3988" },
+      { "type": "Win Rate", "percentage": "59.6455" }
+    ]
+  },
+  {
+    "name": "Ninja Gear",
+    "uses": "5251847",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.3876" },
+      { "type": "Win Rate", "percentage": "52.5955" }
+    ]
+  },
+  {
+    "name": "Guardian Greaves",
+    "uses": "5193075",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.3609" },
+      { "type": "Win Rate", "percentage": "64.6274" }
+    ]
+  },
+  {
+    "name": "Skull Basher",
+    "uses": "5155403",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.3437" },
+      { "type": "Win Rate", "percentage": "53.6657" }
+    ]
+  },
+  {
+    "name": "Radiance",
+    "uses": "5141609",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.3375" },
+      { "type": "Win Rate", "percentage": "57.4883" }
+    ]
+  },
+  {
+    "name": "Aviana's Feather",
+    "uses": "5016354",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.2805" },
+      { "type": "Win Rate", "percentage": "52.9178" }
+    ]
+  },
+  {
+    "name": "Assault Cuirass",
+    "uses": "5010872",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.278" },
+      { "type": "Win Rate", "percentage": "67.7894" }
+    ]
+  },
+  {
+    "name": "Ethereal Blade",
+    "uses": "4930370",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.2414" },
+      { "type": "Win Rate", "percentage": "59.6313" }
+    ]
+  },
+  {
+    "name": "Satanic",
+    "uses": "4911536",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.2329" },
+      { "type": "Win Rate", "percentage": "65.3769" }
+    ]
+  },
+  {
+    "name": "Witch Blade",
+    "uses": "4806163",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.185" },
+      { "type": "Win Rate", "percentage": "42.4093" }
+    ]
+  },
+  {
+    "name": "Cloak of Flames",
+    "uses": "4718359",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.145" },
+      { "type": "Win Rate", "percentage": "51.3295" }
+    ]
+  },
+  {
+    "name": "Disperser",
+    "uses": "4559101",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.0726" },
+      { "type": "Win Rate", "percentage": "65.9251" }
+    ]
+  },
+  {
+    "name": "Vampire Fangs",
+    "uses": "4489202",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.0409" },
+      { "type": "Win Rate", "percentage": "47.6569" }
+    ]
+  },
+  {
+    "name": "Clarity",
+    "uses": "4455064",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.0253" },
+      { "type": "Win Rate", "percentage": "47.4334" }
+    ]
+  },
+  {
+    "name": "Lotus Orb",
+    "uses": "4454194",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.0249" },
+      { "type": "Win Rate", "percentage": "57.7156" }
+    ]
+  },
+  {
+    "name": "Echo Sabre",
+    "uses": "4433851",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.0157" },
+      { "type": "Win Rate", "percentage": "42.9861" }
+    ]
+  },
+  {
+    "name": "Abyssal Blade",
+    "uses": "4408503",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.0042" },
+      { "type": "Win Rate", "percentage": "66.9055" }
+    ]
+  },
+  {
+    "name": "Vambrace",
+    "uses": "4402807",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "2.0016" },
+      { "type": "Win Rate", "percentage": "46.5765" }
+    ]
+  },
+  {
+    "name": "Ogre Seal Totem",
+    "uses": "4371082",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.9872" },
+      { "type": "Win Rate", "percentage": "47.8851" }
+    ]
+  },
+  {
+    "name": "Crystalys",
+    "uses": "4336193",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.9713" },
+      { "type": "Win Rate", "percentage": "41.194" }
+    ]
+  },
+  {
+    "name": "Aeon Disk",
+    "uses": "4316589",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.9624" },
+      { "type": "Win Rate", "percentage": "59.2937" }
+    ]
+  },
+  {
+    "name": "Staff of Wizardry",
+    "uses": "4316178",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.9622" },
+      { "type": "Win Rate", "percentage": "29.9695" }
+    ]
+  },
+  {
+    "name": "Dandelion Amulet",
+    "uses": "4298454",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.9541" },
+      { "type": "Win Rate", "percentage": "50.6085" }
+    ]
+  },
+  {
+    "name": "Ancient Guardian",
+    "uses": "4279450",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.9455" },
+      { "type": "Win Rate", "percentage": "49.8899" }
+    ]
+  },
+  {
+    "name": "Soul Ring",
+    "uses": "4108384",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.8677" },
+      { "type": "Win Rate", "percentage": "46.981" }
+    ]
+  },
+  {
+    "name": "Circlet",
+    "uses": "4102724",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.8652" },
+      { "type": "Win Rate", "percentage": "44.236" }
+    ]
+  },
+  {
+    "name": "Enchanted Quiver",
+    "uses": "4010731",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.8233" },
+      { "type": "Win Rate", "percentage": "50.4233" }
+    ]
+  },
+  {
+    "name": "Refresher Orb",
+    "uses": "4002518",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.8196" },
+      { "type": "Win Rate", "percentage": "63.261" }
+    ]
+  },
+  {
+    "name": "Vanguard",
+    "uses": "3872323",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.7604" },
+      { "type": "Win Rate", "percentage": "45.7786" }
+    ]
+  },
+  {
+    "name": "Defiant Shell",
+    "uses": "3841850",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.7466" },
+      { "type": "Win Rate", "percentage": "51.4317" }
+    ]
+  },
+  {
+    "name": "Sange and Yasha",
+    "uses": "3840258",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.7458" },
+      { "type": "Win Rate", "percentage": "60.1747" }
+    ]
+  },
+  {
+    "name": "Dragon Scale",
+    "uses": "3768241",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.7131" },
+      { "type": "Win Rate", "percentage": "48.4705" }
+    ]
+  },
+  {
+    "name": "Orb of Corrosion",
+    "uses": "3758708",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.7088" },
+      { "type": "Win Rate", "percentage": "47.906" }
+    ]
+  },
+  {
+    "name": "Ascetic's Cap",
+    "uses": "3739616",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.7001" },
+      { "type": "Win Rate", "percentage": "54.0308" }
+    ]
+  },
+  {
+    "name": "Nemesis Curse",
+    "uses": "3691279",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.6781" },
+      { "type": "Win Rate", "percentage": "49.0498" }
+    ]
+  },
+  {
+    "name": "Parasma",
+    "uses": "3674949",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.6707" },
+      { "type": "Win Rate", "percentage": "67.4488" }
+    ]
+  },
+  {
+    "name": "Point Booster",
+    "uses": "3589127",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.6317" },
+      { "type": "Win Rate", "percentage": "35.7363" }
+    ]
+  },
+  {
+    "name": "Solar Crest",
+    "uses": "3564259",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.6204" },
+      { "type": "Win Rate", "percentage": "57.3563" }
+    ]
+  },
+  {
+    "name": "Vladmir's Offering",
+    "uses": "3444625",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.566" },
+      { "type": "Win Rate", "percentage": "56.8139" }
+    ]
+  },
+  {
+    "name": "Phylactery",
+    "uses": "3336473",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.5168" },
+      { "type": "Win Rate", "percentage": "48.6109" }
+    ]
+  },
+  {
+    "name": "Enchanted Mango",
+    "uses": "3332213",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.5149" },
+      { "type": "Win Rate", "percentage": "37.2228" }
+    ]
+  },
+  {
+    "name": "Morbid Mask",
+    "uses": "3296839",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.4988" },
+      { "type": "Win Rate", "percentage": "42.4947" }
+    ]
+  },
+  {
+    "name": "Havoc Hammer",
+    "uses": "3224882",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.4661" },
+      { "type": "Win Rate", "percentage": "52.3511" }
+    ]
+  },
+  {
+    "name": "Specialist's Array",
+    "uses": "3202811",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.456" },
+      { "type": "Win Rate", "percentage": "48.3381" }
+    ]
+  },
+  {
+    "name": "Heaven's Halberd",
+    "uses": "3180006",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.4457" },
+      { "type": "Win Rate", "percentage": "53.56" }
+    ]
+  },
+  {
+    "name": "Rattlecage",
+    "uses": "3147829",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.431" },
+      { "type": "Win Rate", "percentage": "54.1074" }
+    ]
+  },
+  {
+    "name": "Tango",
+    "uses": "3094390",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.4067" },
+      { "type": "Win Rate", "percentage": "31.2741" }
+    ]
+  },
+  {
+    "name": "Rod of Atos",
+    "uses": "3091472",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.4054" },
+      { "type": "Win Rate", "percentage": "49.7193" }
+    ]
+  },
+  {
+    "name": "Blight Stone",
+    "uses": "2951659",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.3418" },
+      { "type": "Win Rate", "percentage": "38.771" }
+    ]
+  },
+  {
+    "name": "Armlet of Mordiggian",
+    "uses": "2881412",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.3099" },
+      { "type": "Win Rate", "percentage": "49.9835" }
+    ]
+  },
+  {
+    "name": "Veil of Discord",
+    "uses": "2854210",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.2975" },
+      { "type": "Win Rate", "percentage": "35.6048" }
+    ]
+  },
+  {
+    "name": "Mithril Hammer",
+    "uses": "2841604",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.2918" },
+      { "type": "Win Rate", "percentage": "20.6922" }
+    ]
+  },
+  {
+    "name": "Wind Waker",
+    "uses": "2826243",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.2848" },
+      { "type": "Win Rate", "percentage": "65.8228" }
+    ]
+  },
+  {
+    "name": "Ceremonial Robe",
+    "uses": "2743535",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.2472" },
+      { "type": "Win Rate", "percentage": "52.7585" }
+    ]
+  },
+  {
+    "name": "Telescope",
+    "uses": "2717355",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.2353" },
+      { "type": "Win Rate", "percentage": "53.9315" }
+    ]
+  },
+  {
+    "name": "Pipe of Insight",
+    "uses": "2618441",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.1904" },
+      { "type": "Win Rate", "percentage": "58.9078" }
+    ]
+  },
+  {
+    "name": "Pupil's Gift",
+    "uses": "2507040",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.1397" },
+      { "type": "Win Rate", "percentage": "48.1576" }
+    ]
+  },
+  {
+    "name": "Gossamer Cape",
+    "uses": "2482721",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.1287" },
+      { "type": "Win Rate", "percentage": "48.4435" }
+    ]
+  },
+  {
+    "name": "Fairy's Trinket",
+    "uses": "2440649",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.1095" },
+      { "type": "Win Rate", "percentage": "47.0264" }
+    ]
+  },
+  {
+    "name": "Blade of Alacrity",
+    "uses": "2380660",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.0823" },
+      { "type": "Win Rate", "percentage": "28.3921" }
+    ]
+  },
+  {
+    "name": "Orb of Destruction",
+    "uses": "2379295",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.0816" },
+      { "type": "Win Rate", "percentage": "48.8481" }
+    ]
+  },
+  {
+    "name": "Overwhelming Blink",
+    "uses": "2371510",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.0781" },
+      { "type": "Win Rate", "percentage": "70.1983" }
+    ]
+  },
+  {
+    "name": "Bullwhip",
+    "uses": "2365324",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.0753" },
+      { "type": "Win Rate", "percentage": "50.0186" }
+    ]
+  },
+  {
+    "name": "Falcon Blade",
+    "uses": "2272392",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.033" },
+      { "type": "Win Rate", "percentage": "45.0856" }
+    ]
+  },
+  {
+    "name": "Kaya",
+    "uses": "2204237",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "1.0021" },
+      { "type": "Win Rate", "percentage": "47.3461" }
+    ]
+  },
+  {
+    "name": "Stormcrafter",
+    "uses": "2196172",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.9984" },
+      { "type": "Win Rate", "percentage": "56.9494" }
+    ]
+  },
+  {
+    "name": "Urn of Shadows",
+    "uses": "2189582",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.9954" },
+      { "type": "Win Rate", "percentage": "41.8873" }
+    ]
+  },
+  {
+    "name": "Safety Bubble",
+    "uses": "2169613",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.9863" },
+      { "type": "Win Rate", "percentage": "46.8527" }
+    ]
+  },
+  {
+    "name": "Eye of the Vizier",
+    "uses": "2167506",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.9854" },
+      { "type": "Win Rate", "percentage": "48.5938" }
+    ]
+  },
+  {
+    "name": "Gem of True Sight",
+    "uses": "2090471",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.9503" },
+      { "type": "Win Rate", "percentage": "84.1736" }
+    ]
+  },
+  {
+    "name": "Moon Shard",
+    "uses": "2086160",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.9484" },
+      { "type": "Win Rate", "percentage": "66.016" }
+    ]
+  },
+  {
+    "name": "Craggy Coat",
+    "uses": "2080759",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.9459" },
+      { "type": "Win Rate", "percentage": "47.6171" }
+    ]
+  },
+  {
+    "name": "Bloodstone",
+    "uses": "2044754",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.9295" },
+      { "type": "Win Rate", "percentage": "64.6764" }
+    ]
+  },
+  {
+    "name": "Healing Salve",
+    "uses": "1901376",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.8644" },
+      { "type": "Win Rate", "percentage": "37.1189" }
+    ]
+  },
+  {
+    "name": "Crimson Guard",
+    "uses": "1876393",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.853" },
+      { "type": "Win Rate", "percentage": "58.8503" }
+    ]
+  },
+  {
+    "name": "Yasha",
+    "uses": "1829571",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.8317" },
+      { "type": "Win Rate", "percentage": "27.7371" }
+    ]
+  },
+  {
+    "name": "Faded Broach",
+    "uses": "1795989",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.8165" },
+      { "type": "Win Rate", "percentage": "46.4935" }
+    ]
+  },
+  {
+    "name": "Boots of Bearing",
+    "uses": "1744451",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.793" },
+      { "type": "Win Rate", "percentage": "64.4766" }
+    ]
+  },
+  {
+    "name": "Nullifier",
+    "uses": "1675995",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.7619" },
+      { "type": "Win Rate", "percentage": "60.0031" }
+    ]
+  },
+  {
+    "name": "Divine Rapier",
+    "uses": "1664595",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.7567" },
+      { "type": "Win Rate", "percentage": "86.1676" }
+    ]
+  },
+  {
+    "name": "Dagon (Level 5)",
+    "uses": "1654166",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.752" },
+      { "type": "Win Rate", "percentage": "59.6937" }
+    ]
+  },
+  {
+    "name": "Arcane Ring",
+    "uses": "1653505",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.7517" },
+      { "type": "Win Rate", "percentage": "49.8283" }
+    ]
+  },
+  {
+    "name": "Martyr's Plate",
+    "uses": "1601176",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.7279" },
+      { "type": "Win Rate", "percentage": "52.2296" }
+    ]
+  },
+  {
+    "name": "Orb of Venom",
+    "uses": "1595949",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.7255" },
+      { "type": "Win Rate", "percentage": "43.1073" }
+    ]
+  },
+  {
+    "name": "Swift Blink",
+    "uses": "1565817",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.7118" },
+      { "type": "Win Rate", "percentage": "69.2111" }
+    ]
+  },
+  {
+    "name": "Mekansm",
+    "uses": "1561285",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.7097" },
+      { "type": "Win Rate", "percentage": "47.3562" }
+    ]
+  },
+  {
+    "name": "Platemail",
+    "uses": "1548231",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.7038" },
+      { "type": "Win Rate", "percentage": "37.0618" }
+    ]
+  },
+  {
+    "name": "Javelin",
+    "uses": "1495924",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.68" },
+      { "type": "Win Rate", "percentage": "25.552" }
+    ]
+  },
+  {
+    "name": "Gauntlets of Strength",
+    "uses": "1489503",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.6771" },
+      { "type": "Win Rate", "percentage": "42.2952" }
+    ]
+  },
+  {
+    "name": "Whisper of the Dread",
+    "uses": "1427400",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.6489" },
+      { "type": "Win Rate", "percentage": "49.3495" }
+    ]
+  },
+  {
+    "name": "Cloak",
+    "uses": "1404356",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.6384" },
+      { "type": "Win Rate", "percentage": "26.9362" }
+    ]
+  },
+  {
+    "name": "Boots of Travel (Level 2)",
+    "uses": "1364965",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.6205" },
+      { "type": "Win Rate", "percentage": "65.9534" }
+    ]
+  },
+  {
+    "name": "Perseverance",
+    "uses": "1342579",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.6103" },
+      { "type": "Win Rate", "percentage": "35.9947" }
+    ]
+  },
+  {
+    "name": "Void Stone",
+    "uses": "1324001",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.6019" },
+      { "type": "Win Rate", "percentage": "28.1872" }
+    ]
+  },
+  {
+    "name": "Ring of Protection",
+    "uses": "1312821",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.5968" },
+      { "type": "Win Rate", "percentage": "41.4614" }
+    ]
+  },
+  {
+    "name": "Hyperstone",
+    "uses": "1228843",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.5586" },
+      { "type": "Win Rate", "percentage": "49.5174" }
+    ]
+  },
+  {
+    "name": "Revenant's Brooch",
+    "uses": "1168763",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.5313" },
+      { "type": "Win Rate", "percentage": "60.5464" }
+    ]
+  },
+  {
+    "name": "Yasha and Kaya",
+    "uses": "1149767",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.5227" },
+      { "type": "Win Rate", "percentage": "61.3778" }
+    ]
+  },
+  {
+    "name": "Blood Grenade",
+    "uses": "1127181",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.5124" },
+      { "type": "Win Rate", "percentage": "44.7008" }
+    ]
+  },
+  {
+    "name": "Broom Handle",
+    "uses": "1120718",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.5095" },
+      { "type": "Win Rate", "percentage": "45.3979" }
+    ]
+  },
+  {
+    "name": "Duelist Gloves",
+    "uses": "1111828",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.5054" },
+      { "type": "Win Rate", "percentage": "43.2959" }
+    ]
+  },
+  {
+    "name": "Claymore",
+    "uses": "1077101",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.4896" },
+      { "type": "Win Rate", "percentage": "38.6272" }
+    ]
+  },
+  {
+    "name": "Blitz Knuckles",
+    "uses": "1047488",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.4762" },
+      { "type": "Win Rate", "percentage": "23.5919" }
+    ]
+  },
+  {
+    "name": "Reaver",
+    "uses": "1046532",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.4757" },
+      { "type": "Win Rate", "percentage": "50.5503" }
+    ]
+  },
+  {
+    "name": "Royal Jelly",
+    "uses": "1045456",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.4752" },
+      { "type": "Win Rate", "percentage": "51.3979" }
+    ]
+  },
+  {
+    "name": "Trusty Shovel",
+    "uses": "1039609",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.4726" },
+      { "type": "Win Rate", "percentage": "48.6948" }
+    ]
+  },
+  {
+    "name": "Meteor Hammer",
+    "uses": "982620",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.4467" },
+      { "type": "Win Rate", "percentage": "63.5852" }
+    ]
+  },
+  {
+    "name": "Buckler",
+    "uses": "981825",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.4463" },
+      { "type": "Win Rate", "percentage": "39.665" }
+    ]
+  },
+  {
+    "name": "Tiara of Selemene",
+    "uses": "966614",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.4394" },
+      { "type": "Win Rate", "percentage": "52.224" }
+    ]
+  },
+  {
+    "name": "Shadow Amulet",
+    "uses": "936701",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.4258" },
+      { "type": "Win Rate", "percentage": "29.558" }
+    ]
+  },
+  {
+    "name": "Infused Raindrops",
+    "uses": "928383",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.422" },
+      { "type": "Win Rate", "percentage": "49.2805" }
+    ]
+  },
+  {
+    "name": "Fluffy Hat",
+    "uses": "918394",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.4175" },
+      { "type": "Win Rate", "percentage": "22.0824" }
+    ]
+  },
+  {
+    "name": "Occult Bracelet",
+    "uses": "914151",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.4155" },
+      { "type": "Win Rate", "percentage": "47.1364" }
+    ]
+  },
+  {
+    "name": "Holy Locket",
+    "uses": "913530",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.4153" },
+      { "type": "Win Rate", "percentage": "60.9424" }
+    ]
+  },
+  {
+    "name": "Diadem",
+    "uses": "887769",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.4036" },
+      { "type": "Win Rate", "percentage": "20.7991" }
+    ]
+  },
+  {
+    "name": "Sange",
+    "uses": "870518",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.3957" },
+      { "type": "Win Rate", "percentage": "34.704" }
+    ]
+  },
+  {
+    "name": "Ring of Tarrasque",
+    "uses": "860933",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.3914" },
+      { "type": "Win Rate", "percentage": "50.8108" }
+    ]
+  },
+  {
+    "name": "Ring of Basilius",
+    "uses": "801772",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.3645" },
+      { "type": "Win Rate", "percentage": "40.7358" }
+    ]
+  },
+  {
+    "name": "Ultimate Orb",
+    "uses": "791643",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.3599" },
+      { "type": "Win Rate", "percentage": "42.122" }
+    ]
+  },
+  {
+    "name": "Drum of Endurance",
+    "uses": "787265",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.3579" },
+      { "type": "Win Rate", "percentage": "49.1213" }
+    ]
+  },
+  {
+    "name": "Vitality Booster",
+    "uses": "786248",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.3574" },
+      { "type": "Win Rate", "percentage": "39.721" }
+    ]
+  },
+  {
+    "name": "Doubloon",
+    "uses": "785119",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.3569" },
+      { "type": "Win Rate", "percentage": "52.6302" }
+    ]
+  },
+  {
+    "name": "Demon Edge",
+    "uses": "777802",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.3536" },
+      { "type": "Win Rate", "percentage": "35.9253" }
+    ]
+  },
+  {
+    "name": "Pig Pole",
+    "uses": "771826",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.3508" },
+      { "type": "Win Rate", "percentage": "45.9354" }
+    ]
+  },
+  {
+    "name": "Lance of Pursuit",
+    "uses": "764153",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.3474" },
+      { "type": "Win Rate", "percentage": "46.1067" }
+    ]
+  },
+  {
+    "name": "Eaglesong",
+    "uses": "720200",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.3274" },
+      { "type": "Win Rate", "percentage": "45.8794" }
+    ]
+  },
+  {
+    "name": "Energy Booster",
+    "uses": "715762",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.3254" },
+      { "type": "Win Rate", "percentage": "36.179" }
+    ]
+  },
+  {
+    "name": "Headdress",
+    "uses": "713162",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.3242" },
+      { "type": "Win Rate", "percentage": "32.4966" }
+    ]
+  },
+  {
+    "name": "Slippers of Agility",
+    "uses": "687462",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.3125" },
+      { "type": "Win Rate", "percentage": "39.5643" }
+    ]
+  },
+  {
+    "name": "Sage's Mask",
+    "uses": "684592",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.3112" },
+      { "type": "Win Rate", "percentage": "36.4436" }
+    ]
+  },
+  {
+    "name": "Voodoo Mask",
+    "uses": "682118",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.3101" },
+      { "type": "Win Rate", "percentage": "39.3484" }
+    ]
+  },
+  {
+    "name": "Mystic Staff",
+    "uses": "675234",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.3069" },
+      { "type": "Win Rate", "percentage": "46.5314" }
+    ]
+  },
+  {
+    "name": "Faerie Fire",
+    "uses": "670982",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.305" },
+      { "type": "Win Rate", "percentage": "42.6381" }
+    ]
+  },
+  {
+    "name": "Ring of Health",
+    "uses": "642522",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.2921" },
+      { "type": "Win Rate", "percentage": "37.7742" }
+    ]
+  },
+  {
+    "name": "Giant's Ring",
+    "uses": "629462",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.2861" },
+      { "type": "Win Rate", "percentage": "53.5832" }
+    ]
+  },
+  {
+    "name": "Spark of Courage",
+    "uses": "626722",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.2849" },
+      { "type": "Win Rate", "percentage": "45.01" }
+    ]
+  },
+  {
+    "name": "Cornucopia",
+    "uses": "625299",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.2842" },
+      { "type": "Win Rate", "percentage": "47.2991" }
+    ]
+  },
+  {
+    "name": "Seeds of Serenity",
+    "uses": "610253",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.2774" },
+      { "type": "Win Rate", "percentage": "48.8698" }
+    ]
+  },
+  {
+    "name": "Stygian Desolator",
+    "uses": "576340",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.262" },
+      { "type": "Win Rate", "percentage": "52.985" }
+    ]
+  },
+  {
+    "name": "Mirror Shield",
+    "uses": "573027",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.2605" },
+      { "type": "Win Rate", "percentage": "54.0135" }
+    ]
+  },
+  {
+    "name": "Broadsword",
+    "uses": "568033",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.2582" },
+      { "type": "Win Rate", "percentage": "31.8462" }
+    ]
+  },
+  {
+    "name": "Oblivion Staff",
+    "uses": "561336",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.2551" },
+      { "type": "Win Rate", "percentage": "25.1989" }
+    ]
+  },
+  {
+    "name": "Light Collector",
+    "uses": "559664",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.2544" },
+      { "type": "Win Rate", "percentage": "53.8537" }
+    ]
+  },
+  {
+    "name": "Belt of Strength",
+    "uses": "559232",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.2542" },
+      { "type": "Win Rate", "percentage": "22.8928" }
+    ]
+  },
+  {
+    "name": "Arcane Blink",
+    "uses": "547072",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.2487" },
+      { "type": "Win Rate", "percentage": "71.1736" }
+    ]
+  },
+  {
+    "name": "Gloves of Haste",
+    "uses": "532016",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.2418" },
+      { "type": "Win Rate", "percentage": "20.3072" }
+    ]
+  },
+  {
+    "name": "Talisman of Evasion",
+    "uses": "476130",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.2164" },
+      { "type": "Win Rate", "percentage": "37.4456" }
+    ]
+  },
+  {
+    "name": "Apex",
+    "uses": "474909",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.2159" },
+      { "type": "Win Rate", "percentage": "52.9116" }
+    ]
+  },
+  {
+    "name": "Pirate Hat",
+    "uses": "468518",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.213" },
+      { "type": "Win Rate", "percentage": "52.4756" }
+    ]
+  },
+  {
+    "name": "Mantle of Intelligence",
+    "uses": "465754",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.2117" },
+      { "type": "Win Rate", "percentage": "40.7249" }
+    ]
+  },
+  {
+    "name": "Chainmail",
+    "uses": "420955",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.1913" },
+      { "type": "Win Rate", "percentage": "20.1292" }
+    ]
+  },
+  {
+    "name": "Helm of Iron Will",
+    "uses": "407449",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.1852" },
+      { "type": "Win Rate", "percentage": "31.0811" }
+    ]
+  },
+  {
+    "name": "Dagon (Level 1)",
+    "uses": "390982",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.1777" },
+      { "type": "Win Rate", "percentage": "43.2989" }
+    ]
+  },
+  {
+    "name": "Pavise",
+    "uses": "374780",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.1703" },
+      { "type": "Win Rate", "percentage": "41.2324" }
+    ]
+  },
+  {
+    "name": "Soul Booster",
+    "uses": "362194",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.1646" },
+      { "type": "Win Rate", "percentage": "53.1082" }
+    ]
+  },
+  {
+    "name": "Seer Stone",
+    "uses": "362158",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.1646" },
+      { "type": "Win Rate", "percentage": "51.8094" }
+    ]
+  },
+  {
+    "name": "Force Boots",
+    "uses": "356647",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.1621" },
+      { "type": "Win Rate", "percentage": "53.5793" }
+    ]
+  },
+  {
+    "name": "Crown",
+    "uses": "342323",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.1556" },
+      { "type": "Win Rate", "percentage": "27.8722" }
+    ]
+  },
+  {
+    "name": "Sacred Relic",
+    "uses": "298679",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.1357" },
+      { "type": "Win Rate", "percentage": "38.8483" }
+    ]
+  },
+  {
+    "name": "Ring of Regen",
+    "uses": "294814",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.134" },
+      { "type": "Win Rate", "percentage": "38.8363" }
+    ]
+  },
+  {
+    "name": "Robe of the Magi",
+    "uses": "287544",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.1307" },
+      { "type": "Win Rate", "percentage": "26.7381" }
+    ]
+  },
+  {
+    "name": "Book of the Dead",
+    "uses": "278220",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.1264" },
+      { "type": "Win Rate", "percentage": "55.4978" }
+    ]
+  },
+  {
+    "name": "Dagon (Level 3)",
+    "uses": "263096",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.1196" },
+      { "type": "Win Rate", "percentage": "47.001" }
+    ]
+  },
+  {
+    "name": "Magic Lamp",
+    "uses": "252220",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.1146" },
+      { "type": "Win Rate", "percentage": "51.9586" }
+    ]
+  },
+  {
+    "name": "Dagon (Level 4)",
+    "uses": "246765",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.1121" },
+      { "type": "Win Rate", "percentage": "50.5647" }
+    ]
+  },
+  {
+    "name": "Dagon (Level 2)",
+    "uses": "243204",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.1105" },
+      { "type": "Win Rate", "percentage": "43.4877" }
+    ]
+  },
+  {
+    "name": "Blades of Attack",
+    "uses": "236168",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.1073" },
+      { "type": "Win Rate", "percentage": "25.4966" }
+    ]
+  },
+  {
+    "name": "Band of Elvenskin",
+    "uses": "214996",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.0977" },
+      { "type": "Win Rate", "percentage": "18.3901" }
+    ]
+  },
+  {
+    "name": "Arcanist's Armor",
+    "uses": "157170",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.0714" },
+      { "type": "Win Rate", "percentage": "55.9222" }
+    ]
+  },
+  {
+    "name": "Book of Shadows",
+    "uses": "146286",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.0665" },
+      { "type": "Win Rate", "percentage": "50.2679" }
+    ]
+  },
+  {
+    "name": "Helm of the Overlord",
+    "uses": "119332",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.0542" },
+      { "type": "Win Rate", "percentage": "54.5771" }
+    ]
+  },
+  {
+    "name": "Unwavering Condition",
+    "uses": "111671",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.0507" },
+      { "type": "Win Rate", "percentage": "49.4685" }
+    ]
+  },
+  {
+    "name": "Helm of the Dominator",
+    "uses": "71005",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.0322" },
+      { "type": "Win Rate", "percentage": "42.6984" }
+    ]
+  },
+  {
+    "name": "Town Portal Scroll",
+    "uses": "1351",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.0006" },
+      { "type": "Win Rate", "percentage": "78.5344" }
+    ]
+  },
+  {
+    "name": "Aghanim's Blessing",
+    "uses": "952",
+    "percentages": [
+      { "type": "Usage Rate", "percentage": "0.0004" },
+      { "type": "Win Rate", "percentage": "63.6554" }
+    ]
+  }
 ]

@@ -1,5 +1,5 @@
 {
-  "id": "0f59d583-7719-42ca-ba2e-335729691f8c",
+  "id": "d624cd42-9f34-43e6-baab-5de83f5b8fad",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -1174,15 +1174,15 @@
     "hero_ability_upgrade_type": {
       "name": "hero_ability_upgrade_type",
       "values": {
-        "Shard Upgrade": "Shard Upgrade",
-        "Scepter Upgrade": "Scepter Upgrade"
+        "Shard": "Shard",
+        "Scepter": "Scepter"
       }
     },
     "hero_meta_info_percentage_type": {
       "name": "hero_meta_info_percentage_type",
       "values": {
-        "Pick Percentage": "Pick Percentage",
-        "Win Percentage": "Win Percentage"
+        "Pick Rate": "Pick Rate",
+        "Win Rate": "Win Rate"
       }
     },
     "hero_meta_info_rank": {
@@ -1306,15 +1306,15 @@
     "item_meta_info_percentage_type": {
       "name": "item_meta_info_percentage_type",
       "values": {
-        "Use Percentage": "Use Percentage",
-        "Win Percentage": "Win Percentage"
+        "Usage Rate": "Usage Rate",
+        "Win Rate": "Win Rate"
       }
     },
     "item_price_type": {
       "name": "item_price_type",
       "values": {
-        "Purchase Price": "Purchase Price",
-        "Sell Price": "Sell Price"
+        "Purchase": "Purchase",
+        "Refund": "Refund"
       }
     },
     "item_price_unit": {

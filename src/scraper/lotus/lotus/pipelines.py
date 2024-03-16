@@ -546,7 +546,7 @@ class HeroAbilitiesPipeline:
                 if "Shard" in aghs_upgrades[i]:
                     upgrades.append(
                         {
-                            "type": "Shard Upgrade",
+                            "type": "Shard",
                             "description": re.sub(
                                 r"(\w+)$",
                                 r"\1.",
@@ -564,7 +564,7 @@ class HeroAbilitiesPipeline:
                 if "Scepter" in aghs_upgrades[i]:
                     upgrades.append(
                         {
-                            "type": "Scepter Upgrade",
+                            "type": "Scepter",
                             "description": re.sub(
                                 r"(\w+)$",
                                 r"\1.",
@@ -837,11 +837,11 @@ class ItemAbilitiesPipeline:
                 3
             ].strip()
         elif item_name in ["Vambrace"]:
-            description = "Provides one of the following, based on the Vambrace's main attribute: Strength - +8% Magic Resistance; Agility - +10 Attack Speed; Intelligence - +6% Spell Amp."
+            description = "Provides one of the following, based on the Vambrace's main attribute: Strength gives +8% Magic Resistance; Agility gives +10 Attack Speed; Intelligence gives +6% Spell Amp."
         return description
 
 
-class ItemPricePipeline:
+class ItemPricesPipeline:
     def process_item(self, item, spider):
         if isinstance(item, ItemItem):
             adapter = ItemAdapter(item)
@@ -1040,7 +1040,7 @@ class HeroMetaInfoPipeline:
                     "Ancient",
                     "Divine | Immortal",
                 ]
-                types = ["Pick Percentage", "Win Percentage"]
+                types = ["Pick Rate", "Win Rate"]
                 for i in range(0, len(old_percentages), 2):
                     percentages.append(
                         {
@@ -1071,7 +1071,7 @@ class ItemMetaInfoPipeline:
             if adapter.get("name"):
                 percentages = []
                 old_percentages = adapter.get("percentages")
-                types = ["Use Percentage", "Win Percentage"]
+                types = ["Usage Rate", "Win Rate"]
                 for i in range(len(old_percentages)):
                     percentages.append(
                         {"type": types[i], "percentage": old_percentages[i]}

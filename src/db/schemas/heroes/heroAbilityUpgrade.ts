@@ -11,8 +11,8 @@ import { type z } from "zod";
 import { heroAbility } from "./heroAbility";
 
 export const heroAbilityUpgradeTypeEnum = pgEnum("hero_ability_upgrade_type", [
-  "Shard Upgrade",
-  "Scepter Upgrade",
+  "Shard",
+  "Scepter",
 ]);
 
 export const heroAbilityUpgrade = pgTable(

@@ -11,8 +11,8 @@ import { type z } from "zod";
 import { item } from "./item";
 
 export const itemPriceTypeEnum = pgEnum("item_price_type", [
-  "Purchase Price",
-  "Sell Price",
+  "Purchase",
+  "Refund",
 ]);
 
 export const itemPriceUnitEnum = pgEnum("item_price_unit", [

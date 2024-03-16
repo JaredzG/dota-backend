@@ -29,13 +29,13 @@ EXCEPTION
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
- CREATE TYPE "hero_ability_upgrade_type" AS ENUM('Shard Upgrade', 'Scepter Upgrade');
+ CREATE TYPE "hero_ability_upgrade_type" AS ENUM('Shard', 'Scepter');
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
- CREATE TYPE "hero_meta_info_percentage_type" AS ENUM('Pick Percentage', 'Win Percentage');
+ CREATE TYPE "hero_meta_info_percentage_type" AS ENUM('Pick Rate', 'Win Rate');
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
@@ -101,13 +101,13 @@ EXCEPTION
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
- CREATE TYPE "item_meta_info_percentage_type" AS ENUM('Use Percentage', 'Win Percentage');
+ CREATE TYPE "item_meta_info_percentage_type" AS ENUM('Usage Rate', 'Win Rate');
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
- CREATE TYPE "item_price_type" AS ENUM('Purchase Price', 'Sell Price');
+ CREATE TYPE "item_price_type" AS ENUM('Purchase', 'Refund');
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;

@@ -76,7 +76,7 @@ ITEM_PIPELINES = {
     "lotus.pipelines.ItemLorePipeline": 450,
     "lotus.pipelines.ItemStatsPipeline": 500,
     "lotus.pipelines.ItemAbilitiesPipeline": 550,
-    "lotus.pipelines.ItemPricePipeline": 600,
+    "lotus.pipelines.ItemPricesPipeline": 600,
     "lotus.pipelines.ItemComponentTreePipeline": 650,
     "lotus.pipelines.HeroMetaInfoPipeline": 700,
     "lotus.pipelines.ItemMetaInfoPipeline": 750,
