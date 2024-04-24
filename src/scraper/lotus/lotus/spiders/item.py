@@ -78,8 +78,7 @@ class ItemSpider(scrapy.Spider):
         yield item
 
     def get_item_categories(self, response):
-        categories = response.xpath("//h3[position()<12]/span/@id").getall()
-        return categories
+        return response.xpath("//h3[position()<12]/span/@id").getall()
 
     def get_category_item_lists(self, response):
         return response.xpath('//div[@class="itemlist"][position()<12]')
